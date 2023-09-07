@@ -28,7 +28,7 @@ const config: DocsThemeConfig = {
         }
     },
     components: {
-        h2: ({children}) => <Header>{children}</Header>
+        h2: ({children}: any) => <Header>{children}</Header>
     },
 }
 
