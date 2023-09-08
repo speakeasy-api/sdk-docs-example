@@ -1,8 +1,8 @@
 import React from 'react'
 import {DocsThemeConfig} from 'nextra-theme-docs'
 import {useRouter} from "next/router";
-import {Header, slugString} from "./lib";
-
+import {slugString} from "./components/scrollHelpers";
+import {Header} from './components/header';
 
 const config: DocsThemeConfig = {
     logo: <span>My Project</span>,
@@ -27,8 +27,11 @@ const config: DocsThemeConfig = {
             return <div style={{background: selected ? "cyan" : "none"}}>{pageTitle}</div>
         }
     },
+    toc: {
+        component: () => null,
+    },
     components: {
-        h2: ({children}: any) => <Header>{children}</Header>
+        h2: Header,
     },
 }
 

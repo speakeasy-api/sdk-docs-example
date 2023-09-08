@@ -1,44 +1,14 @@
-import {ScrollManager} from "../lib";
-import GoExample from "../docs/test.mdx"
-import Identity from "../docs/sdks/identity/README.mdx"
+import {LanguageProvider, LanguageSelect,} from "../components/languageHelpers";
+import {ScrollManager} from "../components/scrollHelpers";
+import {IdentitySection} from "../structure/operations/identity";
+import Installation from "../structure/installation.mdx";
+
+# Welcome to the Prove SDK Docs!
 
 <ScrollManager/>
 
-<div align="center">
-    <img
-        src="https://user-images.githubusercontent.com/6267663/232879662-b4423dfa-4430-4dcd-86eb-641ba05ad440.png"/>
-    <h1>Go SDK</h1>
-    <p><strong>The modern way of proving identity</strong></p>
-    <a href="https://developer.prove.com/public/reference/introduction"><img
-        src="https://img.shields.io/static/v1?label=Docs&message=Docs&color=000&style=for-the-badge"/></a>
-    <a href="https://github.com/speakeasy-sdks/prove-go/actions"><img
-        src="https://img.shields.io/github/actions/workflow/status/speakeasy-sdks/prove-go/speakeasy_sdk_generation.yml?style=for-the-badge"/></a>
-    <a href="https://opensource.org/licenses/MIT"><img
-        src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge"/></a>
-</div>
-
-{/* Start SDK Installation */}
-## SDK Installation
-
-```bash copy
-go get github.com/speakeasy-sdks/prove-go
-```
-{/* End SDK Installation */}
-
-## SDK Example Usage [#example]
-{/* Start SDK Example Usage */}
-
-
-
-<GoExample/>
-
-{/* End SDK Example Usage */}
-
-{/* Start SDK Available Operations */}
-## Available Resources and Operations
-
-
-
-<Identity route={"identity/"}/>
-
-{/* End SDK Available Operations */}
+<LanguageProvider>
+    <LanguageSelect>Lang: </LanguageSelect>
+    <Installation/>
+    <IdentitySection/>
+</LanguageProvider>

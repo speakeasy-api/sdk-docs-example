@@ -1,0 +1,28 @@
+```typescript copy showLineNumbers
+import { SDK } from "openapi";
+import { GetIdentityResponse } from "openapi/dist/sdk/models/operations";
+import { ConsentStatus } from "openapi/dist/sdk/models/shared";
+
+const sdk = new SDK({
+  security: {
+    bearerAuth: "",
+  },
+});
+
+sdk.preFill.getIdentity({
+  consentStatus: ConsentStatus.OptedOut,
+  dob: "1982-07-19",
+  last4: "6227",
+  numberOfAddresses: "3",
+  numberOfEmails: "3",
+  phoneNumber: "6464778753",
+  requestId: "14f3-b0c4-90e0-90b3-11e1-0800200c9a66",
+  ssn: "470806227",
+  subscriptionCustomerId: "ThisIsMyCustomerId222",
+  trustScore: "true",
+}).then((res: GetIdentityResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```

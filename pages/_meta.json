@@ -3,18 +3,20 @@
     "title": "Home",
     "href": "/"
   },
+  "installation": {
+    "title": "Installation",
+    "href": "/installation"
+  },
   "identity": {
     "title": "Identity",
     "href": "/identity"
   },
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
   "about": {
     "title": "About",
     "type": "page"
   },
   "contact": {
     "title": "Contact ↗",
-    "href": "/#maturity"
+    "href": "https://speakeasyapi.dev"
   }
 }

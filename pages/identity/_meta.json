@@ -1,7 +1,10 @@
 {
   "overview": {
+    "title": "identity/Overview",
+    "href": "/identity/overview"
+  },
+  "verify": {
     "title": "identity/Verify",
-    "href": "/identity/verify",
-    "abc": "/identity/verify"
+    "href": "/identity/verify"
   }
 }
