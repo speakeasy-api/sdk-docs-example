@@ -8,7 +8,7 @@ import TsParameters from "../../content/typescript/sdks/identity/parameters.mdx"
 import TsResponse from "../../content/typescript/sdks/identity/response.mdx"
 import TsUsage from "../../content/typescript/sdks/identity/usage.mdx"
 
-export const IdentitySection = () => {
+export default () => {
     const go = <LanguageOperation overview={<GoOverview/>} parameters={<GoParameters/>} response={<GoResponse/>}
                                   usage={<GoUsage/>}/>
     const typescript = <LanguageOperation overview={<TsOverview/>} parameters={<TsParameters/>} response={<TsResponse/>}
