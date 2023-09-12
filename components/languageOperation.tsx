@@ -15,6 +15,7 @@ export const LanguageOperation = (props: {
                 {props.parameters}
             </div>
         </div>
+        <h3>Response</h3>
         {props.response}
     </div>
 }

@@ -27,6 +27,7 @@ const config: DocsThemeConfig = {
         h1: Header("h1"),
         h2: Header("h2"),
         Collapsible,
+        blockquote: Collapsible,
     },
     search: {
         component: () => OramaSearch(),
