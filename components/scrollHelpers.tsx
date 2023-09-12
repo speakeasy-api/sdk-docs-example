@@ -1,27 +1,30 @@
 import React, {ReactNode, useEffect, useMemo} from "react";
-import {NextRouter, useRouter} from "next/router";
+import {useRouter} from "next/router";
 
 export const RouteContext = React.createContext("");
 export const ScrollContext = React.createContext<{
     headingToPosition: Record<string, number>,
+    currentHeading: string,
     upsertHeading: (heading: string, position: number) => void
 }>({
-    headingToPosition: {}, upsertHeading: () => {
+    headingToPosition: {},
+    currentHeading: "",
+    upsertHeading: () => {
     }
 });
 
 export const ScrollManager = (props: { children: ReactNode }): React.ReactElement => {
-    const router = useRouter()
-    const slug = slugString(router);
+    const slug = useRouter().asPath;
 
     const [headingToPosition, setHeadingToPosition] = React.useState<Record<string, number>>({})
     const upsertHeading = (heading: string, position: number) => {
         const offset = 100; // Change the route slightly preemptively
         setHeadingToPosition((current) => ({...current, [heading]: position + offset}))
-        console.log("upserting", heading, position)
     }
 
-    const [scrolling, setScrolling] = React.useState(false);
+    const [closestHeading, setClosestHeading] = React.useState<string>("/");
+
+    const smoothScrollEnabled = false;
 
     /**
      * This is responsible for setting the route in the URL to the closest heading when the user scrolls.
@@ -33,52 +36,39 @@ export const ScrollManager = (props: { children: ReactNode }): React.ReactElemen
             .sort((a, b) => proximity(a[1]) - proximity(b[1]))
             .at(0)[0]
 
-        console.log("Setting route to", closest)
-        router.replace(closest, undefined, {shallow: true})
-        // window.history.replaceState({...window.history.state, as: closest, url: closest}, '', closest)
-    }, [headingToPosition, scrolling]);
+        setClosestHeading(closest);
+    }, [headingToPosition]);
 
     useEffect(() => {
-        if (!scrolling) {
-            window.addEventListener("scroll", scroll, false);
-        }
+        window.addEventListener("scroll", scroll, false);
         return () => window.removeEventListener("scroll", scroll, false);
-    }, [scroll, scrolling]);
+    }, [scroll]);
+
+    useEffect(() => {
+        window.history.replaceState({...window.history}, closestHeading, closestHeading)
+    }, [closestHeading]);
 
     /**
      * This is responsible for scrolling to the relevant heading when the route in the URL changes
      */
     React.useEffect(() => {
-        const element = document.getElementById("/" + (slug ?? ""));
-        if (element) {
-            if ("onscrollend" in window) {
-                window.removeEventListener("scroll", scroll, false);
-                setScrolling(true);
-
-                console.log("scrolling to", element.id)
-                element.scrollIntoView({behavior: "smooth"})
+            const element = document.getElementById(slug);
+            if (element && slug !== closestHeading) {
+                const behavior = "onscrollend" in window && smoothScrollEnabled ? "smooth" : "auto";
 
                 document.addEventListener("scrollend", () => {
-                    setScrolling(false);
+                    setClosestHeading(slug);
                 }, {once: true});
-            } else {
-                element.scrollIntoView()
+
+                element.scrollIntoView({behavior})
             }
-        }
-    }, [slug])
+        }, [slug]
+    )
 
-
-    return <ScrollContext.Provider value={{headingToPosition, upsertHeading}}>{props.children}</ScrollContext.Provider>
-}
-
-export const slugString = (router: NextRouter): string => {
-    const slug = router.query.slug;
-    return asString(slug);
-}
-
-export const asString = (s: string | string[]): string => {
-    if (s instanceof Array) {
-        return s.join("/").replaceAll(" ", "-")
-    }
-    return s;
+    return <ScrollContext.Provider
+        value={{
+            headingToPosition,
+            upsertHeading,
+            currentHeading: closestHeading
+        }}>{props.children}</ScrollContext.Provider>
 }

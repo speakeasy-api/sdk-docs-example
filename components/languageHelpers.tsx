@@ -1,5 +1,5 @@
 import React, {ReactElement, ReactNode, useContext, useState} from "react";
-import {Language} from "../structure/language";
+import {Language} from "../generated/language";
 
 const LangContext = React.createContext<{ lang: Language, setLang: (l: Language) => void }>({
     lang: "go",
