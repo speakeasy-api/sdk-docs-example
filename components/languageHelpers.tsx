@@ -21,12 +21,12 @@ export const LanguageProvider = ({children}) => {
     )
 }
 
-export const LanguageSelect = ({children}) => {
+export const LanguageSelect = () => {
     const langContext = useContext(LangContext);
     return (
         <button style={{background: "tomato", margin: "24px", padding: "10px"}}
                 onClick={() => langContext.setLang(langContext.lang === "go" ? "typescript" : "go")}>
-            {children}
+            Language:
             {langContext.lang}
         </button>
     )

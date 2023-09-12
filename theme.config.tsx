@@ -1,8 +1,8 @@
 import React from 'react'
 import {DocsThemeConfig} from 'nextra-theme-docs'
-import {useRouter} from "next/router";
-import {slugString} from "./components/scrollHelpers";
 import {Header} from './components/header';
+import {OramaSearch} from '@orama/plugin-nextra'
+import {NavItem} from "./components/navItem";
 
 const config: DocsThemeConfig = {
     logo: <span>My Project</span>,
@@ -17,21 +17,17 @@ const config: DocsThemeConfig = {
         text: 'Nextra Docs Template',
     },
     sidebar: {
-        titleComponent({title}) {
-            const router = useRouter()
-            const pageTitle = title.split("/").pop()
-
-            const slug = slugString(router);
-            const titleSlug = title.toLowerCase()
-            const selected = slug === titleSlug
-            return <div style={{background: selected ? "cyan" : "none"}}>{pageTitle}</div>
-        }
+        titleComponent: NavItem,
     },
     toc: {
         component: () => null,
     },
     components: {
-        h2: Header,
+        h1: Header("h1"),
+        h2: Header("h2"),
+    },
+    search: {
+        component: () => OramaSearch(),
     },
 }
 

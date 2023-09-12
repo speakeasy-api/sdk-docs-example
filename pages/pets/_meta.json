@@ -1,0 +1,10 @@
+{
+  "createPets": {
+    "title": "pets/Create Pets",
+    "href": "/pets/create_pets"
+  },
+  "listPets": {
+    "title": "pets/List Pets",
+    "href": "/pets/list_pets"
+  }
+}

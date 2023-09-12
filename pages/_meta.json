@@ -5,11 +5,12 @@
   },
   "installation": {
     "title": "Installation",
-    "href": "/installation"
+    "href": "/installation",
+    "type": "page"
   },
-  "identity": {
-    "title": "Identity",
-    "href": "/identity"
+  "pets": {
+    "title": "Pets",
+    "href": "/pets"
   },
   "about": {
     "title": "About",
