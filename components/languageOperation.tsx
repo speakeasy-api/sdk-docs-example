@@ -11,6 +11,7 @@ export const LanguageOperation = (props: {
                 {props.usage}
             </div>
             <div style={{flex: "50%"}}>
+                <h3>Parameters</h3>
                 {props.parameters}
             </div>
         </div>

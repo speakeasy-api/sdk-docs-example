@@ -18,13 +18,11 @@ export const ScrollManager = (props: { children: ReactNode }): React.ReactElemen
 
     const [headingToPosition, setHeadingToPosition] = React.useState<Record<string, number>>({})
     const upsertHeading = (heading: string, position: number) => {
-        const offset = 100; // Change the route slightly preemptively
+        const offset = -100; // Change the route slightly preemptively
         setHeadingToPosition((current) => ({...current, [heading]: position + offset}))
     }
 
     const [closestHeading, setClosestHeading] = React.useState<string>("/");
-
-    const smoothScrollEnabled = false;
 
     /**
      * This is responsible for setting the route in the URL to the closest heading when the user scrolls.
@@ -52,15 +50,12 @@ export const ScrollManager = (props: { children: ReactNode }): React.ReactElemen
      * This is responsible for scrolling to the relevant heading when the route in the URL changes
      */
     React.useEffect(() => {
-            const element = document.getElementById(slug);
-            if (element && slug !== closestHeading) {
-                const behavior = "onscrollend" in window && smoothScrollEnabled ? "smooth" : "auto";
-
+            if (slug !== closestHeading) {
                 document.addEventListener("scrollend", () => {
                     setClosestHeading(slug);
                 }, {once: true});
 
-                element.scrollIntoView({behavior})
+                window.scrollTo({top: headingToPosition[slug]});
             }
         }, [slug]
     )

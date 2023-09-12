@@ -1,0 +1,23 @@
+import ErrorT from "/content/models/shared/errorT/typescript.mdx"
+import Collapsible from "/components/collapsible";
+
+##### **ContentType**: string
+
+<Collapsible>
+    <Collapsible.Summary>
+        ##### **Error**?: shared.ErrorT
+
+        unexpected error
+    </Collapsible.Summary>
+    <ErrorT/>
+</Collapsible>
+
+##### **Headers**?: {`Record<string, string[]>`}
+
+##### **Pets**?: shared.Pet[]
+
+A paged array of pets
+
+##### **StatusCode**: number
+
+##### **RawResponse**?: [AxiosResponse](https://axios-http.com/docs/res_schema)
