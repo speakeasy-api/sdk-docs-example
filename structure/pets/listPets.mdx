@@ -1,0 +1,20 @@
+import {LanguageOperation} from "/components/languageOperation";
+import {DocsSection} from "/components/docsSection";
+import Overview from "/content/pets/listPets/overview.mdx"
+import GoParameters from "/content/pets/listPets/parameters/go.mdx"
+import GoResponse from "/content/pets/listPets/response/go.mdx"
+import GoUsage from "/content/pets/listPets/usage/go.mdx"
+import TsParameters from "/content/pets/listPets/parameters/typescript.mdx"
+import TsResponse from "/content/pets/listPets/response/typescript.mdx"
+import TsUsage from "content/pets/listPets/usage/typescript.mdx"
+import {LanguageSwitch} from "/components/languageHelpers";
+
+export default () => {
+    const go = <LanguageOperation parameters={<GoParameters/>} response={<GoResponse/>} usage={<GoUsage/>}/>
+    const typescript = <LanguageOperation parameters={<TsParameters/>} response={<TsResponse/>} usage={<TsUsage/>}/>
+
+    return <DocsSection route={"list_pets"}>
+        <Overview/>
+        <LanguageSwitch langToContent={{go, typescript}}/>
+    </DocsSection>
+}

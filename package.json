@@ -19,6 +19,7 @@
   "homepage": "https://github.com/shuding/nextra-docs-template#readme",
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
+    "@orama/plugin-nextra": "^1.2.3",
     "next": "^13.4.19",
     "nextra": "latest",
     "nextra-theme-docs": "latest",
