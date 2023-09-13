@@ -1,0 +1,70 @@
+@import './colors';
+
+/* ===Responsive mixins=== */
+
+@mixin mobile {
+  @media (max-width: 600px) { @content }
+}
+
+@mixin tabletsMax1050 {
+  @media (max-width: 1050px) { @content }
+}
+
+@mixin tabletsMax768 {
+  @media (max-width: 768px) { @content }
+}
+
+/* ===Responsive mixins=== */
+
+
+@mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: $fw;
+}
+
+@mixin generatePxToRem($property, $px) {
+  #{$property}: #{$px / 16}rem!important;
+}
+
+@mixin footer-links-text() {
+  color: var(--color-footer-text);
+  font-family: Inter, serif;
+  font-weight: 500;
+  @include generatePxToRem('font-size', 16);
+  @include generatePxToRem('line-height', 16);
+  text-decoration: none;
+}
+
+@mixin footer-inc-text() {
+  color: var(--color-footer-text);
+  font-family: Inter, serif;
+  font-weight: 400;
+  @include generatePxToRem('font-size', 14);
+  @include generatePxToRem('line-height', 14.4);
+  @include generatePxToRem('letter-spacing', 0.25);
+
+  @include mobile {
+    text-align: center;
+    @include generatePxToRem('line-height', 28);
+  }
+}
+
+@mixin code() {
+  color: var(--primary-code-color);
+  background: none;
+  font-family: IBM Plex Mono, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 152%;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  tab-size: 4;
+  hyphens: none;
+}
