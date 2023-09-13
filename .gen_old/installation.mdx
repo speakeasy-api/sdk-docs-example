@@ -1,0 +1,10 @@
+import GoInstallation from "/content/pages/installation/_snippets/go.mdx"
+import TsInstallation from "/content/pages/installation/_snippets/typescript.mdx"
+import {DocsSection} from "/components/docsSection";
+import Overview from "/content/pages/installation/installation.mdx";
+import {LanguageSwitch} from "/components/languageHelpers";
+
+<DocsSection route={"installation"}>
+    <Overview/>
+    <LanguageSwitch langToContent={{go: <GoInstallation/>, typescript: <TsInstallation/>}}/>
+</DocsSection>

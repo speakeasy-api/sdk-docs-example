@@ -7,6 +7,8 @@ export const Header = (headingType: string) => (props: { children: ReactNode }) 
 
     const inputRef = useRef<HTMLHeadingElement>()
 
+    console.log(route)
+
     useEffect(() => {
         scrollContent.upsertHeading(route, inputRef.current.offsetTop)
     }, [inputRef.current]);

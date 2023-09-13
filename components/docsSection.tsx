@@ -1,16 +1,18 @@
 import {ReactNode, useContext} from "react";
 import {RouteContext} from "./scrollHelpers";
 
-export const DocsSection = (props: {
+export const DocsSection = ({route, children}: {
     route?: string,
     children?: ReactNode
 }) => {
     let parentRoute = useContext(RouteContext);
     if (parentRoute === "/") parentRoute = ""
 
-    return <RouteContext.Provider value={`${parentRoute}/${props.route ?? ""}`}>
+    if (route.startsWith("/")) route = route.slice(1);
+
+    return <RouteContext.Provider value={`${parentRoute}/${route ?? ""}`}>
         <div style={{margin: "48px 0px", borderTop: "1px solid black", borderBottom: "1px solid black"}}>
-            {props.children}
+            {children}
         </div>
     </RouteContext.Provider>
 }
