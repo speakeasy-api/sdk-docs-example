@@ -1,5 +1,7 @@
 import React from 'react'
 import {DocsThemeConfig} from 'nextra-theme-docs'
+
+import ThemeToggle from '@/components/ThemeToggle';
 import {Header} from './components/header';
 import {OramaSearch} from '@orama/plugin-nextra'
 import {NavItem} from "./components/navItem";
@@ -32,6 +34,12 @@ const config: DocsThemeConfig = {
     search: {
         component: () => OramaSearch(),
     },
+    navbar: {
+        extraContent: ThemeToggle,
+    },
+    navigation: false,
+    gitTimestamp: () => null,
+    darkMode: false,
 }
 
 export default config
