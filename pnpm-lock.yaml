@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@mdx-js/react': ^2.3.0
+  '@orama/plugin-nextra': ^1.2.3
   '@types/node': 18.11.10
   next: ^13.4.19
   nextra: latest
@@ -12,6 +13,7 @@ specifiers:
 
 dependencies:
   '@mdx-js/react': 2.3.0_react@18.2.0
+  '@orama/plugin-nextra': 1.2.3
   next: 13.4.19_biqbaboplfbrettd7655fr4n2y
   nextra: 2.12.3_m2l4knchnqa6bzxbbtfxlzoxdy
   nextra-theme-docs: 2.12.3_piqoayblhvg7ikh5utk6hi543u
@@ -282,6 +284,33 @@ packages:
     dev: false
     optional: true
 
+  /@orama/orama/1.2.3:
+    resolution: {integrity: sha512-KJ4lzTDluQOJu6l2xsmDjKdhU6EvldmshvsQgAvDORn/Db+EXaWOKSK4XdvUNIcpUeSbFAdkRB26NLlfSpWRGg==}
+    engines: {node: '>= 16.0.0'}
+    dev: false
+
+  /@orama/plugin-match-highlight/1.2.3:
+    resolution: {integrity: sha512-wrBVDYQfjY8jCVB7ZoTAvkSioCB9SPpPMxcnbrlOZaII+HEkRY3EcLXcu6IWeDNposIi76J4pnIGKQ7leq3xpA==}
+    dependencies:
+      '@orama/orama': 1.2.3
+    dev: false
+
+  /@orama/plugin-nextra/1.2.3:
+    resolution: {integrity: sha512-dSBOzfqb5QZwG/kMutOW/6w8ot08ef3wwDxD5BBj8TCl0I9Hi75GTavUYw0WrJ8Jx0aSIayy3UO+4aMEL5seNg==}
+    dependencies:
+      '@orama/orama': 1.2.3
+      '@orama/plugin-match-highlight': 1.2.3
+      classnames: 2.3.2
+      next: 13.4.19_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@opentelemetry/api'
+      - babel-plugin-macros
+      - sass
+    dev: false
+
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: false
@@ -513,6 +542,10 @@ packages:
 
   /character-reference-invalid/2.0.1:
     resolution: {integrity: sha512-iBZ4F4wRbyORVsu0jPV7gXkOsGYjGHPmAyv+HiHG8gi5PtC9KI2j1+v8/tlibRvjoWX027ypmG/n0HtO5t7unw==}
+    dev: false
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
     dev: false
 
   /client-only/0.0.1:
