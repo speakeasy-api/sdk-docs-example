@@ -1,12 +1,14 @@
 import Error from "/content/models/shared/error/go.mdx"
+import Collapsible from "/components/collapsible";
 
 ##### string **ContentType**
 
-> collapse
-> ##### *shared.Error **Error**
-> unexpected error
-> collapse body
-> <Error/>
+<Collapsible>
+    ##### *shared.Error **Error**
+    unexpected error
+    <Collapsible.Break/>
+    <Error/>
+</Collapsible>
 
 ##### int **StatusCode**
 

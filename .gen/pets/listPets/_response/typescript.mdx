@@ -1,6 +1,8 @@
 import ListPetsResponse from "/content/models/operations/listPetsResponse/typescript.mdx"
+import Collapsible from "/components/collapsible";
 
-> collapse open
-> ##### {`Promise<operations.ListPetsResponse>`}
-> collapse body
-> <ListPetsResponse/>
+<Collapsible defaultOpen>
+    ##### {`Promise<operations.ListPetsResponse>`}
+    <Collapsible.Break/>
+    <ListPetsResponse/>
+</Collapsible>
