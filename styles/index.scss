@@ -1,7 +1,8 @@
 @import '@/styles/utils/mixins';
+@import '@/styles/libs/codeThemes';
+@import '@/styles/libs/nextra';
 
 :root {
-  --nextra-navbar-height: 96px;
   --color-page-background: #ffffff;
   --color-footer-background: #ffffff;
   --color-footer-text: #222;

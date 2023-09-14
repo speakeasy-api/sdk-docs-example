@@ -1,0 +1,123 @@
+@import '../utils/mixins';
+
+:root {
+  --primary-code-color: #4C4C4C;
+  --code-background: #FFF;
+  --code-header-background: #F9F9FB;
+  --code-block-border: #DFDFE5;
+  --comment-color: #BFB000;
+  --prolog-color: #BFB000;
+  --doctype-color: #BFB000;
+  --cdata-color: #BFB000;
+  --punctuation-color: #4C4C4C;
+  --namespace-opacity: .8;
+  --property-color: #E44173;
+  --tag-color: #E44173;
+  --constant-color: #E44173;
+  --symbol-color: #E44173;
+  --deleted-color: #E44173;
+  --boolean-color: #B289E8;
+  --number-color: #B289E8;
+  --selector-color: #81B900;
+  --attr-name-color: #81B900;
+  --string-color: #81B900;
+  --char-color: #81B900;
+  --builtin-color: #81B900;
+  --inserted-color: #81B900;
+  --operator-color: #4C4C4C;
+  --entity-color: #4C4C4C;
+  --entity-cursor: help;
+  --url-color: #4C4C4C;
+  --language-css-token-string-color: #4C4C4C;
+  --style-token-string-color: #4C4C4C;
+  --variable-color: #4C4C4C;
+  --atrule-color: #00B898;
+  --attr-value-color: #00B898;
+  --function-color: #00B898;
+  --class-name-color: #00B898;
+  --keyword-color: #40B6DB;
+  --regex-color: #E1A201;
+  --important-color: #E1A201;
+  --important-font-weight: bold;
+  --bold-font-weight: bold;
+  --italic-font-style: italic;
+  &.dark {
+    --primary-code-color: #F6F6F1;
+    --code-background: #1C1C1C;
+    --code-header-background: #121212;
+    --code-block-border: #373738;
+    --comment-color: #E4DC7F;
+    --prolog-color: #E4DC7F;
+    --doctype-color: #E4DC7F;
+    --cdata-color: #E4DC7F;
+    --punctuation-color: #F6F6F1;
+    --namespace-opacity: .8;
+    --property-color: #E44173;
+    --tag-color: #E44173;
+    --constant-color: #E44173;
+    --symbol-color: #E44173;
+    --deleted-color: #E44173;
+    --boolean-color: #D4B2FF;
+    --number-color: #D4B2FF;
+    --selector-color: #B3E04B;
+    --attr-name-color: #B3E04B;
+    --string-color: #B3E04B;
+    --char-color: #B3E04B;
+    --builtin-color: #B3E04B;
+    --inserted-color: #B3E04B;
+    --operator-color: #F6F6F1;
+    --entity-color: #F6F6F1;
+    --url-color: #F6F6F1;
+    --variable-color: #F6F6F1;
+    --atrule-color: #00FFE2;
+    --attr-value-color: #00FFE2;
+    --function-color: #00FFE2;
+    --class-name-color: #00FFE2;
+    --keyword-color: #37CFFF;
+    --regex-color: #FFB800;
+    --important-color: #FFB800;
+    --important-font-weight: bold;
+    --bold-font-weight: bold;
+    --italic-font-style: italic;
+  }
+}
+
+code {
+  @include code();
+}
+
+.comment { color: var(--comment-color); }
+.prolog { color: var(--prolog-color); }
+.doctype { color: var(--doctype-color); }
+.cdata { color: var(--cdata-color); }
+.punctuation { color: var(--punctuation-color); }
+.namespace { opacity: var(--namespace-opacity); }
+.property { color: var(--property-color); }
+.tag { color: var(--tag-color); }
+.constant { color: var(--constant-color); }
+.symbol { color: var(--symbol-color); }
+.deleted { color: var(--deleted-color); }
+.boolean { color: var(--boolean-color); }
+.number { color: var(--number-color); }
+.selector { color: var(--selector-color); }
+.attr-name { color: var(--attr-name-color); }
+.string { color: var(--string-color); }
+.char { color: var(--char-color); }
+.builtin { color: var(--builtin-color); }
+.inserted { color: var(--inserted-color); }
+.operator { color: var(--operator-color); }
+.entity { color: var(--entity-color); cursor: help; }
+.url { color: var(--url-color); }
+.variable { color: var(--variable-color); }
+.atrule { color: var(--atrule-color); }
+.attr-value { color: var(--attr-value-color); }
+.function { color: var(--function-color); }
+.class-name { color: var(--class-name-color); }
+.keyword { color: var(--keyword-color); }
+.regex { color: var(--regex-color); }
+.important { color: var(--important-color); font-weight: var(--important-font-weight); }
+.bold { font-weight: var(--bold-font-weight); }
+.italic { font-style: var(--italic-font-style); }
+
+.language-css .token.string { color: var(--string-color); }
+.style .token.string { color: var(--string-color); }

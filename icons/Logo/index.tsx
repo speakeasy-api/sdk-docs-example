@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import styles from './styles.module.scss';
+
 const Logo: FC = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="164" height="32" viewBox="0 0 164 32" fill="none">
     <g clipPath="url(#clip0_405_1055)">
