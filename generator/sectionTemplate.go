@@ -21,8 +21,7 @@ func wrapDocsSection(route, name string) string {
 	route = toSnakeCase(route)
 
 	upper := strings.Title(name)
-	lower := strings.ToLower(name)
-	return fmt.Sprintf(template, upper, lower, route, upper)
+	return fmt.Sprintf(template, upper, name, route, upper)
 }
 
 var matchFirstCap = regexp.MustCompile("(.)([A-Z][a-z]+)")
