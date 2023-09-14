@@ -31,7 +31,7 @@ export const ScrollManager = (props: { children: ReactNode }): React.ReactElemen
     const scroll = useMemo(() => () => {
         const proximity = (pagePos: number) => Math.abs(window.scrollY - pagePos)
         const closest = Object.entries(headingToPosition)
-            .sort((a, b) => proximity(a[1]) - proximity(b[1]))
+            .sort((a: [string, number], b: [string, number]) => proximity(a[1]) - proximity(b[1]))
             .at(0)[0]
 
         setClosestHeading(closest);
