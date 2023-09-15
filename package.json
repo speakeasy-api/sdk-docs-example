@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Nextra docs template",
   "scripts": {
-    "dev": "next dev",
+    "watch": "while sleep 5; do make; done",
+    "dev": "next dev & npm run watch &>/dev/null",
+    "prebuild": "make",
     "build": "next build",
     "start": "next start"
   },

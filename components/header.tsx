@@ -9,7 +9,7 @@ export const Header = (headingType: string) => (props: { children: ReactNode }) 
 
     useEffect(() => {
         scrollContent.upsertHeading(route, inputRef.current.offsetTop)
-    }, [inputRef.current]);
+    }, [inputRef.current?.offsetTop]);
 
     return (
         React.createElement(headingType, {

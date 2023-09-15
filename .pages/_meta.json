@@ -1,0 +1,18 @@
+{
+  "[[...slug]]": {
+    "title": "Home",
+    "href": "/"
+  },
+  "installation": {
+    "title": "Installation",
+    "href": "/installation"
+  },
+  "pets": {
+    "title": "Pets",
+    "href": "/pets"
+  },
+  "about": {
+    "title": "About",
+    "type": "page"
+  }
+}

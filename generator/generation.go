@@ -4,83 +4,70 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"regexp"
-	"strings"
 )
 
-var templateRegex = regexp.MustCompile(`{/\* render (\S*) (.*)\*/}`)
+const (
+	baseContentRoot  = "./content"
+	pagesContentRoot = "./content/pages"
+	genRoot          = ".gen"
+	pagesGenRoot     = "./.pages"
 
-func (g *Gen) generateCorrespondingFiles(path, name, content string) error {
-	nameNoSuffix := strings.TrimSuffix(name, ".mdx")
+	entrypoint = "root"
+)
 
-	relativePath, err := g.toRelativePath(path)
-	if err != nil {
-		return err
-	}
-
-	pathParts := strings.Split(relativePath, "/")
-	finalPathPart := pathParts[len(pathParts)-1]
-	isIgnoredSection := strings.HasPrefix(finalPathPart, "_")
-
-	contentFileName := fmt.Sprintf("%s_content.mdx", nameNoSuffix)
-	if isIgnoredSection {
-		contentFileName = name
-	}
-
-	if err := g.writeGenFile(path, contentFileName, content); err != nil {
-		return err
-	}
-
-	if !isIgnoredSection {
-		wrapperContent := wrapDocsSection(finalPathPart, nameNoSuffix)
-		if err := g.writeGenFile(path, name, wrapperContent); err != nil {
-			return err
-		}
-	}
-
-	return nil
+type Gen struct {
+	root string
 }
 
-func (g *Gen) templateFile(name, content string) (string, error) {
-	name = strings.TrimSuffix(name, ".mdx")
+func (g *Gen) setup() error {
+	if err := recreateDir(genRoot); err != nil {
+		return err
+	}
 
-	matches := templateRegex.FindAllStringSubmatch(content, -1)
+	if err := recreateDir(pagesGenRoot); err != nil {
+		return err
+	}
 
-	for _, match := range matches {
-		templateName := match[1]
+	// Copy files in the root over unchanged
+	files, err := os.ReadDir(baseContentRoot)
+	if err != nil {
+		return err
+	}
 
-		templateContent, err := os.ReadFile(fmt.Sprintf("./templates/%s.mdx.tmpl", templateName))
-		if err != nil {
-			return "", err
+	for _, file := range files {
+		if !file.IsDir() {
+			content, err := os.ReadFile(baseContentRoot + "/" + file.Name())
+			if err != nil {
+				return err
+			}
+			if err := g.writePagesFile("", file.Name(), string(content)); err != nil {
+				return err
+			}
 		}
-
-		templateContentString := fmt.Sprintf("{/* rendered from %s template */}\n\n%s\n\n{/* end rendered section */}", templateName, templateContent)
-
-		content = strings.ReplaceAll(content, match[0], templateContentString)
-	}
-
-	return content, nil
-}
-
-func (g *Gen) writeGenFile(path, name, content string) error {
-	contentPath, err := g.toGenPath(fmt.Sprintf("%s/%s", path, name))
-	if err != nil {
-		return err
-	}
-
-	err = os.WriteFile(contentPath, []byte(content), 0644)
-	if err != nil {
-		return err
 	}
 
 	return nil
 }
 
 func (g *Gen) toGenPath(path string) (string, error) {
-	relativePath, err := g.toRelativePath(path)
-	if err != nil {
-		return "", err
+	relativePath := g.toRelativePath(path)
+	return filepath.Abs(fmt.Sprintf("%s/%s", genRoot, relativePath))
+}
+
+func recreateDir(path string) error {
+	if err := os.RemoveAll(path); err != nil {
+		return err
 	}
 
-	return filepath.Abs(fmt.Sprintf("%s/%s", genPath, relativePath))
+	return tryMkdir(path)
+}
+
+func tryMkdir(path string) error {
+	err := os.Mkdir(path, 0755)
+
+	if os.IsExist(err) {
+		return nil
+	} else {
+		return err
+	}
 }
