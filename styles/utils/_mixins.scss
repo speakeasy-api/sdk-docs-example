@@ -25,9 +25,43 @@
   flex-wrap: $fw;
 }
 
-@mixin generatePxToRem($property, $px) {
-  #{$property}: #{$px / 16}rem!important;
+@mixin generatePxToRem($property, $values) {
+  $remValues: ();
+
+  // Check if $values is a list or a single value
+  @if type-of($values) == list {
+    @each $value in $values {
+      $remValue: #{$value / 16}rem;
+      $remValues: append($remValues, $remValue);
+    }
+  } @else {
+    $remValue: #{$values / 16}rem;
+    $remValues: $remValue;
+  }
+
+  #{$property}: #{$remValues};
 }
+
+/* Heading H5 */
+@mixin heading-h5($color) {
+  color: $color;
+  font-family: Inter, serif;
+  @include generatePxToRem('font-size', 14);
+  @include generatePxToRem('line-height', 21.28);
+  font-style: normal;
+  font-weight: 500;
+}
+
+@mixin sidebar-heading-separator($color) {
+  color: $color;
+  font-family: Inter, serif;
+  @include generatePxToRem('font-size', 18);
+  @include generatePxToRem('line-height', 23.84);
+  font-style: normal;
+  font-weight: 500;
+}
+
+
 
 @mixin footer-links-text() {
   color: var(--color-footer-text);

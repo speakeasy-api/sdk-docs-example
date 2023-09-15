@@ -1,39 +1,40 @@
-import React, {ReactNode} from "react";
+import React, {
+  ReactNode, Children, useState,
+} from 'react';
 
 type propsType = {
-    children: ReactNode[]
-    defaultOpen?: boolean
-}
+  children: ReactNode[]
+  defaultOpen?: boolean
+};
 
 const Collapsible: React.FC<propsType> & { Break: typeof Break } = (props: propsType) => {
-    const elements = props.children
+  const elements = props.children;
 
-    const isBreak = (e: any) => {
-        const isFn = e.type && typeof e.type === "function"
-        return isFn && e.type().props?.children === "collapsible-break"
-    }
+  const isBreak = (e: any) => {
+    const isFn = e.type && typeof e.type === 'function';
 
-    const breakIndex = elements.findIndex((e) => isBreak(e))
+    return isFn && e.type().props?.children === 'collapsible-break';
+  };
 
-    if (breakIndex === -1) {
-        return <div>{elements}</div>
-    }
+  const breakIndex = elements.findIndex((e) => isBreak(e));
 
-    const summarySection = elements.slice(0, breakIndex);
-    const bodySection = elements.slice(breakIndex + 1);
+  if (breakIndex === -1) {
+    return <div>{elements}</div>;
+  }
 
-    const [isOpen, setIsOpen] = React.useState(!!props.defaultOpen);
+  const summarySection = elements.slice(0, breakIndex);
+  const bodySection = elements.slice(breakIndex + 1);
 
-    return <div style={{border: "1px solid green"}}>
-        <div onClick={() => setIsOpen((prev) => !prev)}>{summarySection}{isOpen ? "-" : "+"}</div>
-        {isOpen && <div style={{padding: "8px"}}>{bodySection}</div>}
-    </div>
-}
+  const [isOpen, setIsOpen] = React.useState(!!props.defaultOpen);
 
-const Break = () => {
-    return <div>collapsible-break</div>
-}
+  return <div style={{ border: '1px solid green' }}>
+    <div onClick={() => setIsOpen((prev) => !prev)}>{summarySection}{isOpen ? '-' : '+'}</div>
+    {isOpen && <div style={{ padding: '8px' }}>{bodySection}</div>}
+  </div>;
+};
 
-Collapsible.Break = Break
+const Break = () => <div>collapsible-break</div>;
 
-export default Collapsible
+Collapsible.Break = Break;
+
+export default Collapsible;

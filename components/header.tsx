@@ -1,5 +1,13 @@
-import React, {ReactNode, useContext, useEffect, useRef} from "react";
-import {RouteContext, ScrollContext} from "./scrollManager";
+
+import {
+  ReactNode,
+  useContext,
+  useEffect,
+  useRef,
+  createElement,
+} from 'react';
+
+import { RouteContext, ScrollContext } from './scrollManager';
 
 export const Header = (headingType: string) => (props: { children: ReactNode }) => {
   const route = useContext(RouteContext);
@@ -14,7 +22,7 @@ export const Header = (headingType: string) => (props: { children: ReactNode }) 
     }, [inputRef.current?.offsetTop]);
 
   return (
-    React.createElement(headingType, {
+    createElement(headingType, {
       ref: inputRef,
       id: route,
       style: { fontSize: '32px' },
