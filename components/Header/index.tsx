@@ -6,21 +6,19 @@ import ThemeToggle from '@/components/ThemeToggle';
 
 import styles from './styles.module.scss';
 
-const Header: FC = () => {
-  return (
-    <div className={styles.headerRoot}>
-      <div className={styles.headerInner}>
-        <div>
-          <NextLink href="/">
-            <Logo />
-          </NextLink>
-        </div>
-        <div>
-          <ThemeToggle />
-        </div>
+const Header: FC = () => (
+  <div className={styles.headerRoot}>
+    <div className={styles.headerInner}>
+      <div>
+        <NextLink href="/">
+          <Logo />
+        </NextLink>
+      </div>
+      <div>
+        <ThemeToggle />
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default Header;

@@ -7,6 +7,10 @@
     "title": "Installation",
     "href": "/installation"
   },
+  "---": {
+    "title": "Separator",
+    "type": "separator"
+  },
   "pets": {
     "title": "Pets",
     "href": "/pets"

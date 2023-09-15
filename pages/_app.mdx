@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 
 import '@/styles/index.scss';
+import { ScrollManager } from "../components/scrollHelpers";
 
 export const inter = Inter({
   subsets: ['latin'],
@@ -15,7 +16,10 @@ export default function App({ Component, pageProps }) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />
+      <ScrollManager>
+        <Component {...pageProps} />
+      </ScrollManager>
+
     </>
   )
 }

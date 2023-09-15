@@ -1,12 +1,12 @@
 import { DocsThemeConfig } from 'nextra-theme-docs';
+import { OramaSearch } from '@orama/plugin-nextra';
 
 import ThemeToggle from '@/components/ThemeToggle';
 import Logo from '@/icons/Logo';
 import Footer from '@/components/Footer';
 
 import { Header } from './components/header';
-import { OramaSearch } from '@orama/plugin-nextra';
-import { NavItem } from './components/navItem';
+import { NavItem } from './components/NavItem';
 import Collapsible from './components/collapsible';
 
 const config: DocsThemeConfig = {

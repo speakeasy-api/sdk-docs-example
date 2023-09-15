@@ -1,0 +1,26 @@
+@import '@/styles/utils/mixins';
+
+.nav_item {
+  @include generatePxToRem('padding', 14 16 14 16);
+  @include generatePxToRem('border-radius', 8);
+
+  &.separator{
+    > p {
+      @include sidebar-heading-separator(var(--heading-h5-color));
+    }
+  }
+
+  &.selected {
+    width: 100%;
+    background-image: var(--bcg-btn-image-grad);
+
+    > p {
+      @include heading-h5(var(--heading-h5-color-selected));
+    }
+  }
+
+  > p {
+    margin: 0;
+    @include heading-h5(var(--heading-h5-color));
+  }
+}
