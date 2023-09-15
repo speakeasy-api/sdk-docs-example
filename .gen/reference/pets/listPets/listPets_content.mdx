@@ -1,0 +1,25 @@
+## List Pets
+
+List all pets
+
+{/* rendered from operation template */}
+
+import {LanguageOperation} from "/components/languageOperation";
+import {LanguageSwitch} from "/components/languageHelpers";
+import GoParameters from "./_parameters/go.mdx"
+import GoResponse from "./_response/go.mdx"
+import GoUsage from "./_usage/go.mdx"
+import TsParameters from "./_parameters/typescript.mdx"
+import TsResponse from "./_response/typescript.mdx"
+import TsUsage from "./_usage/typescript.mdx"
+
+export const Operation = () => {
+    const go = <LanguageOperation parameters={<GoParameters/>} response={<GoResponse/>} usage={<GoUsage/>}/>
+    const typescript = <LanguageOperation parameters={<TsParameters/>} response={<TsResponse/>} usage={<TsUsage/>}/>
+
+    return <LanguageSwitch langToContent={{go, typescript}}/>
+}
+
+<Operation />
+
+{/* end rendered section */}

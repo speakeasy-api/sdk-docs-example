@@ -1,6 +1,6 @@
 import React from 'react'
 import App from 'next/app'
-import {ScrollManager} from "../components/scrollHelpers";
+import {ScrollManager} from "../components/scrollManager";
 import {LanguageProvider} from "../components/languageHelpers";
 
 class MyApp extends App {

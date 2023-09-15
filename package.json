@@ -4,7 +4,8 @@
   "description": "Nextra docs template",
   "scripts": {
     "watch": "while sleep 5; do make; done",
-    "dev": "next dev & npm run watch &>/dev/null",
+    "dev": "next dev",
+    "dev-watch": "next dev & npm run watch &>/dev/null",
     "prebuild": "make",
     "build": "next build",
     "start": "next start"
@@ -23,6 +24,7 @@
     "@mdx-js/react": "^2.3.0",
     "@orama/plugin-nextra": "^1.2.3",
     "next": "^13.4.19",
+    "next-compose-plugins": "^2.2.1",
     "nextra": "latest",
     "nextra-theme-docs": "latest",
     "react": "^18.2.0",

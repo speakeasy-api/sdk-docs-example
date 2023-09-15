@@ -10,7 +10,7 @@ const (
 	baseContentRoot  = "./content"
 	pagesContentRoot = "./content/pages"
 	genRoot          = ".gen"
-	pagesGenRoot     = "./.pages"
+	pagesGenRoot     = "./pages"
 
 	entrypoint = "root"
 )

@@ -27,9 +27,8 @@ func (g *Gen) getBasePages(path string) ([]*Page, error) {
 		fullPath := fmt.Sprintf("%s/%s", path, file.Name())
 		if file.IsDir() {
 			pages = append(pages, &Page{
-				Name:         file.Name(),
-				Path:         fullPath,
-				RelativePath: g.toRelativePath(fullPath),
+				Name: file.Name(),
+				Path: fullPath,
 			})
 		}
 	}
@@ -71,7 +70,21 @@ func (g *Gen) walkFiles(page *Page) error {
 		}
 	}
 
-	for _, pageName := range pageOrder {
+	var orderedDirectories []string
+	for _, page := range pageOrder {
+		if slices.Contains(directories, page) {
+			orderedDirectories = append(orderedDirectories, page)
+		}
+	}
+
+	for _, dir := range directories {
+		// Append directories that are not "pages" but might include necessary content
+		if !slices.Contains(orderedDirectories, dir) {
+			orderedDirectories = append(orderedDirectories, dir)
+		}
+	}
+
+	for _, pageName := range orderedDirectories {
 		dirName := toDirectoryCase(pageName)
 		if !slices.Contains(directories, dirName) {
 			return fmt.Errorf("page %s has no corresponding directory (expected a directory named %s)", pageName, dirName)
@@ -80,10 +93,9 @@ func (g *Gen) walkFiles(page *Page) error {
 		dirPath := fmt.Sprintf("%s/%s", page.Path, dirName)
 
 		childPage := &Page{
-			Name:         dirName,
-			Path:         dirPath,
-			RelativePath: g.toRelativePath(dirPath),
-			parent:       page,
+			Name:   dirName,
+			Path:   dirPath,
+			parent: page,
 		}
 
 		if err := g.walkFiles(childPage); err != nil {

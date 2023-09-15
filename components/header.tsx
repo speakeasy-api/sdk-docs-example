@@ -1,5 +1,5 @@
 import React, {ReactNode, useContext, useEffect, useRef} from "react";
-import {RouteContext, ScrollContext} from "./scrollHelpers";
+import {RouteContext, ScrollContext} from "./scrollManager";
 
 export const Header = (headingType: string) => (props: { children: ReactNode }) => {
     const route = useContext(RouteContext);

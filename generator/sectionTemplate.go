@@ -20,10 +20,6 @@ func wrapDocsSection(route, name string) string {
 	}
 	route = toSnakeCase(route)
 
-	if route == "root" {
-		route = ""
-	}
-
 	upper := strings.Title(name)
 	return fmt.Sprintf(template, upper, name, route, upper)
 }

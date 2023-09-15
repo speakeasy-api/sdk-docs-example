@@ -1,22 +1,22 @@
 {
-  "[[...slug]]": {
-    "title": "Home",
-    "href": "/"
-  },
-  "installation": {
-    "title": "Installation",
-    "href": "/installation"
-  },
-  "pets": {
-    "title": "Pets",
-    "href": "/pets"
+  "about_navlink": {
+    "title": "About",
+    "href": "/about/home",
+    "type": "page"
   },
   "about": {
     "title": "About",
+    "type": "page",
+    "display": "hidden"
+  },
+  "reference_navlink": {
+    "title": "Reference",
+    "href": "/reference/home",
     "type": "page"
   },
-  "contact": {
-    "title": "Contact ↗",
-    "href": "https://speakeasyapi.dev"
+  "reference": {
+    "title": "Reference",
+    "type": "page",
+    "display": "hidden"
   }
 }

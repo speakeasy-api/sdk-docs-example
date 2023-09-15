@@ -1,4 +1,4 @@
-import {ScrollContext} from "./scrollHelpers";
+import {ScrollContext} from "./scrollManager";
 import React, {useContext} from "react";
 
 export const NavItem = ({title}) => {
@@ -7,7 +7,6 @@ export const NavItem = ({title}) => {
     const pageTitle = title.split("/").pop()
     const titleSlug = "/" + title.toLowerCase().replace(" ", "_")
 
-    const isHome = ["/", undefined, ""].includes(currentHeading) && title === "Home"
-    const selected = currentHeading === titleSlug || isHome
+    const selected = currentHeading === titleSlug
     return <div style={{background: selected ? "cyan" : "none"}}>{pageTitle}</div>
 }

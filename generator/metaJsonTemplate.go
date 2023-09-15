@@ -8,60 +8,66 @@ import (
 )
 
 type Entry struct {
-	name  string
-	Title string  `json:"title"`
-	Href  *string `json:"href,omitempty"`
-	Type  *string `json:"type,omitempty"`
+	name    string
+	Title   string  `json:"title"`
+	Href    *string `json:"href,omitempty"`
+	Type    *string `json:"type,omitempty"`
+	Display *string `json:"display,omitempty"`
 }
 
 func getMetaJsonContent(page Page) (string, error) {
-	var pages []Entry
-
-	for _, childPage := range page.Children {
-		dirName := page.SanitizedName()
-		dirName += "/"
-
-		title := fmt.Sprintf("%s%s", dirName, toTitleCase(childPage.Name))
-		href := fmt.Sprintf("/%s%s", dirName, toSnakeCase(childPage.Name))
-		pages = append(pages, Entry{
-			name:  toDirectoryCase(childPage.Name),
-			Title: title,
-			Href:  &href,
-		})
-	}
-
-	return toJsonObjectString(pages)
+	return getMetaJsonContentForSubpages(page.Route(), page.Children, false, page.IsRoot())
 }
 
-func getRootMetaJsonContent(rootPage *Page, otherPages []*Page) (string, error) {
-	rootHref := "/"
-	pages := []Entry{{
-		name:  "[[...slug]]",
-		Title: "Home",
-		Href:  &rootHref,
-	}}
+func getMetaJsonContentForSubpages(route string, pages []*Page, isProjectRoot, isPageRoot bool) (string, error) {
+	var entries []Entry
 
-	for _, childPage := range rootPage.Children {
-		title := fmt.Sprintf("%s", toTitleCase(childPage.Name))
-		href := fmt.Sprintf("/%s", toSnakeCase(childPage.Name))
-		pages = append(pages, Entry{
-			name:  toDirectoryCase(childPage.Name),
-			Title: title,
+	if isPageRoot {
+		href := fmt.Sprintf("/%s%s", route, "home")
+		entries = append(entries, Entry{
+			name:  "[...slug]",
+			Title: route + "Home",
 			Href:  &href,
 		})
 	}
 
-	for _, page := range otherPages {
-		title := fmt.Sprintf("%s", toTitleCase(page.Name))
-		type_ := "page"
-		pages = append(pages, Entry{
-			name:  toDirectoryCase(page.Name),
+	for _, childPage := range pages {
+		name := toDirectoryCase(childPage.Name)
+		baseTitle := toTitleCase(childPage.Name)
+		title := fmt.Sprintf("%s%s", route, baseTitle)
+		href := fmt.Sprintf("/%s%s", route, toSnakeCase(childPage.Name))
+
+		entry := Entry{
+			name:  name,
 			Title: title,
-			Type:  &type_,
-		})
+		}
+
+		// If this is the root _meta.json, we need to hide the actual page and add an additional entry
+		// that serves only as the link in the navbar
+		if isProjectRoot {
+			p := "page"
+			display := "hidden"
+			entry.Type = &p
+			entry.Display = &display
+
+			homeLink := href + "/home"
+
+			pageLinkEntry := Entry{
+				name:  name + "_navlink",
+				Title: baseTitle,
+				Href:  &homeLink,
+				Type:  &p,
+			}
+
+			entries = append(entries, pageLinkEntry)
+		} else {
+			entry.Href = &href
+		}
+
+		entries = append(entries, entry)
 	}
 
-	return toJsonObjectString(pages)
+	return toJsonObjectString(entries)
 }
 
 func toJsonObjectString(entries []Entry) (string, error) {
