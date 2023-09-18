@@ -51,3 +51,7 @@
   background-color: var(--bcg-color-scrollbar-thumb);
   @include generatePxToRem('border-radius', 12);
 }
+
+.nextra-toc {
+  display: none !important;
+}

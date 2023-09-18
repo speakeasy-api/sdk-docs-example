@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 @import 'utils/mixins';
 @import 'libs/codeThemes';
@@ -202,6 +203,17 @@ pre {
   margin-bottom: 24px;
 }
 hr {
-  border-color: rgba(223, 223, 229, 0.08);
-  margin: 48px 0;
+  border-color: rgba(223, 223, 229, 0.08) !important;
+  margin: 48px 0 !important;
+  width: 100%;
+}
+
+main {
+  position: relative;
+  padding-left: 38px !important;
+  max-width: 100% !important;
+}
+
+article {
+  justify-content: flex-start !important;
 }

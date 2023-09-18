@@ -1,10 +1,7 @@
 import React, {
   ReactNode,
-  Children,
-  cloneElement,
-  ReactElement,
   FC,
-  useState,
+  useState, Children,
 } from 'react';
 
 import LanguageSelector from '@/components/LanguageSelector';
@@ -25,18 +22,16 @@ const LanguageProvider: FC<ILanguageProvider> = ({ children, languageList }) => 
     setLanguage,
   };
 
-  const firstChild = Children.toArray(children)[0];
-  const otherChildren = Children.toArray(children).slice(1);
+  const childrenArray = Children.toArray(children);
 
   return (
     <LanguageContext.Provider value={context}>
-      <div className={styles.firstElementWithLanguageSelector}>
-        <div>
-          {cloneElement(firstChild as ReactElement)}
+      <LanguageSelector languageList={languageList} />
+      {childrenArray.map((child, index) => (
+        <div key={index} className={styles.childContainer}>
+          {child}
         </div>
-        <LanguageSelector languageList={languageList} />
-      </div>
-      {otherChildren.map((child) => child)}
+      ))}
     </LanguageContext.Provider>
   );
 };
