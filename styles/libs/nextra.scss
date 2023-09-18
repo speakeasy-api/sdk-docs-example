@@ -1,3 +1,53 @@
+@import '../utils/mixins';
+
 .nextra-breadcrumb {
   display: none !important;
+}
+
+.nextra-sidebar-container {
+
+  input {
+    height: 48px;
+    padding: 8px 16px;
+  }
+
+  .nx-px-4 {
+    padding-right: 1.7rem;
+  }
+
+  .nextra-search {
+    display: block;
+  }
+}
+
+.nextra-menu-desktop, .nextra-menu-mobile {
+
+  .nx-mt-5 {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    &:before {
+      display: none;
+    }
+  }
+
+  a, button {
+    width: 100%;
+    padding: 0;
+
+    > svg {
+      display: none;
+    }
+
+    &:hover {
+      background-color: transparent!important;
+    }
+  }
+}
+
+.nextra-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: var(--bcg-color-scrollbar-thumb);
+  @include generatePxToRem('border-radius', 12);
 }

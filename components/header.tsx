@@ -1,5 +1,9 @@
-import React, {
-  ReactNode, useContext, useEffect, useRef,
+import {
+  ReactNode,
+  useContext,
+  useEffect,
+  useRef,
+  createElement,
 } from 'react';
 
 import { RouteContext, ScrollContext } from './scrollHelpers';
@@ -17,7 +21,7 @@ export const Header = (headingType: string) => (props: { children: ReactNode }) 
   }, [inputRef.current]);
 
   return (
-    React.createElement(headingType, {
+    createElement(headingType, {
       ref: inputRef,
       id: route,
       style: { fontSize: '32px' },

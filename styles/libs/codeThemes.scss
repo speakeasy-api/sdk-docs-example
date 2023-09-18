@@ -41,6 +41,11 @@
   --important-font-weight: bold;
   --bold-font-weight: bold;
   --italic-font-style: italic;
+  --bcg-btn-image-grad: linear-gradient(25deg, #91FF75 0%, #4AEBF1 93.75%, #42E8FF 100%);
+  --heading-sidebar-bg-color: #91FF75;
+  --heading-h5-color: #4C4C4C;
+  --heading-h5-color-selected: #222;
+  --bcg-color-scrollbar-thumb: #8BF5B7;
   &.dark {
     --primary-code-color: #F6F6F1;
     --code-background: #1C1C1C;
@@ -79,6 +84,11 @@
     --important-font-weight: bold;
     --bold-font-weight: bold;
     --italic-font-style: italic;
+    --bcg-btn-image-grad: linear-gradient(25deg, #91FF75 0%, #4AEBF1 93.75%, #42E8FF 100%);
+    --heading-sidebar-bg-color: #91FF75;
+    --heading-h5-color: #E3E5E8;
+    --heading-h5-color-selected: #171717;
+    --bcg-color-scrollbar-thumb: #77DB8952;
   }
 }
 
