@@ -2,6 +2,7 @@ import React from 'react'
 import App from 'next/app'
 import {ScrollManager} from "../components/scrollManager";
 import {LanguageProvider} from "../components/languageHelpers";
+import "../styles/styles.css"
 
 class MyApp extends App {
     render() {

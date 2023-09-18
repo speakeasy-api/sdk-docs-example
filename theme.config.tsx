@@ -15,22 +15,24 @@ const config: DocsThemeConfig = {
     },
     docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
     footer: {
-        text: 'Nextra Docs Template',
+        component: () => null,
     },
     sidebar: {
         titleComponent: NavItem,
     },
     toc: {
+        float: false,
         component: () => null,
     },
     components: {
         h1: Header("h1"),
         h2: Header("h2"),
-        Collapsible,
+        h3: Header("h3"),
     },
     search: {
         component: () => OramaSearch(),
     },
+    navigation: false
 }
 
 export default config

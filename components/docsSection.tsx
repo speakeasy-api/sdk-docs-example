@@ -17,7 +17,13 @@ export const DocsSection = ({route, children}: {
     }
 
     return <RouteContext.Provider value={`${parentRoute}/${route ?? ""}${homeOverride}`}>
-        <div style={{margin: "48px 0px", borderTop: "1px solid black", borderBottom: "1px solid black"}}>
+        <div style={{
+            margin: "48px 0px",
+            borderTop: "1px solid black",
+            borderBottom: "1px solid black",
+            width: "600px",
+            overflow: "visible"
+        }}>
             {children}
         </div>
     </RouteContext.Provider>

@@ -9,7 +9,6 @@ import (
 
 var (
 	templateRegex = regexp.MustCompile(`{/\* render (\S*) (.*)\*/}`)
-	headingRegex  = regexp.MustCompile(`#+\s+(.*)`)
 )
 
 func (g *Gen) generateContentFiles(dir Page) error {
@@ -56,35 +55,10 @@ func (g *Gen) generateCorrespondingFiles(dir Page, name, content string) error {
 	}
 
 	if !dir.ShouldIgnore() {
-		//if err := validateContent(name, content, route); err != nil {
-		//	return err
-		//}
-
 		wrapperContent := wrapDocsSection(route, nameNoSuffix)
 		if err := g.writeGenFile(dir.Path, name, wrapperContent); err != nil {
 			return err
 		}
-	}
-
-	return nil
-}
-
-// Check that the content meets necessary criteria
-// For example, the first heading should match the "route" aka directory name
-func validateContent(fileName, content, route string) error {
-	// Root route is a special case
-	if route == "root" {
-		return nil
-	}
-
-	expectedHeading := toTitleCase(route)
-
-	firstHeadingMatch := headingRegex.FindStringSubmatch(content)
-
-	if len(firstHeadingMatch) < 2 {
-		return fmt.Errorf("no heading found in file %s. Expected the first heading to be %s", fileName, expectedHeading)
-	} else if firstHeadingMatch[1] != expectedHeading {
-		return fmt.Errorf("expected the first heading in file %s to be %s, but got %s", fileName, expectedHeading, firstHeadingMatch[1])
 	}
 
 	return nil

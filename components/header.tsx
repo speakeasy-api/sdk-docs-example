@@ -5,10 +5,12 @@ export const Header = (headingType: string) => (props: { children: ReactNode }) 
     const route = useContext(RouteContext);
     const scrollContent = useContext(ScrollContext);
 
+    const headingValue = toRouteFormat(props.children.toString());
+
     const inputRef = useRef<HTMLHeadingElement>()
 
     useEffect(() => {
-        scrollContent.upsertHeading(route, inputRef.current.offsetTop)
+        scrollContent.upsertHeading(route, headingValue, inputRef.current, inputRef.current.offsetTop)
     }, [inputRef.current?.offsetTop]);
 
     return (
@@ -19,3 +21,7 @@ export const Header = (headingType: string) => (props: { children: ReactNode }) 
         }, props.children)
     );
 }
+
+export const H3 = Header("h3")
+
+export const toRouteFormat = (s: string) => s.toLowerCase().replace(" ", "_")

@@ -1,21 +1,22 @@
 import {ReactNode} from "react";
+import {H3} from "./header";
 
 export const LanguageOperation = (props: {
     usage: ReactNode,
     parameters: ReactNode,
     response: ReactNode
 }) => {
-    return <div>
-        <div style={{display: "flex"}}>
-            <div style={{flex: "50%", maxWidth: "700px"}}>
+    return <>
+        <div style={{display: "flex", width: "1200px"}}>
+            <div style={{flex: 1}}>
+                <H3>Parameters</H3>
+                {props.parameters}
+                <H3>Response</H3>
+                {props.response}
+            </div>
+            <div style={{flex: 1}}>
                 {props.usage}
             </div>
-            <div style={{flex: "50%"}}>
-                <h3>Parameters</h3>
-                {props.parameters}
-            </div>
         </div>
-        <h3>Response</h3>
-        {props.response}
-    </div>
+    </>
 }

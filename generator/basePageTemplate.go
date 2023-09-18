@@ -4,8 +4,11 @@ import "fmt"
 
 func getBasePageContent(filename string) string {
 	template := `import Root from "/.gen/%s/%s.mdx"
+import {RootContainer} from "/components/rootContainer";
 
-<Root/>`
+<RootContainer>
+	<Root/>
+</RootContainer>`
 
 	return fmt.Sprintf(template, filename, filename)
 }
