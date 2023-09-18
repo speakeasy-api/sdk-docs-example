@@ -1,0 +1,16 @@
+@import '@/styles/utils/mixins';
+
+.select {
+  width: 219px;
+  height: 40px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 152%;
+  font-family: Inter, sans-serif;
+  color: var(--text-body);
+  .option {
+    @include flex(row, center, center);
+    column-gap: 8px;
+  }
+}

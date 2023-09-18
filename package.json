@@ -32,6 +32,7 @@
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
     "@orama/plugin-nextra": "^1.2.3",
+    "antd": "5.9.1",
     "classnames": "2.3.2",
     "next": "^13.4.19",
     "next-themes": "0.2.1",

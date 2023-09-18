@@ -47,6 +47,18 @@
   --heading-h5-color-selected: #222;
   --bcg-color-scrollbar-thumb: #8BF5B7;
   &.dark {
+    --shiki-color-text: #d1d1d1;
+    --shiki-token-constant: #D4B2FF;
+    --shiki-token-string: #ffab70;
+    --shiki-token-comment: #6b737c;
+    --shiki-token-keyword: #00FFE2;
+    --shiki-token-parameter: #ff9800;
+    --shiki-token-function: #B3E04B;
+    --shiki-token-string-expression: #E44173;
+    --shiki-token-punctuation: #bbb;
+    --shiki-token-link: #ffab70;
+
+
     --primary-code-color: #F6F6F1;
     --code-background: #1C1C1C;
     --code-header-background: #121212;

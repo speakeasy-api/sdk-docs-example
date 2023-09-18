@@ -13,11 +13,7 @@ export const DocsSection = (props: {
   }
 
   return <RouteContext.Provider value={`${parentRoute}/${props.route ?? ''}`}>
-    <div style={{
-      margin: '48px 0px',
-      borderTop: '1px solid black',
-      borderBottom: '1px solid black',
-    }}>
+    <div>
       {props.children}
     </div>
   </RouteContext.Provider>;

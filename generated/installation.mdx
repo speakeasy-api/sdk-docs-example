@@ -2,9 +2,12 @@ import GoInstallation from "/content/home/installation/snippets/go.mdx"
 import TsInstallation from "/content/home/installation/snippets/typescript.mdx"
 import {DocsSection} from "/components/docsSection";
 import Overview from "/content/home/installation/installation.mdx";
-import {LanguageSwitch} from "/components/languageHelpers";
+
+import LanguageSwitcher from "/HOC/LanguageSwitcher";
+
+import { LANGUAGES } from 'utils/enums/languages';
 
 <DocsSection route={"installation"}>
     <Overview/>
-    <LanguageSwitch langToContent={{go: <GoInstallation/>, typescript: <TsInstallation/>}}/>
+    <LanguageSwitcher langToContent={{[LANGUAGES.go]: <GoInstallation/>, [LANGUAGES.typescript]: <TsInstallation/>}}/>
 </DocsSection>
