@@ -72,6 +72,7 @@ func (g *Gen) walkFiles(page *Page) error {
 
 	var orderedDirectories []string
 	for _, page := range pageOrder {
+		page = toDirectoryCase(page)
 		if slices.Contains(directories, page) {
 			orderedDirectories = append(orderedDirectories, page)
 		}

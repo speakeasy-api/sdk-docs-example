@@ -1,7 +1,7 @@
 {
-  "createPets": {
-    "title": "reference/pets/Create Pets",
-    "href": "/reference/pets/create_pets"
+  "dogs": {
+    "title": "reference/pets/Dogs",
+    "href": "/reference/pets/dogs"
   },
   "listPets": {
     "title": "reference/pets/List Pets",
