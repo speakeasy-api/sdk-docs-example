@@ -1,14 +1,16 @@
-import {LanguageProvider, LanguageSelect} from "/components/languageHelpers";
+import DocsSection from 'HOC/DocsSection';
+import LanguageProvider from 'HOC/LanguageProvicer';
+import { LANGUAGES } from 'utils/enums/languages';
 import PetsSection from "./pets/main.mdx";
 import Installation from "./installation.mdx";
+
 import Overview from "/content/pages/home.mdx"
 import {DocsSection} from "/components/docsSection";
 
 <DocsSection>
-    <Overview/>
-    <LanguageProvider>
-        <LanguageSelect/>
-        <Installation/>
-        <PetsSection/>
-    </LanguageProvider>
+  <LanguageProvider languageList={[LANGUAGES.typescript, LANGUAGES.go]}>
+    <Overview />
+    <Installation />
+    <PetsSection />
+  </LanguageProvider>
 </DocsSection>

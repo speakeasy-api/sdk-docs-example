@@ -1,0 +1,5 @@
+body {
+  @import 'import/select';
+  font-family: $default-font;
+  color: var(--text-body);
+}

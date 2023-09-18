@@ -1,0 +1,177 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/variables';
+
+.ant-select {
+  border-radius: $default-radius;
+  border-color: var(--code-block-border);
+}
+
+.ant-select-focused .ant-select-selector,
+.ant-select-selector:focus,
+.ant-select-selector:active,
+.ant-select-selector:hover,
+.ant-select-open .ant-select-selector, {
+  border-color: var(--code-block-border) !important;
+  box-shadow: none !important;
+}
+
+.ant-select-single.ant-select-open .ant-select-selection-item {
+  color: var(--select-text);
+}
+
+.ant-select-dropdown {
+  border: 1px solid var(--code-block-border);
+  background-color: var(--code-background) !important;
+  border-radius: $default-radius;
+  box-shadow: none !important;
+  padding: 8px !important;
+}
+
+.ant-select-selector {
+  border-color: var(--code-block-border) !important;
+  background-color: var(--code-background) !important;
+  color: var(--select-text) !important;
+  padding: 0 16px !important;
+}
+
+.ant-select-selection-item, .ant-select-item-option-content {
+  @include flex(row, flex-start, center);
+  column-gap: 8px;
+}
+
+.ant-select-arrow {
+  color: var(--text-body) !important;
+  margin-right: 5px;
+}
+
+.ant-select-item {
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+}
+
+.ant-select-dropdown .ant-select-item:not(.ant-select-item-option-selected):hover {
+  background-color: var(--code-background) !important;
+}
+
+.ant-select-dropdown .ant-select-item, .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  color: var(--select-text) !important;
+  font-size: 14px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  line-height: 152% !important;
+  border: 1px solid transparent;
+  &:hover {
+    border: 1px solid $select-hover;
+    border-radius: $default-radius;
+  }
+}
+.ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: var(--select-hover);
+}
+
+.rc-virtual-list-holder-inner {
+  row-gap: 4px;
+}
+/*.ant-select-item {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 152%;
+}
+
+.ant-select-item-option-selected {
+  background-color: red !important;
+}
+
+.ant-select-dropdown {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid var(--code-block-border);
+  box-sizing: border-box;
+  box-shadow: none;
+  border-radius: $default-radius;
+  z-index: 1;
+}
+
+.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background-color: var(--select-hover);
+  border-radius: $default-radius;
+}
+
+.ant-form-item-has-error
+.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input).ant-select-open
+.ant-select-selector {
+  box-shadow: none;
+}
+
+.ant-form-item-has-error .ant-select:not(.ant-select-disabled):not(.ant-select-customize-input) .ant-select-selector {
+  box-shadow: none;
+}
+
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  color: var(--text-body);
+  box-shadow: none !important;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-radius: $default-radius;
+  background-color: var(--code-background) !important;
+  border: unset;
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) .ant-select-item-option-state {
+  color: var(--text-body);
+}
+
+.ant-select-single.ant-select-open .ant-select-selection-item {
+  color: initial;
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  color: var(--text-body);
+  font-weight: 500;
+}
+
+.ant-select-multiple.ant-select-show-arrow .ant-select-selector,
+.ant-select-multiple.ant-select-allow-clear .ant-select-selector {
+  padding: 0 20px;
+
+  .ant-select-selection-overflow-item {
+    .ant-select-selection-item {
+      margin: 5px 10px 5px 0;
+    }
+  }
+}
+
+.ant-select-disabled.ant-select:not(.ant-select-customize-input) .ant-select-selector,
+.ant-select-multiple.ant-select-disabled.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: var(--code-background);
+  color: inherit;
+}
+
+.ant-select-multiple .ant-select-selection-item,
+.ant-select-disabled.ant-select-multiple .ant-select-selection-item {
+  background-color: var(--code-background);
+  color: var(--text-body);
+  border: unset;
+}
+
+.ant-select-selection-item {
+  @include flex(row, flex-start, center);
+}
+
+.ant-select-item-option-content {
+  white-space: initial;
+  text-align: initial;
+}
+
+.ant-select-selection-search {
+  @include flex(row, initial, center);
+}
+
+.ant-select-single .ant-select-selector .ant-select-selection-search {
+  right: unset;
+  left: 0;
+  width: 100%;
+  padding: inherit;
+}*/
