@@ -4,6 +4,22 @@
   display: none !important;
 }
 
+.nextra-sidebar-container {
+
+  input {
+    height: 48px;
+    padding: 8px 16px;
+  }
+
+  .nx-px-4 {
+    padding-right: 1.7rem;
+  }
+
+  .nextra-search {
+    display: block;
+  }
+}
+
 .nextra-menu-desktop, .nextra-menu-mobile {
 
   .nx-mt-5 {
@@ -16,19 +32,22 @@
       display: none;
     }
   }
+
   a, button {
     width: 100%;
     padding: 0;
-    @include generatePxToRem('border-radius', 8);
-    border: 1px solid transparent;
 
     > svg {
       display: none;
     }
 
     &:hover {
-      @include generatePxToRem('border-radius', 8);
-      border: 1px solid var(--heading-sidebar-bg-color);
+      background-color: transparent!important;
     }
   }
+}
+
+.nextra-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: var(--bcg-color-scrollbar-thumb);
+  @include generatePxToRem('border-radius', 12);
 }
