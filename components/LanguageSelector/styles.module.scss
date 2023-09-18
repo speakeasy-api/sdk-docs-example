@@ -1,6 +1,9 @@
 @import '@/styles/utils/mixins';
 
 .select {
+  position: absolute;
+  right: 0;
+  margin-right: 24px;
   width: 219px;
   height: 40px;
   font-size: 14px;

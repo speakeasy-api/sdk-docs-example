@@ -1,6 +1,4 @@
-@import '@/styles/utils/mixins';
 
-.firstElementWithLanguageSelector {
-  @include flex(row, space-between, flex-start);
-  width: 100%;
+.childContainer {
+  max-width: 688px;
 }
