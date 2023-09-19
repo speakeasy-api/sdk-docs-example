@@ -11,12 +11,12 @@
     "title": "reference/Retries",
     "href": "/reference/retries/retries"
   },
-  "-- operations": {
-    "title": "Operations",
+  "-- resources": {
+    "title": "Resources",
     "type": "separator"
   },
   "pets": {
-    "title": "reference/operations/Pets",
-    "href": "/reference/operations/pets/pets"
+    "title": "reference/resources/Pets",
+    "href": "/reference/resources/pets/pets"
   }
 }

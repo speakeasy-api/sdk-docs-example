@@ -1,10 +1,10 @@
 {
   "dogs": {
-    "title": "reference/operations/pets/Dogs",
-    "href": "/reference/operations/pets/dogs/dogs"
+    "title": "reference/resources/pets/Dogs",
+    "href": "/reference/resources/pets/dogs/dogs"
   },
   "list_pets": {
-    "title": "reference/operations/pets/List Pets",
-    "href": "/reference/operations/pets/list_pets/list_pets"
+    "title": "reference/resources/pets/List Pets",
+    "href": "/reference/resources/pets/list_pets/list_pets"
   }
 }
