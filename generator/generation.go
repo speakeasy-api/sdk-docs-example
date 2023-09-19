@@ -40,7 +40,7 @@ func (g *Gen) setup() error {
 			if err != nil {
 				return err
 			}
-			if err := g.writePagesFile("", file.Name(), string(content)); err != nil {
+			if err := writeFile(fmt.Sprintf("%s/%s", pagesGenRoot, file.Name()), string(content)); err != nil {
 				return err
 			}
 		}

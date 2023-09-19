@@ -5,14 +5,18 @@
   },
   "installation": {
     "title": "reference/Installation",
-    "href": "/reference/installation"
+    "href": "/reference/installation/installation"
   },
   "retries": {
     "title": "reference/Retries",
-    "href": "/reference/retries"
+    "href": "/reference/retries/retries"
+  },
+  "-- operations": {
+    "title": "Operations",
+    "type": "separator"
   },
   "pets": {
-    "title": "reference/Pets",
-    "href": "/reference/pets"
+    "title": "reference/operations/Pets",
+    "href": "/reference/operations/pets/pets"
   }
 }

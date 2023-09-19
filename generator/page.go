@@ -1,23 +1,43 @@
 package main
 
 import (
+	"fmt"
 	"strings"
-	"unicode"
 )
 
 type Page struct {
-	Name     string
-	Path     string
-	parent   *Page
-	Children []*Page
-	Files    []File
+	Name        string
+	Path        string
+	FrontMatter *FrontMatter
+	parent      *Page
+	Children    []*Page
+	Files       []File
 }
 
 func (p *Page) Route() string {
 	if p.IsRoot() {
 		return p.Name + "/"
 	}
-	return p.parent.Route() + toDirectoryCase(p.Name) + "/"
+	return p.parent.Route() + toSnakeCase(p.Name) + "/"
+}
+
+func (p *Page) ParentRoute() string {
+	if p.IsRoot() {
+		return ""
+	}
+	return p.parent.Route()
+}
+
+// PagePath produces the path to the page as needed by the `pages` directory, relative to the root of the site
+// The difference between this and Route is that it strips out and "flat" directories which are not needed in `pages`
+func (p *Page) PagePath() string {
+	if p.IsRoot() {
+		return p.Name + "/"
+	}
+	if p.IsFlat() {
+		return p.parent.PagePath()
+	}
+	return p.parent.PagePath() + toSnakeCase(p.Name) + "/"
 }
 
 func (p *Page) IsLeaf() bool {
@@ -36,20 +56,28 @@ func (p *Page) IsRoot() bool {
 	return p.parent == nil
 }
 
+func (p *Page) GetMainFile() (*File, error) {
+	for _, file := range p.Files {
+		if file.IsMainFile() {
+			return &file, nil
+		}
+	}
+
+	return nil, fmt.Errorf("expected a page named %s.mdx in directory %s", p.Name, p.Name)
+}
+
 func (p *Page) ShouldIgnore() bool {
 	return strings.HasPrefix(p.Name, "_")
 }
 
-func toDirectoryCase(s string) string {
-	if len(s) == 0 {
-		return s
-	}
+func (p *Page) IsFlat() bool {
+	return p.FrontMatter != nil && p.FrontMatter.GroupType == "flat"
+}
 
-	if strings.HasPrefix(s, "/") {
-		return toDirectoryCase(s[1:])
-	}
+func (p *Page) AsDirectoryName() string {
+	return toSnakeCase(p.Name)
+}
 
-	r := []rune(s)
-	r[0] = unicode.ToLower(r[0])
-	return string(r)
+func (p *Page) AsTitle() string {
+	return toTitleCase(p.Name)
 }

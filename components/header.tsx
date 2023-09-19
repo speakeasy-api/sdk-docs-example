@@ -24,4 +24,4 @@ export const Header = (headingType: string) => (props: { children: ReactNode }) 
 
 export const H3 = Header("h3")
 
-export const toRouteFormat = (s: string) => s.toLowerCase().replace(" ", "_")
+export const toRouteFormat = (s: string) => s.toLowerCase().replaceAll(" ", "_")

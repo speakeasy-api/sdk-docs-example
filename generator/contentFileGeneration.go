@@ -23,7 +23,7 @@ func (g *Gen) generateContentFiles(dir Page) error {
 			return err
 		}
 
-		err = g.generateCorrespondingFiles(dir, file.Name, templatedContent)
+		err = g.generateCorrespondingFiles(file, templatedContent)
 		if err != nil {
 			return err
 		}
@@ -39,26 +39,28 @@ func (g *Gen) generateContentFiles(dir Page) error {
 	return nil
 }
 
-func (g *Gen) generateCorrespondingFiles(dir Page, name, content string) error {
-	nameNoSuffix := strings.TrimSuffix(name, ".mdx")
+func (g *Gen) generateCorrespondingFiles(file File, content string) error {
+	nameNoSuffix := strings.TrimSuffix(file.Name, ".mdx")
 
 	// The directory containing the file is the name of the "route"
+	dir := file.parent
 	route := dir.Name
 
-	contentFileName := fmt.Sprintf("%s_content.mdx", nameNoSuffix)
-	if dir.ShouldIgnore() { // Keep "ignored" files, but don't wrap them
-		contentFileName = name
+	// Key files need to be "wrapped" in order to provide their contents with the appropriate route context
+	shouldWrap := file.IsMainFile() && !dir.ShouldIgnore()
+
+	contentFileName := file.Name
+
+	if shouldWrap {
+		contentFileName = fmt.Sprintf("%s_content.mdx", nameNoSuffix)
+		wrapperContent := wrapDocsSection(route, nameNoSuffix)
+		if err := g.writeGenFile(dir.Path, file.Name, wrapperContent); err != nil {
+			return err
+		}
 	}
 
 	if err := g.writeGenFile(dir.Path, contentFileName, content); err != nil {
 		return err
-	}
-
-	if !dir.ShouldIgnore() {
-		wrapperContent := wrapDocsSection(route, nameNoSuffix)
-		if err := g.writeGenFile(dir.Path, name, wrapperContent); err != nil {
-			return err
-		}
 	}
 
 	return nil

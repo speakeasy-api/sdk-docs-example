@@ -8,11 +8,6 @@ import (
 	"strings"
 )
 
-type File struct {
-	Name    string
-	content string
-}
-
 var pageRegex = regexp.MustCompile(`<(\w*)\s*.*/>`)
 
 func (g *Gen) getBasePages(path string) ([]*Page, error) {
@@ -62,6 +57,7 @@ func (g *Gen) walkFiles(page *Page) error {
 		page.Files = append(page.Files, File{
 			Name:    file.Name(),
 			content: fileString,
+			parent:  page,
 		})
 
 		matches := pageRegex.FindAllStringSubmatch(fileString, -1)
@@ -72,7 +68,7 @@ func (g *Gen) walkFiles(page *Page) error {
 
 	var orderedDirectories []string
 	for _, page := range pageOrder {
-		page = toDirectoryCase(page)
+		page = toSnakeCase(page)
 		if slices.Contains(directories, page) {
 			orderedDirectories = append(orderedDirectories, page)
 		}
@@ -86,7 +82,7 @@ func (g *Gen) walkFiles(page *Page) error {
 	}
 
 	for _, pageName := range orderedDirectories {
-		dirName := toDirectoryCase(pageName)
+		dirName := toSnakeCase(pageName)
 		if !slices.Contains(directories, dirName) {
 			return fmt.Errorf("page %s has no corresponding directory (expected a directory named %s)", pageName, dirName)
 		}
@@ -106,6 +102,19 @@ func (g *Gen) walkFiles(page *Page) error {
 		if childPage.Children != nil || childPage.Files != nil {
 			page.Children = append(page.Children, childPage)
 		}
+	}
+
+	/**
+	 * Add frontmatter, if present
+	 */
+	mainFile, _ := page.GetMainFile()
+	if mainFile != nil {
+		frontMatter, err := parseFrontMatter(mainFile.content)
+		if err != nil {
+			return err
+		}
+
+		page.FrontMatter = frontMatter
 	}
 
 	return nil
