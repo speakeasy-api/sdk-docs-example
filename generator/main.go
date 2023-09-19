@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	absBasePath, err := filepath.Abs(pagesContentRoot)
+	absBasePath, err := filepath.Abs(baseContentRoot)
 	if err != nil {
 		panic(err)
 	}
@@ -19,7 +19,7 @@ func main() {
 		panic(err)
 	}
 
-	basePages, err := gen.getBasePages(absBasePath)
+	basePages, err := gen.getBasePages()
 	if err != nil {
 		panic(err)
 	}

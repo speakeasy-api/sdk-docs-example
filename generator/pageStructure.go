@@ -10,7 +10,9 @@ import (
 
 var pageRegex = regexp.MustCompile(`<(\w*)\s*.*/>`)
 
-func (g *Gen) getBasePages(path string) ([]*Page, error) {
+func (g *Gen) getBasePages() ([]*Page, error) {
+	path := g.root + "/pages"
+
 	files, err := os.ReadDir(path)
 	if err != nil {
 		panic(err)

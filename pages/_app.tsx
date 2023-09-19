@@ -1,16 +1,12 @@
 import React from 'react'
-import App from 'next/app'
 import {ScrollManager} from "../components/scrollManager";
-import {LanguageProvider} from "../components/languageHelpers";
+import App from "../.gen/_app";
 import "../styles/styles.css"
 
 class MyApp extends App {
     render() {
-        const {Component, pageProps} = this.props
         return <ScrollManager>
-            <LanguageProvider>
-                <Component {...pageProps} />
-            </LanguageProvider>
+            {super.render()}
         </ScrollManager>
     }
 }
