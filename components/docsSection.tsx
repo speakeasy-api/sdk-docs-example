@@ -1,9 +1,11 @@
-import {ReactNode, useContext} from "react";
+import React, {ReactElement, useContext} from "react";
 import {RouteContext} from "./scrollManager";
+import {RHS} from "./columns";
+import {splitChildrenByType} from "./helpers";
 
 export const DocsSection = ({route, children}: {
     route?: string,
-    children?: ReactNode
+    children?: ReactElement
 }) => {
     let parentRoute = useContext(RouteContext);
     if (parentRoute === "/") parentRoute = ""
@@ -16,6 +18,22 @@ export const DocsSection = ({route, children}: {
         parentRoute = parentRoute.slice(0, parentRoute.lastIndexOf("/home"))
     }
 
+    const [rhs, lhs] = splitChildrenByType(children, RHS);
+    const mainContent = lhs.length || rhs.length ? lhs : children
+
+    if (route.includes("installation")) {
+        console.log(lhs, rhs)
+    }
+
+    const columns = <div style={{display: "flex", width: "1200px"}}>
+        <div style={{flex: 1}}>
+            {mainContent}
+        </div>
+        <div style={{flex: 1}}>
+            {rhs}
+        </div>
+    </div>
+
     return <RouteContext.Provider value={`${parentRoute}/${route ?? ""}${homeOverride}`}>
         <div style={{
             margin: "48px 0px",
@@ -24,7 +42,7 @@ export const DocsSection = ({route, children}: {
             width: "600px",
             overflow: "visible"
         }}>
-            {children}
+            {rhs.length > 0 ? columns : mainContent}
         </div>
     </RouteContext.Provider>
 }

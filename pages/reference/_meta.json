@@ -5,11 +5,11 @@
   },
   "installation": {
     "title": "reference/Installation",
-    "href": "/reference/installation/installation"
+    "href": "/reference/installation"
   },
   "retries": {
     "title": "reference/Retries",
-    "href": "/reference/retries/retries"
+    "href": "/reference/retries"
   },
   "-- resources": {
     "title": "Resources",
@@ -17,6 +17,6 @@
   },
   "pets": {
     "title": "reference/resources/Pets",
-    "href": "/reference/resources/pets/pets"
+    "href": "/reference/resources/pets"
   }
 }

@@ -1,5 +1,6 @@
 import {H3, LinkableContext} from "../components/header";
 import React, {ReactElement, ReactNode, useContext, useState} from "react";
+import {RHS} from "../components/columns";
 
 export type Language = "go" | "typescript"
 
@@ -44,17 +45,13 @@ export const LanguageOperation = (props: {
     parameters: ReactNode,
     response: ReactNode
 }) => {
-    return <>
-        <div style={{display: "flex", width: "1200px"}}>
-            <div style={{flex: 1}}>
-                <H3>Parameters</H3>
+    return <div>
+        <H3>Parameters</H3>
                 {props.parameters}
-                <H3>Response</H3>
+        <H3>Response</H3>
                 {props.response}
-            </div>
-            <div style={{flex: 1}}>
-                {props.usage}
-            </div>
-        </div>
-    </>
+        <RHS>
+            {props.usage}
+        </RHS>
+    </div>
 }

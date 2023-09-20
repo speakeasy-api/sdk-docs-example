@@ -6,7 +6,7 @@
   },
   "about_navlink": {
     "title": "About",
-    "href": "/about/about/home",
+    "href": "/about/home",
     "type": "page"
   },
   "reference": {
@@ -16,7 +16,7 @@
   },
   "reference_navlink": {
     "title": "Reference",
-    "href": "/reference/reference/home",
+    "href": "/reference/home",
     "type": "page"
   }
 }

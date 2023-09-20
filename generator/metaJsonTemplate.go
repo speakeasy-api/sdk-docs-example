@@ -104,7 +104,7 @@ func pageTitleWithRoute(page *Page) string {
 }
 
 func pageLink(page *Page) string {
-	return fmt.Sprintf("/%s%s", page.Route(), page.AsDirectoryName())
+	return fmt.Sprintf("/%s%s", page.ParentRoute(), page.AsDirectoryName())
 }
 
 func toJsonObjectString(entries []Entry) (string, error) {
