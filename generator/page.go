@@ -7,6 +7,7 @@ import (
 
 type Page struct {
 	Name        string
+	SrcName     string // Original name, before stripping leading numbers
 	Path        string
 	FrontMatter *FrontMatter
 	parent      *Page

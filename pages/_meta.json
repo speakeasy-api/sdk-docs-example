@@ -1,14 +1,4 @@
 {
-  "about": {
-    "title": "About",
-    "type": "page",
-    "display": "hidden"
-  },
-  "about_navlink": {
-    "title": "About",
-    "href": "/about/home",
-    "type": "page"
-  },
   "reference": {
     "title": "Reference",
     "type": "page",
@@ -17,6 +7,16 @@
   "reference_navlink": {
     "title": "Reference",
     "href": "/reference/home",
+    "type": "page"
+  },
+  "about": {
+    "title": "About",
+    "type": "page",
+    "display": "hidden"
+  },
+  "about_navlink": {
+    "title": "About",
+    "href": "/about/home",
     "type": "page"
   }
 }

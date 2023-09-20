@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func getBasePageContent(filename string) string {
+func getBasePageContent(location, filename string) string {
 	template := `import Root from "/.gen/pages/%s/%s.mdx"
 import {RootContainer} from "/components/rootContainer";
 
@@ -10,5 +10,5 @@ import {RootContainer} from "/components/rootContainer";
 	<Root/>
 </RootContainer>`
 
-	return fmt.Sprintf(template, filename, filename)
+	return fmt.Sprintf(template, location, filename)
 }
