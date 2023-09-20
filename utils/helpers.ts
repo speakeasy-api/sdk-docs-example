@@ -79,3 +79,9 @@ export const footerSocialLinks: Array<{type: string, hrefTo: string, component: 
     component: Linkedin,
   },
 ];
+
+export const checkIsLinkInternal = (href: string): boolean => {
+  const regEx = /^http/;
+
+  return !regEx.test(href);
+};

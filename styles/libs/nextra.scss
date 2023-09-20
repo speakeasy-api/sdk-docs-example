@@ -55,3 +55,18 @@
 .nextra-toc {
   display: none !important;
 }
+
+.nextra-nav-container {
+  z-index: 2000 !important;
+}
+
+.nextra-nav-container-blur {
+  background-color: var(--color-page-background) !important;
+  --tw-shadow: none !important;
+}
+
+@supports (-webkit-backdrop-filter:blur(1px)) or ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  :is(html[class~=dark] .nextra-nav-container-blur) {
+    background-color: var(--color-page-background) !important;
+  }
+}

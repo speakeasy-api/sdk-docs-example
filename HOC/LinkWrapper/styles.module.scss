@@ -1,0 +1,16 @@
+@import '@/styles/utils/mixins';
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 152%;
+  color: var(--text-link);
+  column-gap: 4px;
+  &:hover {
+    opacity: 0.7;
+  }
+}
