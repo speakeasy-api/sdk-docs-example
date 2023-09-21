@@ -1,0 +1,17 @@
+@import '@/styles/utils/mixins';
+
+.codeHeader {
+  @include generatePxToRem(height, 45);
+  @include generatePxToRem(padding, 0 16);
+  @include generatePxToRem(border-radius, 16 16 0 0);
+  @include flex(row, space-between, center);
+  width: 100%;
+  background-color: var(--code-header-background);
+  .title {
+    @include generatePxToRem(font-size, 14);
+    color: var(--text-heading);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 152%;
+  }
+}

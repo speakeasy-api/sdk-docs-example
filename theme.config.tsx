@@ -1,12 +1,13 @@
 import { DocsThemeConfig } from 'nextra-theme-docs';
 import { OramaSearch } from '@orama/plugin-nextra';
-import { FC, ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 
 import ThemeToggle from '@/components/ThemeToggle';
 import Logo from '@/icons/Logo';
 import Footer from '@/components/Footer';
 import TextHeaderWrapper from '@/HOC/TextHeaderWrapper';
 import LinkWrapper from '@/HOC/LinkWrapper';
+import CodeBlock from '@/components/CodeBlock';
 
 import { NavItem } from './components/NavItem';
 import Collapsible from './components/collapsible';
@@ -19,6 +20,7 @@ interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
     h4: FC<{ children: ReactNode }>;
     h6: FC<{ children: ReactNode }>;
     a: FC<{ children: ReactNode, href: string }>;
+    pre: FC<{ children: ReactNode, hasCopyCode: boolean, filename?: string }>;
     Collapsible?: any; // TODO add correct types
     blockquote?: any; // TODO add correct types
   };
@@ -72,6 +74,11 @@ const config: ICustomDocsThemeConfig = {
       <LinkWrapper href={href}>
         {children}
       </LinkWrapper>
+    ),
+    pre: ({ children, ...props }) => (
+      <CodeBlock {...props}>
+        {children}
+      </CodeBlock>
     ),
     Collapsible,
     blockquote: Collapsible,

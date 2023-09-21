@@ -1,6 +1,18 @@
-@import '../utils/mixins';
+@import 'styles/utils/mixins';
 
 :root {
+  // code theme
+  --shiki-color-text: #4C4C4C;
+  --shiki-token-constant: #40B6DB;
+  --shiki-token-string: #00B898;
+  --shiki-token-comment: #BFB000;
+  --shiki-token-keyword: #E44173;
+  --shiki-token-parameter: #D3681A;
+  --shiki-token-function: #B289E8;
+  --shiki-token-string-expression: #81B900;
+  --shiki-token-punctuation: #E1A201;
+  --shiki-token-link: #E15AE3;
+
   --primary-code-color: #4C4C4C;
   --code-background: #FFF;
   --code-header-background: #F9F9FB;
@@ -41,6 +53,7 @@
   --important-font-weight: bold;
   --bold-font-weight: bold;
   --italic-font-style: italic;
+
   --bcg-btn-image-grad: linear-gradient(25deg, #91FF75 0%, #4AEBF1 93.75%, #42E8FF 100%);
   --heading-sidebar-bg-color: #91FF75;
   --heading-h5-color: #4C4C4C;
@@ -50,17 +63,17 @@
   --text-nested-description: #4C4C4C;
   --bcg-scrollbar-track: #EFEFF1;
   &.dark {
-    --shiki-color-text: #d1d1d1;
-    --shiki-token-constant: #D4B2FF;
-    --shiki-token-string: #ffab70;
-    --shiki-token-comment: #6b737c;
-    --shiki-token-keyword: #00FFE2;
-    --shiki-token-parameter: #ff9800;
-    --shiki-token-function: #B3E04B;
-    --shiki-token-string-expression: #E44173;
-    --shiki-token-punctuation: #bbb;
-    --shiki-token-link: #ffab70;
-
+    // code theme
+    --shiki-color-text: #F6F6F1;
+    --shiki-token-constant: #37CFFF;
+    --shiki-token-string: #00FFE2;
+    --shiki-token-comment: #E4DC7F;
+    --shiki-token-keyword: #E44173;
+    --shiki-token-parameter: #FF7D1F;
+    --shiki-token-function: #D4B2FF;
+    --shiki-token-string-expression: #B3E04B;
+    --shiki-token-punctuation: #FFB800;
+    --shiki-token-link: #FC66FF;
 
     --primary-code-color: #F6F6F1;
     --code-background: #1C1C1C;
@@ -99,6 +112,7 @@
     --important-font-weight: bold;
     --bold-font-weight: bold;
     --italic-font-style: italic;
+
     --bcg-btn-image-grad: linear-gradient(25deg, #91FF75 0%, #4AEBF1 93.75%, #42E8FF 100%);
     --heading-sidebar-bg-color: #91FF75;
     --heading-h5-color: #E3E5E8;
@@ -109,43 +123,3 @@
     --bcg-scrollbar-track: #2A2A2A;
   }
 }
-
-code {
-  @include code();
-}
-
-.comment { color: var(--comment-color); }
-.prolog { color: var(--prolog-color); }
-.doctype { color: var(--doctype-color); }
-.cdata { color: var(--cdata-color); }
-.punctuation { color: var(--punctuation-color); }
-.namespace { opacity: var(--namespace-opacity); }
-.property { color: var(--property-color); }
-.tag { color: var(--tag-color); }
-.constant { color: var(--constant-color); }
-.symbol { color: var(--symbol-color); }
-.deleted { color: var(--deleted-color); }
-.boolean { color: var(--boolean-color); }
-.number { color: var(--number-color); }
-.selector { color: var(--selector-color); }
-.attr-name { color: var(--attr-name-color); }
-.string { color: var(--string-color); }
-.char { color: var(--char-color); }
-.builtin { color: var(--builtin-color); }
-.inserted { color: var(--inserted-color); }
-.operator { color: var(--operator-color); }
-.entity { color: var(--entity-color); cursor: help; }
-.url { color: var(--url-color); }
-.variable { color: var(--variable-color); }
-.atrule { color: var(--atrule-color); }
-.attr-value { color: var(--attr-value-color); }
-.function { color: var(--function-color); }
-.class-name { color: var(--class-name-color); }
-.keyword { color: var(--keyword-color); }
-.regex { color: var(--regex-color); }
-.important { color: var(--important-color); font-weight: var(--important-font-weight); }
-.bold { font-weight: var(--bold-font-weight); }
-.italic { font-style: var(--italic-font-style); }
-
-.language-css .token.string { color: var(--string-color); }
-.style .token.string { color: var(--string-color); }
