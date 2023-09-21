@@ -30,7 +30,7 @@ export const splitElementsByType = (elements: ReactElement[], type: (props: any)
 };
 
 export const typeMatches = (e: ReactNode, type: (props: any) => JSX.Element): boolean => {
-    return typeof e === 'symbol' && 'type' in (e as any) && (e as any).type === type;
+    return 'type' in (e as any) && (e as any).type === type;
 };
 
 export const splitAround = <T, >(a: T[], fn: (e: T) => boolean): [T[], T[]] => {
