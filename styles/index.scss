@@ -17,6 +17,7 @@
   --gradient-heading: linear-gradient(90deg, #34FF00 -1.69%, #00DCE4 5.47%, #01D2EF 15.51%);
   --select-hover: #11D8641F;
   --select-text: #4C4C4C;
+  --stroke-opacity: 1;
 
   &.dark {
     --color-page-background: #171717;
@@ -29,6 +30,7 @@
     --gradient-heading: linear-gradient(90deg, #91FF75 -1.69%, #4AEBF1 6.75%, #42E8FF 15.51%);
     --select-hover: #3148367A;
     --select-text: #E3E5E8;
+    --stroke-opacity: 0.87;
   }
 }
 
@@ -166,9 +168,6 @@ section {
   margin: 0 auto;
 }
 
-pre {
-  @include generatePxToRem(margin-bottom, 24);
-}
 hr {
   @include generatePxToRem(margin, 48 0, !important);
   border-color: rgba(223, 223, 229, 0.08) !important;
