@@ -1,5 +1,5 @@
 import React, {ReactNode} from "react";
-import {splitAround, typeMatches} from "./helpers";
+import {splitAround, typeMatches} from "./typeHelpers";
 
 type propsType = {
     children: ReactNode[]

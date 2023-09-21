@@ -1,6 +1,6 @@
 import {H3, LinkableContext} from "../components/header";
 import React, {ReactElement, ReactNode, useContext, useState} from "react";
-import {RHS} from "../components/columns";
+import {Columns, RHS} from "../components/columns";
 
 export type Language = "go" | "typescript"
 
@@ -45,7 +45,7 @@ export const LanguageOperation = (props: {
     parameters: ReactNode,
     response: ReactNode
 }) => {
-    return <div>
+    return <Columns>
         <H3>Parameters</H3>
                 {props.parameters}
         <H3>Response</H3>
@@ -53,5 +53,5 @@ export const LanguageOperation = (props: {
         <RHS>
             {props.usage}
         </RHS>
-    </div>
+    </Columns>
 }

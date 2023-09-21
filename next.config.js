@@ -18,12 +18,17 @@ const redirects = {
                 destination: '/reference/home',
                 permanent: true,
             },
+            {
+                source: '/about',
+                destination: '/about/home',
+                permanent: true,
+            },
         ]
     },
 };
 
 module.exports = withPlugins(
     [
-        [redirects], // you can directly drop your redirect rules here
+        [redirects],
     ], withNextra()
 );
