@@ -1,0 +1,37 @@
+@import '../styles/utils/mixins';
+
+.collapsible {
+  @include generatePxToRem('border-radius', 16);
+  border: 1px solid var(--code-block-border);
+  background: var(--code-background);
+  backdrop-filter: blur(10px);
+  @include generatePxToRem('padding', 16);
+  margin-top: 20px;
+
+  &_nested {
+    padding: 0 1.25rem 0.5rem 1.25rem;
+
+    .collapsible {
+      border: none;
+      margin-top: 0;
+    }
+
+    > h5, > p {
+      @include collapse-children-heading-text();
+      margin: 0;
+    }
+  }
+
+  &_heading {
+    display: flex;
+    align-items: center;
+    transition: all 1s ease;
+
+    > h5, > p {
+      @include collapse-children-heading-text();
+      margin: 0 0 0 5px;
+    }
+
+
+  }
+}

@@ -32,6 +32,9 @@ dependencies:
   nextra-theme-docs:
     specifier: 2.12.3
     version: 2.12.3(next@13.4.19)(nextra@2.12.3)(react-dom@18.2.0)(react@18.2.0)
+  pnpm:
+    specifier: 8.7.6
+    version: 8.7.6
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -5264,6 +5267,12 @@ packages:
     engines: {node: '>=0.10'}
     hasBin: true
     dev: true
+
+  /pnpm@8.7.6:
+    resolution: {integrity: sha512-ZJ/LpDy+IGYpCPYo2INfnw2MopUOTHQ3HcnhbiSqVLtV5rTmsrbFHe4i35ITLpcgvIWptWbzUTZ8efDYXWpFew==}
+    engines: {node: '>=16.14'}
+    hasBin: true
+    dev: false
 
   /postcss@8.4.14:
     resolution: {integrity: sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==}

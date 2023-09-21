@@ -5,7 +5,10 @@ export const LanguageOperation = (props: {
   parameters: ReactNode,
   response: ReactNode
 }) => (<div>
-  <div style={{ display: 'flex' }}>
+  <div style={{ display: 'flex',
+    flexDirection: 'column',
+    marginBottom: '20px',
+  }} >
     <div style={{ flex: '50%',
       maxWidth: '700px' }}>
       {props.usage}

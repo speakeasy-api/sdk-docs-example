@@ -2,6 +2,9 @@ import React, {
   ReactNode, useState,
 } from 'react';
 
+import styles from './styles.module.scss';
+import RightArrow from '@/icons/RightArrow';
+
 type propsType = {
   children: ReactNode[];
   defaultOpen?: boolean;
@@ -30,12 +33,12 @@ const Collapsible: React.FC<propsType> & { Break: typeof Break } = (
   const [isOpen, setIsOpen] = useState(!!props.defaultOpen);
 
   return (
-    <div style={{ border: '1px solid green' }}>
-      <div onClick={() => setIsOpen((prev) => !prev)}>
+    <div className={styles.collapsible}>
+      <div onClick={() => setIsOpen((prev) => !prev)} className={styles.collapsible_heading}>
+        <RightArrow activeClass={isOpen ? 'active' : ''} />
         {summarySection}
-        {isOpen ? '-' : '+'}
       </div>
-      {isOpen && <div style={{ padding: '8px' }}>{bodySection}</div>}
+      {isOpen && <div className={styles.collapsible_nested}>{bodySection}</div>}
     </div>
   );
 };
