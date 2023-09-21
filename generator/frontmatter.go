@@ -7,11 +7,12 @@ import (
 
 var (
 	frontMatterRegex = regexp.MustCompile(`(?ms)^---$(.*)^---$`)
-	groupTypeRegex   = regexp.MustCompile(`group_type: (.*)`)
 )
 
 type FrontMatter struct {
-	GroupType string
+	Title       string
+	Description string
+	GroupType   string
 }
 
 func parseFrontMatter(content string) (*FrontMatter, error) {
@@ -24,12 +25,21 @@ func parseFrontMatter(content string) (*FrontMatter, error) {
 		return nil, fmt.Errorf("invalid front matter")
 	}
 
-	groupType := groupTypeRegex.FindStringSubmatch(match[1])
-	if len(groupType) != 2 {
-		return nil, nil
+	frontMatter := match[1]
+
+	return &FrontMatter{
+		Title:       configValue(frontMatter, "title"),
+		Description: configValue(frontMatter, "description"),
+		GroupType:   configValue(frontMatter, "group_type"),
+	}, nil
+}
+
+func configValue(content, config string) string {
+	regex := regexp.MustCompile(fmt.Sprintf(`%s: (.*)`, config))
+	matches := regex.FindStringSubmatch(content)
+	if len(matches) != 2 {
+		return ""
 	} else {
-		return &FrontMatter{
-			GroupType: groupType[1],
-		}, nil
+		return matches[1]
 	}
 }

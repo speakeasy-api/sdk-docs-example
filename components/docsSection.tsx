@@ -21,10 +21,6 @@ export const DocsSection = ({route, children}: {
     const [rhs, lhs] = splitChildrenByType(children, RHS);
     const mainContent = lhs.length || rhs.length ? lhs : children
 
-    if (route.includes("installation")) {
-        console.log(lhs, rhs)
-    }
-
     const columns = <div style={{display: "flex", width: "1200px"}}>
         <div style={{flex: 1}}>
             {mainContent}

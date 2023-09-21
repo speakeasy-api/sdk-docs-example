@@ -5,6 +5,7 @@ import {OramaSearch} from '@orama/plugin-nextra'
 import {NavItem} from "./components/navItem";
 import Collapsible from "./components/collapsible";
 import {RHS} from "./components/columns";
+import {Head} from "./components/head";
 
 const config: DocsThemeConfig = {
     logo: <span>My Project</span>,
@@ -30,12 +31,13 @@ const config: DocsThemeConfig = {
         h2: Header("h2"),
         h3: Header("h3"),
         RHS,
-        Collapsible
+        Collapsible,
     },
     search: {
         component: () => OramaSearch(),
     },
-    navigation: false
+    navigation: false,
+    head: Head,
 }
 
 export default config

@@ -66,7 +66,7 @@ func (g *Gen) createBasePage(page Page) error {
 		return err
 	}
 
-	if err := g.writePagesFile(page, basePageNameOverride+".mdx", getBasePageContent(page.SrcName, page.Name)); err != nil {
+	if err := g.writePagesFile(page, basePageNameOverride+".mdx", getBasePageContent(page)); err != nil {
 		return err
 	}
 

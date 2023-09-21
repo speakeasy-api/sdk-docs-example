@@ -12,7 +12,6 @@ export const splitChildrenByType = (parent: ReactElement, type: (props: any) => 
 }
 
 export const typeMatches = (e: ReactNode, type: (props: any) => JSX.Element): boolean => {
-    console.log(e, type)
     return typeof e === "symbol" && "type" in (e as any) && (e as any).type === type
 }
 
