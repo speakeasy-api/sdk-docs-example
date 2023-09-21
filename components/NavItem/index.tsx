@@ -9,10 +9,12 @@ export const NavItem: FC<Record<string, string>> = ({ title, type }) => {
   const { currentHeading } = useContext(ScrollContext);
 
   const pageTitle = title.split('/').pop();
+
   const titleSlug = '/' + title.toLowerCase().replace(' ', '_');
 
   const isHome = currentHeading === '/' && title === 'Home';
   const selected = currentHeading === titleSlug || isHome;
+
   const classForItem = { [styles['selected']]: selected,
     [styles['separator']]:type === 'separator' };
 

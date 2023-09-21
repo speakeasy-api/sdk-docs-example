@@ -46,6 +46,9 @@
   --heading-h5-color: #4C4C4C;
   --heading-h5-color-selected: #222;
   --bcg-color-scrollbar-thumb: #8BF5B7;
+  --text-link-and-collapse: #11D864;
+  --text-nested-description: #4C4C4C;
+  --bcg-scrollbar-track: #EFEFF1;
   &.dark {
     --shiki-color-text: #d1d1d1;
     --shiki-token-constant: #D4B2FF;
@@ -101,6 +104,9 @@
     --heading-h5-color: #E3E5E8;
     --heading-h5-color-selected: #171717;
     --bcg-color-scrollbar-thumb: #77DB8952;
+    --text-link-and-collapse: #67FF82;
+    --text-nested-description: #ACACAC;
+    --bcg-scrollbar-track: #2A2A2A;
   }
 }
 

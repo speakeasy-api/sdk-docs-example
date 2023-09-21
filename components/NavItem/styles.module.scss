@@ -38,5 +38,8 @@
   > p {
     margin: 0;
     @include heading-h5(var(--heading-h5-color));
+    &:first-letter {
+      text-transform: uppercase;
+    }
   }
 }

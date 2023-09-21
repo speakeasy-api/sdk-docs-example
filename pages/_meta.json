@@ -2,37 +2,21 @@
   "about_navlink": {
     "title": "About",
     "href": "/about/home",
+    "type": "page"
+  },
+  "about": {
+    "title": "About",
     "type": "page",
-    "[[...slug]]": {
-      "title": "Home",
-      "href": "/"
-    },
-    "installation": {
-      "title": "Installation",
-      "href": "/installation"
-    },
-    "---": {
-      "title": "Separator",
-      "type": "separator"
-    },
-    "pets": {
-      "title": "Pets",
-      "href": "/pets"
-    },
-    "about": {
-      "title": "About",
-      "type": "page",
-      "display": "hidden"
-    },
-    "reference_navlink": {
-      "title": "Reference",
-      "href": "/reference/home",
-      "type": "page"
-    },
-    "reference": {
-      "title": "Reference",
-      "type": "page",
-      "display": "hidden"
-    }
+    "display": "hidden"
+  },
+  "reference_navlink": {
+    "title": "Reference",
+    "href": "/reference/home",
+    "type": "page"
+  },
+  "reference": {
+    "title": "Reference",
+    "type": "page",
+    "display": "hidden"
   }
 }

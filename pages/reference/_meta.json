@@ -7,6 +7,10 @@
     "title": "reference/Installation",
     "href": "/reference/installation"
   },
+  "retries": {
+    "title": "reference/Retries",
+    "href": "/reference/retries"
+  },
   "pets": {
     "title": "reference/Pets",
     "href": "/reference/pets"

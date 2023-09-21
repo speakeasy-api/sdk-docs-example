@@ -12,7 +12,7 @@ export const DocsSection = ({ route, children }: {
     parentRoute = '';
   }
 
-  if (route.startsWith('/')) {
+  if (route && route.startsWith('/')) {
     route = route.slice(1);
   }
 

@@ -1,0 +1,140 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/variables';
+
+.Collapse {
+  @include generatePxToRem('border-radius', 0 0 16 16, !important);
+  border: 1px solid var(--code-block-border);
+  background: var(--code-background);
+  backdrop-filter: blur(10px);
+  @include generatePxToRem('padding', 16);
+  @include generatePxToRem('margin-bottom', 30);
+
+  .collapse_children {
+    @include flex(column);
+    @include generatePxToRem('gap', 8);
+
+    > p {
+      @include collapse-children-heading-text();
+      margin: 0;
+    }
+
+    > div {
+      margin: 0;
+    }
+  }
+
+  .ant-collapse-item-active {
+    @include flex(column);
+    @include generatePxToRem('gap', 8);
+  }
+
+  .ant-collapse-header {
+    padding: 0 !important;
+    align-items: center !important;
+    width: max-content;
+
+    .ant-collapse-expand-icon {
+      @include generatePxToRem('padding-right', 4, !important);
+    }
+
+    .ant-collapse-header-text {
+      @include collapse-heading-code();
+
+      .key {
+        color: var(--heading-h5-color);
+      }
+
+      .symbols {
+        color: var(--symbol-color);
+      }
+
+      .value {
+        color: var(--string-color);
+      }
+
+      .nested {
+        font-family: Inter, sans-serif;
+        color: var(--text-link-and-collapse);
+      }
+    }
+  }
+
+  .ant-collapse-content-box {
+    @include generatePxToRem('padding', 0 20 8 20, !important);
+  }
+
+  &_nest {
+    background: transparent;
+
+    .ant-collapse-content-active {
+      @include generatePxToRem('border-radius', 16, !important);
+      border: 1px solid var(--code-block-border) !important;
+    }
+
+    .ant-collapse-content-box {
+      width: 98%;
+      @include flex(column);
+      @include generatePxToRem('gap', 16);
+      @include generatePxToRem('padding', 16 40 16 40, !important);
+      @include collapse-heading-code();
+      max-height: 300px;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        @include generatePxToRem('width', 4);
+      }
+
+      &::-webkit-scrollbar-track {
+        @include generatePxToRem('margin', 18 0 18 0);
+        background-color: var(--bcg-scrollbar-track);
+        @include generatePxToRem('border-radius', 12);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--bcg-color-scrollbar-thumb);
+        @include generatePxToRem('border-radius', 12);
+      }
+
+      > div {
+        @include flex(column);
+        @include generatePxToRem('gap', 4);
+      }
+
+      .key {
+        color: var(--heading-h5-color);
+      }
+
+      .symbols {
+        color: var(--symbol-color);
+      }
+
+      .value {
+        color: var(--string-color);
+      }
+
+      .nested {
+        font-family: Inter, sans-serif;
+        color: var(--text-link-and-collapse);
+      }
+
+      .nested_params_box {
+        display: flex;
+        white-space: break-spaces;
+      }
+
+      .nested_desc {
+        @include collapse-heading-code();
+        margin: 0;
+        font-family: Inter, sans-serif;
+        color: var(--text-nested-description);
+      }
+    }
+
+  }
+}
+
+a, summary, button, input, [tabindex]:not([tabindex="-1"]) {
+  outline: none !important;
+}
+
+

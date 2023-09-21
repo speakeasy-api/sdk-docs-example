@@ -1,13 +1,15 @@
 import React, {
-  ReactNode, Children, useState,
+  ReactNode, useState,
 } from 'react';
 
 type propsType = {
-  children: ReactNode[]
-  defaultOpen?: boolean
+  children: ReactNode[];
+  defaultOpen?: boolean;
 };
 
-const Collapsible: React.FC<propsType> & { Break: typeof Break } = (props: propsType) => {
+const Collapsible: React.FC<propsType> & { Break: typeof Break } = (
+  props: propsType,
+) => {
   const elements = props.children;
 
   const isBreak = (e: any) => {
@@ -25,12 +27,17 @@ const Collapsible: React.FC<propsType> & { Break: typeof Break } = (props: props
   const summarySection = elements.slice(0, breakIndex);
   const bodySection = elements.slice(breakIndex + 1);
 
-  const [isOpen, setIsOpen] = React.useState(!!props.defaultOpen);
+  const [isOpen, setIsOpen] = useState(!!props.defaultOpen);
 
-  return <div style={{ border: '1px solid green' }}>
-    <div onClick={() => setIsOpen((prev) => !prev)}>{summarySection}{isOpen ? '-' : '+'}</div>
-    {isOpen && <div style={{ padding: '8px' }}>{bodySection}</div>}
-  </div>;
+  return (
+    <div style={{ border: '1px solid green' }}>
+      <div onClick={() => setIsOpen((prev) => !prev)}>
+        {summarySection}
+        {isOpen ? '-' : '+'}
+      </div>
+      {isOpen && <div style={{ padding: '8px' }}>{bodySection}</div>}
+    </div>
+  );
 };
 
 const Break = () => <div>collapsible-break</div>;
