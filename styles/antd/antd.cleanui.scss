@@ -1,5 +1,6 @@
 body {
   @import 'import/select';
+  @import 'import/collapse';
   font-family: $default-font;
   color: var(--text-body);
 }

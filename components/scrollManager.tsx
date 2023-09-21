@@ -22,7 +22,8 @@ export const ScrollManager = (props: { children: ReactNode }): React.ReactElemen
 
   const [headingToPosition, setHeadingToPosition] = React.useState<Record<string, number>>({});
   const upsertHeading = (heading: string, position: number) => {
-    const offset = -100; // Change the route slightly preemptively
+    const offset = -100;
+    /* Change the route slightly preemptively */
     setHeadingToPosition((current) => ({ ...current,
       [heading]: position + offset }));
   };

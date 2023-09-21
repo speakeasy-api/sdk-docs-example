@@ -4,7 +4,7 @@ import React, {
   FC,
 } from 'react';
 
-import { RouteContext } from '@/components/scrollHelpers';
+import { RouteContext } from '@/components/scrollManager';
 
 interface IDocsSection {
   route?: string,

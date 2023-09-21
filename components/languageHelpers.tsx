@@ -2,12 +2,11 @@ import React, {
   createContext, FC, ReactElement, ReactNode, useContext, useState,
 } from 'react';
 
-import { Language } from '../.gen_old/language';
+import { Language } from '@/.gen_old/language';
 
 const LangContext = createContext<{ lang: Language, setLang: (l: Language) => void }>({
   lang: 'go',
-  setLang: (lang) => {
-  },
+  setLang: (lang) => {},
 });
 
 type TProps = {
