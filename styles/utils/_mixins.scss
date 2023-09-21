@@ -25,7 +25,7 @@
   flex-wrap: $fw;
 }
 
-@mixin generatePxToRem($property, $values) {
+@mixin generatePxToRem($property, $values, $important: '') {
   $remValues: ();
 
   // Check if $values is a list or a single value
@@ -39,7 +39,11 @@
     $remValues: $remValue;
   }
 
-  #{$property}: #{$remValues};
+  @if $important != '' {
+    #{$property}: #{$remValues}$important;
+  } @else {
+    #{$property}: #{$remValues};
+  }
 }
 
 /* Heading H5 */

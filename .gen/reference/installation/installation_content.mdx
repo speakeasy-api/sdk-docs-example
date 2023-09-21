@@ -4,8 +4,8 @@
 
 import GoInstallation from "./_snippets/go.mdx"
 import TsInstallation from "./_snippets/typescript.mdx"
-import {LanguageSwitch} from "/components/languageHelpers";
+import LanguageSwitcher from "HOC/LanguageSwitcher";
 
-<LanguageSwitch langToContent={{go: <GoInstallation/>, typescript: <TsInstallation/>}}/>
+<LanguageSwitcher langToContent={{go: <GoInstallation/>, typescript: <TsInstallation/>}}/>
 
 {/* end rendered section */}

@@ -24,6 +24,7 @@ const LanguageSelector: FC<ILanguageSelector> = ({ languageList }) => {
       value={language}
       onChange={handleChange}
       className={styles.select}
+      getPopupContainer={({ parentElement }) => parentElement}
     >
       {languageList.map(language => {
         const { title, Icon } = languages[language];

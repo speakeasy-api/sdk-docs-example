@@ -1,4 +1,8 @@
+@import '@/styles/utils/mixins';
 
 .childContainer {
-  max-width: 688px;
+  @include generatePxToRem(max-width, 688);
+  @include tabletsMax768 {
+    max-width: 100%;
+  }
 }

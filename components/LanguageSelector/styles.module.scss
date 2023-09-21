@@ -1,19 +1,24 @@
 @import '@/styles/utils/mixins';
 
 .select {
+  @include generatePxToRem(width, 219);
+  @include generatePxToRem(margin-right, 24);
+  @include generatePxToRem(height, 40);
+  @include generatePxToRem(font-size, 14);
   position: absolute;
   right: 0;
-  margin-right: 24px;
-  width: 219px;
-  height: 40px;
-  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 152%;
   font-family: Inter, sans-serif;
   color: var(--text-body);
+  @include tabletsMax768 {
+    @include generatePxToRem(margin-bottom, 40);
+    position: relative;
+    width: 100%;
+  }
   .option {
     @include flex(row, center, center);
-    column-gap: 8px;
+    @include generatePxToRem(column-gap, 8);
   }
 }

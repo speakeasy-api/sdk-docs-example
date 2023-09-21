@@ -14,7 +14,6 @@
   --text-body: #4C4C4C;
   --text-heading-opacity: 1;
   --text-link: #11D864;
-  --svg-link: url('/img/light-link.svg');
   --gradient-heading: linear-gradient(90deg, #34FF00 -1.69%, #00DCE4 5.47%, #01D2EF 15.51%);
   --select-hover: #11D8641F;
   --select-text: #4C4C4C;
@@ -27,7 +26,6 @@
     --text-heading: #ffffff;
     --text-heading-opacity: 1;
     --text-link: #67FF82;
-    --svg-link: url('/img/dark-link.svg');
     --gradient-heading: linear-gradient(90deg, #91FF75 -1.69%, #4AEBF1 6.75%, #42E8FF 15.51%);
     --select-hover: #3148367A;
     --select-text: #E3E5E8;
@@ -65,6 +63,7 @@ html {
   backface-visibility: hidden;
 }
 body {
+  @include generatePxToRem(min-width, 320);
   position: relative;
   padding: 0;
   margin: 0;
@@ -75,18 +74,17 @@ body {
   overscroll-behavior: contain;
   line-height: unset;
   scroll-behavior: unset;
-  min-width: 320px;
   color: var(--text-body);
   -webkit-text-size-adjust: 100%;
   /* Provide a default family for portalled elements not using themes (e.g. Primitives examples) */
   font-family: Inter, serif;
   background-color: var(--color-page-background) !important;
   p {
-    font-size: 16px;
+    @include generatePxToRem(font-size, 16);
+    @include generatePxToRem(margin-bottom, 24);
     font-style: normal;
     font-weight: 400;
     line-height: 152%;
-    margin-bottom: 24px;
   }
 }
 
@@ -117,49 +115,41 @@ h1, h2, h3, h4, h5, p {
   margin: 0;
 }
 
-h1 {
-  font-size: 48px;
+h1, h2 {
+  @include generatePxToRem(font-size, 32);
+  @include generatePxToRem(margin-bottom, 32);
   font-style: normal;
   font-weight: 700;
   line-height: 128%;
   letter-spacing: -0.2px;
-  margin-bottom: 32px;
-}
-
-h2 {
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 128%;
-  letter-spacing: -0.2px;
-  margin-bottom: 32px;
 }
 
 h3 {
-  font-size: 24px;
+  @include generatePxToRem(font-size, 24);
   font-style: normal;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 152%;
   letter-spacing: -0.2px;
 }
 
 h4 {
-  font-size: 18px;
+  @include generatePxToRem(font-size, 18);
   font-style: normal;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 152%;
   letter-spacing: -0.2px;
 }
 
 h5 {
-  font-size: 14px;
+  @include generatePxToRem(font-size, 14);
   font-style: normal;
   font-weight: 500;
   line-height: 152%;
 }
 
 h6 {
-  font-size: 12px;
+  @include generatePxToRem(font-size, 12);
+  @include generatePxToRem(margin-bottom, 8);
   font-style: normal;
   font-weight: 500;
   line-height: 152%;
@@ -169,49 +159,34 @@ h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
-  margin-bottom: 8px;
 }
 
 section {
-  width: 700px;
+  @include generatePxToRem(width, 700);
   margin: 0 auto;
-  a {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 152%;
-    color: var(--text-link);
-    &:after {
-      content: "";
-      display: inline-block;
-      margin-left: 4px;
-      background-image: var(--svg-link);
-      width: 16px;
-      height: 16px;
-      margin-bottom: 3px;
-    }
-    &:hover {
-      opacity: 0.7;
-    }
-  }
 }
 
 pre {
-  margin-bottom: 24px;
+  @include generatePxToRem(margin-bottom, 24);
 }
 hr {
+  @include generatePxToRem(margin, 48 0, !important);
   border-color: rgba(223, 223, 229, 0.08) !important;
-  margin: 48px 0 !important;
   width: 100%;
 }
 
 main {
+  @include generatePxToRem(padding, 38, !important);
   position: relative;
-  padding-left: 38px !important;
   max-width: 100% !important;
+
+  @include tabletsMax768 {
+    @include generatePxToRem(padding, 24, !important);
+  }
+
+  @include mobile {
+    @include generatePxToRem(padding, 24 16 16, !important);
+  }
 }
 
 article {
