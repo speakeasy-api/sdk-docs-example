@@ -5,6 +5,9 @@ import (
 	"path/filepath"
 )
 
+// Needed to enable dynamic routing
+const basePageNameOverride = "[...slug]"
+
 func (g *Gen) generatePages(pages []*Page) error {
 	rootMetaJson, err := getMetaJsonContentForSubpages("", pages, true, false)
 	if err != nil {
@@ -20,7 +23,7 @@ func (g *Gen) generatePages(pages []*Page) error {
 			return err
 		}
 
-		if err := g.generateMetaJsonFiles(*page); err != nil {
+		if err := g.createMetaJsonFiles(*page); err != nil {
 			return err
 		}
 	}
@@ -28,8 +31,12 @@ func (g *Gen) generatePages(pages []*Page) error {
 	return nil
 }
 
-func (g *Gen) generateMetaJsonFiles(page Page) error {
-	if page.IsRoot() || !page.IsLeaf() {
+func needsPagesEntry(page Page) bool {
+	return (page.IsRoot() || !page.IsLeaf()) && !page.IsFlat()
+}
+
+func (g *Gen) createMetaJsonFiles(page Page) error {
+	if needsPagesEntry(page) {
 		if err := g.tryMakePageDir(page); err != nil {
 			return err
 		}
@@ -39,13 +46,13 @@ func (g *Gen) generateMetaJsonFiles(page Page) error {
 			return err
 		}
 
-		if err := g.writePagesFile(page.Path, "_meta.json", metaJson); err != nil {
+		if err := g.writePagesFile(page, "_meta.json", metaJson); err != nil {
 			return err
 		}
 	}
 
 	for _, childDir := range page.Children {
-		err := g.generateMetaJsonFiles(*childDir)
+		err := g.createMetaJsonFiles(*childDir)
 		if err != nil {
 			return err
 		}
@@ -59,7 +66,7 @@ func (g *Gen) createBasePage(page Page) error {
 		return err
 	}
 
-	if err := g.writePagesFile(page.Path, "[...slug].mdx", getBasePageContent(page.Name)); err != nil {
+	if err := g.writePagesFile(page, basePageNameOverride+".mdx", getBasePageContent(page)); err != nil {
 		return err
 	}
 
@@ -67,7 +74,7 @@ func (g *Gen) createBasePage(page Page) error {
 }
 
 func (g *Gen) tryMakePageDir(page Page) error {
-	path, err := g.toPagesPath(page.Path)
+	path, err := g.toPagesPath(page.PagePath())
 	if err != nil {
 		return err
 	}
@@ -85,8 +92,8 @@ func (g *Gen) toPagesPath(path string) (string, error) {
 	return filepath.Abs(fmt.Sprintf("%s/%s", pagesGenRoot, relativePath))
 }
 
-func (g *Gen) writePagesFile(path, name, content string) error {
-	contentPath, err := g.toPagesPath(fmt.Sprintf("%s/%s", path, name))
+func (g *Gen) writePagesFile(page Page, name, content string) error {
+	contentPath, err := g.toPagesPath(fmt.Sprintf("%s/%s", page.PagePath(), name))
 	if err != nil {
 		return err
 	}

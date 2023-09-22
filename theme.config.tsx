@@ -8,9 +8,10 @@ import Footer from '@/components/Footer';
 import TextHeaderWrapper from '@/HOC/TextHeaderWrapper';
 import LinkWrapper from '@/HOC/LinkWrapper';
 import CodeBlock from '@/components/CodeBlock';
-
-import { NavItem } from './components/NavItem';
-import Collapsible from './components/collapsible';
+import { RHS } from "@/components/columns";
+import { Head } from "@/components/head";
+import { NavItem } from '@/components/NavItem';
+import { Collapsible } from './components/collapsible';
 
 interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
   components: {
@@ -21,6 +22,7 @@ interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
     h6: FC<{ children: ReactNode }>;
     a: FC<{ children: ReactNode, href: string }>;
     pre: FC<{ children: ReactNode, hasCopyCode: boolean, filename?: string }>;
+    RHS: any; // TODO add correct types
     Collapsible?: any; // TODO add correct types
     blockquote?: any; // TODO add correct types
   };
@@ -80,8 +82,8 @@ const config: ICustomDocsThemeConfig = {
         {children}
       </CodeBlock>
     ),
+    RHS,
     Collapsible,
-    blockquote: Collapsible,
   },
   search: {
     component: () => OramaSearch(),
@@ -92,6 +94,7 @@ const config: ICustomDocsThemeConfig = {
   navigation: false,
   gitTimestamp: () => null,
   darkMode: false,
+  head: Head,
 };
 
 export default config;

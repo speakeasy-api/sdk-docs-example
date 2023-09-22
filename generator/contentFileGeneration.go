@@ -9,7 +9,6 @@ import (
 
 var (
 	templateRegex = regexp.MustCompile(`{/\* render (\S*) (.*)\*/}`)
-	headingRegex  = regexp.MustCompile(`#+\s+(.*)`)
 )
 
 func (g *Gen) generateContentFiles(dir Page) error {
@@ -24,7 +23,7 @@ func (g *Gen) generateContentFiles(dir Page) error {
 			return err
 		}
 
-		err = g.generateCorrespondingFiles(dir, file.Name, templatedContent)
+		err = g.generateCorrespondingFiles(file, templatedContent)
 		if err != nil {
 			return err
 		}
@@ -40,51 +39,28 @@ func (g *Gen) generateContentFiles(dir Page) error {
 	return nil
 }
 
-func (g *Gen) generateCorrespondingFiles(dir Page, name, content string) error {
-	nameNoSuffix := strings.TrimSuffix(name, ".mdx")
+func (g *Gen) generateCorrespondingFiles(file File, content string) error {
+	nameNoSuffix := strings.TrimSuffix(file.Name, ".mdx")
 
 	// The directory containing the file is the name of the "route"
+	dir := file.parent
 	route := dir.Name
 
-	contentFileName := fmt.Sprintf("%s_content.mdx", nameNoSuffix)
-	if dir.ShouldIgnore() { // Keep "ignored" files, but don't wrap them
-		contentFileName = name
-	}
+	// Key files need to be "wrapped" in order to provide their contents with the appropriate route context
+	shouldWrap := file.IsMainFile() && !dir.ShouldIgnore()
 
-	if err := g.writeGenFile(dir.Path, contentFileName, content); err != nil {
-		return err
-	}
+	contentFileName := file.Name
 
-	if !dir.ShouldIgnore() {
-		//if err := validateContent(name, content, route); err != nil {
-		//	return err
-		//}
-
+	if shouldWrap {
+		contentFileName = fmt.Sprintf("%s_content.mdx", nameNoSuffix)
 		wrapperContent := wrapDocsSection(route, nameNoSuffix)
-		if err := g.writeGenFile(dir.Path, name, wrapperContent); err != nil {
+		if err := g.writeGenFile(dir.Path, file.Name, wrapperContent); err != nil {
 			return err
 		}
 	}
 
-	return nil
-}
-
-// Check that the content meets necessary criteria
-// For example, the first heading should match the "route" aka directory name
-func validateContent(fileName, content, route string) error {
-	// Root route is a special case
-	if route == "root" {
-		return nil
-	}
-
-	expectedHeading := toTitleCase(route)
-
-	firstHeadingMatch := headingRegex.FindStringSubmatch(content)
-
-	if len(firstHeadingMatch) < 2 {
-		return fmt.Errorf("no heading found in file %s. Expected the first heading to be %s", fileName, expectedHeading)
-	} else if firstHeadingMatch[1] != expectedHeading {
-		return fmt.Errorf("expected the first heading in file %s to be %s, but got %s", fileName, expectedHeading, firstHeadingMatch[1])
+	if err := g.writeGenFile(dir.Path, contentFileName, content); err != nil {
+		return err
 	}
 
 	return nil

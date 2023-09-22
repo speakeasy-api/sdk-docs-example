@@ -1,0 +1,26 @@
+```go showLineNumbers copy filename="List Pets usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"github.com/speakeasy-sdks/petstore-test-go"
+	"github.com/speakeasy-sdks/petstore-test-go/pkg/models/operations"
+)
+
+func main() {
+    s := petstore.New()
+
+    ctx := context.Background()
+    res, err := s.Pets.ListPets(ctx, operations.ListPetsRequest{
+        Limit: petstore.Int(548814),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Pets != nil {
+        // handle response
+    }
+}
+```

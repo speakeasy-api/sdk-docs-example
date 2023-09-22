@@ -12,7 +12,7 @@ const (
 	genRoot          = ".gen"
 	pagesGenRoot     = "./pages"
 
-	entrypoint = "root"
+	appFile = "_app.tsx"
 )
 
 type Gen struct {
@@ -24,15 +24,23 @@ func (g *Gen) setup() error {
 		return err
 	}
 
+	if err := tryMkdir(fmt.Sprintf("%s/%s", genRoot, "pages")); err != nil {
+		return err
+	}
+
 	if err := recreateDir(pagesGenRoot); err != nil {
 		return err
 	}
 
-	// Copy files in the root over unchanged
+	/**
+	 * Copy files in the root over unchanged
+	 */
 	files, err := os.ReadDir(baseContentRoot)
 	if err != nil {
 		return err
 	}
+
+	appFileProvided := false
 
 	for _, file := range files {
 		if !file.IsDir() {
@@ -40,10 +48,18 @@ func (g *Gen) setup() error {
 			if err != nil {
 				return err
 			}
-			if err := g.writePagesFile("", file.Name(), string(content)); err != nil {
+
+			appFileProvided = appFileProvided || file.Name() == appFile
+
+			if err := writeFile(fmt.Sprintf("%s/%s", genRoot, file.Name()), string(content)); err != nil {
 				return err
 			}
 		}
+	}
+
+	appFileContent := getAppFileContent(appFileProvided)
+	if err := writeFile(fmt.Sprintf("%s/%s", pagesGenRoot, appFile), appFileContent); err != nil {
+		return err
 	}
 
 	return nil

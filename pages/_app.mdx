@@ -1,15 +1,11 @@
 import { ScrollManager } from 'components/scrollManager';
 
-import { LanguageProvider } from "../components/languageHelpers";
-
 import '@/styles/index.scss';
 
 export default function App({ Component, pageProps }) {
   return (
     <ScrollManager>
-      <LanguageProvider>
-        <Component {...pageProps} />
-      </LanguageProvider>
+      <Component {...pageProps} />
     </ScrollManager>
   )
 }

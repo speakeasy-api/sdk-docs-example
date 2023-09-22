@@ -2,10 +2,26 @@ package main
 
 import "fmt"
 
-func getBasePageContent(filename string) string {
-	template := `import Root from "/.gen/%s/%s.mdx"
+func getBasePageContent(page Page) string {
+	template := `---
+title: %s
+description: %s
+---
 
-<Root/>`
+import Root from "/.gen/pages/%s/%s.mdx"
+import {RootContainer} from "/components/rootContainer";
 
-	return fmt.Sprintf(template, filename, filename)
+<RootContainer>
+	<Root/>
+</RootContainer>`
+
+	frontMatter := page.FrontMatter
+	if frontMatter == nil {
+		frontMatter = &FrontMatter{}
+	}
+	if frontMatter.Title == "" {
+		frontMatter.Title = page.AsTitle()
+	}
+
+	return fmt.Sprintf(template, frontMatter.Title, frontMatter.Description, page.SrcName, page.Name)
 }

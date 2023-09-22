@@ -5,17 +5,15 @@ import (
 	"os"
 	"regexp"
 	"slices"
+	"strconv"
 	"strings"
 )
 
-type File struct {
-	Name    string
-	content string
-}
-
 var pageRegex = regexp.MustCompile(`<(\w*)\s*.*/>`)
 
-func (g *Gen) getBasePages(path string) ([]*Page, error) {
+func (g *Gen) getBasePages() ([]*Page, error) {
+	path := g.root + "/pages"
+
 	files, err := os.ReadDir(path)
 	if err != nil {
 		panic(err)
@@ -27,8 +25,9 @@ func (g *Gen) getBasePages(path string) ([]*Page, error) {
 		fullPath := fmt.Sprintf("%s/%s", path, file.Name())
 		if file.IsDir() {
 			pages = append(pages, &Page{
-				Name: file.Name(),
-				Path: fullPath,
+				Name:    stripLeadingNumbers(file.Name()),
+				SrcName: file.Name(),
+				Path:    fullPath,
 			})
 		}
 	}
@@ -42,12 +41,18 @@ func (g *Gen) walkFiles(page *Page) error {
 		panic(err)
 	}
 
-	var directories []string
+	var childPages []*Page
 	var pageOrder []string
 
 	for _, file := range files {
 		if file.IsDir() {
-			directories = append(directories, file.Name())
+			path := fmt.Sprintf("%s/%s", page.Path, toSnakeCase(file.Name()))
+			childPages = append(childPages, &Page{
+				Name:    stripLeadingNumbers(file.Name()),
+				SrcName: file.Name(),
+				Path:    path,
+				parent:  page,
+			})
 			continue
 		}
 
@@ -62,6 +67,7 @@ func (g *Gen) walkFiles(page *Page) error {
 		page.Files = append(page.Files, File{
 			Name:    file.Name(),
 			content: fileString,
+			parent:  page,
 		})
 
 		matches := pageRegex.FindAllStringSubmatch(fileString, -1)
@@ -70,34 +76,22 @@ func (g *Gen) walkFiles(page *Page) error {
 		}
 	}
 
-	var orderedDirectories []string
-	for _, page := range pageOrder {
-		if slices.Contains(directories, page) {
-			orderedDirectories = append(orderedDirectories, page)
+	var orderedChildren []*Page
+	for _, pageName := range pageOrder {
+		pageName = toSnakeCase(pageName)
+		if i := slices.IndexFunc(childPages, func(p *Page) bool { return p.Name == pageName }); i != -1 {
+			orderedChildren = append(orderedChildren, childPages[i])
 		}
 	}
 
-	for _, dir := range directories {
-		// Append directories that are not "pages" but might include necessary content
-		if !slices.Contains(orderedDirectories, dir) {
-			orderedDirectories = append(orderedDirectories, dir)
+	// Append directories that are not "pages" but might include necessary content
+	for _, child := range childPages {
+		if !slices.Contains(orderedChildren, child) {
+			orderedChildren = append(orderedChildren, child)
 		}
 	}
 
-	for _, pageName := range orderedDirectories {
-		dirName := toDirectoryCase(pageName)
-		if !slices.Contains(directories, dirName) {
-			return fmt.Errorf("page %s has no corresponding directory (expected a directory named %s)", pageName, dirName)
-		}
-
-		dirPath := fmt.Sprintf("%s/%s", page.Path, dirName)
-
-		childPage := &Page{
-			Name:   dirName,
-			Path:   dirPath,
-			parent: page,
-		}
-
+	for _, childPage := range orderedChildren {
 		if err := g.walkFiles(childPage); err != nil {
 			return err
 		}
@@ -107,9 +101,34 @@ func (g *Gen) walkFiles(page *Page) error {
 		}
 	}
 
+	/**
+	 * Add frontmatter, if present
+	 */
+	mainFile, _ := page.GetMainFile()
+	if mainFile != nil {
+		frontMatter, err := parseFrontMatter(mainFile.content)
+		if err != nil {
+			return err
+		}
+
+		page.FrontMatter = frontMatter
+	}
+
 	return nil
 }
 
 func (g *Gen) toRelativePath(path string) string {
 	return strings.TrimPrefix(path, g.root)
+}
+
+func stripLeadingNumbers(dirName string) string {
+	// Strip out any leading numbers (used for ordering) from the directory name (e.g. "01-foo" -> "foo")
+	parts := strings.Split(dirName, "-")
+	if len(parts) > 1 {
+		if _, err := strconv.Atoi(parts[0]); err == nil {
+			return strings.Join(parts[1:], "-")
+		}
+	}
+
+	return dirName
 }
