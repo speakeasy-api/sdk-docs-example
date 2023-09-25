@@ -11,7 +11,7 @@ import RightArrow from '@/icons/RightArrow';
 export const NestHeading: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  return <span className={'nested'} onClick={() => setIsOpen(!isOpen)}>{isOpen ? 'Hide' : 'Show'} child attributes</span>;
+  return <span className={'nested'} onClick={() => setIsOpen((prev) => !prev)}>{isOpen ? 'Hide' : 'Show'} child attributes</span>;
 };
 
 export const CollapseLabel: FC<ICollapseLabelProps> = (props): ReactNode => {
@@ -61,7 +61,7 @@ export const CollapseParams: FC<ICollapseParams> = (props) => {
       items={items}
       ghost
       className={nested ? 'Collapse_nest' : 'Collapse'}
-      expandIcon={({ isActive }) => <RightArrow activeClass={isActive ? 'active' : ''} nested/>}
+      expandIcon={({ isActive }) => <RightArrow activeClass={isActive ? 'active' : ''} nested={nested}/>}
     />
   );
 };

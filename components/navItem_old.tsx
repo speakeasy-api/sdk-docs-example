@@ -1,15 +1,19 @@
-import {ScrollContext} from "./scrollManager";
-import React, {useContext} from "react";
-import {toRouteFormat} from "./header";
+import React, { useContext } from 'react';
 
-export const NavItem_old = ({title}) => {
-    const {currentHeading} = useContext(ScrollContext);
+import { ScrollContext } from './scrollManager';
+import { toRouteFormat } from './header';
 
-    const pageTitle = title.split("/").pop()
-    const titleSlug = "/" + toRouteFormat(title.toLowerCase())
+export const NavItem_old = ({ title }) => {
+  const { currentHeading } = useContext(ScrollContext);
 
-    const baseHeading = currentHeading.split("#")[0]
+  const pageTitle = title.split('/').pop();
+  const titleSlug = '/' + toRouteFormat(title.toLowerCase());
 
-    const selected = baseHeading === titleSlug
-    return <div style={{background: selected ? "cyan" : "none"}}>{pageTitle}</div>
-}
+  const baseHeading = currentHeading.split('#')[0];
+
+  const selected = baseHeading === titleSlug;
+
+  return (
+    <div style={{ background: selected ? 'cyan' : 'none' }}>{pageTitle}</div>
+  );
+};

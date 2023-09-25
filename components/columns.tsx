@@ -1,30 +1,32 @@
 import React, { ReactElement, ReactNode } from 'react';
+
 import { splitByType } from './typeHelpers';
 
 type propsType = {
-    children: ReactElement[]
-}
+  children: ReactElement[];
+};
 
-export const Columns: React.FC<propsType> & { RHS: typeof RHS } = (props: propsType) => {
-    const [rhs, lhs] = splitByType(props.children, RHS);
-    const mainContent = lhs.length || rhs.length ? lhs : props.children;
+export const Columns: React.FC<propsType> & { RHS: typeof RHS } = (
+  props: propsType,
+) => {
+  const [rhs, lhs] = splitByType(props.children, RHS);
+  const mainContent = lhs.length || rhs.length ? lhs : props.children;
 
-    const columns = <div style={{ display: 'flex', width: '1200px' }}>
-        <div style={{ flex: 1 }}>
-            {mainContent}
-        </div>
-        <div style={{ flex: 1 }}>
-            {rhs}
-        </div>
-    </div>;
+  const columns = (
+    <div style={{
+      display: 'flex',
+      width: '1200px',
+    }}>
+      <div style={{ flex: 1 }}>{mainContent}</div>
+      <div style={{ flex: 1 }}>{rhs}</div>
+    </div>
+  );
 
-    return <div>
-        {rhs.length > 0 ? columns : mainContent}
-    </div>;
+  return <div>{rhs.length > 0 ? columns : mainContent}</div>;
 };
 
 export const RHS = (props: { children: ReactNode }) => {
-    return <>{props.children}</>;
+  return <>{props.children}</>;
 };
 
 Columns.RHS = RHS;

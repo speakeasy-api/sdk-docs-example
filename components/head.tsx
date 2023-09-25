@@ -5,6 +5,7 @@ export const Head = () => {
   const { frontMatter } = useConfig();
 
   const title = frontMatter.title || 'Reference';
+
   return (
     <>
       <title>{title}</title>

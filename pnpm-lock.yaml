@@ -11,6 +11,9 @@ dependencies:
   '@orama/plugin-nextra':
     specifier: ^1.2.3
     version: 1.2.3(sass@1.67.0)
+  '@types/lodash':
+    specifier: 4.14.199
+    version: 4.14.199
   antd:
     specifier: 5.9.1
     version: 5.9.1(react-dom@18.2.0)(react@18.2.0)
@@ -997,6 +1000,10 @@ packages:
 
   /@types/katex@0.14.0:
     resolution: {integrity: sha512-+2FW2CcT0K3P+JMR8YG846bmDwplKUTsWgT2ENwdQ1UdVfRk3GQrh6Mi4sTopy30gI8Uau5CEqHTDZ6YvWIUPA==}
+    dev: false
+
+  /@types/lodash@4.14.199:
+    resolution: {integrity: sha512-Vrjz5N5Ia4SEzWWgIVwnHNEnb1UE1XMkvY5DGXrAeOGE9imk0hgTHh5GyDjLDJi9OTCn9oo9dXH1uToK1VRfrg==}
     dev: false
 
   /@types/mdast@3.0.10:

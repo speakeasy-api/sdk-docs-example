@@ -1,6 +1,8 @@
 import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
+import { toRouteFormat } from '@/components/header';
+
 import styles from './styles.module.scss';
 
 import { ScrollContext } from '../scrollManager';
@@ -10,10 +12,11 @@ export const NavItem: FC<Record<string, string>> = ({ title, type }) => {
 
   const pageTitle = title.split('/').pop();
 
-  const titleSlug = '/' + title.toLowerCase().replace(' ', '_');
+  const titleSlug = '/' + toRouteFormat(title.toLowerCase());
 
-  const isHome = currentHeading === '/' && title === 'Home';
-  const selected = currentHeading === titleSlug || isHome;
+  const baseHeading = currentHeading.split('#')[0];
+
+  const selected = baseHeading === titleSlug;
 
   const classForItem = { [styles['selected']]: selected,
     [styles['separator']]:type === 'separator' };

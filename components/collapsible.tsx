@@ -4,9 +4,9 @@ import React, {
   FC,
 } from 'react';
 
-import styles from './styles.module.scss';
 import RightArrow from '@/icons/RightArrow';
 
+import styles from './styles.module.scss';
 import { splitAround, typeMatches } from './typeHelpers';
 
 type propsType = {
@@ -31,9 +31,7 @@ const Collapsible: FC<propsType> & { Break: typeof Break } = (props: propsType) 
   );
 };
 
-const Break = () => {
-  return <></>;
-};
+const Break = () => <></>;
 
 Collapsible.Break = Break;
 

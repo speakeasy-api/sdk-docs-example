@@ -6,8 +6,6 @@
   width: 100%;
   height: 100%;
   border: 1px solid var(--code-block-border);
-  border-radius: 16px;
-  margin-bottom: 24px;
   background-color: var(--code-background);
   @include tabletsMax768 {
     @include generatePxToRem(margin-bottom, 16);
