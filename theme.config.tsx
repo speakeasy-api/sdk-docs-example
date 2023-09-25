@@ -8,10 +8,10 @@ import Footer from '@/components/Footer';
 import TextHeaderWrapper from '@/HOC/TextHeaderWrapper';
 import LinkWrapper from '@/HOC/LinkWrapper';
 import CodeBlock from '@/components/CodeBlock';
-import { RHS } from "@/components/columns";
-import { Head } from "@/components/head";
+import { RHS } from '@/components/columns';
+import { Head } from '@/components/head';
 import { NavItem } from '@/components/NavItem';
-import { Collapsible } from './components/collapsible';
+import Collapsible from '@/components/collapsible';
 
 interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
   components: {

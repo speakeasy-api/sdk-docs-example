@@ -1,11 +1,17 @@
+import { createElement } from 'react';
+
 import { ScrollManager } from 'components/scrollManager';
+
+import genApp from '.gen/_app';
 
 import '@/styles/index.scss';
 
-export default function App({ Component, pageProps }) {
+export default function App(props) {
+    const renderedApp = createElement(genApp, props);
+
   return (
     <ScrollManager>
-      <Component {...pageProps} />
+        {renderedApp}
     </ScrollManager>
   )
 }

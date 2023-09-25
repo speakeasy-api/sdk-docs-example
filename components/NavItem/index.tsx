@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
-import { toRouteFormat } from '@/components/header';
+import { toRouteFormat } from '@/utils/routesHelpers';
 
 import styles from './styles.module.scss';
 

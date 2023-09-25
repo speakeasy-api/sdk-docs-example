@@ -1,6 +1,10 @@
 import About from './about_content.mdx';
 import {DocsSection} from "/components/docsSection";
+import { LanguageProvider } from '../../languages';
+import { LANGUAGES } from '../../../utils/enums/languages';
 
-<DocsSection route={"about"}>
-    <About/>
-</DocsSection>
+<LanguageProvider languageList={[LANGUAGES.go, LANGUAGES.typescript]}>
+    <DocsSection route={"about"}>
+        <About/>
+    </DocsSection>
+</LanguageProvider>
