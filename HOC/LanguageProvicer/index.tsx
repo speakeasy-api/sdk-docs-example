@@ -1,7 +1,8 @@
 import React, {
   ReactNode,
   FC,
-  useState, Children,
+  useState,
+  Children,
 } from 'react';
 
 import LanguageSelector from '@/components/LanguageSelector';
@@ -20,6 +21,7 @@ const LanguageProvider: FC<ILanguageProvider> = ({ children, languageList }) => 
   const context = {
     language,
     setLanguage,
+    languageList,
   };
 
   const childrenArray = Children.toArray(children);

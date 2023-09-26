@@ -17,6 +17,12 @@
     position: relative;
     width: 100%;
   }
+  &.small {
+    @include generatePxToRem(width, 128);
+    @include generatePxToRem(height, 32);
+    position: relative;
+    margin: 0;
+  }
   .option {
     @include flex(row, center, center);
     @include generatePxToRem(column-gap, 8);

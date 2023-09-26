@@ -1,7 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
 import CopyToClipboard from '@/components/Buttons/CopyToClipboard';
+import LanguageSelector from '@/components/LanguageSelector';
+import { LanguageContext } from '@/utils/contexts/languageContext';
 
 import styles from './styles.module.scss';
 
@@ -11,20 +13,29 @@ interface ICodeHeader {
   getValue(): string;
 }
 
-const CodeHeader: FC<ICodeHeader> = ({ filename, getValue, method }) => (
-  <div className={cn(styles.codeHeader, { [styles.forMethod]: method })}>
-    <div className={cn(styles.title, { [styles.forMethod]: method })}>
-      {method && (
-        <span
-          className={cn(styles.title_method, { [styles[`${method}`]]: method })}
-        >
-          {method}
-        </span>
-      )}
-      {filename}
+const CodeHeader: FC<ICodeHeader> = ({ filename, getValue, method }) => {
+  const { languageList } = useContext(LanguageContext);
+
+  return (
+    <div className={cn(styles.codeHeader, { [styles.forMethod]: method })}>
+      <div className={cn(styles.title, { [styles.forMethod]: method })}>
+        {method && (
+          <span
+            className={cn(styles.title_method, {
+              [styles[`${method}`]]: method,
+            })}
+          >
+            {method}
+          </span>
+        )}
+        {filename}
+      </div>
+      <div className={styles.lastItems}>
+        <LanguageSelector languageList={languageList} isSmall />
+        <CopyToClipboard getValue={getValue} />
+      </div>
     </div>
-    <CopyToClipboard getValue={getValue} />
-  </div>
-);
+  );
+};
 
 export default CodeHeader;
