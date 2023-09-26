@@ -109,6 +109,34 @@
   @include generatePxToRem('letter-spacing', -0.088);
 }
 
+@mixin method-heading-text() {
+  font-family: IBM Plex Mono, sans-serif;
+  @include generatePxToRem('font-size', 10);
+  @include generatePxToRem('line-height', 15.6);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin collapse-sub-heading-title() {
+  color: var(--heading-h5-color);
+  font-family: IBM Plex Mono, sans-serif;
+  @include generatePxToRem('font-size', 12, !important);
+  font-style: normal;
+  font-weight: 700!important;
+  @include generatePxToRem('line-height', 16, !important);
+  @include generatePxToRem('letter-spacing', -0.088, !important);
+}
+
+@mixin collapse-sub-heading-input-text() {
+  color: #B5B5B5;
+  font-family: Inter, serif;
+  @include generatePxToRem('font-size', 12, !important);
+  font-style: normal;
+  font-weight: 400;
+  @include generatePxToRem('line-height', 16);
+  @include generatePxToRem('letter-spacing', -0.2);
+}
+
 @mixin code() {
   color: var(--primary-code-color);
   background: none;

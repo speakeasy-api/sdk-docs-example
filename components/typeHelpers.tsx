@@ -1,11 +1,11 @@
-import { ReactElement, ReactNode } from 'react';
+import React from 'react';
 import { partition } from 'lodash';
 
 // Needs to support both arrays of children and MDXContent nodes (whose children first need to be extracted)
 export const splitByType = (
-  node: ReactNode,
-  type: (props: any) => Element,
-): [ReactNode[], ReactNode[]] => {
+  node: React.ReactNode,
+  type: (props: { children: React.ReactNode }) => React.JSX.Element,
+): [React.ReactNode[], React.ReactNode[]] => {
   if (Array.isArray(node)) {
     return splitElementsByType(node, type);
   } else {
@@ -15,9 +15,9 @@ export const splitByType = (
 
 // Assumes the parent is an MDXContent node
 export const splitMDXContentChildrenByType = (
-  parent: ReactNode,
-  type: (props: any) => Element,
-): [ReactNode[], ReactNode[]] => {
+  parent: React.ReactNode,
+  type: (props: { children: React.ReactNode }) => React.JSX.Element,
+): [React.ReactNode[], React.ReactNode[]] => {
   let children = (parent as any).props?.children;
 
   if (!children) {
@@ -35,13 +35,13 @@ export const splitMDXContentChildrenByType = (
 };
 
 export const splitElementsByType = (
-  elements: ReactElement[],
-  type: (props: any) => Element,
-): [ReactElement[], ReactElement[]] => partition(elements, (e) => e.type === type);
+  elements: React.ReactElement[],
+  type: (props: { children: React.ReactNode }) => React.JSX.Element,
+): [React.ReactElement[], React.ReactElement[]] => partition(elements, (e: any) => e.type === type);
 
 export const typeMatches = (
-  e: ReactNode,
-  type: (props: any) => JSX.Element,
+  e: React.ReactNode,
+  type: () => React.JSX.Element,
 ): boolean => 'type' in (e as any) && (e as any).type === type;
 
 export const splitAround = <T, >(a: T[], fn: (e: T) => boolean): [T[], T[]] => {

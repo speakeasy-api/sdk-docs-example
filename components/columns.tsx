@@ -3,7 +3,7 @@ import React, { ReactElement, ReactNode } from 'react';
 import { splitByType } from './typeHelpers';
 
 type propsType = {
-  children: ReactElement[];
+  children: ReactElement[] | ReactElement | undefined;
 };
 
 export const Columns: React.FC<propsType> & { RHS: typeof RHS } = (
@@ -25,9 +25,7 @@ export const Columns: React.FC<propsType> & { RHS: typeof RHS } = (
   return <div>{rhs.length > 0 ? columns : mainContent}</div>;
 };
 
-export const RHS = (props: { children: ReactNode }) => {
-  return <>{props.children}</>;
-};
+export const RHS = (props: { children: ReactNode }) => <>{props.children}</>;
 
 Columns.RHS = RHS;
 

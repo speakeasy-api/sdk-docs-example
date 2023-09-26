@@ -1,5 +1,5 @@
-import React, {ReactNode } from "react";
-import {Columns, RHS} from "../components/columns";
+import React, { ReactElement } from 'react';
+import { Columns, RHS } from '@/components/columns';
 
 import TextHeaderWrapper from '@/HOC/TextHeaderWrapper';
 import LanguageSwitcher from '@/HOC/LanguageSwitcher';
@@ -24,21 +24,17 @@ export const LanguageProvider = newLanguageProvider;
 export const LanguageSwitch = LanguageSwitcher;
 
 export const LanguageOperation = (props: {
-    usage: ReactNode,
-    parameters: ReactNode,
-    response: ReactNode
+  usage: ReactElement;
+  parameters: ReactElement;
+  response: ReactElement;
 }) => {
-    return <Columns>
-        <TextHeaderWrapper headingType='h3'>
-            Parameters
-        </TextHeaderWrapper>
-                {props.parameters}
-        <TextHeaderWrapper headingType='h3'>
-            Response
-        </TextHeaderWrapper>
-                {props.response}
-        <RHS>
-            {props.usage}
-        </RHS>
+  return (
+    <Columns>
+      <TextHeaderWrapper headingType='h3'>Parameters</TextHeaderWrapper>
+      {props.parameters}
+      <TextHeaderWrapper headingType='h3'>Response</TextHeaderWrapper>
+      {props.response}
+      <RHS>{props.usage}</RHS>
     </Columns>
-}
+  );
+};

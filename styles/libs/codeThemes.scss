@@ -12,7 +12,6 @@
   --shiki-token-string-expression: #81B900;
   --shiki-token-punctuation: #E1A201;
   --shiki-token-link: #E15AE3;
-
   --primary-code-color: #4C4C4C;
   --code-background: #FFF;
   --code-header-background: #F9F9FB;
@@ -53,7 +52,6 @@
   --important-font-weight: bold;
   --bold-font-weight: bold;
   --italic-font-style: italic;
-
   --bcg-btn-image-grad: linear-gradient(25deg, #91FF75 0%, #4AEBF1 93.75%, #42E8FF 100%);
   --heading-sidebar-bg-color: #91FF75;
   --heading-h5-color: #4C4C4C;
@@ -62,6 +60,10 @@
   --text-link-and-collapse: #11D864;
   --text-nested-description: #4C4C4C;
   --bcg-scrollbar-track: #EFEFF1;
+  --text-heading-method-params-color: #009379;
+  --text-heading-method-params-bg-color: #DCF8F3;
+  --sub-header-params-bg-color: #FFF;
+  --collapse-params-code-bg-color: #FCFCFC;
   &.dark {
     // code theme
     --shiki-color-text: #F6F6F1;
@@ -74,7 +76,6 @@
     --shiki-token-string-expression: #B3E04B;
     --shiki-token-punctuation: #FFB800;
     --shiki-token-link: #FC66FF;
-
     --primary-code-color: #F6F6F1;
     --code-background: #1C1C1C;
     --code-header-background: #121212;
@@ -112,7 +113,6 @@
     --important-font-weight: bold;
     --bold-font-weight: bold;
     --italic-font-style: italic;
-
     --bcg-btn-image-grad: linear-gradient(25deg, #91FF75 0%, #4AEBF1 93.75%, #42E8FF 100%);
     --heading-sidebar-bg-color: #91FF75;
     --heading-h5-color: #E3E5E8;
@@ -121,5 +121,9 @@
     --text-link-and-collapse: #67FF82;
     --text-nested-description: #ACACAC;
     --bcg-scrollbar-track: #2A2A2A;
+    --text-heading-method-params-color: #0DE5C0;
+    --text-heading-method-params-bg-color: #123731;
+    --sub-header-params-bg-color: #202020;
+    --collapse-params-code-bg-color: #1C1C1C;
   }
 }

@@ -7,6 +7,8 @@ import {
   ICollapseChildren, ICollapseLabelProps, ICollapseParams,
 } from '@/utils/helperCollapse';
 import RightArrow from '@/icons/RightArrow';
+import CodeHeader from '@/components/CodeBlock/CodeHeader';
+import SubHeader from '@/components/CollapseParams/SubHeader';
 
 export const NestHeading: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -49,20 +51,32 @@ export const CollapseChildren: FC<ICollapseChildren> = (props) => {
 
   return <div className={'collapse_children'}>
     <p>{title}</p>
-    <CollapseParams items={itemsNest} nested/>
+    <CollapseParams items={itemsNest} nested />
   </div>;
 };
 
 export const CollapseParams: FC<ICollapseParams> = (props) => {
-  const { items, nested } = props;
+  const { items, nested, fileNameAndCopyValue, method, isShowSubHeader } = props;
 
   return (
-    <Collapse
-      items={items}
-      ghost
-      className={nested ? 'Collapse_nest' : 'Collapse'}
-      expandIcon={({ isActive }) => <RightArrow activeClass={isActive ? 'active' : ''} nested={nested}/>}
-    />
+    <div>
+      {fileNameAndCopyValue && (
+        <CodeHeader
+          filename={fileNameAndCopyValue}
+          getValue={() => fileNameAndCopyValue}
+          method={method?.toUpperCase()}
+        />
+      )}
+      {isShowSubHeader && <SubHeader title={'Parameters'} />}
+      <Collapse
+        items={items}
+        ghost
+        className={nested ? 'Collapse_nest' : 'Collapse'}
+        expandIcon={({ isActive }) => (
+          <RightArrow activeClass={isActive ? 'active' : ''} nested={nested} />
+        )}
+      />
+    </div>
   );
 };
 

@@ -3,8 +3,10 @@
 
 .Collapse {
   @include generatePxToRem('border-radius', 0 0 16 16, !important);
-  border: 1px solid var(--code-block-border);
-  background: var(--code-background);
+  border-width: 0 1px 1px 1px;
+  border-color: var(--code-block-border);
+  border-style: solid;
+  background: var(--collapse-params-code-bg-color);
   backdrop-filter: blur(10px);
   @include generatePxToRem('padding', 16);
   @include generatePxToRem('margin-bottom', 30);

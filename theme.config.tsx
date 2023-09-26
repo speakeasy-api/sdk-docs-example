@@ -11,7 +11,7 @@ import CodeBlock from '@/components/CodeBlock';
 import { RHS } from '@/components/columns';
 import { Head } from '@/components/head';
 import { NavItem } from '@/components/NavItem';
-import Collapsible from '@/components/collapsible';
+import Collapsible, { BreakType, propsType } from '@/components/collapsible';
 
 interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
   components: {
@@ -22,8 +22,8 @@ interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
     h6: FC<{ children: ReactNode }>;
     a: FC<{ children: ReactNode, href: string }>;
     pre: FC<{ children: ReactNode, hasCopyCode: boolean, filename?: string }>;
-    RHS: any; // TODO add correct types
-    Collapsible?: any; // TODO add correct types
+    RHS: FC<{ children: ReactNode}>;
+    Collapsible?: FC<propsType> & BreakType;
     blockquote?: any; // TODO add correct types
   };
 }

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 
 import { Columns, RHS } from '@/components/columns';
 import TextHeaderWrapper from '@/HOC/TextHeaderWrapper';
@@ -24,9 +24,9 @@ export const LanguageProvider = newLanguageProvider;
 export const LanguageSwitch = LanguageSwitcher;
 
 export const LanguageOperation = (props: {
-  usage: ReactNode;
-  parameters: ReactNode;
-  response: ReactNode;
+  usage: ReactElement;
+  parameters: ReactElement;
+  response: ReactElement;
 }) => (
   <Columns>
     <TextHeaderWrapper headingType='h3'>

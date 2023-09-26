@@ -80,7 +80,7 @@ export const ScrollManager = (props: {
           : nextIndex - 1 >= 0
             ? nextIndex - 1
             : 0;
-      const closest = entries[currentIndex][0];
+      const closest = entries[currentIndex]?.[0];
 
       setClosestHeading(closest);
     },

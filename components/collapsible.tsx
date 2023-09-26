@@ -9,12 +9,16 @@ import RightArrow from '@/icons/RightArrow';
 import styles from './styles.module.scss';
 import { splitAround, typeMatches } from './typeHelpers';
 
-type propsType = {
+export type propsType = {
   children: ReactNode[];
   defaultOpen?: boolean;
 };
 
-const Collapsible: FC<propsType> & { Break: typeof Break } = (props: propsType) => {
+export type BreakType = {
+  Break: typeof Break;
+};
+
+const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
   const elements = props.children;
   const [isOpen, setIsOpen] = useState(!!props.defaultOpen);
 
