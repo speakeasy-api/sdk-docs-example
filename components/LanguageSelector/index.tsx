@@ -1,4 +1,5 @@
 import React, { FC, useContext } from 'react';
+import cn from 'classnames';
 import { Select } from 'antd';
 
 import { LanguageContext } from '@/utils/contexts/languageContext';
@@ -11,9 +12,10 @@ const { Option } = Select;
 
 interface ILanguageSelector {
   languageList: LANGUAGES[]
+  isSmall?: boolean,
 }
 
-const LanguageSelector: FC<ILanguageSelector> = ({ languageList }) => {
+const LanguageSelector: FC<ILanguageSelector> = ({ languageList, isSmall = false }) => {
   const { language, setLanguage } = useContext(LanguageContext);
 
   const handleChange = (value: LANGUAGES) => setLanguage(value);
@@ -23,7 +25,7 @@ const LanguageSelector: FC<ILanguageSelector> = ({ languageList }) => {
       defaultValue={language || languageList[0]}
       value={language}
       onChange={handleChange}
-      className={styles.select}
+      className={cn(styles.select, { [styles.small]: isSmall })}
       getPopupContainer={({ parentElement }) => parentElement}
     >
       {languageList.map(language => {
@@ -34,7 +36,9 @@ const LanguageSelector: FC<ILanguageSelector> = ({ languageList }) => {
             value={languages[language].value}
             key={language}
           >
-            <Icon/>
+            {!isSmall && (
+              <Icon/>
+            )}
             {title}
           </Option>
         );
