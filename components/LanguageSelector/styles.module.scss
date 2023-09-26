@@ -19,7 +19,7 @@
   }
   &.small {
     @include generatePxToRem(width, 128);
-    @include generatePxToRem(height, 32);
+    @include generatePxToRem(height, 34);
     position: relative;
     margin: 0;
   }
