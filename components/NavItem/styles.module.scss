@@ -32,7 +32,12 @@
 
     > p {
       @include heading-h5(var(--heading-h5-color-selected));
+      font-weight: bold;
     }
+  }
+
+  &.visible {
+    background-color: #2A2A2A;
   }
 
   > p {
