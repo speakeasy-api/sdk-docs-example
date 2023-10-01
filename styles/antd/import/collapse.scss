@@ -34,6 +34,7 @@
     padding: 0 !important;
     align-items: center !important;
     width: max-content;
+    pointer-events: none;
 
     .ant-collapse-expand-icon {
       @include generatePxToRem('padding-right', 4, !important);
@@ -41,6 +42,7 @@
 
     .ant-collapse-header-text {
       @include collapse-heading-code();
+      pointer-events: initial;
 
       .key {
         color: var(--heading-h5-color);

@@ -4,21 +4,38 @@ import {
   CollapseChildren, CollapseLabel, NestHeading,
 } from '@/components/CollapseParams';
 
+export interface IItemData {
+  key: string;
+  labelKey: string;
+  symbols: string;
+  value: string;
+  title: string;
+}
+
+export interface IItemNestData {
+  labelKey: string,
+  symbols: string,
+  value: string,
+  order: string[],
+}
+
 export interface ICollapseLabelProps {
   nested?: boolean | undefined;
   labelKey?: string;
   symbols?: string;
   value?: string;
   order?: string[] | undefined;
-  itemsNestContent?: ICollapseLabelProps[];
+  itemsNestContent?: ICollapseLabelProps[] | undefined;
 }
 
 export interface ICollapseParams {
-  items: CollapseProps['items'];
+  itemsNest?: CollapseProps['items'] | undefined;
+  itemsData?: IItemData[];
   nested?: boolean | undefined;
   isShowSubHeader?: boolean | undefined;
   fileNameAndCopyValue?: string | undefined;
   method?: string | undefined;
+  itemsNestData?: Record<string, IItemNestData[]> | undefined;
 }
 
 export interface ICollapseChildren {
@@ -26,164 +43,20 @@ export interface ICollapseChildren {
   itemsNest: CollapseProps['items'];
 }
 
-const itemsNestContent: Record<string, ICollapseLabelProps[]> = {
-  '1': [
-    {
-      labelKey: 'first_payment  ',
-      symbols: '?:',
-      value: 'string',
-      order: ['symbols', 'key', 'value'],
-    },
-    {
-      labelKey: 'first_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-    {
-      labelKey: 'first_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-    {
-      labelKey: 'first_payment  ',
-      symbols: '?:',
-      value: 'string',
-      order: ['symbols', 'key', 'value'],
-    },
-    {
-      labelKey: 'first_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-    {
-      labelKey: 'first_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-    {
-      labelKey: 'first_payment  ',
-      symbols: '?:',
-      value: 'string',
-      order: ['symbols', 'key', 'value'],
-    },
-    {
-      labelKey: 'first_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-    {
-      labelKey: 'first_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-    {
-      labelKey: 'first_payment  ',
-      symbols: '?:',
-      value: 'string',
-      order: ['symbols', 'key', 'value'],
-    },
-    {
-      labelKey: 'first_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-    {
-      labelKey: 'first_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-  ],
-  '2': [
-    {
-      labelKey: 'second_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-    {
-      labelKey: 'second_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-    {
-      labelKey: 'second_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-  ],
-  '3': [
-    {
-      labelKey: 'third_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-    {
-      labelKey: 'third_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-    {
-      labelKey: 'third_payment',
-      symbols: '?: ',
-      value: 'string',
-      order: ['key', 'symbols', 'value'],
-    },
-  ],
-};
-
-const getNestItems = (nestKey: string) => [
+const getNestItems = (nestKey: string, itemsNestData: Record<string, IItemNestData[]> | undefined) => [
   {
     key: nestKey,
     label: <NestHeading />,
     children: (
-      <CollapseLabel
-        nested
-        itemsNestContent={itemsNestContent[nestKey]}
-      />
+      <CollapseLabel nested itemsNestContent={itemsNestData && itemsNestData[nestKey]} />
     ),
   },
 ];
 
-const itemsData: Record<string, string>[] = [
-  {
-    key: '1',
-    labelKey: 'charge',
-    symbols: '?: ',
-    value: 'string',
-    title:
-      'The SetupIntent object for errors returned on a request involving a SetupIntent.',
-  },
-  {
-    key: '2',
-    labelKey: 'doc_url',
-    symbols: '?: ',
-    value: 'string',
-    title: 'The SetupIntent object for errors',
-  },
-  {
-    key: '3',
-    labelKey: 'payment_method',
-    symbols: '?: ',
-    value: 'string',
-    title: 'The SetupIntent',
-  },
-];
-
-const prepareItems = (
-  itemsData: Record<string, string>[],
-): CollapseProps['items'] => itemsData.map((el: Record<string, string>) => ({
+export const prepareItems = (
+  itemsData: IItemData[] | undefined,
+  itemsNestData: Record<string, IItemNestData[]> | undefined,
+): CollapseProps['items'] => itemsData && itemsData.map((el: IItemData) => ({
   key: el.key,
   label: (
     <CollapseLabel
@@ -193,8 +66,9 @@ const prepareItems = (
     />
   ),
   children: (
-    <CollapseChildren title={el.title} itemsNest={getNestItems(el.key)} />
+    <CollapseChildren
+      title={el.title || ''}
+      itemsNest={getNestItems(el.key, itemsNestData)}
+    />
   ),
 }));
-
-export const items = prepareItems(itemsData);

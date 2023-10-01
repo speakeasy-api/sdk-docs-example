@@ -10,10 +10,11 @@ import styles from './styles.module.scss';
 interface ICodeHeader {
   filename?: string;
   method?: string | undefined;
+  isShowSelect?: boolean | undefined;
   getValue(): string;
 }
 
-const CodeHeader: FC<ICodeHeader> = ({ filename, getValue, method }) => {
+const CodeHeader: FC<ICodeHeader> = ({ filename, getValue, method, isShowSelect }) => {
   const { languageList } = useContext(LanguageContext);
 
   return (
@@ -31,7 +32,7 @@ const CodeHeader: FC<ICodeHeader> = ({ filename, getValue, method }) => {
         {filename}
       </div>
       <div className={styles.lastItems}>
-        <LanguageSelector languageList={languageList} isSmall />
+        {isShowSelect && <LanguageSelector languageList={languageList} isSmall />}
         <CopyToClipboard getValue={getValue} />
       </div>
     </div>

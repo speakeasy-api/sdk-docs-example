@@ -90,6 +90,30 @@ body {
   }
 }
 
+body::before, body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 50%; /* Equal width left and right */
+  height: 110%;
+  background-repeat: repeat-y; /* The image will repeat vertically */
+}
+
+/* Background image on the left */
+body::before {
+  background-image: url('../icons/gradient.png');
+  left: 0;
+  z-index: -1;
+}
+
+/* Background image on the right */
+body::after {
+  background-image: url('../icons/gradient.png');
+  rotate: -90deg;
+  right: 0;
+  z-index: -1;
+}
+
 svg {
   display: block;
   vertical-align: middle;
@@ -190,4 +214,91 @@ main {
 
 article {
   justify-content: flex-start !important;
+}
+
+table {
+  //width: 600px;  // Will test this css function for table responsive (width: clamp(320px, 600px, 600px);)!!!
+  border: 1px solid var(--code-block-border);
+  @include generatePxToRem(border-radius, 16);
+  @include generatePxToRem(margin, 20 0);
+  overflow: initial!important;
+
+  thead {
+    display: none;
+  }
+
+  tbody {
+    td, tr {
+      border-width: 0!important;
+    }
+
+    tr {
+      &:last-child {
+        > td {
+
+          &:first-child {
+            @include generatePxToRem(border-radius, 0 0 0 16, !important);
+          }
+          &:last-child {
+            @include generatePxToRem(border-radius, 0 0 16 0, !important);
+          }
+        }
+      }
+      td {
+        &:first-child, &:last-child {
+          @include generatePxToRem(padding, 16);
+        }
+
+        &:not(:first-child) {
+          width: 100%;
+          @include table-description-text();
+        }
+      }
+    }
+  }
+
+  .success, .warning, .error {
+    @include table-first-column-text(400);
+    @include generatePxToRem(padding, 1 4);
+    @include generatePxToRem(border-radius, 4);
+  }
+
+  .default {
+    @include table-first-column-text(500);
+    @include generatePxToRem(padding, 1 4);
+    @include generatePxToRem(border-radius, 4);
+    color: var(--default-response-code-color);
+    background-color: var(--default-response-code-bcg-color);
+  }
+
+  .success {
+    color: var(--success-response-code-color);
+    background-color: var(--success-response-code-bcg-color);
+  }
+
+  .warning {
+    color: var(--warning-response-code-color);
+    background-color: var(--warning-response-code-bcg-color);
+  }
+
+  .error {
+    color: var(--error-response-code-color);
+    background-color: var(--error-response-code-bcg-color);
+  }
+}
+
+.default {
+  @include table-first-column-text(500);
+  @include generatePxToRem(padding, 1 4);
+  @include generatePxToRem(border-radius, 4);
+  color: var(--default-response-code-color)!important;
+  background-color: var(--default-response-code-bcg-color);
+}
+
+.warning {
+  @include table-first-column-text(400);
+  @include generatePxToRem(padding, 1 4);
+  @include generatePxToRem(border-radius, 4);
+  color: var(--warning-response-code-color);
+  background-color: var(--warning-response-code-bcg-color);
 }

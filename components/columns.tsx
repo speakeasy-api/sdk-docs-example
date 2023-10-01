@@ -16,6 +16,8 @@ export const Columns: React.FC<propsType> & { RHS: typeof RHS } = (
     <div style={{
       display: 'flex',
       width: '1200px',
+      gap: '15px',
+      alignItems: 'flex-end',
     }}>
       <div style={{ flex: 1 }}>{mainContent}</div>
       <div style={{ flex: 1 }}>{rhs}</div>

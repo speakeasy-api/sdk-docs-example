@@ -21,7 +21,7 @@ interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
     h4: FC<{ children: ReactNode }>;
     h6: FC<{ children: ReactNode }>;
     a: FC<{ children: ReactNode, href: string }>;
-    pre: FC<{ children: ReactNode, hasCopyCode: boolean, filename?: string }>;
+    pre: FC<{ children: ReactNode, hasCopyCode: boolean, filename?: string, 'data-language': string }>;
     RHS: FC<{ children: ReactNode}>;
     Collapsible?: FC<propsType> & BreakType;
     blockquote?: any; // TODO add correct types
@@ -77,11 +77,9 @@ const config: ICustomDocsThemeConfig = {
         {children}
       </LinkWrapper>
     ),
-    pre: ({ children, ...props }) => (
-      <CodeBlock {...props}>
-        {children}
-      </CodeBlock>
-    ),
+    pre: ({ children, ...props }) => <CodeBlock {...props}>
+      {children}
+    </CodeBlock>,
     RHS,
     Collapsible,
   },

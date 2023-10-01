@@ -64,6 +64,16 @@
   --text-heading-method-params-bg-color: #DCF8F3;
   --sub-header-params-bg-color: #FFF;
   --collapse-params-code-bg-color: #FCFCFC;
+  --message-text-color: #222222;
+  --message-bcg-color: linear-gradient(264deg, rgba(18, 18, 18, 0.00) -7.24%, rgba(18, 18, 18, 0.01) 115.47%);
+  --success-response-code-color: #398514;
+  --success-response-code-bcg-color: #F6FFED;
+  --warning-response-code-color: #9E7015;
+  --warning-response-code-bcg-color: #FFFDF0;
+  --error-response-code-color: #CE383A;
+  --error-response-code-bcg-color: #FFF1F0;
+  --default-response-code-color: #2B333B;
+  --default-response-code-bcg-color: #EAEAEE;
   &.dark {
     // code theme
     --shiki-color-text: #F6F6F1;
@@ -125,5 +135,15 @@
     --text-heading-method-params-bg-color: #123731;
     --sub-header-params-bg-color: #202020;
     --collapse-params-code-bg-color: #1C1C1C;
+    --message-text-color: #FFFFFFDE;
+    --message-bcg-color: linear-gradient(264deg, rgba(255, 255, 255, 0.03) -7.24%, rgba(255, 255, 255, 0.01) 115.47%);
+    --success-response-code-color: #66ED24;
+    --success-response-code-bcg-color: #233A18;
+    --warning-response-code-color: #FFC32A;
+    --warning-response-code-bcg-color: #443516;
+    --error-response-code-color: #FF2D6C;
+    --error-response-code-bcg-color: #4D2929;
+    --default-response-code-color: #D7EBFF;
+    --default-response-code-bcg-color: #414142;
   }
 }

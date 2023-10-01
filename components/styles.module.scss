@@ -6,10 +6,10 @@
   background: var(--code-background);
   backdrop-filter: blur(10px);
   @include generatePxToRem('padding', 16);
-  margin-top: 20px;
+  @include generatePxToRem('margin', 20 0);
 
   &_nested {
-    padding: 0 1.25rem 0.5rem 1.25rem;
+    @include generatePxToRem('padding', 0 20 8 20);
 
     .collapsible {
       border: none;
@@ -23,15 +23,12 @@
   }
 
   &_heading {
-    display: flex;
-    align-items: center;
+    @include flex(row, initial, center, nowrap);
     transition: all 1s ease;
 
     > h5, > p {
       @include collapse-children-heading-text();
-      margin: 0 0 0 5px;
+      @include generatePxToRem('margin', 0 0 0 5);
     }
-
-
   }
 }

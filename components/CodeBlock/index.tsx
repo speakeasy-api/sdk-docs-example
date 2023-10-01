@@ -9,6 +9,7 @@ interface ICodeBlock {
   filename?: string,
   hasCopyCode: boolean,
   children: any,
+  'data-language': string
 }
 
 const CodeBlock: FC<ICodeBlock> = ({
@@ -23,10 +24,12 @@ const CodeBlock: FC<ICodeBlock> = ({
 
   const isHeaderVisible = hasCopyCode || filename;
 
+  const isShowSelect = !props['data-language'].includes('.') && props['data-language'].split('.')[1] !== 'EMPTY';
+
   return (
     <div className={styles.codeBlockContainer}>
       {isHeaderVisible && (
-        <CodeHeader filename={filename} getValue={getValue} />
+        <CodeHeader filename={filename} getValue={getValue} isShowSelect={isShowSelect}/>
       )}
       <pre
         className={cn(styles.pre, { [styles.withoutHeader]: !isHeaderVisible })}

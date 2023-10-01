@@ -137,6 +137,32 @@
   @include generatePxToRem('letter-spacing', -0.2);
 }
 
+@mixin table-description-text() {
+  color: var(--text-nested-description);
+  font-family: Inter, serif;
+  @include generatePxToRem(font-size, 14);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 152%;
+}
+
+@mixin table-first-column-text($fontWeight) {
+  font-family: IBM Plex Mono, sans-serif!important;
+  @include generatePxToRem(font-size, 14);
+  font-style: normal;
+  font-weight: $fontWeight!important;
+  @include generatePxToRem(line-height, 16);
+}
+
+@mixin message-text() {
+  color: var(--message-text-color);
+  font-family: Inter, serif;
+  @include generatePxToRem(font-size, 14);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 152%;
+}
+
 @mixin code() {
   color: var(--primary-code-color);
   background: none;

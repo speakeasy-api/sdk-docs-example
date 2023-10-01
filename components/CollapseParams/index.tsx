@@ -1,10 +1,10 @@
 import React, {
-  ReactNode, FC, useState,
+  ReactNode, FC, useState, useEffect,
 } from 'react';
 import { Collapse } from 'antd';
 
 import {
-  ICollapseChildren, ICollapseLabelProps, ICollapseParams,
+  ICollapseChildren, ICollapseLabelProps, ICollapseParams, IItemData, prepareItems,
 } from '@/utils/helperCollapse';
 import RightArrow from '@/icons/RightArrow';
 import CodeHeader from '@/components/CodeBlock/CodeHeader';
@@ -22,7 +22,7 @@ export const CollapseLabel: FC<ICollapseLabelProps> = (props): ReactNode => {
   return (
     <>
       {itemsNestContent && itemsNestContent?.length ? (
-        itemsNestContent.map((el: ICollapseLabelProps, index: number) => (
+        itemsNestContent.map((el: any, index: number) => (
           <div key={index}>
             <div className={'nested_params_box'}>
               <span className={'key'} style={{ order: el.order?.length ? el.order.indexOf('key') : 0 }}>{el.labelKey}</span>
@@ -51,12 +51,29 @@ export const CollapseChildren: FC<ICollapseChildren> = (props) => {
 
   return <div className={'collapse_children'}>
     <p>{title}</p>
-    <CollapseParams items={itemsNest} nested />
+    <CollapseParams itemsNest={itemsNest} nested />
   </div>;
 };
 
 export const CollapseParams: FC<ICollapseParams> = (props) => {
-  const { items, nested, fileNameAndCopyValue, method, isShowSubHeader } = props;
+  const { itemsNestData, itemsNest, nested, fileNameAndCopyValue, method, isShowSubHeader, itemsData } = props;
+
+  const [itemsDataLocal, setItemsDataLocal] = useState<IItemData[] | undefined>(itemsData);
+  const [searchValue, setSearchValue] = useState<string>('');
+
+  useEffect(() => {
+    setItemsDataLocal(itemsData);
+  }, [itemsData]);
+
+  const onSearchValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+    const filteredItems = itemsData && [...itemsData].filter(
+      (item: IItemData) => item.labelKey.includes(e.target.value) ||
+        item.value.includes(e.target.value) ||
+        item.symbols.includes(e.target.value),
+    );
+    setItemsDataLocal(filteredItems);
+  };
 
   return (
     <div>
@@ -65,17 +82,31 @@ export const CollapseParams: FC<ICollapseParams> = (props) => {
           filename={fileNameAndCopyValue}
           getValue={() => fileNameAndCopyValue}
           method={method?.toUpperCase()}
+          isShowSelect={true}
         />
       )}
-      {isShowSubHeader && <SubHeader title={'Parameters'} />}
-      <Collapse
-        items={items}
-        ghost
-        className={nested ? 'Collapse_nest' : 'Collapse'}
-        expandIcon={({ isActive }) => (
-          <RightArrow activeClass={isActive ? 'active' : ''} nested={nested} />
-        )}
-      />
+      {isShowSubHeader && (
+        <SubHeader
+          title={'Parameters'}
+          onChange={onSearchValueChange}
+          value={searchValue}
+        />
+      )}
+      {itemsDataLocal && itemsDataLocal?.length === 0 ? (
+        <p className={'Collapse'}>No results found</p>
+      ) : (
+        <Collapse
+          items={itemsNest || itemsNestData && prepareItems(itemsDataLocal, itemsNestData)}
+          ghost
+          className={nested ? 'Collapse_nest' : 'Collapse'}
+          expandIcon={({ isActive }) => (
+            <RightArrow
+              activeClass={isActive ? 'active' : ''}
+              nested={nested}
+            />
+          )}
+        />
+      )}
     </div>
   );
 };
