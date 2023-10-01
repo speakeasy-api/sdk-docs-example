@@ -1,5 +1,5 @@
 import React, {
-  ReactNode, useEffect, useMemo, createContext, useState,
+  createContext, ReactNode, useEffect, useMemo, useState,
 } from 'react';
 import { useRouter } from 'next/router';
 
@@ -7,10 +7,17 @@ export const RouteContext = createContext('');
 export const ScrollContext = createContext<{
   headingToPosition: Record<string, HeadingPosition>;
   currentHeading: string;
-  upsertHeading: (route: string, heading: string, elem: HTMLHeadingElement, position: number,) => void;
+  visibleHeadings: string[];
+  upsertHeading: (
+  route: string,
+  heading: string,
+  elem: HTMLHeadingElement,
+  position: number,
+  ) => void;
 }>({
       headingToPosition: {},
       currentHeading: '',
+      visibleHeadings: [],
       upsertHeading: () => {},
     });
 
@@ -49,12 +56,14 @@ export const ScrollManager = (props: {
 
       return {
         ...currentValues,
-        [route]: { elem, position },
+        [route]: { elem,
+          position },
       };
     });
   };
 
   const [closestHeading, setClosestHeading] = useState<string>('/' + rootPage);
+  const [visibleHeadings, setVisibleHeadings] = useState<string[]>([closestHeading]);
 
   useEffect(() => {
     setHeadingToPosition({});
@@ -67,6 +76,10 @@ export const ScrollManager = (props: {
   const scroll = useMemo(
     () => () => {
       const entries = Object.entries(headingToPosition);
+
+      const visible = entries.filter(
+        ([_, { position }]) => window.scrollY < position && position < window.scrollY + window.innerHeight,
+      ).map(([route]) => route);
 
       // Find the first heading that is below the current scroll position
       const nextIndex = entries.findIndex(
@@ -83,6 +96,7 @@ export const ScrollManager = (props: {
       const closest = entries[currentIndex]?.[0];
 
       setClosestHeading(closest);
+      setVisibleHeadings([closest, ...visible]);
     },
     [headingToPosition],
   );
@@ -124,6 +138,7 @@ export const ScrollManager = (props: {
         headingToPosition,
         upsertHeading,
         currentHeading: closestHeading,
+        visibleHeadings,
       }}
     >
       {props.children}
