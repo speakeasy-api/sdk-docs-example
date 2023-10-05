@@ -14,8 +14,8 @@ export const NavItem: FC<Record<string, string>> = ({ title, type }) => {
 
   const titleSlug = '/' + toRouteFormat(title.toLowerCase());
 
-  const baseCurrentHeading = currentHeading.split('#')[0];
-  const headings = visibleHeadings.map((heading) => heading.split('#')[0]);
+  const baseCurrentHeading = currentHeading?.split('#')[0];
+  const headings = visibleHeadings.map((heading) => heading?.split('#')[0]);
 
   const selected = baseCurrentHeading === titleSlug;
   const visible = headings.includes(titleSlug);
