@@ -7,7 +7,7 @@ func getAppFileContent(appFileProvided bool) string {
 
 import { ScrollManager } from 'components/scrollManager';
 
-import genApp from %s;
+import genApp from '%s';
 
 import '@/styles/index.scss';
 
@@ -23,7 +23,7 @@ export default function App(props) {
 
 	importPath := "next/app"
 	if appFileProvided {
-		importPath = "../.gen/_app"
+		importPath = ".gen/_app"
 	}
 	return fmt.Sprintf(template, importPath)
 }
