@@ -12,7 +12,7 @@ const (
 	genRoot          = ".gen"
 	pagesGenRoot     = "./pages"
 
-	appFile = "_app.tsx"
+	appFile = "_app.mdx"
 )
 
 type Gen struct {
