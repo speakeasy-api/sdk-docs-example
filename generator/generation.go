@@ -49,7 +49,7 @@ func (g *Gen) setup() error {
 				return err
 			}
 
-			appFileProvided = appFileProvided || file.Name() == appFile
+			appFileProvided = appFileProvided || file.Name() == "_app.tsx"
 
 			if err := writeFile(fmt.Sprintf("%s/%s", genRoot, file.Name()), string(content)); err != nil {
 				return err
