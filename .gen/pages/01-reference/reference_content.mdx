@@ -3,15 +3,109 @@ title: Petstore SDK Reference
 ---
 
 import Installation from "./installation/installation.mdx";
+import Testing from "./testing/testing.mdx";
+import Api from "./api/api.mdx";
+import Errors from "./errors/errors.mdx";
 import Retries from "./retries/retries.mdx";
+import Events from "./events/events.mdx";
+import SignOn from "./sign_on/sign_on.mdx";
 import Resources from "./resources/resources.mdx";
+import CodeBlock from '../../../components/CodeBlock';
+import test1 from './test1.mdx';
+import test2 from './test2.mdx';
 
+###### OVERVIEW
+# API Reference
+The WorkOS API enables adding Enterprise Ready features to your application. This REST
+API provides programmatic access and management of SSO, Magic Link, Directory Sync,
+and Audit Trail resources.
+
+[Sign in](https://#Response) to see code examples customized with your API keys and data.
+
+```curl.EMPTY copy filename="API Base URL"
+https://api.workos.com
+```
+---
+###### LANGUAGES
+# Client Liabraries
+WorkOS offers native SDKs in several popular programming languages. Choose one
+language below to see our API Reference in your application’s language.
+
+Don't see an SDK you need? [Contact us](#Contact) to request an SDK!
+
+<CodeBlock
+    filename="Example.java"
+    tabs={[
+        {
+            key: '0',
+            label: 'Request',
+            content: test1,
+        },
+        {
+            key: '1',
+            label: 'Response',
+            content: test2,
+        },
+    ]}
+    data-language='java'
+    hasCopyCode
+/>
+
+```java copy filename="Java"
+package hello.world;
+
+import com.Unified.Unified_to.UnifiedTo;
+import com.Unified.Unified_to.models.operations.DeleteTicketingConnectionIdAgentIdRequest;
+import com.Unified.Unified_to.models.operations.DeleteTicketingConnectionIdAgentIdResponse;
+import com.Unified.Unified_to.models.operations.DeleteTicketingConnectionIdAgentIdSecurity;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            UnifiedTo sdk = UnifiedTo.builder()
+                .build();
+
+            DeleteTicketingConnectionIdAgentIdRequest req = new DeleteTicketingConnectionIdAgentIdRequest("quibusdam", "unde");
+
+            DeleteTicketingConnectionIdAgentIdResponse res = sdk.agent.deleteTicketingConnectionIdAgentId(req, new DeleteTicketingConnectionIdAgentIdSecurity("nulla") {{
+                jwt = "";
+            }});
+
+            if (res.statusCode == 200) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+
+---
 # Petstore
 
 API and SDK reference for the Petstore API
 
-<Installation/>
+---
+<Installation />
 
-<Retries/>
+---
+<Testing />
 
-<Resources/>
+---
+<Api />
+
+---
+<Errors />
+
+---
+<Retries />
+
+---
+<Events />
+
+---
+<SignOn />
+
+---
+<Resources />
