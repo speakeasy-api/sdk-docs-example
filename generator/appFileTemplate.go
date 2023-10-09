@@ -3,24 +3,27 @@ package main
 import "fmt"
 
 func getAppFileContent(appFileProvided bool) string {
-	template := `import React from 'react'
-import {ScrollManager} from "../components/scrollManager";
-import App from "%s";
-import "../styles/styles.css"
+	template := `import { createElement } from 'react';
 
-class MyApp extends App {
-    render() {
-        return <ScrollManager>
-            {super.render()}
-        </ScrollManager>
-    }
-}
+import { ScrollManager } from 'components/scrollManager';
 
-export default MyApp`
+import genApp from '%s';
+
+import '@/styles/index.scss';
+
+export default function App(props) {
+    const renderedApp = createElement(genApp, props);
+
+  return (
+    <ScrollManager>
+        {renderedApp}
+    </ScrollManager>
+  )
+}`
 
 	importPath := "next/app"
 	if appFileProvided {
-		importPath = "../.gen/_app"
+		importPath = ".gen/_app"
 	}
 	return fmt.Sprintf(template, importPath)
 }
