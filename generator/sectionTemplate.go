@@ -1,8 +1,8 @@
 package main
 
 import (
-  "fmt"
-  "strings"
+	"fmt"
+	"strings"
 )
 
 const template = `import %s from './%s_content.mdx';
@@ -26,11 +26,11 @@ import { LANGUAGES } from '/utils/enums/languages';
 `
 
 func wrapDocsSection(route, name string) string {
-  if strings.HasPrefix(route, "/") {
-    route = route[1:]
-  }
-  route = toSnakeCase(route)
+	if strings.HasPrefix(route, "/") {
+		route = route[1:]
+	}
+	route = toSnakeCase(route)
 
-  upper := strings.Title(name)
-  return fmt.Sprintf(template, upper, name, route, upper)
+	upper := strings.Title(name)
+	return fmt.Sprintf(template, upper, name, route, upper)
 }
