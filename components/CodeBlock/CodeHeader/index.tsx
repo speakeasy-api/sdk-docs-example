@@ -16,7 +16,7 @@ interface ICodeHeader {
   isShowSelect?: boolean | undefined;
   getValue(): string;
   tabs?: ITab[],
-  setActiveTab(number: number): void,
+  setActiveTab?: ((number: number) => void),
 }
 
 const CodeHeader: FC<ICodeHeader> = ({
@@ -29,7 +29,7 @@ const CodeHeader: FC<ICodeHeader> = ({
 }) => {
   const { languageList } = useContext(LanguageContext);
 
-  const onChangeTabs = (key: string) => setActiveTab(Number(key));
+  const onChangeTabs = (key: string) => setActiveTab && setActiveTab(Number(key));
 
   return (
     <div className={cn(styles.codeHeader, { [styles.forMethod]: method })}>
