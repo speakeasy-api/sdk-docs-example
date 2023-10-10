@@ -8,7 +8,7 @@ const withNextra = require('nextra')({
 module.exports = withPlugins(
     [], withNextra({
     output: "export",
-    distDir: 'build',
+    distDir: 'out',
     images: {
       unoptimized: true
     }
