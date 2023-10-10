@@ -9,5 +9,8 @@ module.exports = withPlugins(
     [], withNextra({
     output: "export",
     distDir: 'build',
+    images: {
+      unoptimized: true
+    }
   })
 );
