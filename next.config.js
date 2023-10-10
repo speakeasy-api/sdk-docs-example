@@ -7,6 +7,7 @@ const withNextra = require('nextra')({
 
 module.exports = withPlugins(
     [], withNextra({
-    output: "export"
+    output: "export",
+    distDir: 'build',
   })
 );
