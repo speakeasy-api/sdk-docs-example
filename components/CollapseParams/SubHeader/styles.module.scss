@@ -1,0 +1,41 @@
+@import '@/styles/utils/mixins';
+
+.sub_header {
+  width: 100%;
+  @include flex(row, space-between, center, nowrap);
+  @include generatePxToRem(padding, 10 16);
+  background-color: var(--sub-header-params-bg-color);
+  @include generatePxToRem(border-width, 0 1 0 1);
+  border-color: var(--code-block-border);
+  border-style: solid;
+
+  > p {
+    margin: 0;
+    @include collapse-sub-heading-title();
+  }
+
+  &_search {
+    @include generatePxToRem(padding, 8 16);
+    width: 200px;
+    border: 1px solid var(--code-block-border);
+    background-color: var(--collapse-params-code-bg-color);
+    box-shadow: none;
+
+    &:hover {
+      border-color: var(--code-block-border) !important;
+    }
+
+    > span {
+      @include generatePxToRem(margin-inline-end, 10, !important);
+    }
+
+    > input {
+      @include collapse-sub-heading-input-text();
+      background-color: var(--collapse-params-code-bg-color);
+
+      &::placeholder {
+        @include collapse-sub-heading-input-text();
+      }
+    }
+  }
+}

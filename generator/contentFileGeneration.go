@@ -53,7 +53,12 @@ func (g *Gen) generateCorrespondingFiles(file File, content string) error {
 
 	if shouldWrap {
 		contentFileName = fmt.Sprintf("%s_content.mdx", nameNoSuffix)
-		wrapperContent := wrapDocsSection(route, nameNoSuffix)
+		var wrapperContent string
+		if nameNoSuffix == "reference" {
+			wrapperContent = referenceTemplate
+		} else {
+			wrapperContent = wrapDocsSection(route, nameNoSuffix)
+		}
 		if err := g.writeGenFile(dir.Path, file.Name, wrapperContent); err != nil {
 			return err
 		}

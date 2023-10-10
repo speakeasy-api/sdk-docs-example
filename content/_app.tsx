@@ -1,14 +1,12 @@
-import React from 'react'
-import App from 'next/app'
-import {LanguageProvider} from "./languages";
+import React from 'react';
+import App from 'next/app';
 
 class MyApp extends App {
-    render() {
-        const {Component, pageProps} = this.props
-        return <LanguageProvider>
-            <Component {...pageProps} />
-        </LanguageProvider>
-    }
+  render() {
+    const { Component, pageProps } = this.props;
+
+    return <Component {...pageProps} />;
+  }
 }
 
-export default MyApp
+export default MyApp;

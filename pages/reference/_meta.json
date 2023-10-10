@@ -7,9 +7,29 @@
     "title": "reference/Installation",
     "href": "/reference/installation"
   },
+  "testing": {
+    "title": "reference/Testing",
+    "href": "/reference/testing"
+  },
+  "api": {
+    "title": "reference/Api",
+    "href": "/reference/api"
+  },
+  "errors": {
+    "title": "reference/Errors",
+    "href": "/reference/errors"
+  },
   "retries": {
     "title": "reference/Retries",
     "href": "/reference/retries"
+  },
+  "events": {
+    "title": "reference/Events",
+    "href": "/reference/events"
+  },
+  "sign_on": {
+    "title": "reference/Sign_On",
+    "href": "/reference/sign_on"
   },
   "-- resources": {
     "title": "Resources",

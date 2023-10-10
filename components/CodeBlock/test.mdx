@@ -1,0 +1,29 @@
+```java
+package hello.world;
+
+import com.Unified.Unified_to.UnifiedTo;
+import com.Unified.Unified_to.models.operations.DeleteTicketingConnectionIdAgentIdRequest;
+import com.Unified.Unified_to.models.operations.DeleteTicketingConnectionIdAgentIdResponse;
+import com.Unified.Unified_to.models.operations.DeleteTicketingConnectionIdAgentIdSecurity;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            UnifiedTo sdk = UnifiedTo.builder()
+                .build();
+
+            DeleteTicketingConnectionIdAgentIdRequest req = new DeleteTicketingConnectionIdAgentIdRequest("quibusdam", "unde");
+
+            DeleteTicketingConnectionIdAgentIdResponse res = sdk.agent.deleteTicketingConnectionIdAgentId(req, new DeleteTicketingConnectionIdAgentIdSecurity("nulla") {{
+                jwt = "";
+            }});
+
+            if (res.statusCode == 200) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```

@@ -1,0 +1,44 @@
+import CollapseParams from '../../../../components/CollapseParams';
+import { LanguageSwitch } from '../../../../content/languages';
+import { goItemsData } from './_snippets/go.mdx';
+import { goItemsNestData } from './_snippets/go.mdx';
+import { typescriptItemsData } from './_snippets/typescript.mdx';
+import { typescriptItemsNestData } from './_snippets/typescript.mdx';
+
+###### heading
+
+## Events
+
+Events represent actions performed within WorkOS, identity, and directory providers.
+When an action occurs, we record an event. For example, an action could mean an IT admin
+assigning a user to your app or modifying a user group assigned to your app.
+These actions are most often performed as part of routine IT Admin workflows.
+
+Your app can interface with WorkOS and retrieve these events using the Events API. The
+Events API offers a robust data synchronization solution compared to webhooks, ensuring
+seamless synchronization of your system state with WorkOS.
+
+The after and range_start parameters are mutually exclusive, and at most one must be provided.
+
+For more details on consuming events in your app, check out the [events best practices](#bestPractices) guide.
+
+```curl copy filename="Request / Response"
+curl --request GET --url "https://api.workos.com/events\
+       --header "Authorization: Bearer sk_example_123456789"
+```
+
+<LanguageSwitch
+    langToContent={{
+        go: <CollapseParams fileNameAndCopyValue={'/golang'}
+                            method={'get'}
+                            isShowSubHeader
+                            itemsData={goItemsData}
+                            itemsNestData={goItemsNestData}
+        />,
+        typescript: <CollapseParams fileNameAndCopyValue={'/typescript'}
+                                    method={'get'}
+                                    isShowSubHeader
+                                    itemsData={typescriptItemsData}
+                                    itemsNestData={typescriptItemsNestData}
+        />
+    }}/>

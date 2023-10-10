@@ -1,0 +1,45 @@
+@import '@/styles/utils/mixins';
+
+.codeHeader {
+  @include generatePxToRem(height, 45);
+  @include generatePxToRem(padding, 0 16);
+  @include generatePxToRem(border-radius, 16 16 0 0);
+  @include flex(row, space-between, center);
+  width: 100%;
+  background-color: var(--code-header-background);
+
+  &.forMethod {
+    border-width: 1px 1px 0 1px;
+    border-color: var(--code-block-border);
+    border-style: solid;
+  }
+
+  .title {
+    @include flex(row, initial, center);
+    @include generatePxToRem(font-size, 14);
+    @include generatePxToRem(gap, 8);
+    color: var(--text-heading);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 152%;
+
+    &.forMethod {
+      font-weight: 700;
+    }
+
+    &_method {
+      @include generatePxToRem(padding, 3 6);
+      @include generatePxToRem(border-radius, 6);
+      @include method-heading-text();
+
+      &.GET {
+        color: var(--text-heading-method-params-color);
+        background-color: var(--text-heading-method-params-bg-color);
+      }
+    }
+  }
+  .lastItems {
+    @include flex(row, center);
+    column-gap: 12px;
+  }
+}

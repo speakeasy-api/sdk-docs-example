@@ -1,27 +1,42 @@
-import React, {ReactNode} from "react";
-import {splitAround, typeMatches} from "./typeHelpers";
+import React, {
+  ReactNode,
+  useState,
+  FC,
+} from 'react';
 
-type propsType = {
-    children: ReactNode[]
-    defaultOpen?: boolean
-}
+import RightArrow from '@/icons/RightArrow';
 
-const Collapsible: React.FC<propsType> & { Break: typeof Break } = (props: propsType) => {
-    const elements = props.children
-    const [isOpen, setIsOpen] = React.useState(!!props.defaultOpen);
+import styles from './styles.module.scss';
+import { splitAround, typeMatches } from './typeHelpers';
 
-    const [summarySection, bodySection] = splitAround(elements, (e) => typeMatches(e, Break));
+export type propsType = {
+  children: ReactNode[];
+  defaultOpen?: boolean;
+};
 
-    return <div style={{border: "1px solid green"}}>
-        <div onClick={() => setIsOpen((prev) => !prev)}>{summarySection}{isOpen ? "-" : "+"}</div>
-        {isOpen && <div style={{padding: "8px"}}>{bodySection}</div>}
+export type BreakType = {
+  Break: typeof Break;
+};
+
+const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
+  const elements = props.children;
+  const [isOpen, setIsOpen] = useState(!!props.defaultOpen);
+
+  const [summarySection, bodySection] = splitAround(elements, (e) => typeMatches(e, Break));
+
+  return (
+    <div className={styles.collapsible}>
+      <div onClick={() => setIsOpen((prev) => !prev)} className={styles.collapsible_heading}>
+        <RightArrow activeClass={isOpen ? 'active' : ''}/>
+        {summarySection}
+      </div>
+      {isOpen && <div className={styles.collapsible_nested}>{bodySection}</div>}
     </div>
-}
+  );
+};
 
-const Break = () => {
-    return <></>
-}
+const Break = () => <></>;
 
-Collapsible.Break = Break
+Collapsible.Break = Break;
 
-export default Collapsible
+export default Collapsible;

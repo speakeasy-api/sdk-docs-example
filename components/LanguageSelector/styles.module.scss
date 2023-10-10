@@ -1,0 +1,30 @@
+@import '@/styles/utils/mixins';
+
+.select {
+  @include generatePxToRem(width, 219);
+  @include generatePxToRem(margin-right, 24);
+  @include generatePxToRem(height, 40);
+  @include generatePxToRem(font-size, 14);
+  position: absolute;
+  right: 0;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 152%;
+  font-family: Inter, sans-serif;
+  color: var(--text-body);
+  @include tabletsMax768 {
+    @include generatePxToRem(margin-bottom, 40);
+    position: relative;
+    width: 100%;
+  }
+  &.small {
+    @include generatePxToRem(width, 128);
+    @include generatePxToRem(height, 34);
+    position: relative;
+    margin: 0;
+  }
+  .option {
+    @include flex(row, center, center);
+    @include generatePxToRem(column-gap, 8);
+  }
+}
