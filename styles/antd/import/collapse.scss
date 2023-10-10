@@ -9,7 +9,13 @@
   background: var(--collapse-params-code-bg-color);
   backdrop-filter: blur(10px);
   @include generatePxToRem('padding', 16);
-  @include generatePxToRem('margin-bottom', 30);
+  //@include generatePxToRem('margin-bottom', 30);
+
+  &.withoutHeadings {
+    border-width: 1px;
+    @include generatePxToRem('border-radius', 16, !important);
+  }
+
 
   .collapse_children {
     @include flex(column);
@@ -64,24 +70,37 @@
   }
 
   .ant-collapse-content-box {
-    @include generatePxToRem('padding', 0 20 8 20, !important);
+    @include generatePxToRem('padding', 0 0 8 20, !important);
+
+    .nested_desc {
+      @include collapse-heading-code();
+      margin: 0;
+      font-family: Inter, sans-serif;
+      color: var(--text-nested-description);
+    }
   }
+
 
   &_nest {
     background: transparent;
 
+    .ant-collapse-item:not(:first-child) {
+      margin-top: 10px;
+    }
+
     .ant-collapse-content-active {
       @include generatePxToRem('border-radius', 16, !important);
-      border: 1px solid var(--code-block-border) !important;
+      //border: 1px solid var(--code-block-border) !important;
     }
 
     .ant-collapse-content-box {
-      width: 98%;
+      width: 99%;
       @include flex(column);
-      @include generatePxToRem('gap', 16);
-      @include generatePxToRem('padding', 16 40 16 40, !important);
+      @include generatePxToRem('gap', 8);
+      @include generatePxToRem('padding',  0 16, !important);
       @include collapse-heading-code();
-      max-height: 300px;
+      //max-height: 400px;
+      height: max-content;
       overflow-y: auto;
 
       &::-webkit-scrollbar {

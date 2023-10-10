@@ -1,9 +1,7 @@
 import CollapseParams from '../../../../components/CollapseParams';
 import { LanguageSwitch } from '../../../../content/languages';
 import { goItemsData } from './_snippets/go.mdx';
-import { goItemsNestData } from './_snippets/go.mdx';
 import { typescriptItemsData } from './_snippets/typescript.mdx';
-import { typescriptItemsNestData } from './_snippets/typescript.mdx';
 
 ###### heading
 
@@ -33,12 +31,12 @@ curl --request GET --url "https://api.workos.com/events\
                             method={'get'}
                             isShowSubHeader
                             itemsData={goItemsData}
-                            itemsNestData={goItemsNestData}
+                            defaultActiveKey={['1', '2', '3']}
         />,
         typescript: <CollapseParams fileNameAndCopyValue={'/typescript'}
                                     method={'get'}
                                     isShowSubHeader
                                     itemsData={typescriptItemsData}
-                                    itemsNestData={typescriptItemsNestData}
+                                    defaultActiveKey={['1', '2', '3']}
         />
     }}/>

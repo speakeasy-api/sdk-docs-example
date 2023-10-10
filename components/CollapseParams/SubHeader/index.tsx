@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Input } from 'antd';
+import cn from 'classnames';
 
 import Search from '@/icons/Search';
 
@@ -9,17 +10,19 @@ const SubHeader: FC<{
   title: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
-}> = ({ title, onChange, value }) => (
-  <div className={styles.sub_header}>
+  nested?: boolean;
+  isShowSearchInput?: boolean;
+}> = ({ title, onChange, value, nested, isShowSearchInput }) => (
+  <div className={cn(styles.sub_header, { [styles.nested]: nested })}>
     <p>{title}</p>
-    <Input
+    {isShowSearchInput && <Input
       className={styles.sub_header_search}
       onChange={onChange}
       value={value}
       size='large'
       placeholder='Search parameters...'
       prefix={<Search />}
-    />
+    />}
   </div>
 );
 

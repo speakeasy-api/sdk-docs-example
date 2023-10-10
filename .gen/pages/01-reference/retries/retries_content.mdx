@@ -1,9 +1,7 @@
 import CollapseParams from '../../../../components/CollapseParams';
 import { LanguageSwitch } from '../../../../content/languages';
 import { goItemsData } from './_snippets/go.mdx';
-import { goItemsNestData } from './_snippets/go.mdx';
 import { typescriptItemsData } from './_snippets/typescript.mdx';
-import { typescriptItemsNestData } from './_snippets/typescript.mdx';
 
 ###### heading
 
@@ -40,13 +38,13 @@ Both parameters take an existing object ID value and return objects in either de
                             method={'get'}
                             isShowSubHeader
                             itemsData={goItemsData}
-                            itemsNestData={goItemsNestData}
+                            defaultActiveKey={['1', '2', '3', '4', '5']}
         />,
-        typescript: <CollapseParams fileNameAndCopyValue={'/typescript'}
+        typescript: <CollapseParams fileNameAndCopyValue={''}
                                     method={'get'}
-                                    isShowSubHeader
+                                    isShowSubHeader={false}
                                     itemsData={typescriptItemsData}
-                                    itemsNestData={typescriptItemsNestData}
+                                    defaultActiveKey={['1', '2', '3']}
         />
     }}/>
 
