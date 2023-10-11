@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Columns, RHS } from '@/components/columns';
+import { Columns, RHS } from '@/components/Columns';
 
 import TextHeaderWrapper from '@/HOC/TextHeaderWrapper';
 import LanguageSwitcher from '@/HOC/LanguageSwitcher';

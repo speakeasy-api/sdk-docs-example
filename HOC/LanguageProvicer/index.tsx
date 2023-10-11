@@ -9,8 +9,6 @@ import LanguageSelector from '@/components/LanguageSelector';
 import { LANGUAGES } from '@/utils/enums/languages';
 import { LanguageContext } from '@/utils/contexts/languageContext';
 
-import styles from './styles.module.scss';
-
 interface ILanguageProvider {
   children: ReactNode,
   languageList: LANGUAGES[],
@@ -29,11 +27,7 @@ const LanguageProvider: FC<ILanguageProvider> = ({ children, languageList }) => 
   return (
     <LanguageContext.Provider value={context}>
       <LanguageSelector languageList={languageList} />
-      {childrenArray.map((child, index) => (
-        <div key={index} className={styles.childContainer}>
-          {child}
-        </div>
-      ))}
+      {childrenArray.map((child) => child)}
     </LanguageContext.Provider>
   );
 };

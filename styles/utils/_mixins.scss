@@ -14,6 +14,15 @@
   @media (max-width: 768px) { @content }
 }
 
+@mixin desktopMax1400 {
+  @media (max-width: 1400px) { @content }
+}
+
+@mixin desktopMin1400 {
+  @media (min-width: 1401px) { @content }
+}
+
+
 /* ===Responsive mixins=== */
 
 

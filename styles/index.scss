@@ -97,6 +97,13 @@ body::before, body::after {
   width: 50%; /* Equal width left and right */
   height: 110%;
   background-repeat: repeat-y; /* The image will repeat vertically */
+  @include desktopMax1400 {
+    background-size: contain;
+    scale: 1.5;
+    top: 50%;
+    width: 70%;
+    background-repeat: no-repeat;
+  }
 }
 
 /* Background image on the left */
@@ -112,6 +119,9 @@ body::after {
   rotate: -90deg;
   right: 0;
   z-index: -1;
+  @include desktopMax1400 {
+    display: none;
+  }
 }
 
 svg {
@@ -233,6 +243,9 @@ table {
     }
 
     tr {
+      @include tabletsMax768 {
+        @include flex(column);
+      }
       &:last-child {
         > td {
 
@@ -287,18 +300,18 @@ table {
   }
 }
 
-.default {
-  @include table-first-column-text(500);
-  @include generatePxToRem(padding, 1 4);
-  @include generatePxToRem(border-radius, 4);
-  color: var(--default-response-code-color)!important;
-  background-color: var(--default-response-code-bcg-color);
-}
-
 .warning {
   @include table-first-column-text(400);
   @include generatePxToRem(padding, 1 4);
   @include generatePxToRem(border-radius, 4);
   color: var(--warning-response-code-color);
   background-color: var(--warning-response-code-bcg-color);
+}
+
+strong {
+  @include table-first-column-text(500);
+  @include generatePxToRem(padding, 1 4);
+  @include generatePxToRem(border-radius, 4);
+  color: var(--default-response-code-color);
+  background-color: var(--default-response-code-bcg-color);
 }

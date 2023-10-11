@@ -1,15 +1,13 @@
-## Installation
-
-{/* rendered from installation template */}
-
 import GoInstallation from "./_snippets/go.mdx"
 import TsInstallation from "./_snippets/typescript.mdx"
 import {LanguageSwitch} from "/.gen/languages";
+import { Columns } from '@/components/Columns';
 
-<LanguageSwitch langToContent={{go: <GoInstallation/>, typescript: <TsInstallation/>}}/>
 
-{/* end rendered section */}
+<Columns>
+    Left hand side of installation section
 
-<RHS>
-    Right hand side of installation section
-</RHS>
+  <RHS>
+      <LanguageSwitch langToContent={{go: <GoInstallation/>, typescript: <TsInstallation/>}}/>
+  </RHS>
+</Columns>

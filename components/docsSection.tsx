@@ -1,7 +1,6 @@
 import React, { ReactElement, useContext } from 'react';
 
 import { RouteContext } from './scrollManager';
-import { Columns } from './columns';
 
 export const DocsSection = ({
   route,
@@ -32,7 +31,7 @@ export const DocsSection = ({
     <RouteContext.Provider
       value={`${parentRoute}/${route ?? ''}${homeOverride}`}
     >
-      <Columns>{children}</Columns>
+      {children}
     </RouteContext.Provider>
   );
 };

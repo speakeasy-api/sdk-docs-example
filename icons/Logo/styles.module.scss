@@ -2,8 +2,8 @@
 
 .logo {
   @include mobile {
-    @include generatePxToRem(width, 144);
-    @include generatePxToRem(height, 28);
+    @include generatePxToRem(width, 124);
+    @include generatePxToRem(height, 24);
   }
   .path {
     fill: var(--text-heading);

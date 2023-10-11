@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import TextHeaderWrapper from '@/HOC/TextHeaderWrapper';
 import LinkWrapper from '@/HOC/LinkWrapper';
 import CodeBlock from '@/components/CodeBlock';
-import { RHS } from '@/components/columns';
+import { RHS } from '@/components/Columns';
 import { Head } from '@/components/head';
 import { NavItem } from '@/components/NavItem';
 import Collapsible, { BreakType, propsType } from '@/components/collapsible';

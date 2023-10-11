@@ -1,3 +1,6 @@
+import { Columns } from '@/components/Columns';
+
+<Columns>
 ###### how to check
 
 ## API Keys
@@ -7,11 +10,13 @@ without authentication or using an incorrect key will return a <span className={
 Requests using a valid key but with insufficient permissions will return a <span className={'warning'}>403</span> error.
 All API requests must be made over HTTPS. Any requests made over plain HTTP will fail.
 
-```php copy filename="Set API Key PHP"
-<?php
+  <RHS>
+    ```php copy filename="Set API Key PHP"
+    <?php
 
-WorkOS\WorkOS::setApiKey("sk_example_123456789");
-```
+    WorkOS\WorkOS::setApiKey("sk_example_123456789");
+    ```
+  </RHS>
 
 You can view and manage your API keys in the [WorkOS Dashboard](https://#Postman)
 
@@ -19,7 +24,7 @@ You can view and manage your API keys in the [WorkOS Dashboard](https://#Postman
 
 API keys can perform any API request to WorkOS. They should be kept secure and private!
 Be sure to prevent API keys from being made publicly accessible, such as in client-side code,
-GitHub, unsecured S3 buckets, and so forth. API keys are prefixed with <span className={'default'}>sk_</span>.
+GitHub, unsecured S3 buckets, and so forth. API keys are prefixed with **sk_**.
 
 ##### In Staging
 
@@ -33,3 +38,4 @@ API requests will be scoped to the provided key’s Environment.
 Once you unlock Production access you will need to generate an API Key for it.
 Production API keys may only be viewed once and will need to be saved in a secure
 location upon creation of them.
+</Columns>
