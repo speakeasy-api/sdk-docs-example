@@ -1,0 +1,29 @@
+```go showLineNumbers copy filename="Subscribe To Webhooks usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+	"openapi/pkg/models/operations"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(""),
+    )
+
+    ctx := context.Background()
+    res, err := s.Config.SubscribeToWebhooks(ctx, []operations.SubscribeToWebhooksRequestBody{
+        operations.SubscribeToWebhooksRequestBody{},
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.StatusCode == http.StatusOK {
+        // handle response
+    }
+}
+```

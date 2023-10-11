@@ -1,0 +1,29 @@
+```go showLineNumbers copy filename="Get Drink usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(""),
+    )
+
+
+    var name string = "quantify"
+
+    ctx := context.Background()
+    res, err := s.Drinks.GetDrink(ctx, name)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Drink != nil {
+        // handle response
+    }
+}
+```

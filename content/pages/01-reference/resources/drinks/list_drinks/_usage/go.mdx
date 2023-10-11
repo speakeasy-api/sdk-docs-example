@@ -1,0 +1,29 @@
+```go showLineNumbers copy filename="List Drinks usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(""),
+    )
+
+
+    var drinkType *shared.DrinkType = shared.DrinkTypeSpirit
+
+    ctx := context.Background()
+    res, err := s.Drinks.ListDrinks(ctx, drinkType)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Drinks != nil {
+        // handle response
+    }
+}
+```

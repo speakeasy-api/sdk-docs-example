@@ -1,0 +1,14 @@
+```python showLineNumbers copy filename="List Drinks usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    api_key="",
+)
+
+
+res = s.drinks.list_drinks(drink_type=shared.DrinkType.SPIRIT)
+
+if res.drinks is not None:
+    # handle response
+```
