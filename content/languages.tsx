@@ -1,15 +1,29 @@
-import React, { ReactElement } from 'react';
-import { Columns, RHS } from '@/components/columns';
+import {H3, LinkableContext} from "../components/header";
+import React, {ReactElement, ReactNode, useContext, useState} from "react";
 
-import TextHeaderWrapper from '@/HOC/TextHeaderWrapper';
-import LanguageSwitcher from '@/HOC/LanguageSwitcher';
-import newLanguageProvider from '@/HOC/LanguageProvicer';
+export type Language = "go" | "typescript"
 
-// REPLACE USAGE WITH HOC/LanguageProvider
-export const LanguageProvider = newLanguageProvider;
+const LangContext = React.createContext<{ lang: Language, setLang: (l: Language) => void }>({
+    lang: "go",
+    setLang: (lang) => {
+    }
+});
 
-// REPLACE USAGE WITH HOC/LanguageProvider
-/* export const LanguageSelect = () => {
+export const LanguageProvider = ({children}) => {
+    const [lang, setLang] = useState<Language>("go")
+    const context = {
+        lang,
+        setLang
+    }
+
+    return (
+        <LangContext.Provider value={context}>
+            {children}
+        </LangContext.Provider>
+    )
+}
+
+export const LanguageSelect = () => {
     const langContext = useContext(LangContext);
     return (
         <button style={{background: "tomato", margin: "24px", padding: "10px"}}
@@ -18,23 +32,29 @@ export const LanguageProvider = newLanguageProvider;
             {langContext.lang}
         </button>
     )
-} */
+}
 
-// REPLACE USAGE WITH HOC/LanguageSwitcher
-export const LanguageSwitch = LanguageSwitcher;
+export const LanguageSwitch = (props: { langToContent: Record<Language, ReactNode> }): ReactElement => {
+    const lang = useContext(LangContext).lang;
+    return <LinkableContext.Provider value={false}>{props.langToContent[lang]}</LinkableContext.Provider>
+}
 
 export const LanguageOperation = (props: {
-  usage: ReactElement;
-  parameters: ReactElement;
-  response: ReactElement;
+    usage: ReactNode,
+    parameters: ReactNode,
+    response: ReactNode
 }) => {
-  return (
-    <Columns>
-      <TextHeaderWrapper headingType='h3'>Parameters</TextHeaderWrapper>
-      {props.parameters}
-      <TextHeaderWrapper headingType='h3'>Response</TextHeaderWrapper>
-      {props.response}
-      <RHS>{props.usage}</RHS>
-    </Columns>
-  );
-};
+    return <>
+        <div style={{display: "flex", width: "1200px"}}>
+            <div style={{flex: 1}}>
+                <H3>Parameters</H3>
+                {props.parameters}
+                <H3>Response</H3>
+                {props.response}
+            </div>
+            <div style={{flex: 1}}>
+                {props.usage}
+            </div>
+        </div>
+    </>
+}

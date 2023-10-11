@@ -1,0 +1,62 @@
+```typescript showLineNumbers copy filename="Header Params Object usage example"
+import { SDK } from "openapi";
+import { HeaderParamsObjectRequest } from "openapi/dist/sdk/models/operations";
+import { Enum, SimpleObject1, SimpleObjectInt32Enum, SimpleObjectIntEnum } from "openapi/dist/sdk/models/shared";
+import { RFCDate } from "openapi/dist/sdk/types";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const xHeaderObj: SimpleObject1 = {
+  any: "any",
+  bigint: 8821239038968084,
+  bigintStr: "9223372036854775808",
+  bool: true,
+  boolOpt: true,
+  date: new RFCDate("2020-01-01"),
+  dateTime: new Date("2020-01-01T00:00:00.000000001Z"),
+  decimal: 3.141592653589793,
+  decimalStr: "3.14159265358979344719667586",
+  enum: Enum.One,
+  float32: 1.1,
+  int: 1,
+  int32: 1,
+  int32Enum: SimpleObjectInt32Enum.FiftyFive,
+  intEnum: SimpleObjectIntEnum.Second,
+  num: 1.1,
+  str: "test",
+  strOpt: "testOptional",
+};
+const xHeaderObjExplode: SimpleObject1 = {
+  any: "any",
+  bigint: 8821239038968084,
+  bigintStr: "9223372036854775808",
+  bool: true,
+  boolOpt: true,
+  date: new RFCDate("2020-01-01"),
+  dateTime: new Date("2020-01-01T00:00:00.000000001Z"),
+  decimal: 3.141592653589793,
+  decimalStr: "3.14159265358979344719667586",
+  enum: Enum.One,
+  float32: 1.1,
+  int: 1,
+  int32: 1,
+  int32Enum: SimpleObjectInt32Enum.FiftyFive,
+  intEnum: SimpleObjectIntEnum.Second,
+  num: 1.1,
+  str: "test",
+  strOpt: "testOptional",
+};
+
+  const res = await sdk.parameters.headerParamsObject(xHeaderObj, xHeaderObjExplode);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

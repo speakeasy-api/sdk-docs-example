@@ -1,0 +1,45 @@
+```python showLineNumbers copy filename="Create Resource usage example"
+import sdk
+import dateutil.parser
+from sdk.models import shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = shared.ExampleResource(
+    array_of_number=[
+        3567.07,
+    ],
+    array_of_string=[
+        'access',
+    ],
+    chocolates=[
+        shared.ExampleResourceChocolates(
+            description='Operative client-server software',
+        ),
+    ],
+    id='<ID>',
+    map_of_integer={
+        "Account": 680270,
+    },
+    map_of_string={
+        "Northeast": 'boudoir',
+    },
+    name='West Ghana East',
+    shared.ExampleBoat(
+        length=6144.65,
+        name='Malden South Zloty',
+        type=shared.ExampleBoatType.BOAT,
+    ),
+)
+
+res = s.resource.create_resource(req)
+
+if res.example_resource is not None:
+    # handle response
+```

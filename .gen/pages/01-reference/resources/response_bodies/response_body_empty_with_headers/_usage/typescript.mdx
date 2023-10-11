@@ -1,0 +1,22 @@
+```typescript showLineNumbers copy filename="Response Body Empty With Headers usage example"
+import { SDK } from "openapi";
+import { ResponseBodyEmptyWithHeadersRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const xNumberHeader: number = 7307.09;
+const xStringHeader: string = "Southwest";
+
+  const res = await sdk.responseBodies.responseBodyEmptyWithHeaders(xNumberHeader, xStringHeader);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

@@ -1,0 +1,21 @@
+```typescript showLineNumbers copy filename="Update Resource usage example"
+import { SDK } from "openapi";
+import { UpdateResourceRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const resourceId: string = "devastate";
+
+  const res = await sdk.resource.updateResource(resourceId);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

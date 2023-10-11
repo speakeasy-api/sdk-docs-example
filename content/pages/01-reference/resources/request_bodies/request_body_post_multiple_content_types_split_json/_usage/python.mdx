@@ -1,0 +1,23 @@
+```python showLineNumbers copy filename="Request Body Post Multiple Content Types Split Json usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = operations.RequestBodyPostMultipleContentTypesSplitApplicationJSON(
+    bool=False,
+    num=698.59,
+    str_='East irritably',
+)
+
+res = s.request_bodies.request_body_post_multiple_content_types_split_json(req)
+
+if res.res is not None:
+    # handle response
+```

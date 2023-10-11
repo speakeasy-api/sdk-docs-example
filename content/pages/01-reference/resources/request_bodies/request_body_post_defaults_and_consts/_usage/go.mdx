@@ -1,0 +1,47 @@
+```go showLineNumbers copy filename="Request Body Post Defaults And Consts usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+	"math/big"
+	"openapi/pkg/types"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(shared.Security{
+            APIKeyAuth: openapi.String("Token YOUR_API_KEY"),
+        }),
+        openapi.WithGlobalPathParam(100),
+        openapi.WithGlobalQueryParam("some example global query param"),
+    )
+
+    ctx := context.Background()
+    res, err := s.RequestBodies.RequestBodyPostDefaultsAndConsts(ctx, shared.DefaultsAndConsts{
+        ConstBigInt: big.NewInt(347233),
+        ConstBigIntStr: big.NewInt(862310),
+        ConstBool: false,
+        ConstDate: types.MustDateFromString("2021-06-12"),
+        ConstDateTime: types.MustTimeFromString("2023-05-05T13:36:44.422Z"),
+        ConstDecimal: types.MustNewDecimalFromString("9818.3"),
+        ConstDecimalStr: types.MustNewDecimalFromString("9850.33"),
+        ConstEnumInt: shared.DefaultsAndConstsConstEnumIntTwo,
+        ConstEnumStr: shared.DefaultsAndConstsConstEnumStrThree,
+        ConstInt: 497391,
+        ConstNum: 40.48,
+        ConstStr: "Plastic Ferrari",
+        ConstStrNull: "Home",
+        NormalField: "bridle",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.RequestBodyPostDefaultsAndConsts200ApplicationJSONObject != nil {
+        // handle response
+    }
+}
+```

@@ -1,0 +1,34 @@
+{
+  "api_key_auth": {
+    "title": "reference/resources/auth/Api Key Auth",
+    "href": "/reference/resources/auth/api_key_auth"
+  },
+  "api_key_auth_global": {
+    "title": "reference/resources/auth/Api Key Auth Global",
+    "href": "/reference/resources/auth/api_key_auth_global"
+  },
+  "basic_auth": {
+    "title": "reference/resources/auth/Basic Auth",
+    "href": "/reference/resources/auth/basic_auth"
+  },
+  "bearer_auth": {
+    "title": "reference/resources/auth/Bearer Auth",
+    "href": "/reference/resources/auth/bearer_auth"
+  },
+  "global_bearer_auth": {
+    "title": "reference/resources/auth/Global Bearer Auth",
+    "href": "/reference/resources/auth/global_bearer_auth"
+  },
+  "oauth2_auth": {
+    "title": "reference/resources/auth/Oauth2 Auth",
+    "href": "/reference/resources/auth/oauth2_auth"
+  },
+  "oauth2_override": {
+    "title": "reference/resources/auth/Oauth2 Override",
+    "href": "/reference/resources/auth/oauth2_override"
+  },
+  "open_id_connect_auth": {
+    "title": "reference/resources/auth/Open Id Connect Auth",
+    "href": "/reference/resources/auth/open_id_connect_auth"
+  }
+}

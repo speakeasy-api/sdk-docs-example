@@ -1,0 +1,21 @@
+```typescript showLineNumbers copy filename="Get Documentation Per Language usage example"
+import { SDK } from "openapi";
+import { GetDocumentationPerLanguageRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const language: string = "Table";
+
+  const res = await sdk.documentation.getDocumentationPerLanguage(language);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

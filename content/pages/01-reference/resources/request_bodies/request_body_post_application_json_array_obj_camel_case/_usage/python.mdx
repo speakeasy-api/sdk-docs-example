@@ -1,0 +1,40 @@
+```python showLineNumbers copy filename="Request Body Post Application Json Array Obj Camel Case usage example"
+import sdk
+import dateutil.parser
+from decimal import Decimal
+from sdk.models import shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = [
+    shared.SimpleObjectCamelCase(
+        any_val='any example',
+        bool_opt_val=True,
+        bool_val=True,
+        date_time_val=dateutil.parser.isoparse('2020-01-01T00:00:00Z'),
+        date_val=dateutil.parser.parse('2020-01-01').date(),
+        enum_val=shared.EnumT.ONE,
+        float32_val=2.2222222,
+        int32_enum_val=shared.SimpleObjectCamelCaseInt32EnumVal.SIXTY_NINE,
+        int32_val=1,
+        int_enum_val=shared.SimpleObjectCamelCaseIntEnumVal.THIRD,
+        int_opt_null_val=999999,
+        int_val=999999,
+        num_opt_null_val=1.1,
+        num_val=1.1,
+        str_opt_val='optional example',
+        str_val='example',
+    ),
+]
+
+res = s.request_bodies.request_body_post_application_json_array_obj_camel_case(req)
+
+if res.arr_obj_value_camel_case is not None:
+    # handle response
+```

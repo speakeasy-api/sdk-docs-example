@@ -1,0 +1,23 @@
+```typescript showLineNumbers copy filename="Nullable One Of Type In Object Post usage example"
+import { SDK } from "openapi";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+
+  const res = await sdk.unions.nullableOneOfTypeInObjectPost({
+    nullableOneOfOne: false,
+    nullableOneOfTwo: "reboot",
+    oneOfOne: false,
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

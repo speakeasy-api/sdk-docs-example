@@ -1,0 +1,22 @@
+```python showLineNumbers copy filename="Request Body Post Multiple Content Types Split Param Json usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.request_bodies.request_body_post_multiple_content_types_split_param_json(request_body=operations.RequestBodyPostMultipleContentTypesSplitParamApplicationJSON(
+    bool=False,
+    num=4879.35,
+    str_='withdrawal',
+), param_str='feed')
+
+if res.res is not None:
+    # handle response
+```

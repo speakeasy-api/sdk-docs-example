@@ -1,0 +1,46 @@
+{
+  "api_key_auth_global_new": {
+    "title": "reference/resources/auth_new/Api Key Auth Global New",
+    "href": "/reference/resources/auth_new/api_key_auth_global_new"
+  },
+  "auth_global": {
+    "title": "reference/resources/auth_new/Auth Global",
+    "href": "/reference/resources/auth_new/auth_global"
+  },
+  "basic_auth_new": {
+    "title": "reference/resources/auth_new/Basic Auth New",
+    "href": "/reference/resources/auth_new/basic_auth_new"
+  },
+  "multiple_mixed_options_auth": {
+    "title": "reference/resources/auth_new/Multiple Mixed Options Auth",
+    "href": "/reference/resources/auth_new/multiple_mixed_options_auth"
+  },
+  "multiple_mixed_scheme_auth": {
+    "title": "reference/resources/auth_new/Multiple Mixed Scheme Auth",
+    "href": "/reference/resources/auth_new/multiple_mixed_scheme_auth"
+  },
+  "multiple_options_with_mixed_schemes_auth": {
+    "title": "reference/resources/auth_new/Multiple Options With Mixed Schemes Auth",
+    "href": "/reference/resources/auth_new/multiple_options_with_mixed_schemes_auth"
+  },
+  "multiple_options_with_simple_schemes_auth": {
+    "title": "reference/resources/auth_new/Multiple Options With Simple Schemes Auth",
+    "href": "/reference/resources/auth_new/multiple_options_with_simple_schemes_auth"
+  },
+  "multiple_simple_options_auth": {
+    "title": "reference/resources/auth_new/Multiple Simple Options Auth",
+    "href": "/reference/resources/auth_new/multiple_simple_options_auth"
+  },
+  "multiple_simple_scheme_auth": {
+    "title": "reference/resources/auth_new/Multiple Simple Scheme Auth",
+    "href": "/reference/resources/auth_new/multiple_simple_scheme_auth"
+  },
+  "oauth2_auth_new": {
+    "title": "reference/resources/auth_new/Oauth2 Auth New",
+    "href": "/reference/resources/auth_new/oauth2_auth_new"
+  },
+  "open_id_connect_auth_new": {
+    "title": "reference/resources/auth_new/Open Id Connect Auth New",
+    "href": "/reference/resources/auth_new/open_id_connect_auth_new"
+  }
+}

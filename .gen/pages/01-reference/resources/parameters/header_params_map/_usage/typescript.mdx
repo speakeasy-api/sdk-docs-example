@@ -1,0 +1,28 @@
+```typescript showLineNumbers copy filename="Header Params Map usage example"
+import { SDK } from "openapi";
+import { HeaderParamsMapRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const xHeaderMap: Record<string, string> = {
+  "key1": "value1",
+  "key2": "value2",
+};
+const xHeaderMapExplode: Record<string, string> = {
+  "test1": "val1",
+  "test2": "val2",
+};
+
+  const res = await sdk.parameters.headerParamsMap(xHeaderMap, xHeaderMapExplode);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

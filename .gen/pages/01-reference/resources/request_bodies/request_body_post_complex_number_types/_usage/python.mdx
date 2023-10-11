@@ -1,0 +1,35 @@
+```python showLineNumbers copy filename="Request Body Post Complex Number Types usage example"
+import sdk
+from decimal import Decimal
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = operations.RequestBodyPostComplexNumberTypesRequest(
+    complex_number_types=shared.ComplexNumberTypes(
+        bigint=630448,
+        bigint_str=708548,
+        decimal=Decimal('8742.88'),
+        decimal_str=Decimal('4981.4'),
+    ),
+    path_big_int=293020,
+    path_big_int_str=844550,
+    path_decimal=Decimal('8489.44'),
+    path_decimal_str=Decimal('1943.42'),
+    query_big_int=617877,
+    query_big_int_str=773326,
+    query_decimal=Decimal('132.36'),
+    query_decimal_str=Decimal('9742.59'),
+)
+
+res = s.request_bodies.request_body_post_complex_number_types(req)
+
+if res.request_body_post_complex_number_types_200_application_json_object is not None:
+    # handle response
+```

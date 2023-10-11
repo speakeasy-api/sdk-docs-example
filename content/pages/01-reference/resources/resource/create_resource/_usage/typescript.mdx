@@ -1,0 +1,41 @@
+```typescript showLineNumbers copy filename="Create Resource usage example"
+import { SDK } from "openapi";
+import { ExampleResourceEnumNumber, ExampleResourceEnumStr } from "openapi/dist/sdk/models/shared";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+
+  const res = await sdk.resource.createResource({
+    arrayOfNumber: [
+      2870.51,
+    ],
+    arrayOfString: [
+      "Mini",
+    ],
+    chocolates: [
+      {
+        description: "Re-engineered fresh-thinking hierarchy",
+      },
+    ],
+    id: "<ID>",
+    mapOfInteger: {
+      "Ford": 924967,
+    },
+    mapOfString: {
+      "alliance": "Nickel",
+    },
+    name: "Upgradable Electric",
+    vehicle: "gaze",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

@@ -1,0 +1,19 @@
+```typescript showLineNumbers copy filename="Request Body Read Write Only Union usage example"
+import { SDK } from "openapi";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+
+  const res = await sdk.requestBodies.requestBodyReadWriteOnlyUnion("zero");
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

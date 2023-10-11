@@ -1,0 +1,22 @@
+{
+  "component_body_and_param_conflict": {
+    "title": "reference/resources/flattening/Component Body And Param Conflict",
+    "href": "/reference/resources/flattening/component_body_and_param_conflict"
+  },
+  "component_body_and_param_no_conflict": {
+    "title": "reference/resources/flattening/Component Body And Param No Conflict",
+    "href": "/reference/resources/flattening/component_body_and_param_no_conflict"
+  },
+  "conflicting_params": {
+    "title": "reference/resources/flattening/Conflicting Params",
+    "href": "/reference/resources/flattening/conflicting_params"
+  },
+  "inline_body_and_param_conflict": {
+    "title": "reference/resources/flattening/Inline Body And Param Conflict",
+    "href": "/reference/resources/flattening/inline_body_and_param_conflict"
+  },
+  "inline_body_and_param_no_conflict": {
+    "title": "reference/resources/flattening/Inline Body And Param No Conflict",
+    "href": "/reference/resources/flattening/inline_body_and_param_no_conflict"
+  }
+}

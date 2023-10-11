@@ -1,0 +1,35 @@
+```typescript showLineNumbers copy filename="Multiple Mixed Scheme Auth usage example"
+import { SDK } from "openapi";
+import { MultipleMixedSchemeAuthSecurity } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const operationSecurity: MultipleMixedSchemeAuthSecurity = {
+  apiKeyAuthNew: "Token <YOUR_API_KEY>",
+  basicAuth: {
+    password: "YOUR_PASSWORD",
+    username: "YOUR_USERNAME",
+  },
+};
+
+  const res = await sdk.authNew.multipleMixedSchemeAuth({
+    basicAuth: {
+      password: "tHx5bVVsQRxxWyq",
+      username: "Brendon_OConnell28",
+    },
+    headerAuth: [
+      {
+        expectedValue: "Tools",
+        headerName: "back Ford",
+      },
+    ],
+  }, operationSecurity);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

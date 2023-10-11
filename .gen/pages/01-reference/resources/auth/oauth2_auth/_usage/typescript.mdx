@@ -1,0 +1,18 @@
+```typescript showLineNumbers copy filename="Oauth2 Auth usage example"
+import { SDK } from "openapi";
+import { Oauth2AuthSecurity } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const operationSecurity: Oauth2AuthSecurity = "Bearer YOUR_OAUTH2_TOKEN";
+
+  const res = await sdk.auth.oauth2Auth(operationSecurity);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

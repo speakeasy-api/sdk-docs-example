@@ -1,0 +1,18 @@
+```python showLineNumbers copy filename="Conflicting Params usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.flattening.conflicting_params(str_path_parameter='instead', str_query_parameter='Customer')
+
+if res.res is not None:
+    # handle response
+```

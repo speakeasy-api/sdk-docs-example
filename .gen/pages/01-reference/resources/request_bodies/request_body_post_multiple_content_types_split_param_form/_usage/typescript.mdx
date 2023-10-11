@@ -1,0 +1,29 @@
+```typescript showLineNumbers copy filename="Request Body Post Multiple Content Types Split Param Form usage example"
+import { SDK } from "openapi";
+import {
+  RequestBodyPostMultipleContentTypesSplitParamApplicationXWwwFormUrlencoded,
+  RequestBodyPostMultipleContentTypesSplitParamFormRequest,
+} from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const requestBody: RequestBodyPostMultipleContentTypesSplitParamApplicationXWwwFormUrlencoded = {
+  bool3: false,
+  num3: 8820.42,
+  str3: "invoice",
+};
+const paramStr: string = "Rutherfordium";
+
+  const res = await sdk.requestBodies.requestBodyPostMultipleContentTypesSplitParamForm(requestBody, paramStr);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

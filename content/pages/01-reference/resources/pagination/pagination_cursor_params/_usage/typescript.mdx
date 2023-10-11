@@ -1,0 +1,25 @@
+```typescript showLineNumbers copy filename="Pagination Cursor Params usage example"
+import { SDK } from "openapi";
+import { PaginationCursorParamsRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const cursor: number = 746994;
+
+  const res = await sdk.pagination.paginationCursorParams(cursor);
+
+  if (res.statusCode == 200) {
+    do {
+      // handle items
+
+      res = res.next();
+    } while (res);
+  }
+})();
+```

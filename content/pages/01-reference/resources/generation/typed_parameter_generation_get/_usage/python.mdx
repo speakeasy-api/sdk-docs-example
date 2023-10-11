@@ -1,0 +1,24 @@
+```python showLineNumbers copy filename="Typed Parameter Generation Get usage example"
+import sdk
+import dateutil.parser
+from decimal import Decimal
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.generation.typed_parameter_generation_get(bigint=518201, date_=dateutil.parser.parse('2022-06-01').date(), decimal=Decimal('256.62'), obj=operations.TypedParameterGenerationGetObj(
+    bool=False,
+    num=7115.84,
+    str_='Heights',
+))
+
+if res.status_code == 200:
+    # handle response
+```

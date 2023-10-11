@@ -1,0 +1,30 @@
+```python showLineNumbers copy filename="Auth Global usage example"
+import sdk
+from sdk.models import shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = shared.AuthServiceRequestBody(
+    basic_auth=shared.AuthServiceRequestBodyBasicAuth(
+        password='mLRkaeXTziRHM2j',
+        username='Myra56',
+    ),
+    header_auth=[
+        shared.AuthServiceRequestBodyHeaderAuth(
+            expected_value='East',
+            header_name='Fadel thistle',
+        ),
+    ],
+)
+
+res = s.auth_new.auth_global(req)
+
+if res.status_code == 200:
+    # handle response
+```

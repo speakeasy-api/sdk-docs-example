@@ -1,0 +1,41 @@
+```typescript showLineNumbers copy filename="Request Body Post Defaults And Consts usage example"
+import { SDK } from "openapi";
+import {
+  DefaultsAndConstsConstEnumInt,
+  DefaultsAndConstsConstEnumStr,
+  DefaultsAndConstsDefaultEnumInt,
+  DefaultsAndConstsDefaultEnumStr,
+} from "openapi/dist/sdk/models/shared";
+import { RFCDate } from "openapi/dist/sdk/types";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+
+  const res = await sdk.requestBodies.requestBodyPostDefaultsAndConsts({
+    constBigInt: 677412,
+    constBigIntStr: "Diesel Riel tesla",
+    constBool: false,
+    constDate: new RFCDate("2023-06-28"),
+    constDateTime: new Date("2023-08-01T07:17:05.231Z"),
+    constDecimal: 3790.34,
+    constDecimalStr: "South Bronze Rock",
+    constEnumInt: DefaultsAndConstsConstEnumInt.Two,
+    constEnumStr: DefaultsAndConstsConstEnumStr.One,
+    constInt: 487935,
+    constNum: 2621.18,
+    constStr: "payment Architect",
+    constStrNull: "Cab Beauty blue",
+    normalField: "Consultant",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

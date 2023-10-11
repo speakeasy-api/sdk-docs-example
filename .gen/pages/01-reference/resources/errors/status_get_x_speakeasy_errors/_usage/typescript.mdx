@@ -1,0 +1,21 @@
+```typescript showLineNumbers copy filename="Status Get X Speakeasy Errors usage example"
+import { SDK } from "openapi";
+import { StatusGetXSpeakeasyErrorsRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const statusCode: number = 906418;
+
+  const res = await sdk.errors.statusGetXSpeakeasyErrors(statusCode);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

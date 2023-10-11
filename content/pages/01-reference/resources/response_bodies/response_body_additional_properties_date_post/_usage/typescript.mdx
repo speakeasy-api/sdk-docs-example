@@ -1,0 +1,21 @@
+```typescript showLineNumbers copy filename="Response Body Additional Properties Date Post usage example"
+import { SDK } from "openapi";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+
+  const res = await sdk.responseBodies.responseBodyAdditionalPropertiesDatePost({
+    "far": new RFCDate("2022-01-28"),
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

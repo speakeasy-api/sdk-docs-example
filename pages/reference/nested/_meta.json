@@ -1,0 +1,14 @@
+{
+  "nested_get": {
+    "title": "reference/resources/nested/Nested Get",
+    "href": "/reference/resources/nested/nested_get"
+  },
+  "first": {
+    "title": "reference/resources/nested/First",
+    "href": "/reference/resources/nested/first"
+  },
+  "second": {
+    "title": "reference/resources/nested/Second",
+    "href": "/reference/resources/nested/second"
+  }
+}

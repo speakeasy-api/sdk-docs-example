@@ -1,0 +1,23 @@
+```typescript showLineNumbers copy filename="Basic Auth usage example"
+import { SDK } from "openapi";
+import { BasicAuthRequest, BasicAuthSecurity } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const passwd: string = "male";
+const user: string = "woman";
+const operationSecurity: BasicAuthSecurity = {
+  password: "YOUR_PASSWORD",
+  username: "YOUR_USERNAME",
+};
+
+  const res = await sdk.auth.basicAuth(operationSecurity, passwd, user);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

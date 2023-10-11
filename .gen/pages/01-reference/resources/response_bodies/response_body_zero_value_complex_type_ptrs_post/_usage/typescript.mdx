@@ -1,0 +1,23 @@
+```typescript showLineNumbers copy filename="Response Body Zero Value Complex Type Ptrs Post usage example"
+import { SDK } from "openapi";
+import { RFCDate } from "openapi/dist/sdk/types";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+
+  const res = await sdk.responseBodies.responseBodyZeroValueComplexTypePtrsPost({
+    date: new RFCDate("2020-01-01"),
+    dateTime: new Date("2020-01-01T00:00:00Z"),
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

@@ -1,0 +1,23 @@
+```typescript showLineNumbers copy filename="Request Body Post Multiple Content Types Split Multipart usage example"
+import { SDK } from "openapi";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+
+  const res = await sdk.requestBodies.requestBodyPostMultipleContentTypesSplitMultipart({
+    bool2: false,
+    num2: 4572.23,
+    str2: "overexertion",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

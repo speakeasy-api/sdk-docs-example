@@ -1,0 +1,29 @@
+```typescript showLineNumbers copy filename="Typed Parameter Generation Get usage example"
+import { SDK } from "openapi";
+import { TypedParameterGenerationGetObj, TypedParameterGenerationGetRequest } from "openapi/dist/sdk/models/operations";
+import { RFCDate } from "openapi/dist/sdk/types";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const bigint: number = 518201;
+const date: RFCDate = new RFCDate("2022-06-01");
+const decimal: number = 256.62;
+const obj: TypedParameterGenerationGetObj = {
+  bool: false,
+  num: 7115.84,
+  str: "Heights",
+};
+
+  const res = await sdk.generation.typedParameterGenerationGet(bigint, date, decimal, obj);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

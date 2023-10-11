@@ -1,0 +1,30 @@
+```python showLineNumbers copy filename="Api Key Auth Global New usage example"
+import sdk
+from sdk.models import shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = shared.AuthServiceRequestBody(
+    basic_auth=shared.AuthServiceRequestBodyBasicAuth(
+        password='qIEJuENlnSNVFxp',
+        username='Antonetta64',
+    ),
+    header_auth=[
+        shared.AuthServiceRequestBodyHeaderAuth(
+            expected_value='stable',
+            header_name='Bicycle wonderful TCP',
+        ),
+    ],
+)
+
+res = s.auth_new.api_key_auth_global_new(req)
+
+if res.status_code == 200:
+    # handle response
+```

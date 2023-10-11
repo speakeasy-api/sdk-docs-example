@@ -1,0 +1,25 @@
+## Request Body Write Only Union
+
+Request Body Write Only Union
+
+{/* rendered from operation template */}
+
+import {LanguageOperation} from "/.gen/languages";
+import {LanguageSwitch} from "/.gen/languages";
+import GoParameters from "./_parameters/go.mdx"
+import GoResponse from "./_response/go.mdx"
+import GoUsage from "./_usage/go.mdx"
+import TsParameters from "./_parameters/typescript.mdx"
+import TsResponse from "./_response/typescript.mdx"
+import TsUsage from "./_usage/typescript.mdx"
+
+export const Operation = () => {
+    const go = <LanguageOperation parameters={<GoParameters/>} response={<GoResponse/>} usage={<GoUsage/>}/>
+    const typescript = <LanguageOperation parameters={<TsParameters/>} response={<TsResponse/>} usage={<TsUsage/>}/>
+
+    return <LanguageSwitch langToContent={{go, typescript}}/>
+}
+
+<Operation />
+
+{/* end rendered section */}

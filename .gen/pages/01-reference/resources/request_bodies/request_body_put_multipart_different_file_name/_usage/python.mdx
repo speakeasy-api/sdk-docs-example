@@ -1,0 +1,24 @@
+```python showLineNumbers copy filename="Request Body Put Multipart Different File Name usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = operations.RequestBodyPutMultipartDifferentFileNameRequestBody(
+    different_file_name=operations.RequestBodyPutMultipartDifferentFileNameRequestBodyDifferentFileName(
+        content='2-uVS)Kus('.encode(),
+        different_file_name='Gasoline husky',
+    ),
+)
+
+res = s.request_bodies.request_body_put_multipart_different_file_name(req)
+
+if res.res is not None:
+    # handle response
+```

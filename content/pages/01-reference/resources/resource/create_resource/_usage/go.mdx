@@ -1,0 +1,57 @@
+```go showLineNumbers copy filename="Create Resource usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(shared.Security{
+            APIKeyAuth: openapi.String("Token YOUR_API_KEY"),
+        }),
+        openapi.WithGlobalPathParam(100),
+        openapi.WithGlobalQueryParam("some example global query param"),
+    )
+
+    ctx := context.Background()
+    res, err := s.Resource.CreateResource(ctx, shared.ExampleResource{
+        ArrayOfNumber: []float64{
+            3567.07,
+        },
+        ArrayOfString: []string{
+            "access",
+        },
+        Chocolates: []shared.ExampleResourceChocolates{
+            shared.ExampleResourceChocolates{
+                Description: "Operative client-server software",
+            },
+        },
+        ID: "<ID>",
+        MapOfInteger: map[string]int64{
+            "Account": 680270,
+        },
+        MapOfString: map[string]string{
+            "Northeast": "boudoir",
+        },
+        Name: "West Ghana East",
+        Vehicle: shared.CreateExampleVehicleExampleBoat(
+                shared.ExampleBoat{
+                    Length: 6144.65,
+                    Name: "Malden South Zloty",
+                    Type: shared.ExampleBoatTypeBoat,
+                },
+        ),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.ExampleResource != nil {
+        // handle response
+    }
+}
+```

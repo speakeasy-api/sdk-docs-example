@@ -1,0 +1,77 @@
+```go showLineNumbers copy filename="Usage Example Post usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/operations"
+	"openapi/pkg/models/shared"
+	"math/big"
+	"openapi/pkg/types"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithGlobalPathParam(100),
+        openapi.WithGlobalQueryParam("some example global query param"),
+    )
+
+
+    operationSecurity := operations.UsageExamplePostSecurity{
+            Password: "YOUR_PASSWORD",
+            Username: "YOUR_USERNAME",
+        }
+
+    ctx := context.Background()
+    res, err := s.Generation.UsageExamplePost(ctx, operations.UsageExamplePostRequest{
+        RequestBody: &operations.UsageExamplePostRequestBody{
+            FakerFormattedStrings: &shared.FakerFormattedStrings{},
+            FakerStrings: &shared.FakerStrings{},
+            SimpleObject: &shared.SimpleObject{
+                Any: "any",
+                Bigint: big.NewInt(8821239038968084),
+                BigintStr: types.MustNewBigIntFromString("9223372036854775808"),
+                Bool: true,
+                BoolOpt: openapi.Bool(true),
+                Date: types.MustDateFromString("2020-01-01"),
+                DateTime: types.MustTimeFromString("2020-01-01T00:00:00.000000001Z"),
+                Decimal: types.MustNewDecimalFromString("3.141592653589793"),
+                DecimalStr: types.MustNewDecimalFromString("3.14159265358979344719667586"),
+                Enum: shared.EnumOne,
+                Float32: 1.1,
+                Int: 1,
+                Int32: 1,
+                Int32Enum: shared.SimpleObjectInt32EnumFiftyFive,
+                IntEnum: shared.SimpleObjectIntEnumSecond,
+                Num: 1.1,
+                Str: "test",
+                StrOpt: openapi.String("testOptional"),
+            },
+        },
+        BigintParameter: big.NewInt(463575),
+        BigintStrParameter: big.NewInt(214880),
+        BoolParameter: false,
+        DateParameter: types.MustDateFromString("2021-11-01"),
+        DateTimeParameter: types.MustTimeFromString("2021-07-24T04:07:19.146Z"),
+        DecimalParameter: types.MustNewDecimalFromString("5867.84"),
+        DecimalStrParameter: types.MustNewDecimalFromString("8075.81"),
+        DoubleParameter: 8638.56,
+        EnumParameter: operations.UsageExamplePostEnumParameterValue3,
+        FalseyNumberParameter: 0,
+        Float32Parameter: 1175.31,
+        FloatParameter: 6748.48,
+        Int64Parameter: 517379,
+        IntParameter: 276894,
+        OptEnumParameter: operations.UsageExamplePostOptEnumParameterValue3.ToPointer(),
+        StrParameter: "example 1",
+    }, operationSecurity)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.UsageExamplePost200ApplicationJSONObject != nil {
+        // handle response
+    }
+}
+```

@@ -1,0 +1,21 @@
+```typescript showLineNumbers copy filename="Duplicate Param usage example"
+import { SDK } from "openapi";
+import { DuplicateParamRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const duplicateParamRequest: string = "Computer";
+
+  const res = await sdk.parameters.duplicateParam(duplicateParamRequest);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

@@ -1,0 +1,22 @@
+```typescript showLineNumbers copy filename="Retries Get usage example"
+import { SDK } from "openapi";
+import { RetriesGetRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const requestId: string = "Response";
+const numRetries: number = 132815;
+
+  const res = await sdk.retries.retriesGet(requestId, numRetries);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

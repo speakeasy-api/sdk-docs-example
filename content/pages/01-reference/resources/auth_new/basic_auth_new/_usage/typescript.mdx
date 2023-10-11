@@ -1,0 +1,32 @@
+```typescript showLineNumbers copy filename="Basic Auth New usage example"
+import { SDK } from "openapi";
+import { BasicAuthNewSecurity } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const operationSecurity: BasicAuthNewSecurity = {
+  password: "YOUR_PASSWORD",
+  username: "YOUR_USERNAME",
+};
+
+  const res = await sdk.authNew.basicAuthNew({
+    basicAuth: {
+      password: "aKCJvc_14ChZCWJ",
+      username: "Lorenza.Yundt65",
+    },
+    headerAuth: [
+      {
+        expectedValue: "Marketing",
+        headerName: "Customer Plastic JSON",
+      },
+    ],
+  }, operationSecurity);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

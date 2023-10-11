@@ -1,0 +1,18 @@
+```typescript showLineNumbers copy filename="Bearer Auth usage example"
+import { SDK } from "openapi";
+import { BearerAuthSecurity } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const operationSecurity: BearerAuthSecurity = "YOUR_JWT";
+
+  const res = await sdk.auth.bearerAuth(operationSecurity);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

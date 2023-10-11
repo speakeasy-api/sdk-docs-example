@@ -1,0 +1,21 @@
+```python showLineNumbers copy filename="Header Params Array usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.parameters.header_params_array(x_header_array=[
+    'test1',
+    'test2',
+])
+
+if res.res is not None:
+    # handle response
+```

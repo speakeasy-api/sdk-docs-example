@@ -1,0 +1,27 @@
+```python showLineNumbers copy filename="Open Id Connect Auth New usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = shared.AuthServiceRequestBody(
+    basic_auth=shared.AuthServiceRequestBodyBasicAuth(
+        password='54625zWgKO6a9JO',
+        username='Elvie_Thompson37',
+    ),
+    header_auth=[
+        shared.AuthServiceRequestBodyHeaderAuth(
+            expected_value='sky Van',
+            header_name='JSON Agent ionise',
+        ),
+    ],
+)
+
+res = s.auth_new.open_id_connect_auth_new(req, "Bearer YOUR_OPENID_TOKEN")
+
+if res.status_code == 200:
+    # handle response
+```

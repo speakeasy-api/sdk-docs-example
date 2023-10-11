@@ -1,0 +1,44 @@
+```go showLineNumbers copy filename="Multiple Mixed Options Auth usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/operations"
+	"openapi/pkg/models/shared"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithGlobalPathParam(100),
+        openapi.WithGlobalQueryParam("some example global query param"),
+    )
+
+
+    operationSecurity := operations.MultipleMixedOptionsAuthSecurity{
+            APIKeyAuthNew: openapi.String("Token <YOUR_API_KEY>"),
+        }
+
+    ctx := context.Background()
+    res, err := s.AuthNew.MultipleMixedOptionsAuth(ctx, shared.AuthServiceRequestBody{
+        BasicAuth: &shared.AuthServiceRequestBodyBasicAuth{
+            Password: "80Aa_j3D_nptMQZ",
+            Username: "Ivah3",
+        },
+        HeaderAuth: []shared.AuthServiceRequestBodyHeaderAuth{
+            shared.AuthServiceRequestBodyHeaderAuth{
+                ExpectedValue: "holistic Louisiana",
+                HeaderName: "Specialist",
+            },
+        },
+    }, operationSecurity)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.StatusCode == http.StatusOK {
+        // handle response
+    }
+}
+```

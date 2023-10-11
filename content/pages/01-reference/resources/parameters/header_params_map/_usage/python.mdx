@@ -1,0 +1,24 @@
+```python showLineNumbers copy filename="Header Params Map usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.parameters.header_params_map(x_header_map={
+    "key1": 'value1',
+    "key2": 'value2',
+}, x_header_map_explode={
+    "test1": 'val1',
+    "test2": 'val2',
+})
+
+if res.res is not None:
+    # handle response
+```

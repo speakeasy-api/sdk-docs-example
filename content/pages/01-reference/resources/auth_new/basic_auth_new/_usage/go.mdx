@@ -1,0 +1,45 @@
+```go showLineNumbers copy filename="Basic Auth New usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/operations"
+	"openapi/pkg/models/shared"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithGlobalPathParam(100),
+        openapi.WithGlobalQueryParam("some example global query param"),
+    )
+
+
+    operationSecurity := operations.BasicAuthNewSecurity{
+            Password: "YOUR_PASSWORD",
+            Username: "YOUR_USERNAME",
+        }
+
+    ctx := context.Background()
+    res, err := s.AuthNew.BasicAuthNew(ctx, shared.AuthServiceRequestBody{
+        BasicAuth: &shared.AuthServiceRequestBodyBasicAuth{
+            Password: "aKCJvc_14ChZCWJ",
+            Username: "Lorenza.Yundt65",
+        },
+        HeaderAuth: []shared.AuthServiceRequestBodyHeaderAuth{
+            shared.AuthServiceRequestBodyHeaderAuth{
+                ExpectedValue: "Marketing",
+                HeaderName: "Customer Plastic JSON",
+            },
+        },
+    }, operationSecurity)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.StatusCode == http.StatusOK {
+        // handle response
+    }
+}
+```

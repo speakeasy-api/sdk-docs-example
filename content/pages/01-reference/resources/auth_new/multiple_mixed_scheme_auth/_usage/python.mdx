@@ -1,0 +1,33 @@
+```python showLineNumbers copy filename="Multiple Mixed Scheme Auth usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = shared.AuthServiceRequestBody(
+    basic_auth=shared.AuthServiceRequestBodyBasicAuth(
+        password='tHx5bVVsQRxxWyq',
+        username='Brendon_OConnell28',
+    ),
+    header_auth=[
+        shared.AuthServiceRequestBodyHeaderAuth(
+            expected_value='Tools',
+            header_name='back Ford',
+        ),
+    ],
+)
+
+res = s.auth_new.multiple_mixed_scheme_auth(req, operations.MultipleMixedSchemeAuthSecurity(
+    api_key_auth_new="Token <YOUR_API_KEY>",
+    basic_auth=shared.SchemeBasicAuth(
+        password="YOUR_PASSWORD",
+        username="YOUR_USERNAME",
+    ),
+))
+
+if res.status_code == 200:
+    # handle response
+```

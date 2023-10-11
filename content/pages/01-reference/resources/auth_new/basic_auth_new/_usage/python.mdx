@@ -1,0 +1,30 @@
+```python showLineNumbers copy filename="Basic Auth New usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = shared.AuthServiceRequestBody(
+    basic_auth=shared.AuthServiceRequestBodyBasicAuth(
+        password='aKCJvc_14ChZCWJ',
+        username='Lorenza.Yundt65',
+    ),
+    header_auth=[
+        shared.AuthServiceRequestBodyHeaderAuth(
+            expected_value='Marketing',
+            header_name='Customer Plastic JSON',
+        ),
+    ],
+)
+
+res = s.auth_new.basic_auth_new(req, operations.BasicAuthNewSecurity(
+    password="YOUR_PASSWORD",
+    username="YOUR_USERNAME",
+))
+
+if res.status_code == 200:
+    # handle response
+```

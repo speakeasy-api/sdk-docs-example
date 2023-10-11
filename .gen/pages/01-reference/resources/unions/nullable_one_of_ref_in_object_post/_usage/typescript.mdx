@@ -1,0 +1,27 @@
+```typescript showLineNumbers copy filename="Nullable One Of Ref In Object Post usage example"
+import { SDK } from "openapi";
+import { TypedObject1Type } from "openapi/dist/sdk/models/shared";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+
+  const res = await sdk.unions.nullableOneOfRefInObjectPost({
+    nullableOneOfOne: {
+      type: TypedObject1Type.Obj1,
+      value: "indexing",
+    },
+    nullableOneOfTwo: "B2C",
+    oneOfOne: "truthfully",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

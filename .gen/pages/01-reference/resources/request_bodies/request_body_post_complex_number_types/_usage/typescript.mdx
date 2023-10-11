@@ -1,0 +1,34 @@
+```typescript showLineNumbers copy filename="Request Body Post Complex Number Types usage example"
+import { SDK } from "openapi";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+
+  const res = await sdk.requestBodies.requestBodyPostComplexNumberTypes({
+    complexNumberTypes1: {
+      bigint: 4048,
+      bigintStr: "Plastic Ferrari",
+      decimal: 1898.48,
+      decimalStr: "bypassing Tasty",
+    },
+    pathBigInt: 97844,
+    pathBigIntStr: "nimble but",
+    pathDecimal: 9608.35,
+    pathDecimalStr: "lest Fitness architecture",
+    queryBigInt: 301831,
+    queryBigIntStr: "Bicycle Kentucky",
+    queryDecimal: 534.27,
+    queryDecimalStr: "Helium South Block",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

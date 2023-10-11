@@ -1,0 +1,25 @@
+```python showLineNumbers copy filename="Nullable Required Property Post usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = operations.NullableRequiredPropertyPostRequestBody(
+    nullable_required_array=[
+        4880.56,
+    ],
+    nullable_required_enum=operations.NullableRequiredPropertyPostRequestBodyNullableRequiredEnum.FIRST,
+    nullable_required_int=355613,
+)
+
+res = s.request_bodies.nullable_required_property_post(req)
+
+if res.nullable_required_property_post_200_application_json_string is not None:
+    # handle response
+```

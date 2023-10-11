@@ -1,0 +1,22 @@
+```typescript showLineNumbers copy filename="Conflicting Params usage example"
+import { SDK } from "openapi";
+import { ConflictingParamsRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const strPathParameter: string = "instead";
+const strQueryParameter: string = "Customer";
+
+  const res = await sdk.flattening.conflictingParams(strPathParameter, strQueryParameter);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

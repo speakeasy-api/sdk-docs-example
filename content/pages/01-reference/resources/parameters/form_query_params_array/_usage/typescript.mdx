@@ -1,0 +1,28 @@
+```typescript showLineNumbers copy filename="Form Query Params Array usage example"
+import { SDK } from "openapi";
+import { FormQueryParamsArrayRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const arrParam: string[] = [
+  "test",
+  "test2",
+];
+const arrParamExploded: number[] = [
+  1,
+  2,
+];
+
+  const res = await sdk.parameters.formQueryParamsArray(arrParam, arrParamExploded);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

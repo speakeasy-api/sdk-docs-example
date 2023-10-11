@@ -1,0 +1,21 @@
+```typescript showLineNumbers copy filename="Get Resource usage example"
+import { SDK } from "openapi";
+import { GetResourceRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const resourceId: string = "while";
+
+  const res = await sdk.resource.getResource(resourceId);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

@@ -1,0 +1,15 @@
+```python showLineNumbers copy filename="Open Id Connect Auth usage example"
+import sdk
+from sdk.models import operations
+
+s = sdk.SDK(
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.auth.open_id_connect_auth("Bearer YOUR_OPENID_TOKEN")
+
+if res.token is not None:
+    # handle response
+```

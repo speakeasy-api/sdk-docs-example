@@ -1,0 +1,26 @@
+{
+  "select_global_server": {
+    "title": "reference/resources/servers/Select Global Server",
+    "href": "/reference/resources/servers/select_global_server"
+  },
+  "select_server_with_id": {
+    "title": "reference/resources/servers/Select Server With Id",
+    "href": "/reference/resources/servers/select_server_with_id"
+  },
+  "server_with_protocol_template": {
+    "title": "reference/resources/servers/Server With Protocol Template",
+    "href": "/reference/resources/servers/server_with_protocol_template"
+  },
+  "server_with_templates": {
+    "title": "reference/resources/servers/Server With Templates",
+    "href": "/reference/resources/servers/server_with_templates"
+  },
+  "server_with_templates_global": {
+    "title": "reference/resources/servers/Server With Templates Global",
+    "href": "/reference/resources/servers/server_with_templates_global"
+  },
+  "servers_by_id_with_templates": {
+    "title": "reference/resources/servers/Servers By Id With Templates",
+    "href": "/reference/resources/servers/servers_by_id_with_templates"
+  }
+}

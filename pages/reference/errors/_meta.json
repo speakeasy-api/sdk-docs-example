@@ -1,0 +1,14 @@
+{
+  "connection_error_get": {
+    "title": "reference/resources/errors/Connection Error Get",
+    "href": "/reference/resources/errors/connection_error_get"
+  },
+  "status_get_error": {
+    "title": "reference/resources/errors/Status Get Error",
+    "href": "/reference/resources/errors/status_get_error"
+  },
+  "status_get_x_speakeasy_errors": {
+    "title": "reference/resources/errors/Status Get X Speakeasy Errors",
+    "href": "/reference/resources/errors/status_get_x_speakeasy_errors"
+  }
+}

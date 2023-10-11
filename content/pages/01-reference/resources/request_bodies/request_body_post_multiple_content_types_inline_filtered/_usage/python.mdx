@@ -1,0 +1,23 @@
+```python showLineNumbers copy filename="Request Body Post Multiple Content Types Inline Filtered usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = operations.RequestBodyPostMultipleContentTypesInlineFilteredApplicationJSON(
+    bool=False,
+    num=6774.12,
+    str_='Diesel Riel tesla',
+)
+
+res = s.request_bodies.request_body_post_multiple_content_types_inline_filtered(req)
+
+if res.res is not None:
+    # handle response
+```

@@ -1,0 +1,15 @@
+```python showLineNumbers copy filename="Bearer Auth usage example"
+import sdk
+from sdk.models import operations
+
+s = sdk.SDK(
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.auth.bearer_auth("YOUR_JWT")
+
+if res.token is not None:
+    # handle response
+```

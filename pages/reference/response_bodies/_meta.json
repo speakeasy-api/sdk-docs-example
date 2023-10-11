@@ -1,0 +1,42 @@
+{
+  "response_body_additional_properties_complex_numbers_post": {
+    "title": "reference/resources/response_bodies/Response Body Additional Properties Complex Numbers Post",
+    "href": "/reference/resources/response_bodies/response_body_additional_properties_complex_numbers_post"
+  },
+  "response_body_additional_properties_date_post": {
+    "title": "reference/resources/response_bodies/Response Body Additional Properties Date Post",
+    "href": "/reference/resources/response_bodies/response_body_additional_properties_date_post"
+  },
+  "response_body_additional_properties_post": {
+    "title": "reference/resources/response_bodies/Response Body Additional Properties Post",
+    "href": "/reference/resources/response_bodies/response_body_additional_properties_post"
+  },
+  "response_body_bytes_get": {
+    "title": "reference/resources/response_bodies/Response Body Bytes Get",
+    "href": "/reference/resources/response_bodies/response_body_bytes_get"
+  },
+  "response_body_empty_with_headers": {
+    "title": "reference/resources/response_bodies/Response Body Empty With Headers",
+    "href": "/reference/resources/response_bodies/response_body_empty_with_headers"
+  },
+  "response_body_optional_get": {
+    "title": "reference/resources/response_bodies/Response Body Optional Get",
+    "href": "/reference/resources/response_bodies/response_body_optional_get"
+  },
+  "response_body_read_only": {
+    "title": "reference/resources/response_bodies/Response Body Read Only",
+    "href": "/reference/resources/response_bodies/response_body_read_only"
+  },
+  "response_body_string_get": {
+    "title": "reference/resources/response_bodies/Response Body String Get",
+    "href": "/reference/resources/response_bodies/response_body_string_get"
+  },
+  "response_body_xml_get": {
+    "title": "reference/resources/response_bodies/Response Body Xml Get",
+    "href": "/reference/resources/response_bodies/response_body_xml_get"
+  },
+  "response_body_zero_value_complex_type_ptrs_post": {
+    "title": "reference/resources/response_bodies/Response Body Zero Value Complex Type Ptrs Post",
+    "href": "/reference/resources/response_bodies/response_body_zero_value_complex_type_ptrs_post"
+  }
+}

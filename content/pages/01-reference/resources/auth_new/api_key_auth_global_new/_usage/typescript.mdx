@@ -1,0 +1,30 @@
+```typescript showLineNumbers copy filename="Api Key Auth Global New usage example"
+import { SDK } from "openapi";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+
+  const res = await sdk.authNew.apiKeyAuthGlobalNew({
+    basicAuth: {
+      password: "qIEJuENlnSNVFxp",
+      username: "Antonetta64",
+    },
+    headerAuth: [
+      {
+        expectedValue: "stable",
+        headerName: "Bicycle wonderful TCP",
+      },
+    ],
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

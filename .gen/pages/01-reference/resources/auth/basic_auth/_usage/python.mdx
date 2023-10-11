@@ -1,0 +1,18 @@
+```python showLineNumbers copy filename="Basic Auth usage example"
+import sdk
+from sdk.models import operations
+
+s = sdk.SDK(
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.auth.basic_auth(operations.BasicAuthSecurity(
+    password="YOUR_PASSWORD",
+    username="YOUR_USERNAME",
+), passwd='male', user='woman')
+
+if res.user is not None:
+    # handle response
+```

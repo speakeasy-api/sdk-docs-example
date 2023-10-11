@@ -1,0 +1,29 @@
+```typescript showLineNumbers copy filename="Request Body Post Multiple Content Types Split Param Json usage example"
+import { SDK } from "openapi";
+import {
+  RequestBodyPostMultipleContentTypesSplitParamApplicationJSON,
+  RequestBodyPostMultipleContentTypesSplitParamJsonRequest,
+} from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const requestBody: RequestBodyPostMultipleContentTypesSplitParamApplicationJSON = {
+  bool: false,
+  num: 3990.25,
+  str: "likewise",
+};
+const paramStr: string = "Architect";
+
+  const res = await sdk.requestBodies.requestBodyPostMultipleContentTypesSplitParamJson(requestBody, paramStr);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

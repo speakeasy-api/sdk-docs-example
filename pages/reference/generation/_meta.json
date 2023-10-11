@@ -1,0 +1,70 @@
+{
+  "anchor_types_get": {
+    "title": "reference/resources/generation/Anchor Types Get",
+    "href": "/reference/resources/generation/anchor_types_get"
+  },
+  "array_circular_reference_get": {
+    "title": "reference/resources/generation/Array Circular Reference Get",
+    "href": "/reference/resources/generation/array_circular_reference_get"
+  },
+  "circular_reference_get": {
+    "title": "reference/resources/generation/Circular Reference Get",
+    "href": "/reference/resources/generation/circular_reference_get"
+  },
+  "deprecated_field_in_schema_post": {
+    "title": "reference/resources/generation/Deprecated Field In Schema Post",
+    "href": "/reference/resources/generation/deprecated_field_in_schema_post"
+  },
+  "deprecated_object_in_schema_get": {
+    "title": "reference/resources/generation/Deprecated Object In Schema Get",
+    "href": "/reference/resources/generation/deprecated_object_in_schema_get"
+  },
+  "deprecated_operation_no_comments_get": {
+    "title": "reference/resources/generation/Deprecated Operation No Comments Get",
+    "href": "/reference/resources/generation/deprecated_operation_no_comments_get"
+  },
+  "deprecated_operation_with_comments_get": {
+    "title": "reference/resources/generation/Deprecated Operation With Comments Get",
+    "href": "/reference/resources/generation/deprecated_operation_with_comments_get"
+  },
+  "empty_object_get": {
+    "title": "reference/resources/generation/Empty Object Get",
+    "href": "/reference/resources/generation/empty_object_get"
+  },
+  "empty_response_object_with_comment_get": {
+    "title": "reference/resources/generation/Empty Response Object With Comment Get",
+    "href": "/reference/resources/generation/empty_response_object_with_comment_get"
+  },
+  "get_global_name_override": {
+    "title": "reference/resources/generation/Get Global Name Override",
+    "href": "/reference/resources/generation/get_global_name_override"
+  },
+  "ignored_generation_get": {
+    "title": "reference/resources/generation/Ignored Generation Get",
+    "href": "/reference/resources/generation/ignored_generation_get"
+  },
+  "ignores_post": {
+    "title": "reference/resources/generation/Ignores Post",
+    "href": "/reference/resources/generation/ignores_post"
+  },
+  "name_override_get": {
+    "title": "reference/resources/generation/Name Override Get",
+    "href": "/reference/resources/generation/name_override_get"
+  },
+  "object_circular_reference_get": {
+    "title": "reference/resources/generation/Object Circular Reference Get",
+    "href": "/reference/resources/generation/object_circular_reference_get"
+  },
+  "one_of_circular_reference_get": {
+    "title": "reference/resources/generation/One Of Circular Reference Get",
+    "href": "/reference/resources/generation/one_of_circular_reference_get"
+  },
+  "typed_parameter_generation_get": {
+    "title": "reference/resources/generation/Typed Parameter Generation Get",
+    "href": "/reference/resources/generation/typed_parameter_generation_get"
+  },
+  "usage_example_post": {
+    "title": "reference/resources/generation/Usage Example Post",
+    "href": "/reference/resources/generation/usage_example_post"
+  }
+}

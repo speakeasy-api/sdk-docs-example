@@ -1,0 +1,36 @@
+```go showLineNumbers copy filename="Name Override Get usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+	"openapi/pkg/models/operations"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(shared.Security{
+            APIKeyAuth: openapi.String("Token YOUR_API_KEY"),
+        }),
+        openapi.WithGlobalPathParam(100),
+        openapi.WithGlobalQueryParam("some example global query param"),
+    )
+
+
+    var testEnumQueryParam operations.NameOverrideGetEnumNameOverride = operations.NameOverrideGetEnumNameOverrideValue3
+
+    var testQueryParam string = "example"
+
+    ctx := context.Background()
+    res, err := s.Generation.NameOverride(ctx, testEnumQueryParam, testQueryParam)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.OverriddenResponse != nil {
+        // handle response
+    }
+}
+```

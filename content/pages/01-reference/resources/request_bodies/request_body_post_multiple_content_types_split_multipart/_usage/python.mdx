@@ -1,0 +1,23 @@
+```python showLineNumbers copy filename="Request Body Post Multiple Content Types Split Multipart usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = operations.RequestBodyPostMultipleContentTypesSplitMultipartFormData(
+    bool2=False,
+    num2=1334.65,
+    str2='Bicycle',
+)
+
+res = s.request_bodies.request_body_post_multiple_content_types_split_multipart(req)
+
+if res.res is not None:
+    # handle response
+```

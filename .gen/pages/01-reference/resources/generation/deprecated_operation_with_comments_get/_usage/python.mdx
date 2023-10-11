@@ -1,0 +1,18 @@
+```python showLineNumbers copy filename="Deprecated Operation With Comments Get usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.generation.deprecated_operation_with_comments_get(deprecated_parameter='Rutherfordium', new_parameter='Concrete')
+
+if res.status_code == 200:
+    # handle response
+```

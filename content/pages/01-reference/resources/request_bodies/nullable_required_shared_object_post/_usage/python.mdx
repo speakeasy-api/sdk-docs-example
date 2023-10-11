@@ -1,0 +1,26 @@
+```python showLineNumbers copy filename="Nullable Required Shared Object Post usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = operations.NullableRequiredSharedObjectPostRequestBody(
+    nullable_optional_obj=shared.NullableObject(
+        required=722081,
+    ),
+    nullable_required_obj=shared.NullableObject(
+        required=940432,
+    ),
+)
+
+res = s.request_bodies.nullable_required_shared_object_post(req)
+
+if res.nullable_required_shared_object_post_200_application_json_string is not None:
+    # handle response
+```

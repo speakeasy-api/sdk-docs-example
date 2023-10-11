@@ -1,0 +1,28 @@
+```typescript showLineNumbers copy filename="Simple Path Parameter Maps usage example"
+import { SDK } from "openapi";
+import { SimplePathParameterMapsRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const mapParam: Record<string, string> = {
+  "test2": "value2",
+  "test": "value",
+};
+const mapParamExploded: Record<string, number> = {
+  "test": 1,
+  "test2": 2,
+};
+
+  const res = await sdk.parameters.simplePathParameterMaps(mapParam, mapParamExploded);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

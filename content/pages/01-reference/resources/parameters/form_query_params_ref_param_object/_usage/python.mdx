@@ -1,0 +1,28 @@
+```python showLineNumbers copy filename="Form Query Params Ref Param Object usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.parameters.form_query_params_ref_param_object(ref_obj_param=shared.RefQueryParamObj(
+    bool=True,
+    int=1,
+    num=1.1,
+    str_='test',
+), ref_obj_param_exploded=shared.RefQueryParamObjExploded(
+    bool=True,
+    int=1,
+    num=1.1,
+    str_='test',
+))
+
+if res.res is not None:
+    # handle response
+```

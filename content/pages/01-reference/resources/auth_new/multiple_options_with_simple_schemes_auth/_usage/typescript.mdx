@@ -1,0 +1,34 @@
+```typescript showLineNumbers copy filename="Multiple Options With Simple Schemes Auth usage example"
+import { SDK } from "openapi";
+import { MultipleOptionsWithSimpleSchemesAuthSecurity } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const operationSecurity: MultipleOptionsWithSimpleSchemesAuthSecurity = {
+  option1: {
+    apiKeyAuthNew: "Token <YOUR_API_KEY>",
+    oauth2: "Bearer YOUR_OAUTH2_TOKEN",
+  },
+};
+
+  const res = await sdk.authNew.multipleOptionsWithSimpleSchemesAuth({
+    basicAuth: {
+      password: "tbXe_PS6FIZNMe_",
+      username: "Edward_Greenfelder",
+    },
+    headerAuth: [
+      {
+        expectedValue: "CFA Northwest Northeast",
+        headerName: "Soul accusantium",
+      },
+    ],
+  }, operationSecurity);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

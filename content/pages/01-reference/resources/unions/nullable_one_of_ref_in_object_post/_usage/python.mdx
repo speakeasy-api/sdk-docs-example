@@ -1,0 +1,32 @@
+```python showLineNumbers copy filename="Nullable One Of Ref In Object Post usage example"
+import sdk
+from sdk.models import shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = shared.NullableOneOfRefInObject(
+    nullable_one_of_one=shared.TypedObject1(
+        type=shared.TypedObject1Type.OBJ1,
+        value='Bedfordshire',
+    ),
+    shared.TypedObject2(
+        type=shared.TypedObject2Type.OBJ2,
+        value='loyalty Operations',
+    ),
+    shared.TypedObject1(
+        type=shared.TypedObject1Type.OBJ1,
+        value='index transparent',
+    ),
+)
+
+res = s.unions.nullable_one_of_ref_in_object_post(req)
+
+if res.res is not None:
+    # handle response
+```

@@ -1,0 +1,18 @@
+```python showLineNumbers copy filename="Telemetry Speakeasy User Agent Get usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.telemetry.telemetry_speakeasy_user_agent_get(user_agent='Data')
+
+if res.res is not None:
+    # handle response
+```

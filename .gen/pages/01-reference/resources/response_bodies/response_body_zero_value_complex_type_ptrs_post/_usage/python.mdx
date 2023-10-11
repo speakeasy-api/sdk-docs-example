@@ -1,0 +1,24 @@
+```python showLineNumbers copy filename="Response Body Zero Value Complex Type Ptrs Post usage example"
+import sdk
+import dateutil.parser
+from decimal import Decimal
+from sdk.models import shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = shared.ObjWithZeroValueComplexTypePtrs(
+    date_=dateutil.parser.parse('2020-01-01').date(),
+    date_time=dateutil.parser.isoparse('2020-01-01T00:00:00Z'),
+)
+
+res = s.response_bodies.response_body_zero_value_complex_type_ptrs_post(req)
+
+if res.response_body_zero_value_complex_type_ptrs_post_200_application_json_object is not None:
+    # handle response
+```

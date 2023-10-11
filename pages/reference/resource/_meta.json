@@ -1,0 +1,22 @@
+{
+  "create_file": {
+    "title": "reference/resources/resource/Create File",
+    "href": "/reference/resources/resource/create_file"
+  },
+  "create_resource": {
+    "title": "reference/resources/resource/Create Resource",
+    "href": "/reference/resources/resource/create_resource"
+  },
+  "delete_resource": {
+    "title": "reference/resources/resource/Delete Resource",
+    "href": "/reference/resources/resource/delete_resource"
+  },
+  "get_resource": {
+    "title": "reference/resources/resource/Get Resource",
+    "href": "/reference/resources/resource/get_resource"
+  },
+  "update_resource": {
+    "title": "reference/resources/resource/Update Resource",
+    "href": "/reference/resources/resource/update_resource"
+  }
+}

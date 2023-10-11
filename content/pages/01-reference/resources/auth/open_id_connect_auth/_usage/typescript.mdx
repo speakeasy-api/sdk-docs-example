@@ -1,0 +1,18 @@
+```typescript showLineNumbers copy filename="Open Id Connect Auth usage example"
+import { SDK } from "openapi";
+import { OpenIdConnectAuthSecurity } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const operationSecurity: OpenIdConnectAuthSecurity = "Bearer YOUR_OPENID_TOKEN";
+
+  const res = await sdk.auth.openIdConnectAuth(operationSecurity);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

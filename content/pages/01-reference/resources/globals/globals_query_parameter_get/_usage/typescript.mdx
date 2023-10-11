@@ -1,0 +1,21 @@
+```typescript showLineNumbers copy filename="Globals Query Parameter Get usage example"
+import { SDK } from "openapi";
+import { GlobalsQueryParameterGetRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const globalQueryParam: string = "ankle";
+
+  const res = await sdk.globals.globalsQueryParameterGet(globalQueryParam);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

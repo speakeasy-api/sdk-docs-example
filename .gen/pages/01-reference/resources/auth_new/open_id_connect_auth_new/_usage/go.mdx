@@ -1,0 +1,42 @@
+```go showLineNumbers copy filename="Open Id Connect Auth New usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/operations"
+	"openapi/pkg/models/shared"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithGlobalPathParam(100),
+        openapi.WithGlobalQueryParam("some example global query param"),
+    )
+
+
+    operationSecurity := "Bearer YOUR_OPENID_TOKEN"
+
+    ctx := context.Background()
+    res, err := s.AuthNew.OpenIDConnectAuthNew(ctx, shared.AuthServiceRequestBody{
+        BasicAuth: &shared.AuthServiceRequestBodyBasicAuth{
+            Password: "54625zWgKO6a9JO",
+            Username: "Elvie_Thompson37",
+        },
+        HeaderAuth: []shared.AuthServiceRequestBodyHeaderAuth{
+            shared.AuthServiceRequestBodyHeaderAuth{
+                ExpectedValue: "sky Van",
+                HeaderName: "JSON Agent ionise",
+            },
+        },
+    }, operationSecurity)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.StatusCode == http.StatusOK {
+        // handle response
+    }
+}
+```

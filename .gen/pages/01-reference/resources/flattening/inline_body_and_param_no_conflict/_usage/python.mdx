@@ -1,0 +1,20 @@
+```python showLineNumbers copy filename="Inline Body And Param No Conflict usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.flattening.inline_body_and_param_no_conflict(request_body=operations.InlineBodyAndParamNoConflictRequestBody(
+    body_str='morph easily Division',
+), param_str='Cheese')
+
+if res.res is not None:
+    # handle response
+```

@@ -1,0 +1,25 @@
+```typescript showLineNumbers copy filename="Pagination Limit Offset Page Params usage example"
+import { SDK } from "openapi";
+import { PaginationLimitOffsetPageParamsRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    security: {
+      apiKeyAuth: "Token YOUR_API_KEY",
+    },
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const page: number = 903720;
+
+  const res = await sdk.pagination.paginationLimitOffsetPageParams(page);
+
+  if (res.statusCode == 200) {
+    do {
+      // handle items
+
+      res = res.next();
+    } while (res);
+  }
+})();
+```

@@ -1,0 +1,32 @@
+```python showLineNumbers copy filename="Multiple Options With Mixed Schemes Auth usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = shared.AuthServiceRequestBody(
+    basic_auth=shared.AuthServiceRequestBodyBasicAuth(
+        password='aWcfJ8hWFYvW6ua',
+        username='Isadore_Kirlin69',
+    ),
+    header_auth=[
+        shared.AuthServiceRequestBodyHeaderAuth(
+            expected_value='enterprise',
+            header_name='Account fiercely World',
+        ),
+    ],
+)
+
+res = s.auth_new.multiple_options_with_mixed_schemes_auth(req, operations.MultipleOptionsWithMixedSchemesAuthSecurity(
+    option1=operations.MultipleOptionsWithMixedSchemesAuthSecurityOption5(
+        api_key_auth_new="Token <YOUR_API_KEY>",
+        oauth2="Bearer YOUR_OAUTH2_TOKEN",
+    ),
+))
+
+if res.status_code == 200:
+    # handle response
+```

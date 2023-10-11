@@ -1,0 +1,68 @@
+```typescript showLineNumbers copy filename="Usage Example Post usage example"
+import { SDK } from "openapi";
+import {
+  UsageExamplePostEnumParameter,
+  UsageExamplePostOptEnumParameter,
+  UsageExamplePostSecurity,
+} from "openapi/dist/sdk/models/operations";
+import { Enum, SimpleObjectInt32Enum, SimpleObjectIntEnum } from "openapi/dist/sdk/models/shared";
+import { RFCDate } from "openapi/dist/sdk/types";
+
+(async() => {
+  const sdk = new SDK({
+    globalPathParam: 100,
+    globalQueryParam: "some example global query param",
+  });
+const operationSecurity: UsageExamplePostSecurity = {
+  password: "YOUR_PASSWORD",
+  username: "YOUR_USERNAME",
+};
+
+  const res = await sdk.generation.usageExamplePost({
+    requestBody: {
+      fakerFormattedStrings: {},
+      fakerStrings: {},
+      simpleObject: {
+        any: "any",
+        bigint: 8821239038968084,
+        bigintStr: "9223372036854775808",
+        bool: true,
+        boolOpt: true,
+        date: new RFCDate("2020-01-01"),
+        dateTime: new Date("2020-01-01T00:00:00.000000001Z"),
+        decimal: 3.141592653589793,
+        decimalStr: "3.14159265358979344719667586",
+        enum: Enum.One,
+        float32: 1.1,
+        int: 1,
+        int32: 1,
+        int32Enum: SimpleObjectInt32Enum.FiftyFive,
+        intEnum: SimpleObjectIntEnum.Second,
+        num: 1.1,
+        str: "test",
+        strOpt: "testOptional",
+      },
+    },
+    bigintParameter: 463575,
+    bigintStrParameter: "Bacon",
+    boolParameter: false,
+    dateParameter: new RFCDate("2023-03-30"),
+    dateTimeParameter: new Date("2021-05-09T16:44:13.970Z"),
+    decimalParameter: 6748.48,
+    decimalStrParameter: "Fish implementation",
+    doubleParameter: 5654.21,
+    enumParameter: UsageExamplePostEnumParameter.Value3,
+    falseyNumberParameter: 0,
+    float32Parameter: 1832.8,
+    floatParameter: 2048.65,
+    int64Parameter: 144847,
+    intParameter: 164959,
+    optEnumParameter: UsageExamplePostOptEnumParameter.Value3,
+    strParameter: "example 2",
+  }, operationSecurity);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

@@ -1,0 +1,48 @@
+```go showLineNumbers copy filename="Multiple Mixed Scheme Auth usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/operations"
+	"openapi/pkg/models/shared"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithGlobalPathParam(100),
+        openapi.WithGlobalQueryParam("some example global query param"),
+    )
+
+
+    operationSecurity := operations.MultipleMixedSchemeAuthSecurity{
+            APIKeyAuthNew: "Token <YOUR_API_KEY>",
+            BasicAuth: shared.SchemeBasicAuth{
+                Password: "YOUR_PASSWORD",
+                Username: "YOUR_USERNAME",
+            },
+        }
+
+    ctx := context.Background()
+    res, err := s.AuthNew.MultipleMixedSchemeAuth(ctx, shared.AuthServiceRequestBody{
+        BasicAuth: &shared.AuthServiceRequestBodyBasicAuth{
+            Password: "tHx5bVVsQRxxWyq",
+            Username: "Brendon_OConnell28",
+        },
+        HeaderAuth: []shared.AuthServiceRequestBodyHeaderAuth{
+            shared.AuthServiceRequestBodyHeaderAuth{
+                ExpectedValue: "Tools",
+                HeaderName: "back Ford",
+            },
+        },
+    }, operationSecurity)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.StatusCode == http.StatusOK {
+        // handle response
+    }
+}
+```

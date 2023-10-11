@@ -1,0 +1,24 @@
+```python showLineNumbers copy filename="Pagination Limit Offset Offset Params usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+
+res = s.pagination.pagination_limit_offset_offset_params(limit=565421, offset=840429)
+
+if res.res is not None:
+    while True:
+        # handle items
+
+        res = res.Next()
+        if res is None:
+            break
+
+```

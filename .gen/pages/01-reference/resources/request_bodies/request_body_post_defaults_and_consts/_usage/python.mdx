@@ -1,0 +1,36 @@
+```python showLineNumbers copy filename="Request Body Post Defaults And Consts usage example"
+import sdk
+import dateutil.parser
+from decimal import Decimal
+from sdk.models import shared
+
+s = sdk.SDK(
+    security=shared.Security(
+        api_key_auth="Token YOUR_API_KEY",
+    ),
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = shared.DefaultsAndConsts(
+    const_big_int=347233,
+    const_big_int_str=862310,
+    const_bool=False,
+    const_date=dateutil.parser.parse('2021-06-12').date(),
+    const_date_time=dateutil.parser.isoparse('2023-05-05T13:36:44.422Z'),
+    const_decimal=Decimal('9818.3'),
+    const_decimal_str=Decimal('9850.33'),
+    const_enum_int=shared.DefaultsAndConstsConstEnumInt.TWO,
+    const_enum_str=shared.DefaultsAndConstsConstEnumStr.THREE,
+    const_int=497391,
+    const_num=40.48,
+    const_str='Plastic Ferrari',
+    const_str_null='Home',
+    normal_field='bridle',
+)
+
+res = s.request_bodies.request_body_post_defaults_and_consts(req)
+
+if res.request_body_post_defaults_and_consts_200_application_json_object is not None:
+    # handle response
+```

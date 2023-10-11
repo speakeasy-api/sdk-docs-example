@@ -1,0 +1,44 @@
+```go showLineNumbers copy filename="Typed Parameter Generation Get usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+	"openapi/pkg/models/operations"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(shared.Security{
+            APIKeyAuth: openapi.String("Token YOUR_API_KEY"),
+        }),
+        openapi.WithGlobalPathParam(100),
+        openapi.WithGlobalQueryParam("some example global query param"),
+    )
+
+
+    var bigint *big.Int = big.NewInt(518201)
+
+    var date *types.Date = types.MustDateFromString("2022-06-01")
+
+    var decimal *decimal.Big = types.MustNewDecimalFromString("256.62")
+
+    obj := &operations.TypedParameterGenerationGetObj{
+        Bool: false,
+        Num: 7115.84,
+        Str: "Heights",
+    }
+
+    ctx := context.Background()
+    res, err := s.Generation.TypedParameterGenerationGet(ctx, bigint, date, decimal, obj)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.StatusCode == http.StatusOK {
+        // handle response
+    }
+}
+```

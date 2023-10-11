@@ -1,0 +1,37 @@
+```go showLineNumbers copy filename="Basic Auth usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/operations"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithGlobalPathParam(100),
+        openapi.WithGlobalQueryParam("some example global query param"),
+    )
+
+
+    var passwd string = "male"
+
+    var user string = "woman"
+
+    operationSecurity := operations.BasicAuthSecurity{
+            Password: "YOUR_PASSWORD",
+            Username: "YOUR_USERNAME",
+        }
+
+    ctx := context.Background()
+    res, err := s.Auth.BasicAuth(ctx, operationSecurity, passwd, user)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.User != nil {
+        // handle response
+    }
+}
+```

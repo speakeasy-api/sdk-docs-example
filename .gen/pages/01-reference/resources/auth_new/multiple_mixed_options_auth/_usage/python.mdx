@@ -1,0 +1,29 @@
+```python showLineNumbers copy filename="Multiple Mixed Options Auth usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    global_path_param=100,
+    global_query_param='some example global query param',
+)
+
+req = shared.AuthServiceRequestBody(
+    basic_auth=shared.AuthServiceRequestBodyBasicAuth(
+        password='80Aa_j3D_nptMQZ',
+        username='Ivah3',
+    ),
+    header_auth=[
+        shared.AuthServiceRequestBodyHeaderAuth(
+            expected_value='holistic Louisiana',
+            header_name='Specialist',
+        ),
+    ],
+)
+
+res = s.auth_new.multiple_mixed_options_auth(req, operations.MultipleMixedOptionsAuthSecurity(
+    api_key_auth_new="Token <YOUR_API_KEY>",
+))
+
+if res.status_code == 200:
+    # handle response
+```

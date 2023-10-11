@@ -1,0 +1,45 @@
+```go showLineNumbers copy filename="Form Query Params Ref Param Object usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(shared.Security{
+            APIKeyAuth: openapi.String("Token YOUR_API_KEY"),
+        }),
+        openapi.WithGlobalPathParam(100),
+        openapi.WithGlobalQueryParam("some example global query param"),
+    )
+
+
+    refObjParam := &shared.RefQueryParamObj{
+        Bool: true,
+        Int: 1,
+        Num: 1.1,
+        Str: "test",
+    }
+
+    refObjParamExploded := &shared.RefQueryParamObjExploded{
+        Bool: true,
+        Int: 1,
+        Num: 1.1,
+        Str: "test",
+    }
+
+    ctx := context.Background()
+    res, err := s.Parameters.FormQueryParamsRefParamObject(ctx, refObjParam, refObjParamExploded)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Res != nil {
+        // handle response
+    }
+}
+```

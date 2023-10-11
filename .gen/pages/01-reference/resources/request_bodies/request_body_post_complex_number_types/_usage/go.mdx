@@ -1,0 +1,48 @@
+```go showLineNumbers copy filename="Request Body Post Complex Number Types usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+	"openapi/pkg/models/operations"
+	"math/big"
+	"openapi/pkg/types"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(shared.Security{
+            APIKeyAuth: openapi.String("Token YOUR_API_KEY"),
+        }),
+        openapi.WithGlobalPathParam(100),
+        openapi.WithGlobalQueryParam("some example global query param"),
+    )
+
+    ctx := context.Background()
+    res, err := s.RequestBodies.RequestBodyPostComplexNumberTypes(ctx, operations.RequestBodyPostComplexNumberTypesRequest{
+        ComplexNumberTypes: shared.ComplexNumberTypes{
+            Bigint: big.NewInt(630448),
+            BigintStr: big.NewInt(708548),
+            Decimal: types.MustNewDecimalFromString("8742.88"),
+            DecimalStr: types.MustNewDecimalFromString("4981.4"),
+        },
+        PathBigInt: big.NewInt(293020),
+        PathBigIntStr: big.NewInt(844550),
+        PathDecimal: types.MustNewDecimalFromString("8489.44"),
+        PathDecimalStr: types.MustNewDecimalFromString("1943.42"),
+        QueryBigInt: big.NewInt(617877),
+        QueryBigIntStr: big.NewInt(773326),
+        QueryDecimal: types.MustNewDecimalFromString("132.36"),
+        QueryDecimalStr: types.MustNewDecimalFromString("9742.59"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.RequestBodyPostComplexNumberTypes200ApplicationJSONObject != nil {
+        // handle response
+    }
+}
+```
