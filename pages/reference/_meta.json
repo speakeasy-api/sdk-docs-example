@@ -7,36 +7,100 @@
     "title": "reference/Installation",
     "href": "/reference/installation"
   },
-  "testing": {
-    "title": "reference/Testing",
-    "href": "/reference/testing"
-  },
-  "api": {
-    "title": "reference/Api",
-    "href": "/reference/api"
-  },
-  "errors": {
-    "title": "reference/Errors",
-    "href": "/reference/errors"
-  },
-  "retries": {
-    "title": "reference/Retries",
-    "href": "/reference/retries"
-  },
-  "events": {
-    "title": "reference/Events",
-    "href": "/reference/events"
-  },
-  "sign_on": {
-    "title": "reference/Sign_On",
-    "href": "/reference/sign_on"
+  "pagination": {
+    "title": "reference/Pagination",
+    "href": "/reference/pagination"
   },
   "-- resources": {
     "title": "Resources",
     "type": "separator"
   },
-  "pets": {
-    "title": "reference/resources/Pets",
-    "href": "/reference/resources/pets"
+  "auth": {
+    "title": "reference/resources/Auth",
+    "href": "/reference/resources/auth"
+  },
+  "auth_new": {
+    "title": "reference/resources/Auth New",
+    "href": "/reference/resources/auth_new"
+  },
+  "documentation": {
+    "title": "reference/resources/Documentation",
+    "href": "/reference/resources/documentation"
+  },
+  "errors": {
+    "title": "reference/resources/Errors",
+    "href": "/reference/resources/errors"
+  },
+  "first": {
+    "title": "reference/resources/First",
+    "href": "/reference/resources/first"
+  },
+  "flattening": {
+    "title": "reference/resources/Flattening",
+    "href": "/reference/resources/flattening"
+  },
+  "generation": {
+    "title": "reference/resources/Generation",
+    "href": "/reference/resources/generation"
+  },
+  "globals": {
+    "title": "reference/resources/Globals",
+    "href": "/reference/resources/globals"
+  },
+  "nest": {
+    "title": "reference/resources/Nest",
+    "href": "/reference/resources/nest"
+  },
+  "nested": {
+    "title": "reference/resources/Nested",
+    "href": "/reference/resources/nested"
+  },
+  "pagination": {
+    "title": "reference/resources/Pagination",
+    "href": "/reference/resources/pagination"
+  },
+  "parameters": {
+    "title": "reference/resources/Parameters",
+    "href": "/reference/resources/parameters"
+  },
+  "request_bodies": {
+    "title": "reference/resources/Request Bodies",
+    "href": "/reference/resources/request_bodies"
+  },
+  "resource": {
+    "title": "reference/resources/Resource",
+    "href": "/reference/resources/resource"
+  },
+  "response_bodies": {
+    "title": "reference/resources/Response Bodies",
+    "href": "/reference/resources/response_bodies"
+  },
+  "retries": {
+    "title": "reference/resources/Retries",
+    "href": "/reference/resources/retries"
+  },
+  "second": {
+    "title": "reference/resources/Second",
+    "href": "/reference/resources/second"
+  },
+  "servers": {
+    "title": "reference/resources/Servers",
+    "href": "/reference/resources/servers"
+  },
+  "telemetry": {
+    "title": "reference/resources/Telemetry",
+    "href": "/reference/resources/telemetry"
+  },
+  "unions": {
+    "title": "reference/resources/Unions",
+    "href": "/reference/resources/unions"
+  },
+  "put_anything_ignored_generation": {
+    "title": "reference/resources/Put Anything Ignored Generation",
+    "href": "/reference/resources/put_anything_ignored_generation"
+  },
+  "response_body_json_get": {
+    "title": "reference/resources/Response Body Json Get",
+    "href": "/reference/resources/response_body_json_get"
   }
 }
