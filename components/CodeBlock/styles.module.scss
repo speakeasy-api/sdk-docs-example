@@ -13,10 +13,10 @@
   }
   .pre {
     @include generatePxToRem(border-radius, 0 0 16 16);
-    padding: 1.25rem 0;
     code {
       @include generatePxToRem(font-size, 12);
       overflow: auto;
+      padding: 1.25rem 0 !important;
       color: var(--primary-code-color);
       font-family: IBM Plex Mono, sans-serif;
       font-size: 12px;
@@ -30,6 +30,9 @@
       word-wrap: normal;
       tab-size: 4;
       hyphens: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
     &.withoutHeader {
       @include generatePxToRem(border-radius, 16);

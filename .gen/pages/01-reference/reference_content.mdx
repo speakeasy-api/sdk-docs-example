@@ -10,6 +10,9 @@ import Retries from "./retries/retries.mdx";
 import Events from "./events/events.mdx";
 import SignOn from "./sign_on/sign_on.mdx";
 import Resources from "./resources/resources.mdx";
+import CodeBlock from '../../../components/CodeBlock';
+import test1 from './test1.mdx';
+import test2 from './test2.mdx';
 
 ###### OVERVIEW
 # API Reference
@@ -29,6 +32,24 @@ WorkOS offers native SDKs in several popular programming languages. Choose one
 language below to see our API Reference in your application’s language.
 
 Don't see an SDK you need? [Contact us](#Contact) to request an SDK!
+
+<CodeBlock
+    filename="Example.java"
+    tabs={[
+        {
+            key: '0',
+            label: 'Request',
+            content: test1,
+        },
+        {
+            key: '1',
+            label: 'Response',
+            content: test2,
+        },
+    ]}
+    data-language='java'
+    hasCopyCode
+/>
 
 ```java copy filename="Java"
 package hello.world;
