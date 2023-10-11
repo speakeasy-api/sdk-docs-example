@@ -1,7 +1,5 @@
 import React, {
-  ReactNode,
-  useState,
-  FC,
+  ReactNode, useState, useEffect, 
 } from 'react';
 
 import RightArrow from '@/icons/RightArrow';
@@ -9,20 +7,44 @@ import RightArrow from '@/icons/RightArrow';
 import styles from './styles.module.scss';
 import { splitAround, typeMatches } from './typeHelpers';
 
-export type propsType = {
+type propsType = {
   children: ReactNode[];
   defaultOpen?: boolean;
+  content?: () => Promise<any>;
 };
 
 export type BreakType = {
   Break: typeof Break;
 };
 
-const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
-  const elements = props.children;
+const Collapsible: React.FC<propsType> & BreakType = (props: propsType) => {
+  const { content, children } = props;
   const [isOpen, setIsOpen] = useState(!!props.defaultOpen);
+  const [ContentComponent, setContentComponent] = useState<any>(null);
 
-  const [summarySection, bodySection] = splitAround(elements, (e) => typeMatches(e, Break));
+  useEffect(() => {
+    if (isOpen && content && !ContentComponent) {
+      content()
+        .then((module) => {
+          setContentComponent(() => module.default);
+        })
+        .catch((error) => {
+          console.error('Failed to load the content component', error);
+        });
+    }
+  }, [isOpen, content, ContentComponent]);
+
+  const dynamicChildren = isOpen && ContentComponent
+    ? [<ContentComponent key="dynamicContentComponent" />]
+    : [];
+
+  const allChildren = children
+    ? [...children, ...dynamicChildren]
+    : [...dynamicChildren];
+
+  const [summarySection, bodySection] = allChildren && allChildren.length
+    ? splitAround(allChildren, (e) => typeMatches(e, Break))
+    : [[], []];
 
   return (
     <div className={styles.collapsible}>
