@@ -11,6 +11,10 @@
   @include generatePxToRem('padding', 16);
   //@include generatePxToRem('margin-bottom', 30);
 
+  @include desktopMax1400 {
+    overflow: auto;
+  }
+
   &.withoutHeadings {
     border-width: 1px;
     @include generatePxToRem('border-radius', 16, !important);
@@ -24,6 +28,10 @@
     > p {
       @include collapse-children-heading-text();
       margin: 0;
+
+      @include tabletsMax768 {
+        max-width: 320px;
+      }
     }
 
     > div {
@@ -72,11 +80,18 @@
   .ant-collapse-content-box {
     @include generatePxToRem('padding', 0 0 8 20, !important);
 
+    @include tabletsMax768 {
+      width: max-content!important;
+    }
+
     .nested_desc {
       @include collapse-heading-code();
       margin: 0;
       font-family: Inter, sans-serif;
       color: var(--text-nested-description);
+      @include tabletsMax768 {
+        max-width: 320px;
+      }
     }
   }
 
@@ -150,6 +165,10 @@
         margin: 0;
         font-family: Inter, sans-serif;
         color: var(--text-nested-description);
+
+        @include tabletsMax768 {
+          max-width: 320px;
+        }
       }
     }
 

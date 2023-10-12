@@ -6,6 +6,7 @@
   flex-direction: row!important;
   justify-content: space-between!important;
   align-items: center!important;
+  flex-wrap: wrap!important;
   @include generatePxToRem(padding, 10 16);
   background-color: var(--sub-header-params-bg-color);
   @include generatePxToRem(border-width, 0 1 0 1);
