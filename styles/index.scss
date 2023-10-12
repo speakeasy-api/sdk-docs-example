@@ -18,7 +18,7 @@
   --select-hover: #11D8641F;
   --select-text: #4C4C4C;
   --stroke-opacity: 1;
-
+  --hr-color: rgba(223, 223, 229, 1);
   &.dark {
     --color-page-background: #171717;
     --color-footer-background: #121212;
@@ -31,6 +31,7 @@
     --select-hover: #3148367A;
     --select-text: #E3E5E8;
     --stroke-opacity: 0.87;
+    --hr-color: rgba(223, 223, 229, 0.08);
   }
 }
 
@@ -204,7 +205,7 @@ section {
 
 hr {
   @include generatePxToRem(margin, 48 0, !important);
-  border-color: rgba(223, 223, 229, 0.08) !important;
+  border-color: var(--hr-color) !important;
   width: 100%;
 }
 
