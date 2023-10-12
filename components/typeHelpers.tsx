@@ -37,7 +37,7 @@ export const splitMDXContentChildrenByType = (
 export const splitElementsByType = (
   elements: React.ReactElement[],
   type: (props: { children: React.ReactNode }) => React.JSX.Element,
-): [React.ReactElement[], React.ReactElement[]] => partition(elements, (e: any) => e.type === type);
+): [React.ReactElement[], React.ReactElement[]] => partition(elements, (e: any) => e?.type === type);
 
 export const typeMatches = (
   e: React.ReactNode,
@@ -52,4 +52,37 @@ export const splitAround = <T, >(a: T[], fn: (e: T) => boolean): [T[], T[]] => {
   }
 
   return [a.slice(0, breakIndex), a.slice(breakIndex + 1)];
+};
+
+export const separateHeadingsAndOthers = (elements: any) => {
+  const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  const headingsArray = [];
+  const othersArray = [];
+  let isHeading = true;
+
+  for (let i = 0; i < elements.length; i++) {
+    // Check if the element is a React element
+    if (elements[i]?.['$$typeof'] === Symbol.for('react.element')) {
+      const elementType = elements[i].type.name.toLowerCase();
+
+      // Check if the element type is one of the headings
+      if (headings.includes(elementType)) {
+        // If isHeading is true, add to headingsArray, else to othersArray
+        if (isHeading) {
+          headingsArray.push(elements[i]);
+        } else {
+          othersArray.push(elements[i]);
+        }
+      } else {
+        // Non-heading element, so subsequent heading tags should go to othersArray
+        othersArray.push(elements[i]);
+        isHeading = false;
+      }
+    } else {
+      // Non-React element (like '\n'), just add to othersArray
+      othersArray.push(elements[i]);
+    }
+  }
+
+  return [headingsArray, othersArray];
 };

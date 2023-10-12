@@ -8,6 +8,9 @@
   height: max-content;
   border: 1px solid var(--code-block-border);
   background-color: var(--code-background);
+  &:last-child {
+    margin-bottom: 0;
+  }
   @include tabletsMax768 {
     @include generatePxToRem(margin-bottom, 16);
   }

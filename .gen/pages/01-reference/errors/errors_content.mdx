@@ -1,14 +1,14 @@
-###### heading
+import { Columns } from '@/components/Columns';
+import Table from './Table.mdx';
 
-## Errors
+<Columns>
+  ###### heading
 
-WorkOS uses standard HTTP response codes to indicate the success or failure of your API requests.
+  ## Errors
 
-| Code                                    | Description                                                             |
-|-----------------------------------------|-------------------------------------------------------------------------|
-| <span className={'success'}>200</span>  | Successful request.                                                     |
-| <span className={'warning'}>400</span>  | The request was not acceptable. Check that the parameters were correct. |
-| <span className={'warning'}>400</span>  | The API key used was invalid.                                           |
-| <span className={'warning'}>400</span>  | The API key used did not have the correct permissions.                  |
-| <span className={'warning'}>400</span>  | The resource was not found.                                             |
-| <span className={'error'}>500</span>    | Indicates an error with WorkOS servers.                                 |
+  WorkOS uses standard HTTP response codes to indicate the success or failure of your API requests.
+
+  <RHS>
+    <Table />
+  </RHS>
+</Columns>
