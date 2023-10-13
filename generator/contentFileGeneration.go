@@ -79,7 +79,12 @@ func (g *Gen) templateFile(name, content string) (string, error) {
 	for _, match := range matches {
 		templateName := match[1]
 
-		templateContent, err := os.ReadFile(fmt.Sprintf("./templates/%s.mdx.tmpl", templateName))
+		templateFile := "./templates/toplevel.mdx.tmpl"
+		if templateName == "operation" {
+			templateFile = "./templates/operation.mdx.tmpl"
+		}
+
+		templateContent, err := os.ReadFile(templateFile)
 		if err != nil {
 			return "", err
 		}
