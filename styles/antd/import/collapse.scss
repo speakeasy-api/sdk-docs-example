@@ -9,7 +9,17 @@
   background: var(--collapse-params-code-bg-color);
   backdrop-filter: blur(10px);
   @include generatePxToRem('padding', 16);
-  @include generatePxToRem('margin-bottom', 30);
+  //@include generatePxToRem('margin-bottom', 30);
+
+  @include desktopMax1400 {
+    overflow: auto;
+  }
+
+  &.withoutHeadings {
+    border-width: 1px;
+    @include generatePxToRem('border-radius', 16, !important);
+  }
+
 
   .collapse_children {
     @include flex(column);
@@ -18,6 +28,10 @@
     > p {
       @include collapse-children-heading-text();
       margin: 0;
+
+      @include tabletsMax768 {
+        max-width: 320px;
+      }
     }
 
     > div {
@@ -64,24 +78,44 @@
   }
 
   .ant-collapse-content-box {
-    @include generatePxToRem('padding', 0 20 8 20, !important);
+    @include generatePxToRem('padding', 0 0 8 20, !important);
+
+    @include tabletsMax768 {
+      width: max-content!important;
+    }
+
+    .nested_desc {
+      @include collapse-heading-code();
+      margin: 0;
+      font-family: Inter, sans-serif;
+      color: var(--text-nested-description);
+      @include tabletsMax768 {
+        max-width: 320px;
+      }
+    }
   }
+
 
   &_nest {
     background: transparent;
 
+    .ant-collapse-item:not(:first-child) {
+      margin-top: 10px;
+    }
+
     .ant-collapse-content-active {
       @include generatePxToRem('border-radius', 16, !important);
-      border: 1px solid var(--code-block-border) !important;
+      //border: 1px solid var(--code-block-border) !important;
     }
 
     .ant-collapse-content-box {
-      width: 98%;
+      width: 99%;
       @include flex(column);
-      @include generatePxToRem('gap', 16);
-      @include generatePxToRem('padding', 16 40 16 40, !important);
+      @include generatePxToRem('gap', 8);
+      @include generatePxToRem('padding',  0 16, !important);
       @include collapse-heading-code();
-      max-height: 300px;
+      //max-height: 400px;
+      height: max-content;
       overflow-y: auto;
 
       &::-webkit-scrollbar {
@@ -131,6 +165,10 @@
         margin: 0;
         font-family: Inter, sans-serif;
         color: var(--text-nested-description);
+
+        @include tabletsMax768 {
+          max-width: 320px;
+        }
       }
     }
 

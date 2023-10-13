@@ -1,7 +1,30 @@
-import Message from '../../../../components/Message';
+import { Columns } from '@/components/Columns';
+import CollapseParams from '../../../../components/CollapseParams';
+import { LanguageSwitch } from '../../../../content/languages';
+import { goItemsData } from '../retries/_snippets/go.mdx';
+import { typescriptItemsData } from '../retries/_snippets/typescript.mdx';
 
-## Testing the API
+<Columns>
+  ## Testing the API
 
-You can test the API directly with cURL, or use the [Postman collection](#Postman) for convenience.
+  You can test the API directly with cURL, or use the [Postman collection](#Postman) for convenience.
+  <LanguageSwitch
+    langToContent={{
+      go: <CollapseParams fileNameAndCopyValue={'/golang'}
+                          method={'get'}
+                          isShowSubHeader
+                          itemsData={goItemsData}
+                          defaultActiveKey={['1', '2', '3', '4', '5']}
+      />,
+      typescript: <CollapseParams fileNameAndCopyValue={''}
+                                  method={'get'}
+                                  isShowSubHeader={false}
+                                  itemsData={typescriptItemsData}
+                                  defaultActiveKey={['1', '2', '3']}
+      />
+    }}/>
 
-<Message message={'Check out the guide about the WorkOS API Postman collection to learn more about it.'}/>
+    <RHS>
+      Right side content
+    </RHS>
+</Columns>

@@ -1,4 +1,4 @@
-import { CollapseProps } from 'antd';
+import React from 'react';
 
 import {
   CollapseChildren, CollapseLabel, NestHeading,
@@ -10,13 +10,8 @@ export interface IItemData {
   symbols: string;
   value: string;
   title: string;
-}
-
-export interface IItemNestData {
-  labelKey: string,
-  symbols: string,
-  value: string,
-  order: string[],
+  order?: string[];
+  itemsChildrenData?: IItemData[]
 }
 
 export interface ICollapseLabelProps {
@@ -25,50 +20,48 @@ export interface ICollapseLabelProps {
   symbols?: string;
   value?: string;
   order?: string[] | undefined;
-  itemsNestContent?: ICollapseLabelProps[] | undefined;
+  itemsNestContent?: IItemData[] | undefined;
 }
 
 export interface ICollapseParams {
-  itemsNest?: CollapseProps['items'] | undefined;
-  itemsData?: IItemData[];
+  itemsNest?: IItemData[] | undefined;
   nested?: boolean | undefined;
-  isShowSubHeader?: boolean | undefined;
   fileNameAndCopyValue?: string | undefined;
   method?: string | undefined;
-  itemsNestData?: Record<string, IItemNestData[]> | undefined;
+  isShowSubHeader?: boolean | undefined;
+  itemsData?: IItemData[];
+  defaultActiveKey?: string[] | undefined;
 }
 
 export interface ICollapseChildren {
   title: string;
-  itemsNest: CollapseProps['items'];
+  itemsNest: IItemData[];
 }
 
-const getNestItems = (nestKey: string, itemsNestData: Record<string, IItemNestData[]> | undefined) => [
-  {
-    key: nestKey,
-    label: <NestHeading />,
-    children: (
-      <CollapseLabel nested itemsNestContent={itemsNestData && itemsNestData[nestKey]} />
+export const convertData = (data: IItemData[]) => (
+  data.map((item: IItemData) => ({
+    key: item.key,
+    label: (
+      <CollapseLabel
+        labelKey={item.labelKey}
+        symbols={item.symbols}
+        value={item.value}
+      />
     ),
+    children: item.itemsChildrenData ? (
+      <CollapseChildren
+        title={item.title || ''}
+        itemsNest={item.itemsChildrenData}
+      />
+    ) : (
+      <p className={'nested_desc'}>{item.title}</p>
+    ),
+  })));
+
+export const convertNestData = (nestData: IItemData[]) => [
+  {
+    key: '123',
+    label: <NestHeading />,
+    children: <CollapseLabel itemsNestContent={nestData} nested />,
   },
 ];
-
-export const prepareItems = (
-  itemsData: IItemData[] | undefined,
-  itemsNestData: Record<string, IItemNestData[]> | undefined,
-): CollapseProps['items'] => itemsData && itemsData.map((el: IItemData) => ({
-  key: el.key,
-  label: (
-    <CollapseLabel
-      labelKey={el.labelKey}
-      symbols={el.symbols}
-      value={el.value}
-    />
-  ),
-  children: (
-    <CollapseChildren
-      title={el.title || ''}
-      itemsNest={getNestItems(el.key, itemsNestData)}
-    />
-  ),
-}));

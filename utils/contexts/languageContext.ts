@@ -1,13 +1,13 @@
 import { createContext } from 'react';
 
-import { LANGUAGES } from '@/utils/enums/languages';
+import { Language } from '@/utils/enums/language';
 
 export const LanguageContext = createContext<{
-  language: LANGUAGES;
-  setLanguage: (l: LANGUAGES) => void,
-  languageList: LANGUAGES[],
+  language: Language;
+  setLanguage: (l: Language) => void,
+  languages: Language[],
 }>({
-      language: LANGUAGES.go,
+      language: 'go',
       setLanguage: () => {},
-      languageList: [],
+      languages: [],
     });

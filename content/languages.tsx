@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
-import { Columns, RHS } from '@/components/columns';
 
 import TextHeaderWrapper from '@/HOC/TextHeaderWrapper';
 import LanguageSwitcher from '@/HOC/LanguageSwitcher';
-import newLanguageProvider from '@/HOC/LanguageProvicer';
+import newLanguageProvider from 'HOC/LanguageProvider';
+import { Columns, RHS } from '@/components/Columns';
 
 // REPLACE USAGE WITH HOC/LanguageProvider
 export const LanguageProvider = newLanguageProvider;
@@ -27,14 +27,12 @@ export const LanguageOperation = (props: {
   usage: ReactElement;
   parameters: ReactElement;
   response: ReactElement;
-}) => {
-  return (
-    <Columns>
-      <TextHeaderWrapper headingType='h3'>Parameters</TextHeaderWrapper>
-      {props.parameters}
-      <TextHeaderWrapper headingType='h3'>Response</TextHeaderWrapper>
-      {props.response}
-      <RHS>{props.usage}</RHS>
-    </Columns>
-  );
-};
+}) => (
+  <Columns>
+    <TextHeaderWrapper headingType='h3'>Parameters</TextHeaderWrapper>
+    {props.parameters}
+    <TextHeaderWrapper headingType='h3'>Response</TextHeaderWrapper>
+    {props.response}
+    <RHS>{props.usage}</RHS>
+  </Columns>
+);

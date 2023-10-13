@@ -2,7 +2,7 @@
 
 .nav_item {
   width: 100%;
-  @include generatePxToRem('padding', 14 16 14 16);
+  @include generatePxToRem('padding', 8);
   @include generatePxToRem('border-radius', 8);
   border: 1px solid transparent;
 

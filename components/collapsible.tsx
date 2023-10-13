@@ -1,58 +1,73 @@
-import React, {
-  ReactNode, useState, useEffect, 
-} from 'react';
+import React, { FC, ReactNode, useEffect, useRef, useState } from 'react';
 
 import RightArrow from '@/icons/RightArrow';
 
 import styles from './styles.module.scss';
-import { splitAround, typeMatches } from './typeHelpers';
+import cn from 'classnames';
 
-type propsType = {
+export type propsType = {
   children: ReactNode[];
   defaultOpen?: boolean;
-  content?: () => Promise<any>;
 };
 
 export type BreakType = {
   Break: typeof Break;
 };
 
-const Collapsible: React.FC<propsType> & BreakType = (props: propsType) => {
-  const { content, children } = props;
-  const [isOpen, setIsOpen] = useState(!!props.defaultOpen);
-  const [ContentComponent, setContentComponent] = useState<any>(null);
+const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
+  const headerHeight = 36;
+
+  // const elements = props.children;
+  const [isOpen, setIsOpen] = useState(props.defaultOpen ?? false);
+  const [height, setHeight] = useState(headerHeight);
+
+  const headerRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
+
+  const heading = isOpen ? 'Hide child properties' : 'Show child properties';
+
+  const updateOpenHeight = () => {
+    setHeight(
+      (headerRef.current?.offsetHeight || headerHeight) +
+        (bodyRef.current?.getBoundingClientRect().height || 0),
+    );
+  };
+
+  const open = () => {
+    if (isOpen) {
+      setHeight(headerHeight);
+    } else {
+      updateOpenHeight();
+    }
+
+    setIsOpen((prev) => !prev);
+  };
 
   useEffect(() => {
-    if (isOpen && content && !ContentComponent) {
-      content()
-        .then((module) => {
-          setContentComponent(() => module.default);
-        })
-        .catch((error) => {
-          console.error('Failed to load the content component', error);
-        });
+    if (isOpen) {
+      // console.log('updating');
+      updateOpenHeight();
     }
-  }, [isOpen, content, ContentComponent]);
-
-  const dynamicChildren = isOpen && ContentComponent
-    ? [<ContentComponent key="dynamicContentComponent" />]
-    : [];
-
-  const allChildren = children
-    ? [...children, ...dynamicChildren]
-    : [...dynamicChildren];
-
-  const [summarySection, bodySection] = allChildren && allChildren.length
-    ? splitAround(allChildren, (e) => typeMatches(e, Break))
-    : [[], []];
+  }, [bodyRef.current]);
 
   return (
-    <div className={styles.collapsible}>
-      <div onClick={() => setIsOpen((prev) => !prev)} className={styles.collapsible_heading}>
-        <RightArrow activeClass={isOpen ? 'active' : ''}/>
-        {summarySection}
+    <div className={styles.collapsible} style={{ height }}>
+      <div
+        ref={headerRef}
+        onClick={open}
+        className={styles.collapsible_heading}
+      >
+        <RightArrow activeClass={isOpen ? 'active' : ''} />
+        <h5>{heading}</h5>
       </div>
-      {isOpen && <div className={styles.collapsible_nested}>{bodySection}</div>}
+      <div
+        ref={bodyRef}
+        className={cn(styles.collapsible_body, {
+          [styles['collapsible_body_open']]: isOpen,
+        })}
+      >
+        {props.children}
+      </div>
     </div>
   );
 };
