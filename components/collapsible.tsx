@@ -63,14 +63,18 @@ const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
     ? [<ContentComponent key="dynamicContentComponent" />]
     : [];
 
-  const children = dynamicChildren.length > 0 ? dynamicChildren : props.children;
+  const existingChildren = props.children ? props.children : [];
+
+  const children = dynamicChildren.length > 0 
+    ? [...existingChildren, ...dynamicChildren] 
+    : existingChildren;
 
   useEffect(() => {
     if (isOpen) {
       // console.log('updating');
       updateOpenHeight();
     }
-  }, [bodyRef.current]);
+  }, [bodyRef.current, ContentComponent]);
 
   return (
     <div className={styles.collapsible} style={{ height }}>
