@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import TextHeaderWrapper from '@/HOC/TextHeaderWrapper';
 import LanguageSwitcher from '@/HOC/LanguageSwitcher';
-import newLanguageProvider from '@/HOC/LanguageProvicer';
+import newLanguageProvider from 'HOC/LanguageProvider';
 import { Columns, RHS } from '@/components/Columns';
 
 // REPLACE USAGE WITH HOC/LanguageProvider

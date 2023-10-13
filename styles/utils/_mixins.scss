@@ -58,7 +58,7 @@
 /* Heading H5 */
 @mixin heading-h5($color) {
   color: $color;
-  font-family: Inter, serif;
+  font-family: var(--font-family);
   @include generatePxToRem('font-size', 14);
   @include generatePxToRem('line-height', 21.28);
   font-style: normal;
@@ -67,7 +67,7 @@
 
 @mixin sidebar-heading-separator($color) {
   color: $color;
-  font-family: Inter, serif;
+  font-family: var(--font-family);
   @include generatePxToRem('font-size', 18);
   @include generatePxToRem('line-height', 23.84);
   font-style: normal;
@@ -78,7 +78,7 @@
 
 @mixin footer-links-text() {
   color: var(--color-footer-text);
-  font-family: Inter, serif;
+  font-family: var(--font-family);
   font-weight: 500;
   @include generatePxToRem('font-size', 16);
   @include generatePxToRem('line-height', 16);
@@ -87,7 +87,7 @@
 
 @mixin footer-inc-text() {
   color: var(--color-footer-text);
-  font-family: Inter, serif;
+  font-family: var(--font-family);
   font-weight: 400;
   @include generatePxToRem('font-size', 14);
   @include generatePxToRem('line-height', 14.4);
@@ -100,7 +100,7 @@
 }
 
 @mixin collapse-heading-code() {
-  font-family: IBM Plex Mono, sans-serif;
+  font-family: var(--font-family-mono);
   @include generatePxToRem('font-size', 12);
   font-style: normal;
   font-weight: 400;
@@ -119,7 +119,7 @@
 }
 
 @mixin method-heading-text() {
-  font-family: IBM Plex Mono, sans-serif;
+  font-family: var(--font-family-mono);
   @include generatePxToRem('font-size', 10);
   @include generatePxToRem('line-height', 15.6);
   font-style: normal;
@@ -128,7 +128,7 @@
 
 @mixin collapse-sub-heading-title() {
   color: var(--heading-h5-color);
-  font-family: IBM Plex Mono, sans-serif;
+  font-family: var(--font-family-mono);
   @include generatePxToRem('font-size', 12, !important);
   font-style: normal;
   font-weight: 700!important;
@@ -138,7 +138,7 @@
 
 @mixin collapse-sub-heading-input-text() {
   color: #B5B5B5;
-  font-family: Inter, serif;
+  font-family: var(--font-family);
   @include generatePxToRem('font-size', 12, !important);
   font-style: normal;
   font-weight: 400;
@@ -148,7 +148,7 @@
 
 @mixin table-description-text() {
   color: var(--text-nested-description);
-  font-family: Inter, serif;
+  font-family: var(--font-family);
   @include generatePxToRem(font-size, 14);
   font-style: normal;
   font-weight: 400;
@@ -156,7 +156,7 @@
 }
 
 @mixin table-first-column-text($fontWeight) {
-  font-family: IBM Plex Mono, sans-serif!important;
+  font-family: var(--font-family-mono)!important;
   @include generatePxToRem(font-size, 14);
   font-style: normal;
   font-weight: $fontWeight!important;
@@ -165,7 +165,7 @@
 
 @mixin message-text() {
   color: var(--message-text-color);
-  font-family: Inter, serif;
+  font-family: var(--font-family);
   @include generatePxToRem(font-size, 14);
   font-style: normal;
   font-weight: 400;
@@ -175,7 +175,7 @@
 @mixin code() {
   color: var(--primary-code-color);
   background: none;
-  font-family: IBM Plex Mono, sans-serif;
+  font-family: var(--font-family-mono);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;

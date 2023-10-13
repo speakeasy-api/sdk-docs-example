@@ -4,11 +4,11 @@ import React, {
 } from 'react';
 
 import { LanguageContext } from '@/utils/contexts/languageContext';
-import { LANGUAGES } from '@/utils/enums/languages';
+import { Language } from '@/utils/enums/language';
 import { LinkableContext } from '@/utils/contexts/linkableContext';
 
 interface ILanguageSwitcher {
-  langToContent: Partial<Record<LANGUAGES, JSX.Element>>,
+  langToContent: Partial<Record<Language, JSX.Element>>,
 }
 
 const LanguageSwitcher: FC<ILanguageSwitcher> = ({ langToContent }) => {

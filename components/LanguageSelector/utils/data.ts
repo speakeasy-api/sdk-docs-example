@@ -1,22 +1,20 @@
 import TypeScript from '@/icons/TypeScript';
-import { LANGUAGES } from '@/utils/enums/languages';
+import { Language } from '@/utils/enums/language';
 import Go from '@/icons/Go';
-import Java from '@/icons/Java';
+import React from 'react';
 
-export const languages = {
-  [LANGUAGES.typescript]: {
+type languageInfo = {
+  title: string;
+  Icon: React.FC;
+};
+
+export const languageData: Record<Language, languageInfo> = {
+  'typescript': {
     title: 'TypeScript',
-    value: LANGUAGES.typescript,
     Icon: TypeScript,
   },
-  [LANGUAGES.go]: {
+  'go': {
     title: 'Go',
-    value: LANGUAGES.go,
     Icon: Go,
-  },
-  [LANGUAGES.java]: {
-    title: 'Java',
-    value: LANGUAGES.java,
-    Icon: Java,
   },
 };

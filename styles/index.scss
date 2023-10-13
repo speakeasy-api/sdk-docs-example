@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
 
 @import 'utils/mixins';
 @import 'libs/codeThemes';
@@ -18,7 +19,9 @@
   --select-hover: #11D8641F;
   --select-text: #4C4C4C;
   --stroke-opacity: 1;
-  --hr-color: rgba(223, 223, 229, 1);
+  --hr-color: rgb(207, 207, 215);
+  --font-family: Inter, serif;
+  --font-family-mono:  IBM Plex Mono, sans-serif;
   &.dark {
     --color-page-background: #171717;
     --color-footer-background: #121212;
@@ -31,7 +34,7 @@
     --select-hover: #3148367A;
     --select-text: #E3E5E8;
     --stroke-opacity: 0.87;
-    --hr-color: rgba(223, 223, 229, 0.08);
+    --hr-color: rgba(201, 201, 208, 0.15);
   }
 }
 
@@ -308,11 +311,11 @@ table {
   color: var(--warning-response-code-color);
   background-color: var(--warning-response-code-bcg-color);
 }
-
-strong {
-  @include table-first-column-text(500);
-  @include generatePxToRem(padding, 1 4);
-  @include generatePxToRem(border-radius, 4);
-  color: var(--default-response-code-color);
-  background-color: var(--default-response-code-bcg-color);
-}
+//
+//strong {
+//  @include table-first-column-text(500);
+//  @include generatePxToRem(padding, 1 4);
+//  @include generatePxToRem(border-radius, 4);
+//  color: var(--default-response-code-color);
+//  background-color: var(--default-response-code-bcg-color);
+//}
