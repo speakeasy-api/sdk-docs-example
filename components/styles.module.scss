@@ -62,17 +62,8 @@
     }
   }
 
-  transition: all 0.5s ease;
-
   &_body {
-    //transition: transform 0.5s ease;
-    //transform: translateY(-100%);
-
     @include generatePxToRem('padding', 12);
     border-top: 1px solid var(--hr-color);
-
-    &_open {
-      //transform: translateY(0);
-    }
   }
 }

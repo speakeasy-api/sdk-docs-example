@@ -1,7 +1,4 @@
-import React, {
-  FC, ReactNode, useEffect, useRef, useState, 
-} from 'react';
-import cn from 'classnames';
+import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 
 import RightArrow from '@/icons/RightArrow';
 
@@ -18,38 +15,45 @@ export type BreakType = {
 };
 
 const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
-  const headerHeight = 36;
+  const headerDefaultHeight = 36;
 
   // const elements = props.children;
   const [isOpen, setIsOpen] = useState(props.defaultOpen ?? false);
-  const [height, setHeight] = useState(headerHeight);
+  const [height, setHeight] = useState(headerDefaultHeight);
   const [ContentComponent, setContentComponent] = useState<any>(null);
+  const [shouldTransitionHeight, setShouldTransitionHeight] = useState(false);
 
-  const headerRef = useRef<HTMLDivElement>(null);
-  const bodyRef = useRef<HTMLDivElement>(null);
+  const [headerRef, headerHeight] = useRefWithHeight();
+  const [bodyRef, bodyHeight] = useRefWithHeight();
 
   const heading = isOpen ? 'Hide child properties' : 'Show child properties';
 
-  const updateOpenHeight = () => {
-    setHeight(
-      (headerRef.current?.offsetHeight || headerHeight) +
-        (bodyRef.current?.getBoundingClientRect().height || 0),
-    );
+  const updateOpenHeight = (shouldTransition: boolean) => {
+    setHeight((headerHeight || headerDefaultHeight) + (bodyHeight || 0));
+    setShouldTransitionHeight(shouldTransition);
   };
 
   const open = () => {
     if (isOpen) {
+      setShouldTransitionHeight(true);
       setHeight(headerHeight);
     } else {
-      updateOpenHeight();
+      updateOpenHeight(true);
     }
 
     setIsOpen((prev) => !prev);
   };
 
   useEffect(() => {
+    if (isOpen) {
+      updateOpenHeight(false);
+    }
+  }, [bodyHeight, ContentComponent]);
+
+  useEffect(() => {
     if (isOpen && props.content && !ContentComponent) {
-      props.content()
+      props
+        .content()
         .then((module) => {
           setContentComponent(() => module.default);
         })
@@ -59,25 +63,26 @@ const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
     }
   }, [isOpen, props.content, ContentComponent]);
 
-  const dynamicChildren = isOpen && ContentComponent
-    ? [<ContentComponent key="dynamicContentComponent" />]
-    : [];
+  const dynamicChildren =
+    isOpen && ContentComponent
+      ? [<ContentComponent key='dynamicContentComponent' />]
+      : [];
 
   const existingChildren = props.children ? props.children : [];
 
-  const children = dynamicChildren.length > 0 
-    ? [...existingChildren, ...dynamicChildren] 
-    : existingChildren;
-
-  useEffect(() => {
-    if (isOpen) {
-      // console.log('updating');
-      updateOpenHeight();
-    }
-  }, [bodyRef.current, ContentComponent]);
+  const children =
+    dynamicChildren.length > 0
+      ? [...existingChildren, ...dynamicChildren]
+      : existingChildren;
 
   return (
-    <div className={styles.collapsible} style={{ height }}>
+    <div
+      className={styles.collapsible}
+      style={{
+        height,
+        ...(shouldTransitionHeight && { transition: 'height 0.5s ease' }),
+      }}
+    >
       <div
         ref={headerRef}
         onClick={open}
@@ -86,18 +91,31 @@ const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
         <RightArrow activeClass={isOpen ? 'active' : ''} />
         <h5>{heading}</h5>
       </div>
-      <div
-        ref={bodyRef}
-        className={cn(styles.collapsible_body, {
-          [styles['collapsible_body_open']]: isOpen,
-        })}
-      >
+      <div ref={bodyRef} className={styles.collapsible_body}>
         {children}
       </div>
     </div>
   );
 };
 
+const useRefWithHeight = (): [(ref: HTMLDivElement) => void, number] => {
+  const [height, setHeight] = useState(0);
+  const ref = useCallback((node: HTMLDivElement) => {
+    if (node !== null) {
+      setHeight(node.getBoundingClientRect().height);
+
+      const resizeObserver = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          setHeight(entry.target.getBoundingClientRect().height);
+        }
+      });
+
+      resizeObserver.observe(node);
+    }
+  }, []);
+
+  return [ref, height];
+};
 const Break = () => <></>;
 
 Collapsible.Break = Break;
