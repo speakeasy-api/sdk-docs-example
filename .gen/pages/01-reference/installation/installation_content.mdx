@@ -1,11 +1,15 @@
-import { Columns } from '@/components/Columns';
-import Message from '../../../../components/Message';
+## Installation
 
+{/* rendered from installation template */}
 
-<Columns>
-    Left hand side of installation section
+import GoInstallation from "./_snippets/go.mdx"
+import TsInstallation from "./_snippets/typescript.mdx"
+import {LanguageSwitch} from "/.gen/languages";
 
-  <RHS>
-    <Message message={'Check out the guide about the WorkOS API Postman collection to learn more about it.'}/>
-  </RHS>
-</Columns>
+<LanguageSwitch langToContent={{go: <GoInstallation/>, typescript: <TsInstallation/>}}/>
+
+{/* end rendered section */}
+
+<RHS>
+    Right hand side of installation section
+</RHS>

@@ -15,7 +15,6 @@ import {DocsSection} from "/components/docsSection";
 
 const referenceTemplate = `import Reference from './reference_content.mdx';
 import { DocsSection } from "/components/docsSection";
-import { LANGUAGES } from '/utils/enums/languages';
 
 <DocsSection route={"reference"}>
     <Reference/>
