@@ -1,13 +1,16 @@
-import React, { FC, ReactNode, useEffect, useRef, useState } from 'react';
+import React, {
+  FC, ReactNode, useEffect, useRef, useState, 
+} from 'react';
+import cn from 'classnames';
 
 import RightArrow from '@/icons/RightArrow';
 
 import styles from './styles.module.scss';
-import cn from 'classnames';
 
 export type propsType = {
   children: ReactNode[];
   defaultOpen?: boolean;
+  content?: () => Promise<any>;
 };
 
 export type BreakType = {
@@ -20,6 +23,7 @@ const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
   // const elements = props.children;
   const [isOpen, setIsOpen] = useState(props.defaultOpen ?? false);
   const [height, setHeight] = useState(headerHeight);
+  const [ContentComponent, setContentComponent] = useState<any>(null);
 
   const headerRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -44,11 +48,33 @@ const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
   };
 
   useEffect(() => {
+    if (isOpen && props.content && !ContentComponent) {
+      props.content()
+        .then((module) => {
+          setContentComponent(() => module.default);
+        })
+        .catch((error) => {
+          console.error('Failed to load the content component', error);
+        });
+    }
+  }, [isOpen, props.content, ContentComponent]);
+
+  const dynamicChildren = isOpen && ContentComponent
+    ? [<ContentComponent key="dynamicContentComponent" />]
+    : [];
+
+  const existingChildren = props.children ? props.children : [];
+
+  const children = dynamicChildren.length > 0 
+    ? [...existingChildren, ...dynamicChildren] 
+    : existingChildren;
+
+  useEffect(() => {
     if (isOpen) {
       // console.log('updating');
       updateOpenHeight();
     }
-  }, [bodyRef.current]);
+  }, [bodyRef.current, ContentComponent]);
 
   return (
     <div className={styles.collapsible} style={{ height }}>
@@ -66,7 +92,7 @@ const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
           [styles['collapsible_body_open']]: isOpen,
         })}
       >
-        {props.children}
+        {children}
       </div>
     </div>
   );
