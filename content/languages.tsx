@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import TextHeaderWrapper from '@/HOC/TextHeaderWrapper';
 import LanguageSwitcher from '@/HOC/LanguageSwitcher';
 import newLanguageProvider from 'HOC/LanguageProvider';
 import { Columns, RHS } from '@/components/Columns';
@@ -31,7 +30,7 @@ export const LanguageOperation = (props: {
 }) => (
   <Columns>
     <Parameters>{props.parameters}</Parameters>
-    <TextHeaderWrapper headingType='h3'>Response</TextHeaderWrapper>
+    <h3>Response</h3>
     {props.response}
     <RHS>{props.usage}</RHS>
   </Columns>
