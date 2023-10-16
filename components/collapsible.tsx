@@ -74,7 +74,7 @@ const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
       // console.log('updating');
       updateOpenHeight();
     }
-  }, [bodyRef.current, ContentComponent]);
+  }, [isOpen, bodyRef.current, ContentComponent]);
 
   return (
     <div className={styles.collapsible} style={{ height }}>
