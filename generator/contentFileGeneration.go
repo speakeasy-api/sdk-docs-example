@@ -55,7 +55,7 @@ func (g *Gen) generateCorrespondingFiles(file File, content string) error {
 		contentFileName = fmt.Sprintf("%s_content.mdx", nameNoSuffix)
 		var wrapperContent string
 		if nameNoSuffix == "reference" {
-			if val, err := templateFS.ReadFile("templates/reference.mdx.tmpl"); err != nil {
+			if val, err := templateFS.ReadFile("templates/reference.mdx.tmpl"); err == nil {
 				wrapperContent = string(val)
 			}
 		} else {
