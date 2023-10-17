@@ -55,9 +55,15 @@ func (g *Gen) generateCorrespondingFiles(file File, content string) error {
 		contentFileName = fmt.Sprintf("%s_content.mdx", nameNoSuffix)
 		var wrapperContent string
 		if nameNoSuffix == "reference" {
-			wrapperContent = referenceTemplate
+			if val, err := templateFS.ReadFile("templates/reference.mdx.tmpl"); err == nil {
+				wrapperContent = string(val)
+			}
 		} else {
-			wrapperContent = wrapDocsSection(route, nameNoSuffix)
+			var err error
+			wrapperContent, err = wrapDocsSection(route, nameNoSuffix)
+			if err != nil {
+				return err
+			}
 		}
 		if err := g.writeGenFile(dir.Path, file.Name, wrapperContent); err != nil {
 			return err
@@ -79,12 +85,12 @@ func (g *Gen) templateFile(name, content string) (string, error) {
 	for _, match := range matches {
 		templateName := match[1]
 
-		templateFile := "./templates/toplevel.mdx.tmpl"
+		templateFile := "templates/toplevel.mdx.tmpl"
 		if templateName == "operation" {
-			templateFile = "./templates/operation.mdx.tmpl"
+			templateFile = "templates/operation.mdx.tmpl"
 		}
 
-		templateContent, err := os.ReadFile(templateFile)
+		templateContent, err := templateFS.ReadFile(templateFile)
 		if err != nil {
 			return "", err
 		}

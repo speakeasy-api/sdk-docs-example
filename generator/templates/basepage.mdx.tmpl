@@ -1,0 +1,11 @@
+---
+title: {{$.Title}}
+description: {{$.Description}}
+---
+
+import Root from "/.gen/pages/{{$.SRCName}}/{{$.Name}}.mdx"
+import {RootContainer} from "/components/rootContainer";
+
+<RootContainer>
+	<Root/>
+</RootContainer>
