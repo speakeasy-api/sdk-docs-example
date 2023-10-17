@@ -13,3 +13,12 @@ export const Parameters = (props: { children: ReactNode }) => {
     </>
   );
 };
+
+export const Response = (props: { children: ReactNode }) => {
+  return (
+    <>
+      <h3>Response</h3>
+      <div className={styles.parameters}>{props.children}</div>
+    </>
+  );
+};

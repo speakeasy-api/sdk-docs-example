@@ -1,4 +1,12 @@
-import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 import RightArrow from '@/icons/RightArrow';
 
@@ -10,18 +18,19 @@ export type propsType = {
   content?: () => Promise<any>;
 };
 
-export type BreakType = {
-  Break: typeof Break;
-};
+const CollapsibleContext = createContext({
+  isOpen: true,
+});
 
-const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
+const Collapsible = (props: propsType) => {
   const headerDefaultHeight = 36;
 
-  // const elements = props.children;
   const [isOpen, setIsOpen] = useState(props.defaultOpen ?? false);
   const [height, setHeight] = useState(headerDefaultHeight);
   const [ContentComponent, setContentComponent] = useState<any>(null);
   const [shouldTransitionHeight, setShouldTransitionHeight] = useState(false);
+
+  const parentContext = useContext(CollapsibleContext);
 
   const [headerRef, headerHeight] = useRefWithHeight();
   const [bodyRef, bodyHeight] = useRefWithHeight();
@@ -34,24 +43,27 @@ const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
   };
 
   const open = () => {
-    if (isOpen) {
+    if (!isOpen) {
+      updateOpenHeight(true);
+    } else {
       setShouldTransitionHeight(true);
       setHeight(headerHeight);
-    } else {
-      updateOpenHeight(true);
     }
 
     setIsOpen((prev) => !prev);
   };
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && !ContentComponent) {
       updateOpenHeight(false);
     }
-  }, [bodyHeight, ContentComponent]);
+  }, [bodyHeight]);
 
+  /*
+   * Pre-load dynamic content when the parent is opened
+   */
   useEffect(() => {
-    if (isOpen && props.content && !ContentComponent) {
+    if (parentContext.isOpen && props.content && !ContentComponent) {
       props
         .content()
         .then((module) => {
@@ -61,12 +73,13 @@ const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
           console.error('Failed to load the content component', error);
         });
     }
-  }, [isOpen, props.content, ContentComponent]);
+  }, [parentContext.isOpen, props.content, ContentComponent]);
 
-  const dynamicChildren =
-    isOpen && ContentComponent
+  const dynamicChildren = useMemo(() => {
+    return ContentComponent
       ? [<ContentComponent key='dynamicContentComponent' />]
       : [];
+  }, [ContentComponent]);
 
   const existingChildren = props.children ? props.children : [];
 
@@ -76,25 +89,27 @@ const Collapsible: FC<propsType> & BreakType = (props: propsType) => {
       : existingChildren;
 
   return (
-    <div
-      className={styles.collapsible}
-      style={{
-        height,
-        ...(shouldTransitionHeight && { transition: 'height 0.5s ease' }),
-      }}
-    >
+    <CollapsibleContext.Provider value={{ isOpen }}>
       <div
-        ref={headerRef}
-        onClick={open}
-        className={styles.collapsible_heading}
+        className={styles.collapsible}
+        style={{
+          height,
+          ...(shouldTransitionHeight && { transition: 'height 0.5s ease' }),
+        }}
       >
-        <RightArrow activeClass={isOpen ? 'active' : ''} />
-        <h5>{heading}</h5>
+        <div
+          ref={headerRef}
+          onClick={open}
+          className={styles.collapsible_heading}
+        >
+          <RightArrow activeClass={isOpen ? 'active' : ''} />
+          <h5>{heading}</h5>
+        </div>
+        <div ref={bodyRef} className={styles.collapsible_body}>
+          {children}
+        </div>
       </div>
-      <div ref={bodyRef} className={styles.collapsible_body}>
-        {children}
-      </div>
-    </div>
+    </CollapsibleContext.Provider>
   );
 };
 
@@ -116,8 +131,5 @@ const useRefWithHeight = (): [(ref: HTMLDivElement) => void, number] => {
 
   return [ref, height];
 };
-const Break = () => <></>;
-
-Collapsible.Break = Break;
 
 export default Collapsible;
