@@ -7,16 +7,32 @@
     "title": "reference/Installation",
     "href": "/reference/installation"
   },
-  "retries": {
-    "title": "reference/Retries",
-    "href": "/reference/retries"
+  "pagination": {
+    "title": "reference/Pagination",
+    "href": "/reference/pagination"
   },
   "-- resources": {
     "title": "Resources",
     "type": "separator"
   },
-  "pets": {
-    "title": "reference/resources/Pets",
-    "href": "/reference/resources/pets"
+  "authentication": {
+    "title": "reference/resources/Authentication",
+    "href": "/reference/resources/authentication"
+  },
+  "config": {
+    "title": "reference/resources/Config",
+    "href": "/reference/resources/config"
+  },
+  "drinks": {
+    "title": "reference/resources/Drinks",
+    "href": "/reference/resources/drinks"
+  },
+  "ingredients": {
+    "title": "reference/resources/Ingredients",
+    "href": "/reference/resources/ingredients"
+  },
+  "orders": {
+    "title": "reference/resources/Orders",
+    "href": "/reference/resources/orders"
   }
 }

@@ -1,0 +1,15 @@
+```python showLineNumbers copy filename="Get Drink usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    api_key="",
+)
+
+
+res = s.drinks.get_drink(name='quantify')
+
+if res.drink is not None:
+    # handle response
+    pass
+```

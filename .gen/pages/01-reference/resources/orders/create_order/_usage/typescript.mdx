@@ -1,0 +1,26 @@
+```typescript showLineNumbers copy filename="Create Order usage example"
+import { SDK } from "openapi";
+import { CreateOrderOrderUpdateRequestBodyInput, CreateOrderOrderUpdateResponse } from "openapi/dist/sdk/models/callbacks";
+import { CreateOrderRequest } from "openapi/dist/sdk/models/operations";
+import { ErrorT, OrderInput, OrderType } from "openapi/dist/sdk/models/shared";
+
+(async() => {
+  const sdk = new SDK({
+    apiKey: "",
+  });
+const requestBody: shared.OrderInput[] = [
+  {
+    productCode: "APM-1F2D3",
+    quantity: 544883,
+    type: OrderType.Ingredient,
+  },
+];
+const callbackUrl: string = "Sol";
+
+  const res = await sdk.orders.createOrder(requestBody, callbackUrl);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

@@ -1,0 +1,15 @@
+```typescript showLineNumbers copy filename="Authenticate usage example"
+import { SDK } from "openapi";
+
+(async() => {
+  const sdk = new SDK({
+    apiKey: "",
+  });
+
+  const res = await sdk.authentication.authenticate({});
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

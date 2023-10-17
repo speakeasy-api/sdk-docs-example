@@ -1,0 +1,38 @@
+```go showLineNumbers copy filename="Create Order usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+	"openapi/pkg/models/callbacks"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(""),
+    )
+
+
+    requestBody := []shared.OrderInput{
+        shared.OrderInput{
+            ProductCode: "APM-1F2D3",
+            Quantity: 544883,
+            Type: shared.OrderTypeIngredient,
+        },
+    }
+
+    var callbackURL *string = "Sol"
+
+    ctx := context.Background()
+    res, err := s.Orders.CreateOrder(ctx, requestBody, callbackURL)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Order != nil {
+        // handle response
+    }
+}
+```
