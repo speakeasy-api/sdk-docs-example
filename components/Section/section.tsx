@@ -1,6 +1,7 @@
 import React, { ReactElement, useContext } from 'react';
 
-import { RouteContext } from './scrollManager';
+import { RouteContext } from '../scrollManager';
+import styles from './styles.module.scss';
 
 export const DocsSection = ({
   route,
@@ -31,7 +32,7 @@ export const DocsSection = ({
     <RouteContext.Provider
       value={`${parentRoute}/${route ?? ''}${homeOverride}`}
     >
-      {children}
+      <div className={styles.container}>{children}</div>
     </RouteContext.Provider>
   );
 };

@@ -6,7 +6,7 @@ import (
 )
 
 const template = `import %s from './%s_content.mdx';
-import {DocsSection} from "/components/docsSection";
+import {DocsSection} from "/components/Section/section";
 
 <DocsSection route={"%s"}>
     <%s/>
@@ -14,7 +14,7 @@ import {DocsSection} from "/components/docsSection";
 `
 
 const referenceTemplate = `import Reference from './reference_content.mdx';
-import { DocsSection } from "/components/docsSection";
+import { DocsSection } from "/components/Section/section";
 
 <DocsSection route={"reference"}>
     <Reference/>

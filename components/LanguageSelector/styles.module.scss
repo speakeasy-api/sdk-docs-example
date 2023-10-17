@@ -11,6 +11,8 @@
   font-family: Inter, sans-serif;
   color: var(--text-body);
 
+  background-color: var(--code-background);
+
   @include tabletsMax768 {
     @include generatePxToRem(margin-bottom, 40);
     position: relative;
@@ -28,12 +30,14 @@
     @include generatePxToRem(height, 34, !important);
     @include generatePxToRem(margin-left, 16, !important);
 
-    background: transparent;
-
     margin: 0;
 
     > div {
       @include generatePxToRem(padding, 4, !important);
+    }
+
+    .ant-select-selector {
+      background-color: red !important;
     }
 
     .ant-select-item {

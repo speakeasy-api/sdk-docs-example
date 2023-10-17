@@ -6,6 +6,8 @@
 @import 'libs/nextra';
 @import 'antd/antd.cleanui';
 
+@import './globals.css';
+
 :root {
   --color-page-background: #ffffff;
   --color-footer-background: #ffffff;
@@ -21,7 +23,8 @@
   --stroke-opacity: 1;
   --hr-color: rgb(207, 207, 215);
   --font-family: Inter, serif;
-  --font-family-mono:  IBM Plex Mono, sans-serif;
+  --font-family-mono: IBM Plex Mono, sans-serif;
+
   &.dark {
     --color-page-background: #171717;
     --color-footer-background: #121212;
@@ -68,6 +71,7 @@ html {
   -webkit-font-smoothing: antialiased;
   backface-visibility: hidden;
 }
+
 body {
   @include generatePxToRem(min-width, 320);
   position: relative;
@@ -85,6 +89,7 @@ body {
   /* Provide a default family for portalled elements not using themes (e.g. Primitives examples) */
   font-family: Inter, serif;
   background-color: var(--color-page-background) !important;
+
   p {
     @include generatePxToRem(font-size, 16);
     @include generatePxToRem(margin-bottom, 24);
@@ -235,7 +240,7 @@ table {
   border: 1px solid var(--code-block-border);
   @include generatePxToRem(border-radius, 16);
   @include generatePxToRem(margin, 20 0);
-  overflow: initial!important;
+  overflow: initial !important;
 
   thead {
     display: none;
@@ -243,24 +248,27 @@ table {
 
   tbody {
     td, tr {
-      border-width: 0!important;
+      border-width: 0 !important;
     }
 
     tr {
       @include tabletsMax768 {
         @include flex(column);
       }
+
       &:last-child {
         > td {
 
           &:first-child {
             @include generatePxToRem(border-radius, 0 0 0 16, !important);
           }
+
           &:last-child {
             @include generatePxToRem(border-radius, 0 0 16 0, !important);
           }
         }
       }
+
       td {
         &:first-child, &:last-child {
           @include generatePxToRem(padding, 16);
@@ -311,6 +319,7 @@ table {
   color: var(--warning-response-code-color);
   background-color: var(--warning-response-code-bcg-color);
 }
+
 //
 //strong {
 //  @include table-first-column-text(500);

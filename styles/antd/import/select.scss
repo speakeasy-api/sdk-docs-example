@@ -21,7 +21,7 @@
 
 .ant-select-dropdown {
   border: 1px solid var(--code-block-border);
-  background-color: var(--code-background) !important;
+  background-color: var(--code-background);
   border-radius: $default-radius;
   box-shadow: none !important;
   padding: 8px !important;
@@ -29,7 +29,7 @@
 
 .ant-select-selector {
   border-color: var(--code-block-border) !important;
-  background-color: var(--code-background) !important;
+  background-color: var(--code-background);
   color: var(--select-text) !important;
   padding: 0 16px !important;
 }

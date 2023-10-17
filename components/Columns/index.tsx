@@ -17,7 +17,7 @@ export const Columns: FC<IColumns> & { RHS: typeof RHS } = ({ children }) => {
   const [headingsArray, othersArray] = separateHeadingsAndOthers(mainContent);
 
   const columns = (
-    <div>
+    <div className={styles.container}>
       <div className={styles.headings}>
         {headingsArray}
       </div>

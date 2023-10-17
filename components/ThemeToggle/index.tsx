@@ -1,8 +1,4 @@
-import React, {
-  FC,
-  useEffect,
-  useState,
-} from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Switch from 'react-switch';
 import { useTheme } from 'next-themes';
 
@@ -10,6 +6,7 @@ import Moon from '@/icons/Moon';
 import Sun from '@/icons/Sun';
 
 import styles from './styles.module.scss';
+import LanguageSelector from '@/components/LanguageSelector';
 
 const DARK = 'dark';
 const LIGHT = 'light';
@@ -34,38 +31,41 @@ const ThemeToggle: FC = () => {
   }
 
   return (
-    <div className={styles.toggle}>
-      <label htmlFor="switch">
-        <span>Light</span>
-        <Switch
-          id="switch"
-          className="react-switch"
-          onChange={onChangeTheme}
-          checked={isDark}
-          uncheckedIcon={false}
-          checkedIcon={false}
-          height={31}
-          width={51}
-          handleDiameter={26}
-          onColor="#2a2a2a"
-          offColor="#EFEFF1"
-          onHandleColor="#171717"
-          activeBoxShadow="0px 0px 1px 1px rgba(0, 0, 0, 0.2)"
-          offHandleColor="#FFF"
-          checkedHandleIcon={
-            <div className={styles.checkedIcon}>
-              <Moon />
-            </div>
-          }
-          uncheckedHandleIcon={
-            <div className={styles.checkedIcon}>
-              <Sun />
-            </div>
-          }
-        />
-        <span>Dark</span>
-      </label>
-    </div>
+    <>
+      <LanguageSelector style={'icon'} />
+      <div className={styles.toggle}>
+        <label htmlFor='switch'>
+          <span>Light</span>
+          <Switch
+            id='switch'
+            className='react-switch'
+            onChange={onChangeTheme}
+            checked={isDark}
+            uncheckedIcon={false}
+            checkedIcon={false}
+            height={31}
+            width={51}
+            handleDiameter={26}
+            onColor='#2a2a2a'
+            offColor='#EFEFF1'
+            onHandleColor='#171717'
+            activeBoxShadow='0px 0px 1px 1px rgba(0, 0, 0, 0.2)'
+            offHandleColor='#FFF'
+            checkedHandleIcon={
+              <div className={styles.checkedIcon}>
+                <Moon />
+              </div>
+            }
+            uncheckedHandleIcon={
+              <div className={styles.checkedIcon}>
+                <Sun />
+              </div>
+            }
+          />
+          <span>Dark</span>
+        </label>
+      </div>
+    </>
   );
 };
 
