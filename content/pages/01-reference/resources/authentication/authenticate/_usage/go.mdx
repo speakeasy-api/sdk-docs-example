@@ -1,0 +1,27 @@
+```go showLineNumbers copy filename="Authenticate usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+	"openapi/pkg/models/operations"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(""),
+    )
+
+    ctx := context.Background()
+    res, err := s.Authentication.Authenticate(ctx, operations.AuthenticateRequestBody{})
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Authenticate200ApplicationJSONObject != nil {
+        // handle response
+    }
+}
+```

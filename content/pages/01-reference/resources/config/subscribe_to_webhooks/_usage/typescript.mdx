@@ -1,0 +1,18 @@
+```typescript showLineNumbers copy filename="Subscribe To Webhooks usage example"
+import { SDK } from "openapi";
+import { SubscribeToWebhooksRequestBodyWebhook } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    apiKey: "",
+  });
+
+  const res = await sdk.config.subscribeToWebhooks([
+    {},
+  ]);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

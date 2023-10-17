@@ -1,0 +1,17 @@
+```python showLineNumbers copy filename="List Ingredients usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    api_key="",
+)
+
+
+res = s.ingredients.list_ingredients(ingredients=[
+    'Minivan',
+])
+
+if res.ingredients is not None:
+    # handle response
+    pass
+```

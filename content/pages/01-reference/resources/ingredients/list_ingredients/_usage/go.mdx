@@ -1,0 +1,31 @@
+```go showLineNumbers copy filename="List Ingredients usage example"
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(""),
+    )
+
+
+    ingredients := []string{
+        "Minivan",
+    }
+
+    ctx := context.Background()
+    res, err := s.Ingredients.ListIngredients(ctx, ingredients)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Ingredients != nil {
+        // handle response
+    }
+}
+```

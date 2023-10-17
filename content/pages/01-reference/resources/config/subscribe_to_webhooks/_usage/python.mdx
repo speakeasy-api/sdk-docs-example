@@ -1,0 +1,18 @@
+```python showLineNumbers copy filename="Subscribe To Webhooks usage example"
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    api_key="",
+)
+
+req = [
+    operations.SubscribeToWebhooksRequestBody(),
+]
+
+res = s.config.subscribe_to_webhooks(req)
+
+if res.status_code == 200:
+    # handle response
+    pass
+```
