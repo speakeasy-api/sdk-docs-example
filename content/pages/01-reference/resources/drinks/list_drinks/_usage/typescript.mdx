@@ -1,0 +1,18 @@
+```typescript showLineNumbers copy filename="List Drinks usage example"
+import { SDK } from "openapi";
+import { ListDrinksRequest } from "openapi/dist/sdk/models/operations";
+import { DrinkType } from "openapi/dist/sdk/models/shared";
+
+(async() => {
+  const sdk = new SDK({
+    apiKey: "",
+  });
+const drinkType: DrinkType = DrinkType.Spirit;
+
+  const res = await sdk.drinks.listDrinks(drinkType);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

@@ -1,0 +1,19 @@
+```typescript showLineNumbers copy filename="List Ingredients usage example"
+import { SDK } from "openapi";
+import { ListIngredientsRequest } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    apiKey: "",
+  });
+const ingredients: string[] = [
+  "Minivan",
+];
+
+  const res = await sdk.ingredients.listIngredients(ingredients);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

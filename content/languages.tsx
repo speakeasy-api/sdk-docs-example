@@ -8,18 +8,6 @@ import { Parameters } from '@/components/parameters';
 // REPLACE USAGE WITH HOC/LanguageProvider
 export const LanguageProvider = newLanguageProvider;
 
-// REPLACE USAGE WITH HOC/LanguageProvider
-/* export const LanguageSelect = () => {
-    const langContext = useContext(LangContext);
-    return (
-        <button style={{background: "tomato", margin: "24px", padding: "10px"}}
-                onClick={() => langContext.setLang(langContext.lang === "go" ? "typescript" : "go")}>
-            Language:
-            {langContext.lang}
-        </button>
-    )
-} */
-
 // REPLACE USAGE WITH HOC/LanguageSwitcher
 export const LanguageSwitch = LanguageSwitcher;
 

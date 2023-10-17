@@ -1,0 +1,21 @@
+```python showLineNumbers copy filename="Create Order usage example"
+import sdk
+from sdk.models import callbacks, operations, shared
+
+s = sdk.SDK(
+    api_key="",
+)
+
+
+res = s.orders.create_order(request_body=[
+    shared.OrderInput(
+        product_code='APM-1F2D3',
+        quantity=544883,
+        type=shared.OrderType.INGREDIENT,
+    ),
+], callback_url='Sol')
+
+if res.order is not None:
+    # handle response
+    pass
+```
