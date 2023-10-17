@@ -55,7 +55,11 @@ func (g *Gen) generateCorrespondingFiles(file File, content string, dropRoute bo
 
 	if shouldWrap {
 		contentFileName = fmt.Sprintf("%s_content.mdx", nameNoSuffix)
-		wrapperContent := wrapDocsSection(route, nameNoSuffix, dropRoute)
+		wrapperContent, err := wrapDocsSection(route, nameNoSuffix, dropRoute)
+		if err != nil {
+			return err
+		}
+
 		if err := g.writeGenFile(dir.Path, file.Name, wrapperContent); err != nil {
 			return err
 		}
@@ -76,12 +80,12 @@ func (g *Gen) templateFile(name, content string) (string, error) {
 	for _, match := range matches {
 		templateName := match[1]
 
-		templateFile := "./templates/toplevel.mdx.tmpl"
+		templateFile := "templates/toplevel.mdx.tmpl"
 		if templateName == "operation" {
-			templateFile = "./templates/operation.mdx.tmpl"
+			templateFile = "templates/operation.mdx.tmpl"
 		}
 
-		templateContent, err := os.ReadFile(templateFile)
+		templateContent, err := templateFS.ReadFile(templateFile)
 		if err != nil {
 			return "", err
 		}

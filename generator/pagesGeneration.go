@@ -81,7 +81,12 @@ func (g *Gen) createBasePage(page Page, isMultipage bool) error {
 		basePageName = fmt.Sprintf("[%s].mdx", basePageName)
 	}
 
-	if err := g.writePagesFile(page, basePageName, getBasePageContent(page)); err != nil {
+	content, err := getBasePageContent(page)
+	if err != nil {
+		return err
+	}
+
+	if err := g.writePagesFile(page, basePageName, content); err != nil {
 		return err
 	}
 

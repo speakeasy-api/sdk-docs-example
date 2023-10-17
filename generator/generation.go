@@ -58,7 +58,11 @@ func (g *Gen) setup() error {
 		}
 	}
 
-	appFileContent := getAppFileContent(appFileProvided, g.isMultipage)
+	appFileContent, err := getAppFileContent(appFileProvided, g.isMultipage)
+	if err != nil {
+		return err
+	}
+
 	if err := writeFile(fmt.Sprintf("%s/%s", pagesGenRoot, appFile), appFileContent); err != nil {
 		return err
 	}

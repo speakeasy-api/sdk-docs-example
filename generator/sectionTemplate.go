@@ -1,36 +1,42 @@
 package main
 
 import (
-	"fmt"
+	"bytes"
 	"strings"
+	"text/template"
 )
 
-const template = `import %s from './%s_content.mdx';
-import {DocsSection} from "/components/Section/section";
-
-<DocsSection route={"%s"}>
-    <%s/>
-</DocsSection>
-`
-
-//const referenceTemplate = `import Reference from './reference_content.mdx';
-//import { DocsSection } from "/components/Section/section";
-//
-//<DocsSection route={"reference"}>
-//    <Reference/>
-//</DocsSection>
-//`
-
-func wrapDocsSection(route, name string, dropRoute bool) string {
+func wrapDocsSection(route, name string, dropRoute bool) (string, error) {
 	if dropRoute {
 		route = ""
 	} else {
 		if strings.HasPrefix(route, "/") {
 			route = route[1:]
 		}
-		route = toSnakeCase(route)
 	}
 
 	upper := strings.Title(name)
-	return fmt.Sprintf(template, upper, name, route, upper)
+
+	tpl, err := templateFS.ReadFile("templates/section.mdx.tmpl")
+	if err != nil {
+		return "", err
+	}
+
+	t, err := template.New("").Parse(string(tpl))
+	if err != nil {
+		return "", err
+	}
+
+	var buf bytes.Buffer
+	err = t.Execute(&buf, map[string]string{
+		"ImportName": upper,
+		"ImportPath": name,
+		"Route":      route,
+		"Component":  upper,
+	})
+	if err != nil {
+		return "", err
+	}
+
+	return buf.String(), nil
 }
