@@ -1,0 +1,6 @@
+{
+  "create_order": {
+    "title": "resources/orders/Create Order",
+    "href": "/resources/orders/create_order"
+  }
+}

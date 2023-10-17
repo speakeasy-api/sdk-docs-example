@@ -14,12 +14,18 @@ func main() {
 		root: absBasePath,
 	}
 
-	err = gen.setup()
+	basePages, err := gen.getBasePages()
 	if err != nil {
 		panic(err)
 	}
 
-	basePages, err := gen.getBasePages()
+	gen.isMultipage = basePages != nil && len(basePages) > 1
+
+	if !gen.isMultipage {
+		basePages[0].dropFromRoutes = true // Elevate the page to root if there's only one page
+	}
+
+	err = gen.setup()
 	if err != nil {
 		panic(err)
 	}

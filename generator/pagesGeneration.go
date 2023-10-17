@@ -9,17 +9,25 @@ import (
 const basePageNameOverride = "[...slug]"
 
 func (g *Gen) generatePages(pages []*Page) error {
-	rootMetaJson, err := getMetaJsonContentForSubpages("", pages, true, false)
-	if err != nil {
-		return err
+	if len(pages) == 0 {
+		return fmt.Errorf("no pages provided")
 	}
 
-	if err := writeFile("./pages/_meta.json", rootMetaJson); err != nil {
-		return err
+	isMultipage := len(pages) > 1
+
+	if isMultipage {
+		rootMetaJson, err := getMetaJsonContentForSubpages("", pages, true, false)
+		if err != nil {
+			return err
+		}
+
+		if err := writeFile("./pages/_meta.json", rootMetaJson); err != nil {
+			return err
+		}
 	}
 
 	for _, page := range pages {
-		if err := g.createBasePage(*page); err != nil {
+		if err := g.createBasePage(*page, isMultipage); err != nil {
 			return err
 		}
 
@@ -61,12 +69,19 @@ func (g *Gen) createMetaJsonFiles(page Page) error {
 	return nil
 }
 
-func (g *Gen) createBasePage(page Page) error {
+func (g *Gen) createBasePage(page Page, isMultipage bool) error {
 	if err := g.tryMakePageDir(page); err != nil {
 		return err
 	}
 
-	if err := g.writePagesFile(page, basePageNameOverride+".mdx", getBasePageContent(page)); err != nil {
+	basePageName := basePageNameOverride
+	if isMultipage {
+		basePageName = fmt.Sprintf("%s.mdx", basePageName)
+	} else {
+		basePageName = fmt.Sprintf("[%s].mdx", basePageName)
+	}
+
+	if err := g.writePagesFile(page, basePageName, getBasePageContent(page)); err != nil {
 		return err
 	}
 

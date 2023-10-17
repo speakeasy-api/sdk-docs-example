@@ -1,0 +1,10 @@
+{
+  "get_drink": {
+    "title": "resources/drinks/Get Drink",
+    "href": "/resources/drinks/get_drink"
+  },
+  "list_drinks": {
+    "title": "resources/drinks/List Drinks",
+    "href": "/resources/drinks/list_drinks"
+  }
+}

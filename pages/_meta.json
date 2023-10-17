@@ -1,12 +1,38 @@
 {
-  "reference": {
-    "title": "Reference",
-    "type": "page",
-    "display": "hidden"
+  "[...slug]": {
+    "title": "Home",
+    "href": "/home"
   },
-  "reference_navlink": {
-    "title": "Reference",
-    "href": "/reference/home",
-    "type": "page"
+  "installation": {
+    "title": "Installation",
+    "href": "/installation"
+  },
+  "pagination": {
+    "title": "Pagination",
+    "href": "/pagination"
+  },
+  "-- resources": {
+    "title": "Resources",
+    "type": "separator"
+  },
+  "authentication": {
+    "title": "resources/Authentication",
+    "href": "/resources/authentication"
+  },
+  "config": {
+    "title": "resources/Config",
+    "href": "/resources/config"
+  },
+  "drinks": {
+    "title": "resources/Drinks",
+    "href": "/resources/drinks"
+  },
+  "ingredients": {
+    "title": "resources/Ingredients",
+    "href": "/resources/ingredients"
+  },
+  "orders": {
+    "title": "resources/Orders",
+    "href": "/resources/orders"
   }
 }

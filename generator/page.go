@@ -6,19 +6,29 @@ import (
 )
 
 type Page struct {
-	Name        string
-	SrcName     string // Original name, before stripping leading numbers
-	Path        string
-	FrontMatter *FrontMatter
-	parent      *Page
-	Children    []*Page
-	Files       []File
+	Name           string
+	SrcName        string // Original name, before stripping leading numbers
+	Path           string
+	FrontMatter    *FrontMatter
+	parent         *Page
+	Children       []*Page
+	Files          []File
+	dropFromRoutes bool // If true, this page will not be included in routes
 }
 
 func (p *Page) Route() string {
+	if p.dropFromRoutes {
+		if p.IsRoot() {
+			return ""
+		} else {
+			return p.parent.Route()
+		}
+	}
+
 	if p.IsRoot() {
 		return p.Name + "/"
 	}
+
 	return p.parent.Route() + toSnakeCase(p.Name) + "/"
 }
 
@@ -30,14 +40,20 @@ func (p *Page) ParentRoute() string {
 }
 
 // PagePath produces the path to the page as needed by the `pages` directory, relative to the root of the site
-// The difference between this and Route is that it strips out and "flat" directories which are not needed in `pages`
+// The difference between this and Route is that it strips out and "flattens" directories which are not needed in `pages`
 func (p *Page) PagePath() string {
+	if p.dropFromRoutes {
+		return ""
+	}
+
 	if p.IsRoot() {
 		return p.Name + "/"
 	}
+
 	if p.IsFlat() {
 		return p.parent.PagePath()
 	}
+
 	return p.parent.PagePath() + toSnakeCase(p.Name) + "/"
 }
 

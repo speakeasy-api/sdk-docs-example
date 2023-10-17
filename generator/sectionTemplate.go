@@ -13,19 +13,23 @@ import {DocsSection} from "/components/Section/section";
 </DocsSection>
 `
 
-const referenceTemplate = `import Reference from './reference_content.mdx';
-import { DocsSection } from "/components/Section/section";
+//const referenceTemplate = `import Reference from './reference_content.mdx';
+//import { DocsSection } from "/components/Section/section";
+//
+//<DocsSection route={"reference"}>
+//    <Reference/>
+//</DocsSection>
+//`
 
-<DocsSection route={"reference"}>
-    <Reference/>
-</DocsSection>
-`
-
-func wrapDocsSection(route, name string) string {
-	if strings.HasPrefix(route, "/") {
-		route = route[1:]
+func wrapDocsSection(route, name string, dropRoute bool) string {
+	if dropRoute {
+		route = ""
+	} else {
+		if strings.HasPrefix(route, "/") {
+			route = route[1:]
+		}
+		route = toSnakeCase(route)
 	}
-	route = toSnakeCase(route)
 
 	upper := strings.Title(name)
 	return fmt.Sprintf(template, upper, name, route, upper)

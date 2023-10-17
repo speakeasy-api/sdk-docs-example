@@ -11,25 +11,27 @@ var (
 	templateRegex = regexp.MustCompile(`{/\* render (\S*) (.*)\*/}`)
 )
 
-func (g *Gen) generateContentFiles(dir Page) error {
-	genPath, err := g.toGenPath(dir.Path)
+func (g *Gen) generateContentFiles(page Page) error {
+	genPath, err := g.toGenPath(page.Path)
 	if err = tryMkdir(genPath); err != nil {
 		return err
 	}
 
-	for _, file := range dir.Files {
+	for _, file := range page.Files {
 		templatedContent, err := g.templateFile(file.Name, file.content)
 		if err != nil {
 			return err
 		}
 
-		err = g.generateCorrespondingFiles(file, templatedContent)
+		dropRoute := page.dropFromRoutes
+
+		err = g.generateCorrespondingFiles(file, templatedContent, dropRoute)
 		if err != nil {
 			return err
 		}
 	}
 
-	for _, childDir := range dir.Children {
+	for _, childDir := range page.Children {
 		err := g.generateContentFiles(*childDir)
 		if err != nil {
 			return err
@@ -39,7 +41,7 @@ func (g *Gen) generateContentFiles(dir Page) error {
 	return nil
 }
 
-func (g *Gen) generateCorrespondingFiles(file File, content string) error {
+func (g *Gen) generateCorrespondingFiles(file File, content string, dropRoute bool) error {
 	nameNoSuffix := strings.TrimSuffix(file.Name, ".mdx")
 
 	// The directory containing the file is the name of the "route"
@@ -53,12 +55,7 @@ func (g *Gen) generateCorrespondingFiles(file File, content string) error {
 
 	if shouldWrap {
 		contentFileName = fmt.Sprintf("%s_content.mdx", nameNoSuffix)
-		var wrapperContent string
-		if nameNoSuffix == "reference" {
-			wrapperContent = referenceTemplate
-		} else {
-			wrapperContent = wrapDocsSection(route, nameNoSuffix)
-		}
+		wrapperContent := wrapDocsSection(route, nameNoSuffix, dropRoute)
 		if err := g.writeGenFile(dir.Path, file.Name, wrapperContent); err != nil {
 			return err
 		}

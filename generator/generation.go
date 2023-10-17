@@ -16,7 +16,8 @@ const (
 )
 
 type Gen struct {
-	root string
+	root        string
+	isMultipage bool
 }
 
 func (g *Gen) setup() error {
@@ -57,7 +58,7 @@ func (g *Gen) setup() error {
 		}
 	}
 
-	appFileContent := getAppFileContent(appFileProvided)
+	appFileContent := getAppFileContent(appFileProvided, g.isMultipage)
 	if err := writeFile(fmt.Sprintf("%s/%s", pagesGenRoot, appFile), appFileContent); err != nil {
 		return err
 	}

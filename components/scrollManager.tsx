@@ -1,25 +1,31 @@
 import React, {
-  createContext, ReactNode, useEffect, useMemo, useState,
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
 } from 'react';
 import { useRouter } from 'next/router';
 
+export const MultiPageContext = createContext(false);
 export const RouteContext = createContext('');
 export const ScrollContext = createContext<{
   headingToPosition: Record<string, HeadingPosition>;
   currentHeading: string;
   visibleHeadings: string[];
   upsertHeading: (
-  route: string,
-  heading: string,
-  elem: HTMLHeadingElement,
-  position: number,
+    route: string,
+    heading: string,
+    elem: HTMLHeadingElement,
+    position: number,
   ) => void;
 }>({
-      headingToPosition: {},
-      currentHeading: '',
-      visibleHeadings: [],
-      upsertHeading: () => {},
-    });
+  headingToPosition: {},
+  currentHeading: '',
+  visibleHeadings: [],
+  upsertHeading: () => {},
+});
 
 type HeadingPosition = {
   elem: HTMLHeadingElement;
@@ -32,11 +38,21 @@ const headingOffset = -100;
 export const ScrollManager = (props: {
   children: ReactNode;
 }): React.ReactElement => {
+  const isMultipage = useContext(MultiPageContext);
   const slug = useRouter().asPath;
 
-  const rootPage = useMemo(() => slug.split('/').at(1) ?? '/', [slug]);
+  const rootPage = useMemo(
+    () => (isMultipage ? slug.split('/').at(1) ?? '' : ''),
+    [slug],
+  );
 
-  const [headingToPosition, setHeadingToPosition] = useState<Record<string, HeadingPosition>>({});
+  useEffect(() => {
+    setHeadingToPosition({});
+  }, [rootPage]);
+
+  const [headingToPosition, setHeadingToPosition] = useState<
+    Record<string, HeadingPosition>
+  >({});
   const upsertHeading = (
     route: string,
     heading: string,
@@ -56,18 +72,18 @@ export const ScrollManager = (props: {
 
       return {
         ...currentValues,
-        [route]: { elem,
-          position },
+        [route]: {
+          elem,
+          position,
+        },
       };
     });
   };
 
   const [closestHeading, setClosestHeading] = useState<string>('/' + rootPage);
-  const [visibleHeadings, setVisibleHeadings] = useState<string[]>([closestHeading]);
-
-  useEffect(() => {
-    setHeadingToPosition({});
-  }, [rootPage]);
+  const [visibleHeadings, setVisibleHeadings] = useState<string[]>([
+    closestHeading,
+  ]);
 
   /**
    * This is responsible for setting the route in the URL to the closest heading when the user scrolls.
@@ -77,9 +93,13 @@ export const ScrollManager = (props: {
     () => () => {
       const entries = Object.entries(headingToPosition);
 
-      const visible = entries.filter(
-        ([_, { position }]) => window.scrollY < position && position < window.scrollY + window.innerHeight,
-      ).map(([route]) => route);
+      const visible = entries
+        .filter(
+          ([_, { position }]) =>
+            window.scrollY < position &&
+            position < window.scrollY + window.innerHeight,
+        )
+        .map(([route]) => route);
 
       // Find the first heading that is below the current scroll position
       const nextIndex = entries.findIndex(
@@ -91,8 +111,8 @@ export const ScrollManager = (props: {
         nextIndex === -1
           ? entries.length - 1
           : nextIndex - 1 >= 0
-            ? nextIndex - 1
-            : 0;
+          ? nextIndex - 1
+          : 0;
       const closest = entries[currentIndex]?.[0];
 
       setClosestHeading(closest);
@@ -110,7 +130,7 @@ export const ScrollManager = (props: {
   useEffect(() => {
     window.history.replaceState(
       { ...window.history },
-      closestHeading,
+      'ignored',
       closestHeading,
     );
   }, [closestHeading]);
