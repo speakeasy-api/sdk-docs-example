@@ -237,9 +237,8 @@ article {
 
 table {
   //width: 600px;  // Will test this css function for table responsive (width: clamp(320px, 600px, 600px);)!!!
-  border: 1px solid var(--code-block-border);
-  @include generatePxToRem(border-radius, 16);
-  @include generatePxToRem(margin, 20 0);
+  //border: 1px solid var(--code-block-border);
+  //@include generatePxToRem(border-radius, 16);
   overflow: initial !important;
 
   thead {
@@ -259,13 +258,13 @@ table {
       &:last-child {
         > td {
 
-          &:first-child {
-            @include generatePxToRem(border-radius, 0 0 0 16, !important);
-          }
-
-          &:last-child {
-            @include generatePxToRem(border-radius, 0 0 16 0, !important);
-          }
+          //&:first-child {
+          //  @include generatePxToRem(border-radius, 0 0 0 16, !important);
+          //}
+          //
+          //&:last-child {
+          //  @include generatePxToRem(border-radius, 0 0 16 0, !important);
+          //}
         }
       }
 

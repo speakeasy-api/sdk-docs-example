@@ -40,6 +40,7 @@ const config: ICustomDocsThemeConfig = {
     titleComponent: NavItem,
   },
   toc: {
+    // Remove Table of Contents
     component: () => null,
   },
   components: {

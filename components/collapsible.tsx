@@ -54,7 +54,7 @@ const Collapsible = (props: propsType) => {
   };
 
   useEffect(() => {
-    if (isOpen && !ContentComponent) {
+    if (isOpen) {
       updateOpenHeight(false);
     }
   }, [bodyHeight]);
