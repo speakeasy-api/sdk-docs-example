@@ -11,10 +11,6 @@
     "title": "Installation",
     "href": "/installation"
   },
-  "pagination": {
-    "title": "Pagination",
-    "href": "/pagination"
-  },
   "-- resources": {
     "title": "Resources",
     "type": "separator"
