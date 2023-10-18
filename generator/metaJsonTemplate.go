@@ -28,6 +28,11 @@ func getMetaJsonContentForSubpages(route string, pages []*Page, isProjectRoot, i
 
 	if isPageRoot {
 		entries = append(entries, pageRootEntry(route))
+		entries = append(entries, Entry{
+			name:  "-- guides",
+			Title: "Guides",
+			Type:  pointerToString(typeSeparator),
+		})
 	}
 
 	for _, childPage := range pages {
