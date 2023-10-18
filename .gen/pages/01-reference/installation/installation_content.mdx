@@ -2,20 +2,10 @@
 
 {/* rendered from installation template */}
 
-<CH.Code>
+import GoInstallation from "./_snippets/go.mdx"
+import TsInstallation from "./_snippets/typescript.mdx"
+import {LanguageSwitch} from "/.gen/languages";
 
-```bash go.bash
-go get openapi
-```
-
-```bash npm.bash
-npm add ts-url
-```
-
-```bash yarn.bash
-yarn add ts-url
-```
-
-</CH.Code>
+<LanguageSwitch langToContent={{go: <GoInstallation/>, typescript: <TsInstallation/>}}/>
 
 {/* end rendered section */}
