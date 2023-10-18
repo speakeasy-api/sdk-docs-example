@@ -20,7 +20,7 @@ export const Operation = () => {
     const go = <LanguageOperation parameters={<GoParameters/>} response={<GoResponse/>} usage={<GoUsage/>}/>
     const typescript = <LanguageOperation parameters={<TypescriptParameters/>} response={<TypescriptResponse/>} usage={<TypescriptUsage/>}/>
     const python = <LanguageOperation parameters={<PythonParameters/>} response={<PythonResponse/>} usage={<PythonUsage/>}/>
-    return <LanguageSwitch langToContent={go, typescript, python}/>
+    return <LanguageSwitch langToContent={{go, typescript, python}}/>
 }
 
 <Operation />

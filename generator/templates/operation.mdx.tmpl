@@ -10,7 +10,7 @@ export const Operation = () => {
     {{- range $lang := $.Languages }}
     const {{$lang}} = <LanguageOperation parameters={<{{toCapital $lang}}Parameters/>} response={<{{toCapital $lang}}Response/>} usage={<{{toCapital $lang}}Usage/>}/>
     {{- end }}
-    return <LanguageSwitch langToContent={{"{"}}{{ range $index, $lang := $.Languages }}{{$lang}}{{if not (eq $index (sub (len $.Languages) 1))}}, {{end}}{{ end }}{{"}"}}/>
+    return <LanguageSwitch langToContent={{"{{"}}{{ range $index, $lang := $.Languages }}{{$lang}}{{if not (eq $index (sub (len $.Languages) 1))}}, {{end}}{{ end }}{{"}}"}}/>
 }
 
 <Operation />
