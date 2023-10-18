@@ -1,20 +1,13 @@
-import React, {
-  ReactNode,
-  useContext,
-  FC,
-} from 'react';
+import React, { ReactNode, useContext, FC } from 'react';
 
 import { RouteContext } from '@/components/scrollManager';
 
 interface IDocsSection {
-  route?: string,
-  children?: ReactNode
+  route?: string;
+  children?: ReactNode;
 }
 
-const DocsSection: FC<IDocsSection> = ({
-  route,
-  children,
-}) => {
+const DocsSection: FC<IDocsSection> = ({ route, children }) => {
   let parentRoute = useContext(RouteContext);
 
   if (parentRoute === '/') {
@@ -23,9 +16,7 @@ const DocsSection: FC<IDocsSection> = ({
 
   return (
     <RouteContext.Provider value={`${parentRoute}/${route ?? ''}`}>
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
     </RouteContext.Provider>
   );
 };

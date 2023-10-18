@@ -1,7 +1,8 @@
 import React, { ReactElement, useContext } from 'react';
 
-import { MultiPageContext, RouteContext } from '../scrollManager';
 import styles from './styles.module.scss';
+
+import { MultiPageContext, RouteContext } from '../scrollManager';
 
 export const DocsSection = ({
   route = '',
@@ -10,7 +11,7 @@ export const DocsSection = ({
   route?: string;
   children?: ReactElement[];
 }) => {
-  let parentRoute = useContext(RouteContext);
+  const parentRoute = useContext(RouteContext);
   const isMultiPage = useContext(MultiPageContext);
 
   // if (parentRoute === '/') {

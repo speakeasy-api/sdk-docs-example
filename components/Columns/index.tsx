@@ -1,8 +1,9 @@
-import React, {
-  ReactElement, ReactNode, FC,
-} from 'react';
+import React, { ReactElement, ReactNode, FC } from 'react';
 
-import { separateHeadingsAndOthers, splitByType } from '@/components/typeHelpers';
+import {
+  separateHeadingsAndOthers,
+  splitByType,
+} from '@/components/typeHelpers';
 
 import styles from './styles.module.scss';
 
@@ -18,9 +19,7 @@ export const Columns: FC<IColumns> & { RHS: typeof RHS } = ({ children }) => {
 
   const columns = (
     <div className={styles.container}>
-      <div className={styles.headings}>
-        {headingsArray}
-      </div>
+      <div className={styles.headings}>{headingsArray}</div>
       <div className={styles.columnContainer}>
         <div className={styles.mainContent}>{othersArray}</div>
         <div className={styles.rightSideContent}>{rhs}</div>

@@ -10,7 +10,7 @@ const Header: FC = () => (
   <div className={styles.headerRoot}>
     <div className={styles.headerInner}>
       <div>
-        <NextLink href="/">
+        <NextLink href='/'>
           <Logo />
         </NextLink>
       </div>

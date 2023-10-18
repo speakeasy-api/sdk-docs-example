@@ -9,9 +9,9 @@ export const Head = () => {
   return (
     <>
       <title>{title}</title>
-      <meta property="og:title" content={title}/>
+      <meta property='og:title' content={title} />
       <meta
-        property="og:description"
+        property='og:description'
         content={frontMatter.description || 'An API reference'}
       />
     </>

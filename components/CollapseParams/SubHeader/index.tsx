@@ -15,14 +15,16 @@ const SubHeader: FC<{
 }> = ({ title, onChange, value, nested, isShowSearchInput }) => (
   <div className={cn(styles.sub_header, { [styles.nested]: nested })}>
     <p>{title}</p>
-    {isShowSearchInput && <Input
-      className={styles.sub_header_search}
-      onChange={onChange}
-      value={value}
-      size='large'
-      placeholder='Search parameters...'
-      prefix={<Search />}
-    />}
+    {isShowSearchInput && (
+      <Input
+        className={styles.sub_header_search}
+        onChange={onChange}
+        value={value}
+        size='large'
+        placeholder='Search parameters...'
+        prefix={<Search />}
+      />
+    )}
   </div>
 );
 

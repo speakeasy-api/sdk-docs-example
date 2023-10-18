@@ -75,11 +75,13 @@ const Collapsible = (props: propsType) => {
     }
   }, [parentContext.isOpen, props.content, ContentComponent]);
 
-  const dynamicChildren = useMemo(() => {
-    return ContentComponent
-      ? [<ContentComponent key='dynamicContentComponent' />]
-      : [];
-  }, [ContentComponent]);
+  const dynamicChildren = useMemo(
+    () =>
+      ContentComponent
+        ? [<ContentComponent key='dynamicContentComponent' />]
+        : [],
+    [ContentComponent],
+  );
 
   const existingChildren = props.children ? props.children : [];
 

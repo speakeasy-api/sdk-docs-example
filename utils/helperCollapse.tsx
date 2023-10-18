@@ -1,7 +1,9 @@
 import React from 'react';
 
 import {
-  CollapseChildren, CollapseLabel, NestHeading,
+  CollapseChildren,
+  CollapseLabel,
+  NestHeading,
 } from '@/components/CollapseParams';
 
 export interface IItemData {
@@ -11,7 +13,7 @@ export interface IItemData {
   value: string;
   title: string;
   order?: string[];
-  itemsChildrenData?: IItemData[]
+  itemsChildrenData?: IItemData[];
 }
 
 export interface ICollapseLabelProps {
@@ -38,7 +40,7 @@ export interface ICollapseChildren {
   itemsNest: IItemData[];
 }
 
-export const convertData = (data: IItemData[]) => (
+export const convertData = (data: IItemData[]) =>
   data.map((item: IItemData) => ({
     key: item.key,
     label: (
@@ -56,7 +58,7 @@ export const convertData = (data: IItemData[]) => (
     ) : (
       <p className={'nested_desc'}>{item.title}</p>
     ),
-  })));
+  }));
 
 export const convertNestData = (nestData: IItemData[]) => [
   {

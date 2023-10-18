@@ -4,10 +4,10 @@ import { Language } from '@/utils/enums/language';
 
 export const LanguageContext = createContext<{
   language: Language;
-  setLanguage: (l: Language) => void,
-  languages: Language[],
+  setLanguage: (l: Language) => void;
+  languages: Language[];
 }>({
-      language: 'go',
-      setLanguage: () => {},
-      languages: [],
-    });
+  language: 'go',
+  setLanguage: () => {},
+  languages: [],
+});

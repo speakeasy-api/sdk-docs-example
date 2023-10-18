@@ -1,9 +1,4 @@
-import React, {
-  FC,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 
 import CheckIcon from '@/icons/CheckIcon';
 import CopyIcon from '@/icons/CopyIcon';
@@ -11,7 +6,7 @@ import CopyIcon from '@/icons/CopyIcon';
 import styles from './styles.module.scss';
 
 interface ICopyToClipboard {
-  getValue(): string,
+  getValue(): string;
 }
 
 const CopyToClipboard: FC<ICopyToClipboard> = ({ getValue }) => {
@@ -48,11 +43,7 @@ const CopyToClipboard: FC<ICopyToClipboard> = ({ getValue }) => {
   }, [isCopied]);
 
   return (
-    <button
-      type='button'
-      className={styles.button}
-      onClick={handleClick}
-    >
+    <button type='button' className={styles.button} onClick={handleClick}>
       <IconToUse />
     </button>
   );

@@ -37,14 +37,15 @@ export const splitMDXContentChildrenByType = (
 export const splitElementsByType = (
   elements: React.ReactElement[],
   type: (props: { children: React.ReactNode }) => React.JSX.Element,
-): [React.ReactElement[], React.ReactElement[]] => partition(elements, (e: any) => e?.type === type);
+): [React.ReactElement[], React.ReactElement[]] =>
+  partition(elements, (e: any) => e?.type === type);
 
 export const typeMatches = (
   e: React.ReactNode,
   type: () => React.JSX.Element,
 ): boolean => 'type' in (e as any) && (e as any).type === type;
 
-export const splitAround = <T, >(a: T[], fn: (e: T) => boolean): [T[], T[]] => {
+export const splitAround = <T,>(a: T[], fn: (e: T) => boolean): [T[], T[]] => {
   const breakIndex = a.findIndex(fn);
 
   if (breakIndex === -1) {

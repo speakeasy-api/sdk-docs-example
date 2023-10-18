@@ -8,9 +8,9 @@ import Linkedin from '@/icons/Linkedin';
 export const isBrowser = typeof window !== 'undefined';
 
 export interface IFooterGenLinksItem {
-  id: number,
-  name: string,
-  hrefTo: string
+  id: number;
+  name: string;
+  hrefTo: string;
 }
 
 export const footerGenLinks: Array<IFooterGenLinksItem> = [
@@ -20,44 +20,42 @@ export const footerGenLinks: Array<IFooterGenLinksItem> = [
     hrefTo: '/product',
   },
   {
-
     id: 1,
     name: 'Pricing',
     hrefTo: '/pricing',
   },
   {
-
     id: 2,
     name: 'Docs',
     hrefTo: '/docs',
   },
   {
-
     id: 3,
     name: 'Careers',
     hrefTo: '/careers',
   },
   {
-
     id: 4,
     name: 'Blog',
     hrefTo: '/blog',
   },
   {
-
     id: 5,
     name: 'Privacy',
     hrefTo: '/privacy',
   },
   {
-
     id: 6,
     name: 'Terms',
     hrefTo: '/terms',
   },
 ];
 
-export const footerSocialLinks: Array<{type: string, hrefTo: string, component: FC}>= [
+export const footerSocialLinks: Array<{
+  type: string;
+  hrefTo: string;
+  component: FC;
+}> = [
   {
     type: 'github-icon',
     hrefTo: 'https://github.com/speakeasy-api',
@@ -70,7 +68,8 @@ export const footerSocialLinks: Array<{type: string, hrefTo: string, component: 
   },
   {
     type: 'slack-icon',
-    hrefTo: 'https://join.slack.com/t/speakeasy-dev/shared_invite/zt-1cwb3flxz-lS5SyZxAsF_3NOq5xc8Cjw',
+    hrefTo:
+      'https://join.slack.com/t/speakeasy-dev/shared_invite/zt-1cwb3flxz-lS5SyZxAsF_3NOq5xc8Cjw',
     component: Slack,
   },
   {

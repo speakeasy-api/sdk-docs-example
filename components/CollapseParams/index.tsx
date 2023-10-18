@@ -1,10 +1,9 @@
-import React, {
-  ReactNode, FC, useState, useEffect,
-} from 'react';
+import React, { ReactNode, FC, useState, useEffect } from 'react';
 import { Collapse } from 'antd';
 
 import {
-  convertData, convertNestData,
+  convertData,
+  convertNestData,
   ICollapseChildren,
   ICollapseLabelProps,
   ICollapseParams,
@@ -27,7 +26,9 @@ export const NestHeading: FC = () => {
 export const CollapseLabel: FC<ICollapseLabelProps> = (props): ReactNode => {
   const { nested, labelKey, symbols, order, value, itemsNestContent } = props;
 
-  const [itemsNestContentLocal, setItemsNestContentLocal] = useState<IItemData[] | undefined>(itemsNestContent);
+  const [itemsNestContentLocal, setItemsNestContentLocal] = useState<
+    IItemData[] | undefined
+  >(itemsNestContent);
   const [searchValue, setSearchValue] = useState<string>('');
 
   useEffect(() => {
@@ -39,7 +40,8 @@ export const CollapseLabel: FC<ICollapseLabelProps> = (props): ReactNode => {
     const filteredItems =
       itemsNestContent &&
       [...itemsNestContent].filter(
-        (item: IItemData) => (item.labelKey && item.labelKey.includes(e.target.value)) ||
+        (item: IItemData) =>
+          (item.labelKey && item.labelKey.includes(e.target.value)) ||
           (item.value && item.value.includes(e.target.value)) ||
           (item.symbols && item.symbols.includes(e.target.value)),
       );
@@ -56,41 +58,72 @@ export const CollapseLabel: FC<ICollapseLabelProps> = (props): ReactNode => {
               onChange={onSearchValueChange}
               value={searchValue}
               nested
-              isShowSearchInput={itemsNestContent && itemsNestContent.length >= 10}
+              isShowSearchInput={
+                itemsNestContent && itemsNestContent.length >= 10
+              }
             />
           )}
           {/* eslint-disable-next-line no-prototype-builtins */}
-          {itemsNestContentLocal && itemsNestContentLocal.some((el: IItemData) => el.hasOwnProperty('itemsChildrenData')) ? (
+          {itemsNestContentLocal &&
+          itemsNestContentLocal.some((el: IItemData) =>
+            // eslint-disable-next-line no-prototype-builtins
+            el.hasOwnProperty('itemsChildrenData'),
+          ) ? (
             <CollapseParams itemsData={itemsNestContentLocal} />
-          ) : (itemsNestContentLocal && itemsNestContentLocal.map((el: IItemData, index: number) => (
-            <div key={index}>
-              <div className={'nested_params_box'}>
-                <span className={'key'} style={{ order: el.order?.length ? el.order.indexOf('key') : 0 }}>
-                  {el.labelKey}
-                </span>
-                <span className={'symbols'} style={{ order: el.order?.length ? el.order.indexOf('symbols') : 1 }}>
-                  {el.symbols}
-                </span>
-                <span className={'value'} style={{ order: el.order?.length ? el.order.indexOf('value') : 2 }}>
-                  {el.value}
-                </span>
+          ) : (
+            itemsNestContentLocal &&
+            itemsNestContentLocal.map((el: IItemData, index: number) => (
+              <div key={index}>
+                <div className={'nested_params_box'}>
+                  <span
+                    className={'key'}
+                    style={{
+                      order: el.order?.length ? el.order.indexOf('key') : 0,
+                    }}
+                  >
+                    {el.labelKey}
+                  </span>
+                  <span
+                    className={'symbols'}
+                    style={{
+                      order: el.order?.length ? el.order.indexOf('symbols') : 1,
+                    }}
+                  >
+                    {el.symbols}
+                  </span>
+                  <span
+                    className={'value'}
+                    style={{
+                      order: el.order?.length ? el.order.indexOf('value') : 2,
+                    }}
+                  >
+                    {el.value}
+                  </span>
+                </div>
+                {nested && <p className={'nested_desc'}>{el.title}</p>}
               </div>
-              {nested && (<p className={'nested_desc'}>
-                {el.title}
-              </p>)}
-            </div>))
+            ))
           )}
         </>
       ) : (
         <>
           <div className={'nested_params_box'}>
-            <span className={'key'} style={{ order: order?.length ? order.indexOf('key') : 0 }}>
+            <span
+              className={'key'}
+              style={{ order: order?.length ? order.indexOf('key') : 0 }}
+            >
               {labelKey}
             </span>
-            <span className={'symbols'} style={{ order: order?.length ? order.indexOf('symbols') : 1 }}>
+            <span
+              className={'symbols'}
+              style={{ order: order?.length ? order.indexOf('symbols') : 1 }}
+            >
               {symbols}
             </span>
-            <span className={'value'} style={{ order: order?.length ? order.indexOf('value') : 2 }}>
+            <span
+              className={'value'}
+              style={{ order: order?.length ? order.indexOf('value') : 2 }}
+            >
               {value}
             </span>
           </div>
@@ -122,7 +155,9 @@ export const CollapseParams: FC<ICollapseParams> = (props) => {
     defaultActiveKey,
   } = props;
 
-  const [itemsDataLocal, setItemsDataLocal] = useState<IItemData[] | undefined>(itemsData);
+  const [itemsDataLocal, setItemsDataLocal] = useState<IItemData[] | undefined>(
+    itemsData,
+  );
   const [searchValue, setSearchValue] = useState<string>('');
 
   useEffect(() => {
@@ -134,14 +169,16 @@ export const CollapseParams: FC<ICollapseParams> = (props) => {
     const filteredItems =
       itemsData &&
       [...itemsData].filter(
-        (item: IItemData) => item.labelKey.includes(e.target.value) ||
+        (item: IItemData) =>
+          item.labelKey.includes(e.target.value) ||
           item.value.includes(e.target.value) ||
           item.symbols.includes(e.target.value),
       );
     setItemsDataLocal(filteredItems);
   };
 
-  const separateParamsClass = !fileNameAndCopyValue && !isShowSubHeader ? 'withoutHeadings' : '';
+  const separateParamsClass =
+    !fileNameAndCopyValue && !isShowSubHeader ? 'withoutHeadings' : '';
 
   return (
     <div>
@@ -164,9 +201,16 @@ export const CollapseParams: FC<ICollapseParams> = (props) => {
       <Collapse
         defaultActiveKey={defaultActiveKey || []}
         destroyInactivePanel
-        items={(itemsDataLocal && convertData(itemsDataLocal)) || (itemsNest && convertNestData(itemsNest))}
+        items={
+          (itemsDataLocal && convertData(itemsDataLocal)) ||
+          (itemsNest && convertNestData(itemsNest))
+        }
         ghost
-        className={nested ? `Collapse_nest ${separateParamsClass}` : `Collapse ${separateParamsClass}`}
+        className={
+          nested
+            ? `Collapse_nest ${separateParamsClass}`
+            : `Collapse ${separateParamsClass}`
+        }
         expandIcon={({ isActive }) => (
           <RightArrow activeClass={isActive ? 'active' : ''} nested={nested} />
         )}

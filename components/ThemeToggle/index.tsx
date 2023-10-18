@@ -4,9 +4,9 @@ import { useTheme } from 'next-themes';
 
 import Moon from '@/icons/Moon';
 import Sun from '@/icons/Sun';
+import LanguageSelector from '@/components/LanguageSelector';
 
 import styles from './styles.module.scss';
-import LanguageSelector from '@/components/LanguageSelector';
 
 const DARK = 'dark';
 const LIGHT = 'light';

@@ -1,7 +1,8 @@
+import React from 'react';
+
 import TypeScript from '@/icons/TypeScript';
 import { Language } from '@/utils/enums/language';
 import Go from '@/icons/Go';
-import React from 'react';
 
 type languageInfo = {
   title: string;
@@ -9,11 +10,11 @@ type languageInfo = {
 };
 
 export const languageData: Record<Language, languageInfo> = {
-  'typescript': {
+  typescript: {
     title: 'TypeScript',
     Icon: TypeScript,
   },
-  'go': {
+  go: {
     title: 'Go',
     Icon: Go,
   },

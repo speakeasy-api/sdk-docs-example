@@ -103,5 +103,11 @@
     "@next/next/no-img-element": "off",
     "no-case-declarations": "off",
     "react-hooks/exhaustive-deps": "off"
-  }
+  },
+  "ignorePatterns": [
+    "node_modules",
+    "out",
+    ".next",
+    "next.config.js"
+  ]
 }

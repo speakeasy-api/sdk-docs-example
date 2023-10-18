@@ -1,5 +1,6 @@
 import React from 'react';
 import App from 'next/app';
+
 import { LanguageProvider } from '@/content/languages';
 
 class MyApp extends App {
