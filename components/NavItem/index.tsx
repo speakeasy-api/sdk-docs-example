@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 
 import { ScrollContext } from '../scrollManager';
 
-export const NavItem: FC<Record<string, string>> = ({ title, type }) => {
+export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {
   const { currentHeading, visibleHeadings } = useContext(ScrollContext);
 
   const pageTitle = title.split('/').pop();
@@ -18,13 +18,16 @@ export const NavItem: FC<Record<string, string>> = ({ title, type }) => {
   const headings = visibleHeadings.map((heading) => heading?.split('#')[0]);
 
   const selected = baseCurrentHeading === titleSlug;
-  const visible = headings?.includes(titleSlug);
 
   const classForItem = {
     [styles['selected']]: selected,
-    [styles['visible']]: visible,
+    [styles['visible']]: false,
     [styles['separator']]: type === 'separator',
   };
+
+  if (titleSlug == '/home') {
+    return null;
+  }
 
   return (
     <div className={cn(styles.nav_item, classForItem)}>

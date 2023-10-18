@@ -1,7 +1,11 @@
 {
   "[...slug]": {
     "title": "Home",
-    "href": "/home"
+    "href": "/"
+  },
+  "-- guides": {
+    "title": "Guides",
+    "type": "separator"
   },
   "installation": {
     "title": "Installation",
