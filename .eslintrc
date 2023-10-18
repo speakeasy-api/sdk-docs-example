@@ -5,9 +5,9 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
-    "prettier",
     "next",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
   ],
   "env": {
     "node": true
@@ -39,35 +39,18 @@
     "ecmaVersion": 2019
   },
   "rules": {
+    "prettier/prettier": "error",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-empty-function": "warn",
-    "@typescript-eslint/indent": [
-      "error",
-      2,
-      {
-        "SwitchCase": 1,
-        "MemberExpression": 1
-      }
-    ],
-    "@typescript-eslint/type-annotation-spacing": [
-      "warn",
-      {
-        "after": true
-      }
-    ],
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
         "argsIgnorePattern": "^_"
       }
     ],
-    "@typescript-eslint/semi": "error",
-    "space-before-blocks": "error",
-    "keyword-spacing": "error",
-    "no-multi-spaces": "error",
     "import/no-unresolved": "error",
     "import/order": [
       "error",
@@ -84,25 +67,8 @@
         "newlines-between": "always"
       }
     ],
-    "comma-spacing": [
-      "error",
-      {
-        "before": false,
-        "after": true
-      }
-    ],
-    "padded-blocks": ["error", "never"],
-    "quotes": ["error", "single"],
     "no-shadow": 0,
     "spaced-comment": ["error", "always"],
-    "no-multiple-empty-lines": [
-      "error",
-      {
-        "max": 1,
-        "maxBOF": 0,
-        "maxEOF": 0
-      }
-    ],
     "no-inline-comments": [
       "error",
       {
@@ -110,30 +76,6 @@
       }
     ],
     "arrow-body-style": "error",
-    "object-curly-spacing": ["error", "always"],
-    "array-bracket-spacing": ["error", "never"],
-    "object-curly-newline": [
-      "error",
-      {
-        "ObjectExpression": {
-          "multiline": false,
-          "minProperties": 3,
-          "consistent": true
-        },
-        "ImportDeclaration": {
-          "minProperties": 3,
-          "consistent": true,
-          "multiline": true
-        }
-      }
-    ],
-    "object-property-newline": [
-      "error",
-      {
-        "allowAllPropertiesOnSameLine": false
-      }
-    ],
-    "space-in-parens": ["error", "never"],
     "padding-line-between-statements": [
       "error",
       {
@@ -153,16 +95,9 @@
         "allow": ["warn", "error", "info"]
       }
     ],
-    "block-spacing": "error",
-    "comma-dangle": ["error", "always-multiline"],
     "no-duplicate-imports": "error",
     "curly": "error",
-    "brace-style": "error",
-    "implicit-arrow-linebreak": ["error", "beside"],
     "lines-between-class-members": ["error", "always"],
-    "semi-spacing": "error",
-    "semi": "error",
-    "arrow-spacing": "error",
     "@typescript-eslint/no-extra-semi": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@next/next/no-img-element": "off",
