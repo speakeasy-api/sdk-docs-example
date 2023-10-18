@@ -19,7 +19,7 @@ const LinkWrapper: FC<ILinkWrapper> = ({ children, href = '/' }) => {
       {children}
     </Link>
   ) : (
-    <a className={styles.link} href={href}>
+    <a className={styles.link} href={href} target={'_blank'}>
       {children}
       <ExternalLink />
     </a>
