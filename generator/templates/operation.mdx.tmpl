@@ -1,17 +1,16 @@
 import {LanguageOperation} from "/.gen/languages";
 import {LanguageSwitch} from "/.gen/languages";
-import GoParameters from "./_parameters/go.mdx"
-import GoResponse from "./_response/go.mdx"
-import GoUsage from "./_usage/go.mdx"
-import TsParameters from "./_parameters/typescript.mdx"
-import TsResponse from "./_response/typescript.mdx"
-import TsUsage from "./_usage/typescript.mdx"
+{{- range $lang := $.Languages }}
+import {{toCapital $lang}}Parameters from "./_parameters/{{$lang}}.mdx";
+import {{toCapital $lang}}Response from "./_response/{{$lang}}.mdx";
+import {{toCapital $lang}}Usage from "./_usage/{{$lang}}.mdx";
+{{- end }}
 
 export const Operation = () => {
-    const go = <LanguageOperation parameters={<GoParameters/>} response={<GoResponse/>} usage={<GoUsage/>}/>
-    const typescript = <LanguageOperation parameters={<TsParameters/>} response={<TsResponse/>} usage={<TsUsage/>}/>
-
-    return <LanguageSwitch langToContent={{go, typescript}}/>
+    {{- range $lang := $.Languages }}
+    const {{$lang}} = <LanguageOperation parameters={<{{toCapital $lang}}Parameters/>} response={<{{toCapital $lang}}Response/>} usage={<{{toCapital $lang}}Usage/>}/>
+    {{- end }}
+    return <LanguageSwitch langToContent={{"{"}}{{ range $index, $lang := $.Languages }}{{$lang}}{{if not (eq $index (sub (len $.Languages) 1))}}, {{end}}{{ end }}{{"}"}}/>
 }
 
 <Operation />

@@ -5,6 +5,8 @@ import (
 )
 
 func main() {
+	// Make language a config on the wrapper when it's migrated to a module
+	languages := []string{"go", "typescript", "python"}
 	absBasePath, err := filepath.Abs(baseContentRoot)
 	if err != nil {
 		panic(err)
@@ -36,7 +38,7 @@ func main() {
 			panic(err)
 		}
 
-		err = gen.generateContentFiles(*page)
+		err = gen.generateContentFiles(*page, languages)
 		if err != nil {
 			panic(err)
 		}
