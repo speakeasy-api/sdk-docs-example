@@ -1,24 +1,26 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"regexp"
 	"strings"
+	"text/template"
 )
 
 var (
 	templateRegex = regexp.MustCompile(`{/\* render (\S*) (.*)\*/}`)
 )
 
-func (g *Gen) generateContentFiles(page Page) error {
+func (g *Gen) generateContentFiles(page Page, languages []string) error {
 	genPath, err := g.toGenPath(page.Path)
 	if err = tryMkdir(genPath); err != nil {
 		return err
 	}
 
 	for _, file := range page.Files {
-		templatedContent, err := g.templateFile(file.Name, file.content)
+		templatedContent, err := g.templateFile(file.Name, file.content, languages)
 		if err != nil {
 			return err
 		}
@@ -32,7 +34,7 @@ func (g *Gen) generateContentFiles(page Page) error {
 	}
 
 	for _, childDir := range page.Children {
-		err := g.generateContentFiles(*childDir)
+		err := g.generateContentFiles(*childDir, languages)
 		if err != nil {
 			return err
 		}
@@ -72,7 +74,7 @@ func (g *Gen) generateCorrespondingFiles(file File, content string, dropRoute bo
 	return nil
 }
 
-func (g *Gen) templateFile(name, content string) (string, error) {
+func (g *Gen) templateFile(name, content string, languages []string) (string, error) {
 	name = strings.TrimSuffix(name, ".mdx")
 
 	matches := templateRegex.FindAllStringSubmatch(content, -1)
@@ -85,12 +87,31 @@ func (g *Gen) templateFile(name, content string) (string, error) {
 			templateFile = "templates/operation.mdx.tmpl"
 		}
 
-		templateContent, err := templateFS.ReadFile(templateFile)
+		tpl, err := templateFS.ReadFile(templateFile)
 		if err != nil {
 			return "", err
 		}
 
-		templateContentString := strings.TrimSpace(string(templateContent))
+		t, err := template.New("").Funcs(template.FuncMap{
+			"toCapital": toCapital,
+			"sub": func(a, b int) int {
+				return a - b
+			},
+		}).Parse(string(tpl))
+		if err != nil {
+			return "", err
+		}
+
+		var buf bytes.Buffer
+		err = t.Execute(&buf, map[string]interface{}{
+			"Languages": languages,
+		})
+		if err != nil {
+			return "", err
+		}
+
+		templateContent := buf.String()
+		templateContentString := strings.TrimSpace(templateContent)
 		templateContentString = fmt.Sprintf("{/* rendered from %s template */}\n\n%s\n\n{/* end rendered section */}", templateName, templateContentString)
 
 		content = strings.ReplaceAll(content, match[0], templateContentString)
@@ -115,4 +136,11 @@ func writeFile(path, content string) error {
 	}
 
 	return nil
+}
+
+func toCapital(s string) string {
+	if s == "" {
+		return ""
+	}
+	return strings.ToUpper(string(s[0])) + s[1:]
 }

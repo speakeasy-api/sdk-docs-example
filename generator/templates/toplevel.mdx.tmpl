@@ -1,5 +1,6 @@
-import GoInstallation from "./_snippets/go.mdx"
-import TsInstallation from "./_snippets/typescript.mdx"
 import {LanguageSwitch} from "/.gen/languages";
+{{- range $lang := $.Languages }}
+import {{toCapital $lang}}Installation from "./_snippets/{{$lang}}.mdx";
+{{- end }}
 
-<LanguageSwitch langToContent={{go: <GoInstallation/>, typescript: <TsInstallation/>}}/>
+<LanguageSwitch langToContent={{"{{"}}{{ range $index, $lang := $.Languages }}{{$lang}}: <{{toCapital $lang}}Installation/>{{if not (eq $index (sub (len $.Languages) 1))}}, {{end}}{{ end }}{{"}}"}}/>
