@@ -1,49 +1,51 @@
-import React, { FC, useContext } from 'react';
-import cn from 'classnames';
-import { Select } from 'antd';
-
+import React, { FC, useContext, useState } from 'react';
 import { LanguageContext } from '@/utils/contexts/languageContext';
-import { Language } from '@/content/language';
-
 import { languageData } from './utils/data';
-import styles from './styles.module.scss';
+import { ClickEvent, Menu, MenuButton, MenuItem } from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
+import '@szhsin/react-menu/dist/transitions/slide.css';
 
-const { Option } = Select;
+import styles from './styles.module.scss';
+import cn from 'classnames';
 
 interface ILanguageSelector {
   style?: 'icon' | 'small' | 'large';
 }
 
-const LanguageSelector: FC<ILanguageSelector> = ({ style = 'large' }) => {
+const Index: FC<ILanguageSelector> = ({ style = 'large' }) => {
   const { language, setLanguage, languages } = useContext(LanguageContext);
 
-  const handleChange = (value: Language) => setLanguage(value);
+  const handleChange = (e: ClickEvent) => setLanguage(e.value);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const button = (
+    <MenuButton className={cn(styles.select, { [styles.active]: isOpen })}>
+      <div style={{ maxWidth: '100%' }}>{languageData[language].Icon({})}</div>
+    </MenuButton>
+  );
 
   return (
-    <Select
-      defaultValue={language}
-      value={language}
-      onChange={handleChange}
-      className={cn(
-        styles.select,
-        { [styles.small]: style === 'small' },
-        { [styles.icon]: style === 'icon' },
-      )}
-      getPopupContainer={({ parentElement }) => parentElement}
-      suffixIcon={style !== 'icon' && undefined}
+    <Menu
+      transition
+      onItemClick={handleChange}
+      menuButton={button}
+      menuClassName={styles.menu}
+      onMenuChange={(e) => setIsOpen(e.open)}
     >
-      {languages.map((language) => {
-        const { title, Icon } = languageData[language];
-
-        return (
-          <Option value={language} key={language}>
-            {style !== 'large' && <Icon />}
-            {style !== 'icon' && title}
-          </Option>
-        );
-      })}
-    </Select>
+      {...languages.map((langItem) => (
+        <MenuItem
+          key={langItem}
+          value={langItem}
+          className={cn(styles.menuItem, {
+            [styles.active]: langItem === language,
+          })}
+        >
+          {languageData[langItem].title}
+        </MenuItem>
+      ))}
+    </Menu>
   );
 };
 
-export default LanguageSelector;
+export default Index;

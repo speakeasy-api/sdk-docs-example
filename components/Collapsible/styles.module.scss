@@ -1,30 +1,4 @@
-@import '../styles/utils/mixins';
-
-.parameters {
-  @include generatePxToRem('margin', 20 0);
-
-  h5 {
-    font-family: var(--font-family-mono);
-    font-weight: normal;
-    @include generatePxToRem('font-size', 16);
-    @include generatePxToRem('margin', 0);
-
-    // Styling for parameter types
-    em {
-      font-style: normal !important;
-      color: var(--text-body) !important;
-    }
-  }
-
-  p {
-    @include generatePxToRem('font-size', 14);
-    margin: 0;
-  }
-
-  hr {
-    @include generatePxToRem('margin', 20 0, !important);
-  }
-}
+@import '../../styles/utils/mixins';
 
 .collapsible {
   @include generatePxToRem('border-radius', 8);
@@ -60,6 +34,10 @@
 
       > h5 {
         color: var(--text-link);
+      }
+
+      path {
+        stroke: var(--text-link);
       }
     }
   }

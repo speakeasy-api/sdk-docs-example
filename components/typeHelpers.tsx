@@ -64,7 +64,7 @@ export const separateHeadingsAndOthers = (elements: any) => {
   for (let i = 0; i < elements.length; i++) {
     // Check if the element is a React element
     if (elements[i]?.['$$typeof'] === Symbol.for('react.element')) {
-      const elementType = elements[i].type.name?.toLowerCase();
+      const elementType = elements[i].type?.name?.toLowerCase();
 
       // Check if the element type is one of the headings
       if (headings.includes(elementType)) {

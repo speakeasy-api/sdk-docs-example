@@ -1,56 +1,106 @@
 @import '@/styles/utils/mixins';
 
 .select {
-  @include generatePxToRem(width, 219);
-  @include generatePxToRem(margin-right, 24);
-  @include generatePxToRem(height, 40);
-  @include generatePxToRem(font-size, 14);
-  font-style: normal;
-  font-weight: 500;
-  line-height: 152%;
-  font-family: Inter, sans-serif;
-  color: var(--text-body);
+  @include generatePxToRem(width, 36);
+  @include generatePxToRem(height, 36);
+  @include flex(column, center, center);
 
-  background-color: var(--code-background);
+  @include generatePxToRem(border-radius, 8);
 
-  @include tabletsMax768 {
-    @include generatePxToRem(margin-bottom, 40);
-    position: relative;
-    width: 100%;
-  }
+  transition: all .2s ease;
 
-  &.small {
-    @include generatePxToRem(width, 128);
-    @include generatePxToRem(height, 34);
-    margin: 0;
-  }
-
-  &.icon {
-    @include generatePxToRem(width, 48);
-    @include generatePxToRem(height, 34, !important);
-    @include generatePxToRem(margin-left, 16, !important);
-
-    margin: 0;
-
-    > div {
-      @include generatePxToRem(padding, 4, !important);
-    }
-
-    .ant-select-selector {
-      background-color: red !important;
-    }
-
-    .ant-select-item {
-      @include generatePxToRem(padding, 4, !important);
-    }
-
-    .option {
-      @include generatePxToRem(padding, 4, !important);
+  &.active {
+    svg {
+      filter: grayscale(0);
     }
   }
 
-  .option {
-    @include flex(row, center, center);
-    @include generatePxToRem(column-gap, 8);
+  &:hover {
+    svg {
+      filter: grayscale(0);
+    }
+  }
+
+  svg {
+    width: 26px;
+    height: 26px;
+
+    filter: grayscale(1);
   }
 }
+
+.menu {
+  background-color: var(--code-background);
+  border: 1px solid var(--code-block-border);
+  @include generatePxToRem(border-radius, 8);
+}
+
+.menuItem {
+  color: var(--text-body);
+  border: 3px solid transparent;
+  background-color: transparent;
+
+  &:hover {
+    border-left-color: var(--text-body);
+    color: var(--text-heading)
+  }
+
+  &.active {
+    border-left-color: var(--text-body);
+  }
+}
+
+
+//  @include generatePxToRem(width, 219);
+//  @include generatePxToRem(margin-right, 24);
+//  @include generatePxToRem(height, 40);
+//  @include generatePxToRem(font-size, 14);
+//  font-style: normal;
+//  font-weight: 500;
+//  line-height: 152%;
+//  font-family: Inter, sans-serif;
+//  color: var(--text-body);
+//
+//  background-color: var(--code-background);
+//
+//  @include tabletsMax768 {
+//    @include generatePxToRem(margin-bottom, 40);
+//    position: relative;
+//    width: 100%;
+//  }
+//
+//  &.small {
+//    @include generatePxToRem(width, 128);
+//    @include generatePxToRem(height, 34);
+//    margin: 0;
+//  }
+//
+//  &.icon {
+//    @include generatePxToRem(width, 48);
+//    @include generatePxToRem(height, 34, !important);
+//    @include generatePxToRem(margin-left, 16, !important);
+//
+//    margin: 0;
+//
+//    > div {
+//      @include generatePxToRem(padding, 4, !important);
+//    }
+//
+//    .ant-select-selector {
+//      background-color: red !important;
+//    }
+//
+//    .ant-select-item {
+//      @include generatePxToRem(padding, 4, !important);
+//    }
+//
+//    .option {
+//      @include generatePxToRem(padding, 4, !important);
+//    }
+//  }
+//
+//  .option {
+//    @include flex(row, center, center);
+//    @include generatePxToRem(column-gap, 8);
+//  }
+//}

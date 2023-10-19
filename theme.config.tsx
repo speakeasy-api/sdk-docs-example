@@ -10,7 +10,7 @@ import LinkWrapper from '@/HOC/LinkWrapper';
 import { RHS } from '@/components/Columns';
 import { Head } from '@/components/head';
 import { NavItem } from '@/components/NavItem';
-import Collapsible, { propsType } from '@/components/collapsible';
+import Collapsible, { propsType } from '@/components/Collapsible';
 
 interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
   components: {
