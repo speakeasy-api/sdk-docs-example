@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import { Language } from '@/content/language';
+import { Language } from '@/content/languages';
 
 export const LanguageContext = createContext<{
   language: Language;

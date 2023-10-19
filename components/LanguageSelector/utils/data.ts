@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TypeScript from '@/icons/TypeScript';
-import { Language } from '@/content/language';
+import { Language } from '@/content/languages';
 import Go from '@/icons/Go';
 
 type languageInfo = {
