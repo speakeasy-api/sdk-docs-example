@@ -18,6 +18,7 @@ interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
     h2: FC<{ children: ReactNode }>;
     h3: FC<{ children: ReactNode }>;
     h4: FC<{ children: ReactNode }>;
+    h5: FC<{ children: ReactNode }>;
     h6: FC<{ children: ReactNode }>;
     a: FC<{ children: ReactNode; href: string }>;
     RHS: FC<{ children: ReactNode }>;
@@ -55,6 +56,9 @@ const config: ICustomDocsThemeConfig = {
     ),
     h4: ({ children }) => (
       <TextHeaderWrapper headingType='h4'>{children}</TextHeaderWrapper>
+    ),
+    h5: ({ children }) => (
+      <TextHeaderWrapper headingType='h5'>{children}</TextHeaderWrapper>
     ),
     h6: ({ children }) => (
       <TextHeaderWrapper headingType='h6'>{children}</TextHeaderWrapper>

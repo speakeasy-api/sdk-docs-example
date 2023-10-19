@@ -20,7 +20,9 @@
     // Styling for parameter types
     em {
       font-style: normal !important;
-      color: var(--text-emphasis) !important;
+    }
+    > em {
+      color: var(--text-emphasis);
     }
   }
 

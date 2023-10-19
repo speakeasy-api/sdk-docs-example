@@ -8,9 +8,20 @@
   font-style: normal;
   font-weight: 400;
   line-height: 152%;
-  color: var(--text-link);
+
   column-gap: 4px;
+
+  color: var(--text-link) !important;
+
+  path {
+    stroke: var(--text-link);
+  }
+
   &:hover {
-    opacity: 0.7;
+    color: var(--text-link-hover) !important;
+
+    path {
+      stroke: var(--text-link-hover);
+    }
   }
 }
