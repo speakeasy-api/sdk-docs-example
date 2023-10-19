@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { Select } from 'antd';
 
 import { LanguageContext } from '@/utils/contexts/languageContext';
-import { Language } from '@/content/language';
+import { Language } from '@/content/languages';
 
 import { languageData } from './utils/data';
 import styles from './styles.module.scss';
