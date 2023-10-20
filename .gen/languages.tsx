@@ -5,16 +5,13 @@ import React, {
   useContext,
   useState,
 } from 'react';
+
 import { Columns, RHS } from '@/components/Columns';
 import { Parameters, Response } from '@/components/Parameters';
 import { LanguageContext } from '@/utils/contexts/languageContext';
 import { LinkableContext } from '@/utils/contexts/linkableContext';
 
-export const Languages = [
-  'go',
-  'typescript',
-  'python',
-];
+export const Languages = ['go', 'typescript', 'python'];
 export type Language = (typeof Languages)[number];
 
 export const LanguageProvider = (props: { children: ReactNode }) => {
