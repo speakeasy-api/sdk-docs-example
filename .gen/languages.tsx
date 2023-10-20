@@ -13,10 +13,7 @@ import { LinkableContext } from '@/utils/contexts/linkableContext';
 export const Languages = [
   'go',
   'typescript',
-  'java',
-  'csharp',
   'python',
-  'unity',
 ];
 export type Language = (typeof Languages)[number];
 
