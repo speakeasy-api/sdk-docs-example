@@ -40,6 +40,14 @@ const TextHeaderWrapper: FC<IHeaderProps> = ({
 
   const inputRef = useRef<HTMLHeadingElement>(null);
 
+  const pagePos = useMemo(
+    () =>
+      inputRef.current
+        ? inputRef.current?.getBoundingClientRect().top + window.scrollY
+        : 0,
+    [inputRef.current?.getBoundingClientRect().top],
+  );
+
   useEffect(() => {
     if (
       inputRef.current &&
@@ -50,10 +58,10 @@ const TextHeaderWrapper: FC<IHeaderProps> = ({
         route,
         headingValue,
         inputRef.current,
-        inputRef.current.getBoundingClientRect().top,
+        pagePos,
       );
     }
-  }, [inputRef.current?.getBoundingClientRect().top]);
+  }, [pagePos]);
 
   const heading = createElement(
     headingType,
