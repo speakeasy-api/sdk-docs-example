@@ -1,12 +1,13 @@
 import React, { FC, useContext, useState } from 'react';
-import { LanguageContext } from '@/utils/contexts/languageContext';
-import { languageData } from './utils/data';
 import { ClickEvent, Menu, MenuButton, MenuItem } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/slide.css';
-
-import styles from './styles.module.scss';
 import cn from 'classnames';
+
+import { LanguageContext } from '@/utils/contexts/languageContext';
+
+import { languageData } from './utils/data';
+import styles from './styles.module.scss';
 
 interface ILanguageSelector {
   style?: 'icon' | 'small' | 'large';

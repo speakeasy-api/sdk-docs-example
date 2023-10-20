@@ -1,8 +1,9 @@
 import React, { ReactNode } from 'react';
 
-import styles from './styles.module.scss';
 import LanguageSelector from '@/components/LanguageSelector';
 import { H3 } from '@/HOC/TextHeaderWrapper';
+
+import styles from './styles.module.scss';
 
 export const Parameters = (props: { children: ReactNode }) => (
   <>
