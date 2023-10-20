@@ -1,6 +1,6 @@
 {
-  "name": "<no value>",
-  "version": "",
+  "name": "nextra-docs-template",
+  "version": "0.0.1",
   "description": "Nextra docs template",
   "private": true,
   "scripts": {
@@ -26,14 +26,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+"
+    "url": "git+https://github.com/speakeasy-api/sdk-docs-example.git"
   },
-  "author": "<no value>",
+  "author": "Speakeasy Development Ltd",
   "license": "Elastic License 2.0",
   "bugs": {
-    "url": "/issues"
+    "url": "https://github.com/speakeasy-api/sdk-docs-example/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/speakeasy-api/sdk-docs-example#readme",
   "dependencies": {
     "@code-hike/mdx": "^0.10.0-next.1",
     "@mdx-js/react": "^2.3.0",
