@@ -1,5 +1,5 @@
 {
-  "[...rest]": {
+  "[...slug]": {
     "title": "Home",
     "href": "/home"
   },

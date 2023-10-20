@@ -357,7 +357,7 @@ pages/404.mdx
 .gen/pages/01-reference/resources/orders/create_order/_usage/go.mdx
 .gen/pages/01-reference/resources/orders/create_order/_usage/python.mdx
 .gen/pages/01-reference/resources/orders/create_order/_usage/typescript.mdx
-pages/[[...rest]].mdx
+pages/[...rest].mdx
 pages/_meta.json
 pages/authentication/_meta.json
 pages/config/_meta.json
