@@ -38,6 +38,8 @@
     //max-width: 445px;
     width: 100%;
     margin-left: 80px;
+    position: sticky;
+    top: 100px;
 
     @include desktopMax1400 {
       @include generatePxToRem(max-width, 688);
