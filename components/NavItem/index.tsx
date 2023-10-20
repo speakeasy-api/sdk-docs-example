@@ -25,7 +25,7 @@ export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {
     [styles['separator']]: type === 'separator',
   };
 
-  if (titleSlug == '/home') {
+  if (titleSlug == '/home' || route == '/') {
     return null;
   }
 
