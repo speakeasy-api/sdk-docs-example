@@ -7,7 +7,7 @@ import (
 
 func main() {
 	languages := []string{"go", "typescript", "python"}
-	absBasePath, err := filepath.Abs(wrapper.BaseContentRoot)
+	absBasePath, err := filepath.Abs("./")
 	if err != nil {
 		panic(err)
 	}
