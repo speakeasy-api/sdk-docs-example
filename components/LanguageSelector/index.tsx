@@ -6,7 +6,7 @@ import cn from 'classnames';
 
 import { LanguageContext } from '@/utils/contexts/languageContext';
 
-import { languageData } from './utils/data';
+import { languageData } from './data';
 import styles from './styles.module.scss';
 
 interface ILanguageSelector {

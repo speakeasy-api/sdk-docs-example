@@ -1,7 +1,7 @@
 @import '../../styles/utils/mixins';
 
 .collapsible {
-  @include generatePxToRem('border-radius', 8);
+  border-radius: var(--base-border-radius);
   border: 1px solid var(--hr-color);
   backdrop-filter: blur(10px);
   @include generatePxToRem('margin', 10 0);
@@ -21,7 +21,7 @@
 
     > h5 {
       @include collapse-children-heading-text();
-      @include generatePxToRem('margin', 0 0 0 10);
+      @include generatePxToRem('margin', 0 0 0 10, !important);
 
       font-family: var(--font-family-mono);
       font-weight: normal;
@@ -29,7 +29,6 @@
     }
 
     &:hover {
-      @include generatePxToRem('border-radius', 8);
       cursor: pointer;
 
       > h5 {

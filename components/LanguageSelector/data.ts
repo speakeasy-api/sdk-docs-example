@@ -6,6 +6,7 @@ import Java from '@/icons/languages/java';
 import Python from '@/icons/languages/python';
 import CSharp from '@/icons/languages/csharp';
 import Unity from '@/icons/languages/unity';
+import Curl from '@/icons/languages/curl';
 import { Language } from '@/content/languages';
 
 type languageInfo = {
@@ -37,5 +38,9 @@ export const languageData: Record<Language, languageInfo> = {
   unity: {
     title: 'Unity',
     Icon: Unity,
+  },
+  curl: {
+    title: 'cURL',
+    Icon: Curl,
   },
 };

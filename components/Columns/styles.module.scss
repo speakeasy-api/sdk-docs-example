@@ -6,27 +6,24 @@
 }
 
 .headings {
-  //@include generatePxToRem(max-width, 573);
-  //@include desktopMax1400 {
-  //  @include generatePxToRem(max-width, 688);
-  //}
   @include tabletsMax768 {
     max-width: 100%;
   }
 }
 
 .columnContainer {
-  @include flex(row, space-between, flex-start);
   width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 80px;
 
   @include desktopMax1400 {
-    @include flex(column);
+    grid-auto-flow: row;
+    gap: 0;
   }
 
   .mainContent {
-    @extend .headings;
-    width: 100%;
-
     & > *:last-child {
       @include desktopMin1400 {
         margin-bottom: 0;
@@ -35,9 +32,6 @@
   }
 
   .rightSideContent {
-    //max-width: 445px;
-    width: 100%;
-    margin-left: 80px;
     position: sticky;
     top: 100px;
 

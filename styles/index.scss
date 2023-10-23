@@ -6,6 +6,7 @@
 @import 'libs/nextra';
 
 @import './globals.css';
+@import './codehike-styles';
 
 :root {
   --color-page-background: #ffffff;
@@ -25,6 +26,7 @@
   --hr-color: rgb(207, 207, 215);
   --font-family: Inter, serif;
   --font-family-mono: IBM Plex Mono, sans-serif;
+  --base-border-radius: 8px;
 
   &.dark {
     --color-page-background: #171717;

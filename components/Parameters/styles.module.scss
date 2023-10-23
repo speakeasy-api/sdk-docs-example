@@ -33,7 +33,7 @@
     margin: 0;
   }
 
-  hr {
+  > hr {
     @include generatePxToRem('margin', 20 0, !important);
   }
 }
