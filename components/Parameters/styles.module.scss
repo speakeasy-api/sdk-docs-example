@@ -14,14 +14,13 @@
   h5 {
     font-family: var(--font-family-mono);
     font-weight: normal;
-    @include generatePxToRem('font-size', 16);
+    @include generatePxToRem('font-size', 15);
     @include generatePxToRem('margin', 0 0 8 0);
 
     // Styling for parameter types
     em {
       font-style: normal !important;
     }
-
     > em {
       color: var(--text-emphasis);
     }

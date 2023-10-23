@@ -4,7 +4,6 @@
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 152%;
@@ -13,8 +12,14 @@
 
   color: var(--text-link) !important;
 
-  path {
-    stroke: var(--text-link);
+  svg {
+    height: 1em;
+    width: 1em;
+    padding-bottom: 2px;
+
+    path {
+      stroke: var(--text-link);
+    }
   }
 
   &:hover {

@@ -39,6 +39,8 @@ const config: ICustomDocsThemeConfig = {
   },
   sidebar: {
     titleComponent: NavItem,
+    autoCollapse: true,
+    defaultMenuCollapseLevel: 1,
   },
   toc: {
     // Remove Table of Contents

@@ -8,6 +8,7 @@ import styles from './styles.module.scss';
 import { ScrollContext } from '../scrollManager';
 
 export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {
+  // const nextraRoute = useContext(OnFocusContext);
   const { currentHeading, visibleHeadings } = useContext(ScrollContext);
 
   const pageTitle = title.split('/').pop();
@@ -30,7 +31,7 @@ export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {
   }
 
   return (
-    <div className={cn(styles.nav_item, classForItem)}>
+    <div className={cn(styles.nav_item, classForItem, 'active')}>
       <p>{pageTitle}</p>
     </div>
   );

@@ -9,6 +9,13 @@
 
   transition: all .2s ease;
 
+  svg {
+    width: 26px;
+    height: 26px;
+
+    filter: grayscale(1);
+  }
+
   &.active {
     svg {
       filter: grayscale(0);
@@ -19,13 +26,6 @@
     svg {
       filter: grayscale(0);
     }
-  }
-
-  svg {
-    width: 26px;
-    height: 26px;
-
-    filter: grayscale(1);
   }
 }
 
