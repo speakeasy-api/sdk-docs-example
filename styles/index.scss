@@ -89,7 +89,7 @@ body {
   color: var(--text-body);
   -webkit-text-size-adjust: 100%;
   /* Provide a default family for portalled elements not using themes (e.g. Primitives examples) */
-  font-family: var(--title-font), serif;
+  font-family: var(--primary-font), serif;
   background-color: var(--color-page-background) !important;
 
   p {
