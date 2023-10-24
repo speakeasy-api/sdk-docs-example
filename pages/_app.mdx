@@ -1,4 +1,5 @@
 import { createElement } from 'react';
+import { Inter, IBM_Plex_Mono } from "@next/font/google"
 
 import { ScrollManager, MultiPageContext } from 'components/scrollManager';
 import { LanguageProvider } from '@/content/languages';
@@ -6,6 +7,12 @@ import { LanguageProvider } from '@/content/languages';
 import '@/styles/index.scss';
 import "@code-hike/mdx/dist/index.css";
 
+export const inter = Inter({ variable: '--primary-font', subsets: ['latin']})
+export const ibmPlexMono = IBM_Plex_Mono({
+  variable: '--mono-font',
+  subsets: ['latin'],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+});
 export default function App(props) {
   const { Component, pageProps } = props;
   return (
