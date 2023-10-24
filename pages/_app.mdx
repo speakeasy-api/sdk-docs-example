@@ -1,32 +1,36 @@
 import { createElement } from 'react';
-import Head from 'next/head';
+import { Inter, IBM_Plex_Mono } from "next/font/google";
+import styles from '@/styles/index.scss'; // Assuming this is the correct path to your SCSS file
+
+export const inter = Inter({
+  subsets: ['latin'],
+  variable: '--primary-font',
+  display: 'swap',
+});
+
+export const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  variable: '--mono-font',
+  display: 'swap',
+});
 
 import { ScrollManager, MultiPageContext } from 'components/scrollManager';
 import { LanguageProvider } from '@/content/languages';
 
-import '@/styles/index.scss';
 import "@code-hike/mdx/dist/index.css";
 
 export default function App(props) {
   const { Component, pageProps } = props;
   return (
-    <MultiPageContext.Provider value={ false }>
-      <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <ScrollManager>
-        <LanguageProvider>
-          <Component {...pageProps} />
-        </LanguageProvider>
-      </ScrollManager>
-    </MultiPageContext.Provider>
+    <div className={`${inter.variable} ${ibmPlexMono.variable}`}>
+      <MultiPageContext.Provider value={ false }>
+        <ScrollManager>
+          <LanguageProvider>
+            <Component {...pageProps} />
+          </LanguageProvider>
+        </ScrollManager>
+      </MultiPageContext.Provider>
+    </div>
   )
 }

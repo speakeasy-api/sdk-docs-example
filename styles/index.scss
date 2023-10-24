@@ -21,8 +21,8 @@
   --select-text: #4C4C4C;
   --stroke-opacity: 1;
   --hr-color: rgb(207, 207, 215);
-  --font-family: Inter, serif;
-  --font-family-mono: IBM Plex Mono, sans-serif;
+  --font-family: var(--primary-font), serif;
+  --font-family-mono: var(--mono-font), serif;
   --base-border-radius: 8px;
 
   &.dark {
@@ -88,8 +88,7 @@ body {
   scroll-behavior: unset;
   color: var(--text-body);
   -webkit-text-size-adjust: 100%;
-  /* Provide a default family for portalled elements not using themes (e.g. Primitives examples) */
-  font-family: Inter, serif;
+  --font-family: var(--primary-font), serif;
   background-color: var(--color-page-background) !important;
 
   p {
@@ -329,3 +328,6 @@ table {
 //  color: var(--default-response-code-color);
 //  background-color: var(--default-response-code-bcg-color);
 //}
+
+
+
