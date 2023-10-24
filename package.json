@@ -15,7 +15,6 @@
     "type-check": "tsc --noEmit",
     "lint": "eslint --ext .ts,.js,.tsx .",
     "format": "npm run lint -- --fix",
-    "postinstall": "husky install",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -69,7 +68,6 @@
     "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-simple-import-sort": "10.0.0",
     "eslint-plugin-unused-imports": "3.0.0",
-    "husky": "8.0.3",
     "lint-staged": "14.0.1",
     "prettier": "3.0.3",
     "sass": "^1.67.0",
