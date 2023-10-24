@@ -1,8 +1,4 @@
 {
-  "[...slug]": {
-    "title": "Home",
-    "href": "/home"
-  },
   "-- guides": {
     "title": "Guides",
     "type": "separator"
@@ -16,23 +12,23 @@
     "type": "separator"
   },
   "authentication": {
-    "title": "resources/Authentication",
+    "title": "Authentication",
     "href": "/resources/authentication"
   },
   "config": {
-    "title": "resources/Config",
+    "title": "Config",
     "href": "/resources/config"
   },
   "drinks": {
-    "title": "resources/Drinks",
+    "title": "Drinks",
     "href": "/resources/drinks"
   },
   "ingredients": {
-    "title": "resources/Ingredients",
+    "title": "Ingredients",
     "href": "/resources/ingredients"
   },
   "orders": {
-    "title": "resources/Orders",
+    "title": "Orders",
     "href": "/resources/orders"
   }
 }

@@ -4,26 +4,26 @@ package main
 import(
 	"context"
 	"log"
-	"openapi"
-	"openapi/pkg/models/shared"
-	"openapi/pkg/models/callbacks"
+	templatesdk "github.com/speakeasy-sdks/template-sdk"
+	"github.com/speakeasy-sdks/template-sdk/pkg/models/shared"
+	"github.com/speakeasy-sdks/template-sdk/pkg/models/callbacks"
 )
 
 func main() {
-    s := openapi.New(
-        openapi.WithSecurity(""),
+    s := templatesdk.New(
+        templatesdk.WithSecurity(""),
     )
 
 
     requestBody := []shared.OrderInput{
         shared.OrderInput{
-            ProductCode: "APM-1F2D3",
-            Quantity: 544883,
+            ProductCode: "NAC-3F2D1",
+            Quantity: 715190,
             Type: shared.OrderTypeIngredient,
         },
     }
 
-    var callbackURL *string = "Sol"
+    var callbackURL *string = "string"
 
     ctx := context.Background()
     res, err := s.Orders.CreateOrder(ctx, requestBody, callbackURL)

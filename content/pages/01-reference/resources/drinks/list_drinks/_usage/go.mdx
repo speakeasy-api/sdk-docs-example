@@ -4,17 +4,17 @@ package main
 import(
 	"context"
 	"log"
-	"openapi"
-	"openapi/pkg/models/shared"
+	templatesdk "github.com/speakeasy-sdks/template-sdk"
+	"github.com/speakeasy-sdks/template-sdk/pkg/models/shared"
 )
 
 func main() {
-    s := openapi.New(
-        openapi.WithSecurity(""),
+    s := templatesdk.New(
+        templatesdk.WithSecurity(""),
     )
 
 
-    var drinkType *shared.DrinkType = shared.DrinkTypeSpirit
+    var drinkType *shared.DrinkType = shared.DrinkTypeWine
 
     ctx := context.Background()
     res, err := s.Drinks.ListDrinks(ctx, drinkType)

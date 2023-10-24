@@ -1,6 +1,6 @@
 {
   "authenticate": {
-    "title": "resources/authentication/Authenticate",
+    "title": "Authenticate",
     "href": "/resources/authentication/authenticate"
   }
 }

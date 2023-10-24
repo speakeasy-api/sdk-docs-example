@@ -1,19 +1,19 @@
 ```python CreateOrder.py
-import sdk
-from sdk.models import callbacks, operations, shared
+import speakeasybar
+from speakeasybar.models import callbacks, operations, shared
 
-s = sdk.SDK(
+s = speakeasybar.Speakeasybar(
     api_key="",
 )
 
 
 res = s.orders.create_order(request_body=[
     shared.OrderInput(
-        product_code='APM-1F2D3',
-        quantity=544883,
+        product_code='NAC-3F2D1',
+        quantity=715190,
         type=shared.OrderType.INGREDIENT,
     ),
-], callback_url='Sol')
+], callback_url='string')
 
 if res.order is not None:
     # handle response
