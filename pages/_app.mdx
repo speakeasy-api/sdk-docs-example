@@ -1,5 +1,5 @@
 import { createElement } from 'react';
-import Head from 'next/head';
+import { Inter, IBM_Plex_Mono } from "@next/font/google"
 
 import { ScrollManager, MultiPageContext } from 'components/scrollManager';
 import { LanguageProvider } from '@/content/languages';
@@ -7,21 +7,16 @@ import { LanguageProvider } from '@/content/languages';
 import '@/styles/index.scss';
 import "@code-hike/mdx/dist/index.css";
 
+export const inter = Inter({ variable: '--primary-font', subsets: ['latin']})
+export const ibmPlexMono = IBM_Plex_Mono({
+  variable: '--mono-font',
+  subsets: ['latin'],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+});
 export default function App(props) {
   const { Component, pageProps } = props;
   return (
     <MultiPageContext.Provider value={ false }>
-      <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <ScrollManager>
         <LanguageProvider>
           <Component {...pageProps} />
