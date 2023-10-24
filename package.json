@@ -40,7 +40,6 @@
     "@szhsin/react-menu": "4.1.0",
     "@types/lodash": "4.14.199",
     "classnames": "2.3.2",
-    "google": "link:@next/font/google",
     "lodash": "4.17.21",
     "next": "13.5.5",
     "next-compose-plugins": "^2.2.1",
