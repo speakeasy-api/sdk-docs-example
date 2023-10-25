@@ -12,23 +12,23 @@
     "type": "separator"
   },
   "authentication": {
-    "title": "Authentication",
+    "title": "resources/Authentication",
     "href": "/resources/authentication"
   },
   "config": {
-    "title": "Config",
+    "title": "resources/Config",
     "href": "/resources/config"
   },
   "drinks": {
-    "title": "Drinks",
+    "title": "resources/Drinks",
     "href": "/resources/drinks"
   },
   "ingredients": {
-    "title": "Ingredients",
+    "title": "resources/Ingredients",
     "href": "/resources/ingredients"
   },
   "orders": {
-    "title": "Orders",
+    "title": "resources/Orders",
     "href": "/resources/orders"
   }
 }
