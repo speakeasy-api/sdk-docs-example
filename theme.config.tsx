@@ -71,6 +71,9 @@ const config: ICustomDocsThemeConfig = {
     RHS,
     Collapsible,
   },
+  search: {
+    component: () => OramaSearch(),
+  },
   navbar: {
     extraContent: ThemeToggle,
   },
