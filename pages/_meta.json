@@ -13,22 +13,21 @@
   },
   "authentication": {
     "title": "Authentication",
-    "href": "/resources/authentication"
+    "href": "/authentication"
   },
   "config": {
     "title": "Config",
-    "href": "/resources/config"
+    "href": "/config"
   },
   "drinks": {
     "title": "Drinks",
-    "href": "/resources/drinks"
+    "href": "/drinks"
   },
   "ingredients": {
-    "title": "Ingredients",
-    "href": "/resources/ingredients"
+    "title": "Ingredients"
   },
   "orders": {
     "title": "Orders",
-    "href": "/resources/orders"
+    "href": "/orders"
   }
 }

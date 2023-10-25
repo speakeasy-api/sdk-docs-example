@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { ClickEvent, Menu, MenuButton, MenuItem } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/slide.css';
@@ -20,6 +20,10 @@ const Index: FC<ILanguageSelector> = ({ style = 'large' }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+  }, [isOpen]);
+
   const button = (
     <MenuButton className={cn(styles.select, { [styles.active]: isOpen })}>
       <div style={{ maxWidth: '100%' }}>{languageData[language].Icon({})}</div>
@@ -28,7 +32,7 @@ const Index: FC<ILanguageSelector> = ({ style = 'large' }) => {
 
   return (
     <Menu
-      transition
+      transition={false}
       onItemClick={handleChange}
       menuButton={button}
       menuClassName={styles.menu}

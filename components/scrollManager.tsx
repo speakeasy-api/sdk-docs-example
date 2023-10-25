@@ -20,11 +20,13 @@ export const ScrollContext = createContext<{
     elem: HTMLHeadingElement,
     position: number,
   ) => void;
+  scrollTo: (route: string) => void;
 }>({
   headingToPosition: {},
   currentHeading: '',
   visibleHeadings: [],
   upsertHeading: () => {},
+  scrollTo: () => {},
 });
 
 type HeadingPosition = {
@@ -40,6 +42,10 @@ export const ScrollManager = (props: {
 }): React.ReactElement => {
   const isMultipage = useContext(MultiPageContext);
   const slug = useRouter().asPath;
+  const router = useRouter();
+
+  const [initialScrollTarget, setInitialScrollTarget] = useState<string>();
+  const [initialScrollDone, setInitialScrollDone] = useState(false);
 
   const rootPage = useMemo(
     () => (isMultipage ? slug.split('/').at(1) ?? '' : ''),
@@ -128,29 +134,58 @@ export const ScrollManager = (props: {
   }, [scroll]);
 
   useEffect(() => {
-    window.history.replaceState(
-      { ...window.history },
-      'ignored',
-      closestHeading,
-    );
+    // window.history.replaceState(
+    //   { ...window.history },
+    //   'ignored',
+    //   closestHeading,
+    // );
+    if (closestHeading && initialScrollDone) {
+      router.push(closestHeading, undefined, { shallow: true });
+    }
   }, [closestHeading]);
 
+  // Scrolls the page to the location of the target heading
+  const scrollTo = useMemo(
+    () => (route: string) => {
+      if (headingToPosition[route]) {
+        document.addEventListener(
+          'scrollend',
+          () => {
+            setClosestHeading(route);
+          },
+          { once: true },
+        );
+
+        window.scrollTo({ top: headingToPosition[route].position });
+      }
+    },
+    [headingToPosition],
+  );
+
   /**
-   * This is responsible for scrolling to the relevant heading when the route in the URL changes
+   * On initial page load, set the heading to scroll to
+   * This enables linking to a specific section
+   * We don't want to run this every time the slug changes since we change it as the user scrolls
    */
   useEffect(() => {
-    if (slug !== closestHeading && headingToPosition[slug]) {
-      document.addEventListener(
-        'scrollend',
-        () => {
-          setClosestHeading(slug);
-        },
-        { once: true },
-      );
-
-      window.scrollTo({ top: headingToPosition[slug].position });
+    // At first, the slug is simply /[...rest], so wait til it properly pulls in the URL
+    if (slug !== '/[...rest]' && !initialScrollTarget) {
+      setInitialScrollTarget(slug);
     }
   }, [slug]);
+
+  // Once the initial scroll target is set and we know where that heading is, scroll to it
+  // Only do this once.
+  useEffect(() => {
+    if (
+      !initialScrollDone &&
+      initialScrollTarget &&
+      headingToPosition[initialScrollTarget]
+    ) {
+      scrollTo(initialScrollTarget);
+      setInitialScrollDone(true);
+    }
+  }, [initialScrollTarget, headingToPosition]);
 
   return (
     <ScrollContext.Provider
@@ -159,6 +194,7 @@ export const ScrollManager = (props: {
         upsertHeading,
         currentHeading: closestHeading,
         visibleHeadings,
+        scrollTo,
       }}
     >
       {props.children}

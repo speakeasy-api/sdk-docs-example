@@ -6,10 +6,12 @@ import { toRouteFormat } from '@/utils/routesHelpers';
 import styles from './styles.module.scss';
 
 import { ScrollContext } from '../scrollManager';
+import { getAllPages } from 'nextra/context';
 
 export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {
-  // const nextraRoute = useContext(OnFocusContext);
-  const { currentHeading, visibleHeadings } = useContext(ScrollContext);
+  const pages = getAllPages();
+  const { currentHeading, visibleHeadings, scrollTo } =
+    useContext(ScrollContext);
 
   const pageTitle = title.split('/').pop();
 
@@ -19,6 +21,8 @@ export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {
   const headings = visibleHeadings.map((heading) => heading?.split('#')[0]);
 
   const selected = baseCurrentHeading === titleSlug;
+
+  // console.log(titleSlug, route)
 
   const classForItem = {
     [styles['selected']]: selected,
@@ -31,7 +35,13 @@ export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {
   }
 
   return (
-    <div className={cn(styles.nav_item, classForItem, 'active')}>
+    <div
+      onClick={(e) => {
+        e.stopPropagation();
+        scrollTo(titleSlug);
+      }}
+      className={cn(styles.nav_item, classForItem)}
+    >
       <p>{pageTitle}</p>
     </div>
   );

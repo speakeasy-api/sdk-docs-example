@@ -46,6 +46,8 @@ const config: ICustomDocsThemeConfig = {
     // Remove Table of Contents
     component: () => null,
   },
+  primaryHue: 135,
+  primarySaturation: 100,
   components: {
     h1: ({ children }) => (
       <TextHeaderWrapper headingType='h1'>{children}</TextHeaderWrapper>

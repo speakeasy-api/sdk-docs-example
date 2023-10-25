@@ -5,6 +5,7 @@
   @include generatePxToRem('padding', 8);
   @include generatePxToRem('border-radius', 8);
   border: 1px solid transparent;
+  transition: all 0.15s ease;
 
   &:hover {
     @include generatePxToRem('border-radius', 8);
@@ -13,6 +14,7 @@
 
   &.separator {
     @include generatePxToRem('padding', 14 16 14 0);
+
     &:hover {
       border: 1px solid transparent;
     }
@@ -24,16 +26,12 @@
 
   &.selected {
     width: 100%;
-    background-image: var(--bcg-btn-image-grad);
 
     &:hover {
       border: 1px solid transparent;
     }
 
-    > p {
-      @include heading-h5(var(--heading-h5-color-selected));
-      font-weight: bold;
-    }
+    // Check /styles/globals.css for the rest of the styling
   }
 
   &.visible {
@@ -43,6 +41,7 @@
   > p {
     margin: 0;
     @include heading-h5(var(--heading-h5-color));
+
     &:first-letter {
       text-transform: uppercase;
     }

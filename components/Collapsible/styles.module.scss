@@ -48,5 +48,11 @@
     table {
       @include generatePxToRem(margin, -12, !important);
     }
+
+    & > *:last-child {
+      @include desktopMin1400 {
+        margin-bottom: 3px;
+      }
+    }
   }
 }

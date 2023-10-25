@@ -1,9 +1,6 @@
-import React, { ReactElement, ReactNode, FC } from 'react';
+import React, { FC, ReactElement, ReactNode } from 'react';
 
-import {
-  separateHeadingsAndOthers,
-  splitByType,
-} from '@/components/typeHelpers';
+import { splitByType } from '@/components/typeHelpers';
 
 import styles from './styles.module.scss';
 
@@ -15,14 +12,14 @@ export const Columns: FC<IColumns> & { RHS: typeof RHS } = ({ children }) => {
   const [rhs = [], lhs = []] = splitByType(children, RHS);
   const mainContent = lhs.length || rhs.length ? lhs : children;
 
-  const [headingsArray, othersArray] = separateHeadingsAndOthers(mainContent);
-
   const columns = (
     <div className={styles.container}>
-      <div className={styles.headings}>{headingsArray}</div>
       <div className={styles.columnContainer}>
-        <div className={styles.mainContent}>{othersArray}</div>
-        <div className={styles.rightSideContent}>{rhs}</div>
+        <div className={styles.mainContent}>{mainContent}</div>
+        {/* Extra level of nesting needed for sticky to work */}
+        <div>
+          <div className={styles.rightSideContent}>{rhs}</div>
+        </div>
       </div>
     </div>
   );
