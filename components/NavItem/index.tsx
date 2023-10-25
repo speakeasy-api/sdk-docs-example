@@ -1,12 +1,12 @@
 import React, { FC, useContext } from 'react';
 import cn from 'classnames';
+import { getAllPages } from 'nextra/context';
 
 import { toRouteFormat } from '@/utils/routesHelpers';
 
 import styles from './styles.module.scss';
 
 import { ScrollContext } from '../scrollManager';
-import { getAllPages } from 'nextra/context';
 
 export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {
   const pages = getAllPages();
