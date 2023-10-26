@@ -4,19 +4,19 @@
   width: 100%;
   @include generatePxToRem('padding', 8);
   @include generatePxToRem('border-radius', 8);
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   transition: all 0.15s ease;
 
   &:hover {
     @include generatePxToRem('border-radius', 8);
-    border: 1px solid var(--heading-sidebar-bg-color);
+    border: 2px solid var(--heading-sidebar-bg-color);
   }
 
   &.separator {
     @include generatePxToRem('padding', 14 16 14 0);
 
     &:hover {
-      border: 1px solid transparent;
+      border: 2px solid transparent;
     }
 
     > p {
@@ -28,10 +28,10 @@
     width: 100%;
 
     &:hover {
-      border: 1px solid transparent;
+      border: 2px solid transparent;
     }
 
-    // Check /styles/globals.css for the rest of the styling
+    // Check /styles/libs/nextra.scss for the rest of the styling
   }
 
   &.visible {

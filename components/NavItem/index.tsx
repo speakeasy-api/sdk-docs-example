@@ -1,12 +1,15 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, useContext, useMemo } from 'react';
 import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
 import { ScrollContext } from '../scrollManager';
+import { getPagesUnderRoute } from 'nextra/context';
 
 export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {
   const { scrollTo } = useContext(ScrollContext);
+
+  const isFolder = useMemo(() => getPagesUnderRoute(route).length > 0, []);
 
   const classForItem = {
     [styles['visible']]: false,
@@ -17,14 +20,15 @@ export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {
     return null;
   }
 
+  const handleClick = (e: any) => {
+    if (!isFolder) {
+      e.stopPropagation();
+      scrollTo(route);
+    }
+  };
+
   return (
-    <div
-      onClick={(e) => {
-        e.stopPropagation();
-        scrollTo(route);
-      }}
-      className={cn(styles.nav_item, classForItem)}
-    >
+    <div onClick={handleClick} className={cn(styles.nav_item, classForItem)}>
       <p>{title}</p>
     </div>
   );

@@ -1,17 +1,27 @@
 @import 'utils/mixins';
-@import 'libs/codeThemes';
 @import 'libs/nextra';
 
-@import './globals.css';
 @import './codehike-styles';
 
-@import './theme.json';
+@import '../theme.json';
+
+@function primary-color($lightness: 1, $chroma: 1, $hue: 1, $alpha: 1) {
+  @return oklch(
+      calc(var(--primary-lightness) * $lightness) calc(var(--primary-chroma) * $chroma) calc(var(--primary-hue) * $hue) / $alpha
+  );
+}
 
 :root {
-  --primary-color: #{$primaryColor};
-  --secondary-color: #{$secondaryColor};
+  --primary-lightness: #{map-get($primaryColor, lightness)};
+  --primary-chroma: #{map-get($primaryColor, chroma)};
+  --primary-hue: #{map-get($primaryColor, hue)};
 
-  --primary-hue: #{$primaryHue};
+  --primary-color: #{primary-color()};
+  --secondary-color: #{primary-color($lightness: 1.4, $hue: 1.05)};
+
+  --font-family: Inter, serif;
+  --font-family-mono: IBM Plex Mono, sans-serif;
+  --base-border-radius: 8px;
 
   --color-page-background: #ffffff;
   --color-footer-background: #ffffff;
@@ -19,31 +29,34 @@
   --component-highlights-item-width: calc(100vw - 100px);
   --text-heading: #222;
   --text-body: #4C4C4C;
-  --text-heading-opacity: 1;
-  --text-link: oklch(50% .2 var(--primary-hue));
-  --text-emphasis: oklch(40% .1 145);
-  --gradient-heading: linear-gradient(25deg, var(--primary-color), var(--secondary-color));
-  --select-hover: #11D8641F;
-  --select-text: #4C4C4C;
-  --stroke-opacity: 1;
+  --heading-h5-color: #4C4C4C;
   --hr-color: rgb(207, 207, 215);
-  --font-family: Inter, serif;
-  --font-family-mono: IBM Plex Mono, sans-serif;
-  --base-border-radius: 8px;
+
+  --text-heading-opacity: 1;
+  --text-link: var(--primary-color);
+  --text-emphasis: #{primary-color($lightness: .6, $chroma: .5)};
+  --gradient-heading: linear-gradient(45deg, var(--primary-color) 20%, var(--secondary-color));
+  --stroke-opacity: 1;
 
   &.dark {
+    --secondary-color: #{primary-color($lightness: .7, $hue: 1.05)};
+
     --color-page-background: #171717;
     --color-footer-background: #121212;
     --color-footer-text: #CCD9E0;
     --text-body: #ACACAC;
     --text-heading: #ffffff;
+    --heading-h5-color: #E3E5E8;
+    --hr-color: rgba(201, 201, 208, 0.15);
+
     --text-heading-opacity: 1;
     --text-link: var(--primary-color);
-    --text-emphasis: oklch(50% .2 var(--primary-hue));
-    --select-hover: #3148367A;
-    --select-text: #E3E5E8;
+    --text-emphasis: #{primary-color($lightness: 1.5)};
+
+    --gradient-heading: linear-gradient(45deg, var(--primary-color) 20%, var(--secondary-color));
+    --heading-sidebar-bg-color: var(--primary-color);
+
     --stroke-opacity: 0.87;
-    --hr-color: rgba(201, 201, 208, 0.15);
   }
 }
 
@@ -177,7 +190,7 @@ body:after {
   height: 1200px;
 
   opacity: .05;
-  background-image: radial-gradient(#{var(--secondary-color)}, transparent 70%);
+  background-image: radial-gradient(#{var(--primary-color)}, transparent 70%);
   transform: rotate(17deg);
   right: 300px;
   top: 10vh;
