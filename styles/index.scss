@@ -7,7 +7,7 @@
 
 @function primary-color($lightness: 1, $chroma: 1, $hue: 1, $alpha: 1) {
   @return oklch(
-      calc(var(--primary-lightness) * $lightness) calc(var(--primary-chroma) * $chroma) calc(var(--primary-hue) * $hue) / $alpha
+                  calc(var(--primary-lightness) * $lightness) calc(var(--primary-chroma) * $chroma) calc(var(--primary-hue) * $hue) / $alpha
   );
 }
 
@@ -17,12 +17,12 @@
   --primary-hue: #{map-get($primaryColor, hue)};
 
   --primary-color: #{$primaryHex};
-  --secondary-color: #{primary-color($lightness: 1.4, $hue: 1.05)};
+  --secondary-color: #{primary-color($lightness: 1.4, $hue: 1.1)};
 
   --primary-color-contrast-text: #{text-contrast($primaryHex)};
 
-  --font-family: Inter, serif;
-  --font-family-mono: IBM Plex Mono, sans-serif;
+  --font-family: #{$mainFont}, serif;
+  --font-family-mono: #{$codeFont}, sans-serif;
   --base-border-radius: 8px;
 
   --color-page-background: #ffffff;
@@ -43,7 +43,7 @@
   --stroke-opacity: 1;
 
   &.dark {
-    --secondary-color: #{primary-color($lightness: .7, $hue: 1.05)};
+    --secondary-color: #{primary-color($lightness: .7, $hue: 1.1)};
 
     --color-page-background: #171717;
     --color-footer-background: #121212;
@@ -137,17 +137,7 @@ body::before, body::after {
   }
 }
 
-/* Background image on the left */
-//body::before {
-//  width: 800px;
-//  height: 800px;
-//  opacity: .2;
-//  background: radial-gradient(#{var(--primary-color)}, transparent 70%);
-//  left: 200px;
-//  top: 500px;
-//  z-index: -1;
-//}
-
+// Background gradient behind sidebar
 .nextra-sidebar-container::before {
   content: "";
   position: absolute;
@@ -162,20 +152,7 @@ body::before, body::after {
   transform: rotate(7deg);
 }
 
-//.nextra-sidebar-container::after {
-//  content: "";
-//  position: absolute;
-//
-//  width: 300px;
-//  height: 300px;
-//  opacity: .1;
-//  background-image: radial-gradient(#{var(--secondary-color)}, transparent 70%);
-//  left: -50px;
-//  top: 0px;
-//  z-index: -1;
-//  transform: rotate(17deg);
-//}
-
+// Main background gradient
 body:before {
   width: 2000px;
   height: 2000px;
@@ -188,6 +165,7 @@ body:before {
   z-index: -1;
 }
 
+// Secondary background gradient
 body:after {
   width: 1200px;
   height: 1200px;
@@ -199,17 +177,6 @@ body:after {
   top: 10vh;
   z-index: -1;
 }
-
-/* Background image on the right */
-//body::after {
-//  background-image: url('../icons/gradient.png');
-//  rotate: -90deg;
-//  right: 0;
-//  z-index: -1;
-//  @include desktopMax1400 {
-//    display: none;
-//  }
-//}
 
 svg {
   display: block;
@@ -273,15 +240,19 @@ h5 {
 h6 {
   @include generatePxToRem(font-size, 12);
   @include generatePxToRem(margin-bottom, 8);
-  font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 152%;
   letter-spacing: 2.4px;
-  background: var(--gradient-heading);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
+  color: var(--text-body);
+
+  em {
+    font-style: normal;
+    background: var(--gradient-heading);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+  }
 }
 
 section {

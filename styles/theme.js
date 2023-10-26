@@ -15,4 +15,6 @@ const toOKLCH = (color) => {
 module.exports = {
   primaryHex: theme.primaryColor,
   primaryColor: toOKLCH(theme.primaryColor),
+  mainFont: theme.fonts.main.name,
+  codeFont: theme.fonts.code.name,
 }

@@ -1,27 +1,16 @@
-import { createElement } from 'react';
-import Head from 'next/head';
+import Head from "next/head";
 
-import { ScrollManager, MultiPageContext } from 'components/scrollManager';
-import { LanguageProvider } from '@/content/languages';
+import { MultiPageContext, ScrollManager } from "components/scrollManager";
+import { LanguageProvider } from "@/content/languages";
 
-import '@/styles/index.scss';
+import "@/styles/index.scss";
 import "@code-hike/mdx/dist/index.css";
+import theme from "theme.json";
 
 export default function App(props) {
   const { Component, pageProps } = props;
   return (
-    <MultiPageContext.Provider value={ false }>
-      <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+    <MultiPageContext.Provider value={false}>
       <ScrollManager>
         <LanguageProvider>
           <Component {...pageProps} />

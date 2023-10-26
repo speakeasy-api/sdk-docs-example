@@ -3,7 +3,7 @@ import { OramaSearch } from '@orama/plugin-nextra';
 import React, { FC, ReactNode } from 'react';
 
 import ThemeToggle from '@/components/ThemeToggle';
-import Logo from '@/icons/Logo';
+import Logo from '@/components/Logo';
 import Footer from '@/components/Footer';
 import TextHeaderWrapper from '@/components/TextHeaderWrapper';
 import LinkWrapper from '@/components/LinkWrapper';
@@ -11,6 +11,8 @@ import { RHS } from '@/components/Columns';
 import { Head } from '@/components/head';
 import { NavItem } from '@/components/NavItem';
 import Collapsible, { propsType } from '@/components/Collapsible';
+
+import theme from '@/theme.json';
 
 interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
   components: {

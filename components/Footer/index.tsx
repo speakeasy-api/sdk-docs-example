@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import NextLink from 'next/link';
 
-import Logo from '@/icons/Logo';
+import Logo from '@/components/Logo';
 
 import styles from './styles.module.scss';
 
