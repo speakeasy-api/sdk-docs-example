@@ -21,7 +21,12 @@
     em {
       font-style: normal !important;
     }
+
     > em {
+      color: var(--text-emphasis);
+    }
+
+    > a > em {
       color: var(--text-emphasis);
     }
   }

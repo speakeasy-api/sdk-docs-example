@@ -39,6 +39,7 @@
     "@orama/plugin-nextra": "^1.2.3",
     "@szhsin/react-menu": "4.1.0",
     "@types/lodash": "4.14.199",
+    "chroma-js": "2.4.2",
     "classnames": "2.3.2",
     "lodash": "4.17.21",
     "next": "13.5.5",

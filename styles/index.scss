@@ -1,9 +1,9 @@
 @import 'utils/mixins';
-@import 'libs/nextra';
+@import './nextra';
 
 @import './codehike-styles';
 
-@import '../theme.json';
+@import './theme.js';
 
 @function primary-color($lightness: 1, $chroma: 1, $hue: 1, $alpha: 1) {
   @return oklch(
@@ -16,8 +16,10 @@
   --primary-chroma: #{map-get($primaryColor, chroma)};
   --primary-hue: #{map-get($primaryColor, hue)};
 
-  --primary-color: #{primary-color()};
+  --primary-color: #{$primaryHex};
   --secondary-color: #{primary-color($lightness: 1.4, $hue: 1.05)};
+
+  --primary-color-contrast-text: #{text-contrast($primaryHex)};
 
   --font-family: Inter, serif;
   --font-family-mono: IBM Plex Mono, sans-serif;
@@ -28,14 +30,16 @@
   --color-footer-text: #222;
   --component-highlights-item-width: calc(100vw - 100px);
   --text-heading: #222;
+  --text-subheading: #313131;
   --text-body: #4C4C4C;
-  --heading-h5-color: #4C4C4C;
   --hr-color: rgb(207, 207, 215);
 
   --text-heading-opacity: 1;
   --text-link: var(--primary-color);
   --text-emphasis: #{primary-color($lightness: .6, $chroma: .5)};
   --gradient-heading: linear-gradient(45deg, var(--primary-color) 20%, var(--secondary-color));
+  --heading-sidebar-bg-color: var(--primary-color);
+
   --stroke-opacity: 1;
 
   &.dark {
@@ -44,17 +48,16 @@
     --color-page-background: #171717;
     --color-footer-background: #121212;
     --color-footer-text: #CCD9E0;
-    --text-body: #ACACAC;
     --text-heading: #ffffff;
-    --heading-h5-color: #E3E5E8;
+    --text-subheading: #e7e7e7;
+    --text-body: #ACACAC;
     --hr-color: rgba(201, 201, 208, 0.15);
 
     --text-heading-opacity: 1;
     --text-link: var(--primary-color);
-    --text-emphasis: #{primary-color($lightness: 1.5)};
+    --text-emphasis: #{primary-color($lightness: 1.65)};
 
     --gradient-heading: linear-gradient(45deg, var(--primary-color) 20%, var(--secondary-color));
-    --heading-sidebar-bg-color: var(--primary-color);
 
     --stroke-opacity: 0.87;
   }

@@ -68,10 +68,10 @@
 @mixin sidebar-heading-separator($color) {
   color: $color;
   font-family: var(--font-family);
-  @include generatePxToRem('font-size', 18);
+  @include generatePxToRem('font-size', 14);
   @include generatePxToRem('line-height', 23.84);
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 
@@ -109,7 +109,7 @@
 }
 
 @mixin collapse-children-heading-text() {
-  color: var(--heading-h5-color);
+  color: var(--text-body);
   font-family: Inter, sans-serif;
   @include generatePxToRem('font-size', 12);
   font-style: normal;
@@ -127,7 +127,7 @@
 }
 
 @mixin collapse-sub-heading-title() {
-  color: var(--heading-h5-color);
+  color: var(--text-body);
   font-family: var(--font-family-mono);
   @include generatePxToRem('font-size', 12, !important);
   font-style: normal;
@@ -187,4 +187,30 @@
   word-wrap: normal;
   tab-size: 4;
   hyphens: none;
+}
+
+// Source: https://jonnykates.medium.com/automating-colour-contrast-ratios-with-sass-e201f3b52797
+@function colour-difference($foreground, $background) {
+  $r: (max(red($foreground), red($background))) - (min(red($foreground), red($background)));
+  $g: (max(green($foreground), green($background))) - (min(green($foreground), green($background)));
+  $b: (max(blue($foreground), blue($background))) - (min(blue($foreground), blue($background)));
+  $sum-rgb: $r + $g + $b;
+
+  @if $sum-rgb < 500 {
+    @return "false";
+  } @else {
+    @return "true";
+  }
+}
+
+@function text-contrast($n) {
+  $color-brightness: round((red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000);
+  $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000);
+
+  @if abs($color-brightness) < ($light-color/2){
+    @return white;
+  }
+  @else {
+    @return black;
+  }
 }

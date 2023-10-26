@@ -1,8 +1,6 @@
 {
-  "primary": "rgb(85,81,255)",
-  "primaryColor": {
-    "hue": 275,
-    "lightness": "55%",
-    "chroma": 0.25
-  }
+  "primaryColor": "#75f96f",
+  "logoLight": "/logo-light.png",
+  "logoDark": "/logo-dark.png",
+  "logoLink": "https://hathora.dev/"
 }

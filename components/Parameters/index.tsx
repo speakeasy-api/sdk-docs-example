@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
 import LanguageSelector from '@/components/LanguageSelector';
-import { H3 } from '@/HOC/TextHeaderWrapper';
+import { H3 } from '@/components/TextHeaderWrapper';
 
 import styles from './styles.module.scss';
 

@@ -5,8 +5,8 @@ import React, { FC, ReactNode } from 'react';
 import ThemeToggle from '@/components/ThemeToggle';
 import Logo from '@/icons/Logo';
 import Footer from '@/components/Footer';
-import TextHeaderWrapper from '@/HOC/TextHeaderWrapper';
-import LinkWrapper from '@/HOC/LinkWrapper';
+import TextHeaderWrapper from '@/components/TextHeaderWrapper';
+import LinkWrapper from '@/components/LinkWrapper';
 import { RHS } from '@/components/Columns';
 import { Head } from '@/components/head';
 import { NavItem } from '@/components/NavItem';
@@ -29,9 +29,7 @@ interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
 
 const config: ICustomDocsThemeConfig = {
   logo: Logo,
-  project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
-  },
+  logoLink: false,
   chat: {},
   docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   footer: {
