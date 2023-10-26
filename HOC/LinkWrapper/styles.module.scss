@@ -23,10 +23,6 @@
   }
 
   &:hover {
-    color: var(--text-link-hover) !important;
-
-    path {
-      stroke: var(--text-link-hover);
-    }
+    filter: brightness(1.2);
   }
 }

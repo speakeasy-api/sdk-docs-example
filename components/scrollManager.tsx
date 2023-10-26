@@ -35,7 +35,7 @@ type HeadingPosition = {
 };
 
 // Used to change the route a bit before the heading is at the top of the page
-const headingOffset = -100;
+const headingOffset = -200;
 
 export const ScrollManager = (props: {
   children: ReactNode;
@@ -156,7 +156,8 @@ export const ScrollManager = (props: {
           { once: true },
         );
 
-        window.scrollTo({ top: headingToPosition[route].position });
+        // Scroll down a bit further than the heading so that it lines up right at the top
+        window.scrollTo({ top: headingToPosition[route].position + 100 });
       }
     },
     [headingToPosition],

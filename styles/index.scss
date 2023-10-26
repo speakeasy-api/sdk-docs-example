@@ -5,7 +5,14 @@
 @import './globals.css';
 @import './codehike-styles';
 
+@import './theme.json';
+
 :root {
+  --primary-color: #{$primaryColor};
+  --secondary-color: #{$secondaryColor};
+
+  --primary-hue: #{$primaryHue};
+
   --color-page-background: #ffffff;
   --color-footer-background: #ffffff;
   --color-footer-text: #222;
@@ -13,10 +20,9 @@
   --text-heading: #222;
   --text-body: #4C4C4C;
   --text-heading-opacity: 1;
-  --text-link: oklch(50% .2 145);
-  --text-link-hover: oklch(70% .25 145);
+  --text-link: oklch(50% .2 var(--primary-hue));
   --text-emphasis: oklch(40% .1 145);
-  --gradient-heading: linear-gradient(90deg, #34FF00 -1.69%, #00DCE4 5.47%, #01D2EF 15.51%);
+  --gradient-heading: linear-gradient(25deg, var(--primary-color), var(--secondary-color));
   --select-hover: #11D8641F;
   --select-text: #4C4C4C;
   --stroke-opacity: 1;
@@ -32,10 +38,8 @@
     --text-body: #ACACAC;
     --text-heading: #ffffff;
     --text-heading-opacity: 1;
-    --text-link: oklch(90% .2 145);
-    --text-link-hover: oklch(100% .5 145);
-    --text-emphasis: oklch(80% .1 145);
-    --gradient-heading: linear-gradient(90deg, #91FF75 -1.69%, #4AEBF1 6.75%, #42E8FF 15.51%);
+    --text-link: var(--primary-color);
+    --text-emphasis: oklch(50% .2 var(--primary-hue));
     --select-hover: #3148367A;
     --select-text: #E3E5E8;
     --stroke-opacity: 0.87;
@@ -118,22 +122,78 @@ body::before, body::after {
 }
 
 /* Background image on the left */
-body::before {
-  background-image: url('../icons/gradient.png');
-  left: 0;
+//body::before {
+//  width: 800px;
+//  height: 800px;
+//  opacity: .2;
+//  background: radial-gradient(#{var(--primary-color)}, transparent 70%);
+//  left: 200px;
+//  top: 500px;
+//  z-index: -1;
+//}
+
+.nextra-sidebar-container::before {
+  content: "";
+  position: absolute;
+
+  width: 500px;
+  height: 100vh;
+  opacity: .15;
+  background-image: radial-gradient(#{var(--primary-color)}, transparent 70%);
+  left: -250px;
+  top: -100px;
+  z-index: -1;
+  transform: rotate(7deg);
+}
+
+//.nextra-sidebar-container::after {
+//  content: "";
+//  position: absolute;
+//
+//  width: 300px;
+//  height: 300px;
+//  opacity: .1;
+//  background-image: radial-gradient(#{var(--secondary-color)}, transparent 70%);
+//  left: -50px;
+//  top: 0px;
+//  z-index: -1;
+//  transform: rotate(17deg);
+//}
+
+body:before {
+  width: 2000px;
+  height: 2000px;
+
+  opacity: .1;
+  background-image: radial-gradient(#{var(--primary-color)}, transparent 70%);
+  transform: rotate(17deg);
+  right: -500px;
+  top: 50vh;
+  z-index: -1;
+}
+
+body:after {
+  width: 1200px;
+  height: 1200px;
+
+  opacity: .05;
+  background-image: radial-gradient(#{var(--secondary-color)}, transparent 70%);
+  transform: rotate(17deg);
+  right: 300px;
+  top: 10vh;
   z-index: -1;
 }
 
 /* Background image on the right */
-body::after {
-  background-image: url('../icons/gradient.png');
-  rotate: -90deg;
-  right: 0;
-  z-index: -1;
-  @include desktopMax1400 {
-    display: none;
-  }
-}
+//body::after {
+//  background-image: url('../icons/gradient.png');
+//  rotate: -90deg;
+//  right: 0;
+//  z-index: -1;
+//  @include desktopMax1400 {
+//    display: none;
+//  }
+//}
 
 svg {
   display: block;

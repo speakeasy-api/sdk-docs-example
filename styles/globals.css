@@ -20,7 +20,7 @@ div .nx-w-64 {
   }
 
   .active > button {
-    background-image: var(--bcg-btn-image-grad);
+    background-image: var(--gradient-heading);
     & p {
       font-weight: bold;
       color: var(--heading-h5-color-selected);
