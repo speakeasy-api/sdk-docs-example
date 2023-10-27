@@ -189,6 +189,12 @@
   hyphens: none;
 }
 
+@function primary-color($lightness: 1, $chroma: 1, $hue: 1, $alpha: 1) {
+  @return oklch(
+                  calc(var(--primary-lightness) * $lightness) calc(var(--primary-chroma) * $chroma) calc(var(--primary-hue) * $hue) / $alpha
+  );
+}
+
 // Source: https://jonnykates.medium.com/automating-colour-contrast-ratios-with-sass-e201f3b52797
 @function colour-difference($foreground, $background) {
   $r: (max(red($foreground), red($background))) - (min(red($foreground), red($background)));
