@@ -1,15 +1,16 @@
 ```typescript ListDrinks.ts
-import { Speakeasybar } from "speakeasybar";
-import { ListDrinksRequest } from "speakeasybar/dist/sdk/models/operations";
-import { DrinkType } from "speakeasybar/dist/sdk/models/shared";
+import { SDK } from "openapi";
+import { ListDrinksRequest } from "openapi/dist/sdk/models/operations";
+import { DrinkType } from "openapi/dist/sdk/models/shared";
 
 (async() => {
-  const sdk = new Speakeasybar({
+  const sdk = new SDK({
     apiKey: "",
   });
 const drinkType: DrinkType = DrinkType.Wine;
 
   const res = await sdk.drinks.listDrinks(drinkType);
+
 
   if (res.statusCode == 200) {
     // handle response

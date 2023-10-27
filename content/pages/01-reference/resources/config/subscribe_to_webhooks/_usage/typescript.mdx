@@ -1,15 +1,16 @@
 ```typescript SubscribeToWebhooks.ts
-import { Speakeasybar } from "speakeasybar";
-import { SubscribeToWebhooksRequestBodyWebhook } from "speakeasybar/dist/sdk/models/operations";
+import { SDK } from "openapi";
+import { SubscribeToWebhooksRequestBodyWebhook } from "openapi/dist/sdk/models/operations";
 
 (async() => {
-  const sdk = new Speakeasybar({
+  const sdk = new SDK({
     apiKey: "",
   });
 
   const res = await sdk.config.subscribeToWebhooks([
     {},
   ]);
+
 
   if (res.statusCode == 200) {
     // handle response

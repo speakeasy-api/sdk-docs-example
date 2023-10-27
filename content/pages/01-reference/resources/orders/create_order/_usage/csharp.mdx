@@ -1,0 +1,21 @@
+```csharp CreateOrder.cs
+using SDK;
+using SDK.Models.Shared;
+using SDK.Models.Operations;
+
+var sdk = new SDKSDK(
+    security: new Security() {
+        ApiKey = "",
+    }
+);
+
+var res = await sdk.Orders.CreateOrderAsync(new List<OrderInput>() {
+    new OrderInput() {
+        ProductCode = "NAC-3F2D1",
+        Quantity = 715190,
+        Type = SDK.Models.Shared.OrderType.Ingredient,
+    },
+}, "string");
+
+// handle response
+```
