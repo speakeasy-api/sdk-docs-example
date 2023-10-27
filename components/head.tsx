@@ -1,7 +1,7 @@
 import React from 'react';
 import { useConfig } from 'nextra-theme-docs';
 
-import theme from '@/theme.json'';
+import theme from '@/theme.json';
 
 export const Head = () => {
   const { frontMatter } = useConfig();
