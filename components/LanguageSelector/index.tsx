@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import { ClickEvent, Menu, MenuButton, MenuItem } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/slide.css';
@@ -19,10 +19,6 @@ const Index: FC<ILanguageSelector> = ({ style = 'large' }) => {
   const handleChange = (e: ClickEvent) => setLanguage(e.value);
 
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
-  }, [isOpen]);
 
   const button = (
     <MenuButton className={cn(styles.select, { [styles.active]: isOpen })}>

@@ -30,8 +30,8 @@
 }
 
 .menu {
-  background-color: var(--code-background);
-  border: 1px solid var(--code-block-border);
+  background-color: var(--color-paper);
+  border: 1px solid var(--hr-color);
   @include generatePxToRem(border-radius, 8);
 }
 
