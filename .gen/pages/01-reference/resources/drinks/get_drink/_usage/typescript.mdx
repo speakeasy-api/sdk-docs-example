@@ -1,14 +1,15 @@
 ```typescript GetDrink.ts
-import { Speakeasybar } from "speakeasybar";
-import { GetDrinkRequest } from "speakeasybar/dist/sdk/models/operations";
+import { SDK } from "openapi";
+import { GetDrinkRequest } from "openapi/dist/sdk/models/operations";
 
 (async() => {
-  const sdk = new Speakeasybar({
+  const sdk = new SDK({
     apiKey: "",
   });
 const name: string = "string";
 
   const res = await sdk.drinks.getDrink(name);
+
 
   if (res.statusCode == 200) {
     // handle response

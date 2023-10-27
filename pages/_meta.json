@@ -4,30 +4,25 @@
     "type": "separator"
   },
   "installation": {
-    "title": "Installation",
-    "href": "/installation"
+    "title": "Installation"
   },
   "-- resources": {
     "title": "Resources",
     "type": "separator"
   },
   "authentication": {
-    "title": "Authentication",
-    "href": "/authentication"
+    "title": "Authentication"
   },
   "config": {
-    "title": "Config",
-    "href": "/config"
+    "title": "Config"
   },
   "drinks": {
-    "title": "Drinks",
-    "href": "/drinks"
+    "title": "Drinks"
   },
   "ingredients": {
     "title": "Ingredients"
   },
   "orders": {
-    "title": "Orders",
-    "href": "/orders"
+    "title": "Orders"
   }
 }

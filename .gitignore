@@ -1,7 +1,5 @@
-/build/
-/out/
 .next
 node_modules
 .idea
-build
-out
+/build/
+/out/
