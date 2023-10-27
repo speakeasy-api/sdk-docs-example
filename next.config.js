@@ -1,3 +1,4 @@
+const theme = require('./theme.json');
 const withPlugins = require('next-compose-plugins');
 const { remarkCodeHike } = require('@code-hike/mdx');
 const jsonImporter = require('node-sass-json-importer');
@@ -9,7 +10,7 @@ const withNextra = require('nextra')({
     remarkPlugins: [
       [
         remarkCodeHike,
-        { lineNumbers: true, showCopyButton: true, theme: 'material-darker' },
+        { lineNumbers: true, showCopyButton: true, theme: theme.codeTheme },
       ],
     ],
   },
