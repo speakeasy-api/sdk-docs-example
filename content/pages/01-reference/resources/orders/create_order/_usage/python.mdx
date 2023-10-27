@@ -1,0 +1,21 @@
+```python CreateOrder.py
+import sdk
+from sdk.models import callbacks, operations, shared
+
+s = sdk.SDK(
+    api_key="",
+)
+
+
+res = s.orders.create_order(request_body=[
+    shared.OrderInput(
+        product_code='NAC-3F2D1',
+        quantity=715190,
+        type=shared.OrderType.INGREDIENT,
+    ),
+], callback_url='string')
+
+if res.order is not None:
+    # handle response
+    pass
+```
