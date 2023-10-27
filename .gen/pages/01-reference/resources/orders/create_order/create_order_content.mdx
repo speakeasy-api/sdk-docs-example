@@ -17,24 +17,12 @@ import TypescriptUsage from "./_usage/typescript.mdx";
 import PythonParameters from "./_parameters/python.mdx";
 import PythonResponse from "./_response/python.mdx";
 import PythonUsage from "./_usage/python.mdx";
-import CsharpParameters from "./_parameters/csharp.mdx";
-import CsharpResponse from "./_response/csharp.mdx";
-import CsharpUsage from "./_usage/csharp.mdx";
-import UnityParameters from "./_parameters/unity.mdx";
-import UnityResponse from "./_response/unity.mdx";
-import UnityUsage from "./_usage/unity.mdx";
-import CurlParameters from "./_parameters/curl.mdx";
-import CurlResponse from "./_response/curl.mdx";
-import CurlUsage from "./_usage/curl.mdx";
 
 export const Operation = () => {
     const go = <LanguageOperation parameters={<GoParameters/>} response={<GoResponse/>} usage={<GoUsage/>}/>
     const typescript = <LanguageOperation parameters={<TypescriptParameters/>} response={<TypescriptResponse/>} usage={<TypescriptUsage/>}/>
     const python = <LanguageOperation parameters={<PythonParameters/>} response={<PythonResponse/>} usage={<PythonUsage/>}/>
-    const csharp = <LanguageOperation parameters={<CsharpParameters/>} response={<CsharpResponse/>} usage={<CsharpUsage/>}/>
-    const unity = <LanguageOperation parameters={<UnityParameters/>} response={<UnityResponse/>} usage={<UnityUsage/>}/>
-    const curl = <LanguageOperation parameters={<CurlParameters/>} response={<CurlResponse/>} usage={<CurlUsage/>}/>
-    return <LanguageSwitch langToContent={{go, typescript, python, csharp, unity, curl}}/>
+    return <LanguageSwitch langToContent={{go, typescript, python}}/>
 }
 
 <Operation />
