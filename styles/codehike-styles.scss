@@ -1,3 +1,7 @@
+@import 'utils/mixins';
+
 .ch-codegroup {
   border-radius: calc(1.5 * var(--base-border-radius)) !important;
+
+  box-shadow: 0 13px 27px -5px primary-color($alpha: .075) !important;
 }

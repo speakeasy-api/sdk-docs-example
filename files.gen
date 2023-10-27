@@ -225,6 +225,7 @@ next-env.d.ts
 next.config.js
 package.json
 pnpm-lock.yaml
+styles/background-gradients.scss
 styles/codehike-styles.scss
 styles/index.scss
 styles/nextra.scss
