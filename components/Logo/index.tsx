@@ -1,8 +1,8 @@
 import React, { createRef, FC, useEffect } from 'react';
-
 import Image from 'next/image';
-import docsTheme from '@/theme.json';
 import { useTheme } from 'next-themes';
+
+import docsTheme from '@/theme.json';
 
 const Logo: FC = () => {
   const { resolvedTheme } = useTheme();

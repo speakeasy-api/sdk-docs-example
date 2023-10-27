@@ -1,10 +1,10 @@
 import React, { FC, useContext, useMemo } from 'react';
 import cn from 'classnames';
+import { getPagesUnderRoute } from 'nextra/context';
 
 import styles from './styles.module.scss';
 
 import { ScrollContext } from '../scrollManager';
-import { getPagesUnderRoute } from 'nextra/context';
 
 export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {
   const { scrollTo } = useContext(ScrollContext);

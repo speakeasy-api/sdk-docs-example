@@ -12,9 +12,6 @@ const DARK = 'dark';
 const LIGHT = 'light';
 const SYSTEM = 'system';
 
-export const isDark = (theme: string | undefined, resolvedTheme: string | undefined) =>
-  theme === DARK || (theme === SYSTEM && resolvedTheme === DARK);
-
 const ThemeToggle: FC = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
