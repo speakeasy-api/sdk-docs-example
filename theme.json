@@ -1,11 +1,24 @@
 {
+  "__title_description__": "The title of your site, shown in the header",
   "title": "Hathora SDK Docs",
+
+  "__primary_color_description__": "Any valid CSS color for setting the primary color of your site. E.g. #75f96f or green",
   "primaryColor": "#75f96f",
+
+  "__logos_description__": "The logo to display. You can use a relative path or a URL. If you use a relative path, make sure the file is in the public folder.",
   "logoLight": "/logo-light.png",
   "logoDark": "/logo-dark.png",
+
+  "__logo_link_description__": "The link to go to when clicking the logo",
   "logoLink": "https://hathora.dev/",
+
+  "__favicon_description__": "The favicon to display. You can use a relative path or a URL. If you use a relative path, make sure the file is in the public folder.",
   "favicon": "https://fdr-prod-docs-files.s3.us-east-1.amazonaws.com/hathora.docs.buildwithfern.com/2023-09-06T03%3A10%3A47.126Z/docs/favicon.ico?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA6KXJSKKNE6LAYO7B%2F20231025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231025T185946Z&X-Amz-Expires=604800&X-Amz-Signature=cc888f4f6dfde905ef08127f9ddc72459abe7fe595a24bbf5c8179342cfd9d7c&X-Amz-SignedHeaders=host&x-id=GetObject",
+
+  "__code_theme_description__": "The code theme to use. See https://codehike.org/docs/themes for a list of themes.",
   "codeTheme": "material-darker",
+
+  "__fonts_description__": "The fonts to use. You can use any font from Google Fonts. See https://fonts.google.com/ for a list of fonts.",
   "fonts": {
     "main": {
       "name": "Inter",
