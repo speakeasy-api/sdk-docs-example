@@ -1,4 +1,4 @@
-const theme = require('../mutable/theme.json');
+const theme = require('./theme.json');
 const withPlugins = require('next-compose-plugins');
 const { remarkCodeHike } = require('@code-hike/mdx');
 const jsonImporter = require('node-sass-json-importer');
