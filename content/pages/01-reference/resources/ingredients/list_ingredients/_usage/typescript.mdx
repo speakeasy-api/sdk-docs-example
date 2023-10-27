@@ -1,9 +1,9 @@
 ```typescript ListIngredients.ts
-import { Speakeasybar } from "speakeasybar";
-import { ListIngredientsRequest } from "speakeasybar/dist/sdk/models/operations";
+import { SDK } from "openapi";
+import { ListIngredientsRequest } from "openapi/dist/sdk/models/operations";
 
 (async() => {
-  const sdk = new Speakeasybar({
+  const sdk = new SDK({
     apiKey: "",
   });
 const ingredients: string[] = [
@@ -11,6 +11,7 @@ const ingredients: string[] = [
 ];
 
   const res = await sdk.ingredients.listIngredients(ingredients);
+
 
   if (res.statusCode == 200) {
     // handle response

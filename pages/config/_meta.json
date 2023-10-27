@@ -1,6 +1,5 @@
 {
   "subscribe_to_webhooks": {
-    "title": "resources/config/Subscribe To Webhooks",
-    "href": "/resources/config/subscribe_to_webhooks"
+    "title": "Subscribe To Webhooks"
   }
 }

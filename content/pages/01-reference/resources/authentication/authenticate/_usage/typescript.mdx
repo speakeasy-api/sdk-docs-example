@@ -1,12 +1,13 @@
 ```typescript Authenticate.ts
-import { Speakeasybar } from "speakeasybar";
+import { SDK } from "openapi";
 
 (async() => {
-  const sdk = new Speakeasybar({
+  const sdk = new SDK({
     apiKey: "",
   });
 
   const res = await sdk.authentication.authenticate({});
+
 
   if (res.statusCode == 200) {
     // handle response

@@ -4,13 +4,13 @@ package main
 import(
 	"context"
 	"log"
-	templatesdk "github.com/speakeasy-sdks/template-sdk"
-	"github.com/speakeasy-sdks/template-sdk/pkg/models/shared"
+	"openapi"
+	"openapi/pkg/models/shared"
 )
 
 func main() {
-    s := templatesdk.New(
-        templatesdk.WithSecurity(""),
+    s := openapi.New(
+        openapi.WithSecurity(""),
     )
 
 
