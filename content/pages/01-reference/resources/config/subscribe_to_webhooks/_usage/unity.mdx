@@ -1,0 +1,18 @@
+```csharp SubscribeToWebhooks.cs
+using SDK;
+using SDK.Models.Shared;
+using SDK.Models.Operations;
+
+var sdk = new SDKSDK(
+    security: new Security() {
+        ApiKey = "",
+    }
+);
+
+using(var res = await sdk.Config.SubscribeToWebhooksAsync(new List<SubscribeToWebhooksRequestBody>() {
+    new SubscribeToWebhooksRequestBody() {},
+}))
+{
+    // handle response
+}
+```

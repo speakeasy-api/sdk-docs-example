@@ -1,0 +1,16 @@
+```csharp Authenticate.cs
+using SDK;
+using SDK.Models.Shared;
+using SDK.Models.Operations;
+
+var sdk = new SDKSDK(
+    security: new Security() {
+        ApiKey = "",
+    }
+);
+
+using(var res = await sdk.Authentication.AuthenticateAsync(new AuthenticateRequestBody() {}))
+{
+    // handle response
+}
+```
