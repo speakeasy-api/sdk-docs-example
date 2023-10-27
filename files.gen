@@ -225,8 +225,6 @@ next-env.d.ts
 next.config.js
 package.json
 pnpm-lock.yaml
-public/logo-dark.png
-public/logo-light.png
 styles/codehike-styles.scss
 styles/index.scss
 styles/nextra.scss
@@ -235,12 +233,15 @@ styles/utils/_colors.scss
 styles/utils/_mixins.scss
 styles/utils/_variables.scss
 theme.config.tsx
-theme.json
 tsconfig.json
 utils/contexts/languageContext.ts
 utils/contexts/linkableContext.ts
 utils/helpers.ts
 utils/routesHelpers.ts
+public/favicon.png
+public/logo-dark.png
+public/logo-light.png
+theme.json
 pages/404.mdx
 pages/[...rest].mdx
 pages/index.mdx

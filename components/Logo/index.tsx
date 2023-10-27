@@ -2,7 +2,7 @@ import React, { createRef, FC, useEffect } from 'react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
-import docsTheme from '@/theme.json';
+import docsTheme from '../../../mutable/theme.json';
 
 const Logo: FC = () => {
   const { resolvedTheme } = useTheme();
