@@ -6,10 +6,10 @@ import React, {
   useState,
 } from 'react';
 
-import { Columns, RHS } from '@/components/Columns';
-import { Parameters, Response } from '@/components/Parameters';
-import { LanguageContext } from '@/utils/contexts/languageContext';
-import { LinkableContext } from '@/utils/contexts/linkableContext';
+import { Columns, RHS } from '@/src/components/Columns';
+import { Parameters, Response } from '@/src/components/Parameters';
+import { LanguageContext } from '@/src/utils/contexts/languageContext';
+import { LinkableContext } from '@/src/utils/contexts/linkableContext';
 
 export const Languages = ['go', 'typescript', 'python'];
 export type Language = (typeof Languages)[number];

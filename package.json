@@ -41,6 +41,8 @@
     "@types/lodash": "4.14.199",
     "chroma-js": "2.4.2",
     "classnames": "2.3.2",
+    "js-yaml": "4.1.0",
+    "js-yaml-loader": "1.2.2",
     "lodash": "4.17.21",
     "next": "13.5.5",
     "next-compose-plugins": "^2.2.1",
@@ -53,7 +55,8 @@
     "react-dom": "^18.2.0",
     "react-select": "5.7.7",
     "react-switch": "^7.0.0",
-    "sass": "1.69.4"
+    "sass": "1.69.4",
+    "typescript-require": "0.3.0"
   },
   "devDependencies": {
     "@commitlint/cli": "17.7.1",

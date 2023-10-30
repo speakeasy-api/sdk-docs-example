@@ -1,4 +1,4 @@
-const theme = require('./theme.json');
+const theme = require('./src/utils/themeLoader');
 const withPlugins = require('next-compose-plugins');
 const { remarkCodeHike } = require('@code-hike/mdx');
 const jsonImporter = require('node-sass-json-importer');
@@ -21,7 +21,7 @@ module.exports = withPlugins([], {
     importer: jsonImporter(),
   },
   ...withNextra({
-    output: 'export',
+    // output: 'export',
     distDir: 'out',
     images: {
       unoptimized: true,
