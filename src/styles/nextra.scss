@@ -26,7 +26,7 @@ div .nx-w-64 {
   }
 
   .active > button {
-    background-color: transparent;
+    background-color: var(--primary-color);
     background-image: var(--gradient-heading);
 
     & p {

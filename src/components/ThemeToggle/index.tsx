@@ -16,6 +16,12 @@ const ThemeToggle: FC = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
 
+  useEffect(() => {
+    if (theme === SYSTEM) {
+      setTheme(DARK);
+    }
+  }, []);
+
   const isDark = theme === DARK || (theme === SYSTEM && resolvedTheme === DARK);
 
   const onChangeTheme = () => {
