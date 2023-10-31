@@ -1,0 +1,33 @@
+```go PostFile.go
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+	"openapi/pkg/models/operations"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity("<YOUR_API_KEY>"),
+        openapi.WithQueryParam1("some example query param"),
+    )
+
+    ctx := context.Background()
+    res, err := s.PostFile(ctx, &operations.PostFileRequestBody{
+        File: &shared.File{
+            Content: []byte("TXcoYpSoHZ"),
+            FileName: "visionary_venezuela.wav",
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.File != nil {
+        // handle response
+    }
+}
+```

@@ -1,0 +1,22 @@
+```csharp PostFile.cs
+using Openapi;
+using Openapi.Models.Shared;
+using Openapi.Models.Operations;
+
+var sdk = new SDK(
+    security: new Security() {
+        ApiKey = "<YOUR_API_KEY>",
+    },
+    queryParam1: "some example query param"
+);
+
+using(var res = await sdk.PostFileAsync(new PostFileRequestBody() {
+    File = new File() {
+        Content = "TXcoYpSoHZ as bytes <<<>>>",
+        FileName = "visionary_venezuela.wav",
+    },
+}))
+{
+    // handle response
+}
+```

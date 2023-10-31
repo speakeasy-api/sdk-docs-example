@@ -1,0 +1,52 @@
+```typescript PostTest.ts
+import { SDK } from "openapi";
+import { Enum, Int32Enum, IntEnum, TypeT } from "openapi/dist/sdk/models/shared";
+import { RFCDate } from "openapi/dist/sdk/types";
+
+(async() => {
+  const sdk = new SDK({
+    apiKey: "<YOUR_API_KEY>",
+    queryParam1: "some example query param",
+  });
+
+  const res = await sdk.postTest({
+    obj: {
+      any: "string",
+      anything: "string",
+      arr: [
+        {
+          str: "example",
+        },
+      ],
+      bool: true,
+      boolOpt: true,
+      date: new RFCDate("2023-05-17"),
+      dateTime: new Date("2020-01-01T00:00:00Z"),
+      enumProp: Enum.First,
+      float32: 8121.69,
+      int: 999999,
+      int32: 1,
+      int32Enum: Int32Enum.SixtyNine,
+      intEnum: IntEnum.Third,
+      intOptNull: 999999,
+      map: {
+        "key": {
+          str: "example",
+        },
+      },
+      num: 1.1,
+      numOptNull: 1.1,
+      obj: {
+        str: "example",
+      },
+      str: "example",
+    },
+    type: TypeT.SuperType1,
+  });
+
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

@@ -10,7 +10,6 @@ import React, {
 } from 'react';
 
 import { RouteContext, ScrollContext } from '@/src/components/scrollManager';
-import { LinkableContext } from '@/src/utils/contexts/linkableContext';
 import { toRouteFormat } from '@/src/utils/routesHelpers';
 
 import styles from './styles.module.scss';
@@ -23,12 +22,11 @@ interface IHeaderProps {
 }
 
 const TextHeaderWrapper: FC<IHeaderProps> = ({
-  headingType,
-  children = '',
-}) => {
+                                               headingType,
+                                               children = '',
+                                             }) => {
   const route = useContext(RouteContext);
   const scrollContext = useContext(ScrollContext);
-  const linkable = useContext(LinkableContext);
 
   const [isMouseOver, setIsMouseOver] = useState(false);
 
@@ -49,11 +47,7 @@ const TextHeaderWrapper: FC<IHeaderProps> = ({
   );
 
   useEffect(() => {
-    if (
-      inputRef.current &&
-      linkable &&
-      (headingType === 'h1' || headingType === 'h2')
-    ) {
+    if (inputRef.current && (headingType === 'h1' || headingType === 'h2')) {
       scrollContext.upsertHeading(
         route,
         headingValue,

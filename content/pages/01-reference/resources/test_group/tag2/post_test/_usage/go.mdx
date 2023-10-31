@@ -1,0 +1,63 @@
+```go PostTest.go
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/shared"
+	"openapi/pkg/types"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity("<YOUR_API_KEY>"),
+        openapi.WithQueryParam1("some example query param"),
+    )
+
+    ctx := context.Background()
+    res, err := s.PostTest(ctx, &shared.Test2Request{
+        Obj: &shared.ExhaustiveObject{
+            Any: shared.CreateAnyStr(
+            "string",
+            ),
+            Anything: "string",
+            Arr: []shared.SimpleObject{
+                shared.SimpleObject{
+                    Str: "example",
+                },
+            },
+            Bool: true,
+            BoolOpt: openapi.Bool(true),
+            Date: types.MustDateFromString("2022-08-03"),
+            DateTime: types.MustTimeFromString("2020-01-01T00:00:00Z"),
+            EnumProp: shared.EnumFirst.ToPointer(),
+            Float32: 4799.77,
+            Int: 999999,
+            Int32: 1,
+            Int32Enum: shared.Int32EnumSixtyNine,
+            IntEnum: shared.IntEnumThird.ToPointer(),
+            IntOptNull: openapi.Int64(999999),
+            Map: map[string]shared.SimpleObject{
+                "key": shared.SimpleObject{
+                    Str: "example",
+                },
+            },
+            Num: 1.1,
+            NumOptNull: openapi.Float64(1.1),
+            Obj: shared.SimpleObject{
+                Str: "example",
+            },
+            Str: "example",
+        },
+        Type: shared.TypeSuperType1.ToPointer(),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Body != nil {
+        // handle response
+    }
+}
+```

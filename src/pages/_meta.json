@@ -6,23 +6,20 @@
   "installation": {
     "title": "Installation"
   },
+  "globals": {
+    "title": "Globals"
+  },
   "-- resources": {
     "title": "Resources",
     "type": "separator"
   },
-  "authentication": {
-    "title": "Authentication"
+  "tag1": {
+    "title": "Tag1"
   },
-  "config": {
-    "title": "Config"
+  "test_group": {
+    "title": "Test Group"
   },
-  "drinks": {
-    "title": "Drinks"
-  },
-  "ingredients": {
-    "title": "Ingredients"
-  },
-  "orders": {
-    "title": "Orders"
+  "post_file": {
+    "title": "Post File"
   }
 }

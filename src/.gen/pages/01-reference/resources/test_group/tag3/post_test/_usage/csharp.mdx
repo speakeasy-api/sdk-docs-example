@@ -1,0 +1,50 @@
+```csharp PostTest.cs
+using Openapi;
+using Openapi.Models.Shared;
+using NodaTime;
+using System;
+
+var sdk = new SDK(
+    security: new Security() {
+        ApiKey = "<YOUR_API_KEY>",
+    },
+    queryParam1: "some example query param"
+);
+
+var res = await sdk.PostTestAsync(new Test2Request() {
+    Obj = new ExhaustiveObject() {
+        Any = "string",
+        Anything = "string",
+        Arr = new List<SimpleObject>() {
+            new SimpleObject() {
+                Str = "example",
+            },
+        },
+        Bool = true,
+        BoolOpt = true,
+        Date = LocalDate.FromDateTime(DateTime.Parse("2023-05-17")),
+        DateTime = DateTime.Parse("2020-01-01T00:00:00Z"),
+        EnumProp = Openapi.Models.Shared.Enum.First,
+        Float32 = 8121.69F,
+        Int = 999999,
+        Int32 = 1,
+        Int32Enum = Openapi.Models.Shared.Int32Enum.SixtyNine,
+        IntEnum = Openapi.Models.Shared.IntEnum.Three,
+        IntOptNull = 999999,
+        Map = new Dictionary<string, SimpleObject>() {
+            { "key", new SimpleObject() {
+                Str = "example",
+            } },
+        },
+        Num = 1.1D,
+        NumOptNull = 1.1D,
+        Obj = new SimpleObject() {
+            Str = "example",
+        },
+        Str = "example",
+    },
+    Type = Openapi.Models.Shared.Type.Type1,
+});
+
+// handle response
+```

@@ -1,0 +1,15 @@
+```python ListTest1.py
+import sdk
+from sdk.models import operations
+
+s = sdk.SDK(
+    query_param1='some example query param',
+)
+
+
+res = s.list_test1("<YOUR_API_KEY>", header_param1='some example header param', page=100, query_param1='some example query param')
+
+if res.object is not None:
+    # handle response
+    pass
+```

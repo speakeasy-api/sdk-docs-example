@@ -1,0 +1,21 @@
+```typescript ListTest1.ts
+import { SDK } from "openapi";
+import { ListTest1Request, ListTest1Security } from "openapi/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new SDK({
+    queryParam1: "some example query param",
+  });
+const headerParam1: string = "some example header param";
+const page: number = 100;
+const queryParam1: string = "some example query param";
+const operationSecurity: ListTest1Security = "<YOUR_API_KEY>";
+
+  const res = await sdk.listTest1(operationSecurity, headerParam1, page, queryParam1);
+
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

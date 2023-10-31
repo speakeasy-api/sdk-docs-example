@@ -1,0 +1,52 @@
+```python PostTest.py
+import sdk
+import dateutil.parser
+from decimal import Decimal
+from sdk.models import shared
+
+s = sdk.SDK(
+    api_key="<YOUR_API_KEY>",
+    query_param1='some example query param',
+)
+
+req = shared.Test2Request(
+    obj=shared.ExhaustiveObject(
+    'string',
+        anything='string',
+        arr=[
+            shared.SimpleObject(
+                str_='example',
+            ),
+        ],
+        bool=True,
+        bool_opt=True,
+        date_=dateutil.parser.parse('2022-08-03').date(),
+        date_time=dateutil.parser.isoparse('2020-01-01T00:00:00Z'),
+        enum_prop=shared.EnumT.FIRST,
+        float32=4799.77,
+        int=999999,
+        int32=1,
+        int32_enum=shared.Int32Enum.SIXTY_NINE,
+        int_enum=shared.IntEnum.THIRD,
+        int_opt_null=999999,
+        map={
+            "key": shared.SimpleObject(
+                str_='example',
+            ),
+        },
+        num=1.1,
+        num_opt_null=1.1,
+        obj=shared.SimpleObject(
+            str_='example',
+        ),
+        str_='example',
+    ),
+    type=shared.Type.SUPER_TYPE1,
+)
+
+res = s.post_test(req)
+
+if res.body is not None:
+    # handle response
+    pass
+```

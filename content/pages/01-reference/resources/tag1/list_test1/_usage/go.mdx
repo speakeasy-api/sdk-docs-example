@@ -1,0 +1,35 @@
+```go ListTest1.go
+package main
+
+import(
+	"context"
+	"log"
+	"openapi"
+	"openapi/pkg/models/operations"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithQueryParam1("some example query param"),
+    )
+
+
+    var headerParam1 string = "some example header param"
+
+    var page int64 = 100
+
+    var queryParam1 *string = "some example query param"
+
+    operationSecurity := "<YOUR_API_KEY>"
+
+    ctx := context.Background()
+    res, err := s.ListTest1(ctx, operationSecurity, headerParam1, page, queryParam1)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Object != nil {
+        // handle response
+    }
+}
+```

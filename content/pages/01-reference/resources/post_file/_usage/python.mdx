@@ -1,0 +1,22 @@
+```python PostFile.py
+import sdk
+from sdk.models import operations, shared
+
+s = sdk.SDK(
+    api_key="<YOUR_API_KEY>",
+    query_param1='some example query param',
+)
+
+req = operations.PostFileRequestBody(
+    file=shared.File(
+        content='TXcoYpSoHZ'.encode(),
+        file_name='visionary_venezuela.wav',
+    ),
+)
+
+res = s.post_file(req)
+
+if res.file is not None:
+    # handle response
+    pass
+```

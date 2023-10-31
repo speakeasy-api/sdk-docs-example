@@ -1,0 +1,40 @@
+## Global Parameters
+
+A parameter is configured globally. This parameter must be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
+
+For example, you can set `queryParam1` to `"some example query param"` at SDK initialization and then you do not have to pass the same value on calls to operations like `listTest1`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+
+
+### Available Globals
+
+The following global parameter is available. The required parameter must be set when you initialize the SDK client.
+
+| Name | Type | Required | Description |
+| ---- | ---- |:--------:| ----------- |
+| queryParam1 | string | ✔️ | The queryParam1 parameter. |
+
+
+
+### Example
+
+```typescript
+import { SDK } from "openapi";
+import { ListTest1Request, ListTest1Security } from "openapi/dist/sdk/models/operations";
+
+(async () => {
+    const sdk = new SDK({
+        queryParam1: "some example query param",
+    });
+    const headerParam1: string = "some example header param";
+    const page: number = 100;
+    const queryParam1: string = "some example query param";
+    const operationSecurity: ListTest1Security = "<YOUR_API_KEY>";
+
+    const res = await sdk.tag1.listTest1(operationSecurity, headerParam1, page, queryParam1);
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
