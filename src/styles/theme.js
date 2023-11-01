@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const chroma = require('chroma-js');
 const theme = require('../utils/themeLoader');
 

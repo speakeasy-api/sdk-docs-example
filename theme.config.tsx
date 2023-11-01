@@ -9,7 +9,7 @@ import LinkWrapper from '@/src/components/LinkWrapper';
 import { RHS } from '@/src/components/Columns';
 import { Head } from '@/src/components/head';
 import { NavItem } from '@/src/components/NavItem';
-import Collapsible, { propsType } from '@/src/components/Collapsible';
+import Collapsible from '@/src/components/Collapsible';
 
 interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
   components: {
@@ -38,7 +38,7 @@ interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
     RHS: FC<{
       children: ReactNode;
     }>;
-    Collapsible?: FC<propsType>;
+    Collapsible?: typeof Collapsible;
     blockquote?: any; // TODO add correct types
   };
 }
