@@ -1,95 +1,138 @@
 import Collapsible from "/src/components/Collapsible"
+import Labels from "/src/lib/labels";
 
-#### Authentication
-To authenticate requests use the following authentication scheme with each request.
-
-| Scheme                    | Field Name                | Location                  | Notes                     |
-| ------------------------- | ------------------------- | ------------------------- | ------------------------- |
-| API key                   | api_key                   | HTTP header               | `api_key: <YOUR_API_KEY>` |
-
-#### Parameters
 
 
 ##### `obj` _object (optional)_
 A simple object that uses all our supported primitive types and enums and has optional properties.
 
 [A link to the external docs.](https://docs.speakeasyapi.dev)
-<Collapsible>
-    24 properties
+<Collapsible openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
 
 
   ##### `any` _object | string_
+  ---
+
 
   ##### `anything` _any value_
   An any property.
+  ---
+
 
   ##### `arr` _array_
+  ---
+
 
   ##### `bool` _boolean_
   A boolean property.
+  ---
+
 
   ##### `date` _date_
   A date property.
+  ---
+
 
   ##### `dateTime` _date-time_
   A date\-time property.
+  ---
+
 
   ##### `float32` _float (32-bit)_
   A float32 property.
+  ---
+
 
   ##### `int` _integer_
   An integer property.
+  ---
+
 
   ##### `int32` _integer (32-bit)_
   An int32 property.
+  ---
+
 
   ##### `int32Enum` _enumeration_
   An int32 enum property.
+  ---
+
 
   ##### `map` _map_
+  ---
+
 
   ##### `num` _number_
   A number property.
+  ---
+
 
   ##### `obj` _object_
-  <Collapsible>
-      1 property
+  <Collapsible openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
 
 
     ##### `str` _string_
     A string property.
 
+
   </Collapsible>
+  ---
+
 
   ##### `str` _string_
   A string property.
+  ---
+
 
   ##### `bigint` _big integer (optional)_
+  ---
+
 
   ##### `bigintStr` _big integer (optional)_
+  ---
+
 
   ##### `boolOpt` _boolean (optional)_
   An optional boolean property.
+  ---
+
 
   ##### `decimal` _decimal (optional)_
+  ---
+
 
   ##### `enumProp` _enumeration (optional)_
+  ---
+
 
   ##### `intEnum` _enumeration (optional)_
   An integer enum property.
+  ---
+
 
   ##### `intOptNull` _integer (optional)_
   An optional integer property will be null for tests.
+  ---
+
 
   ##### `numOptNull` _number (optional)_
   An optional number property will be null for tests.
+  ---
+
 
   ##### `strOpt` _string (optional)_
   An optional string property.
+  ---
+
 
   ##### `type` _string (optional)_
 
+
 </Collapsible>
+---
+
 
 ##### `type` _enumeration (optional)_
+
+
 

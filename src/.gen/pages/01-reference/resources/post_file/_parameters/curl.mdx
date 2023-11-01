@@ -1,24 +1,21 @@
 import Collapsible from "/src/components/Collapsible"
+import Labels from "/src/lib/labels";
 
-#### Authentication
-To authenticate requests use the following authentication scheme with each request.
-
-| Scheme                    | Field Name                | Location                  | Notes                     |
-| ------------------------- | ------------------------- | ------------------------- | ------------------------- |
-| API key                   | api_key                   | HTTP header               | `api_key: <YOUR_API_KEY>` |
-
-#### Parameters
 
 
 ##### `file` _object (optional)_
 A file
-<Collapsible>
-    2 properties
+<Collapsible openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
 
 
   ##### `content` _byte array_
+  ---
+
 
   ##### `fileName` _string_
 
+
 </Collapsible>
+
+
 

@@ -1,8 +1,12 @@
+import CurlHeader from './_header/curl.mdx';
+import SDKHeader from './_header/sdk.mdx';
+import OperationHeader from '/src/components/OperationHeader';
+
 ###### *tag1*
 
-## List Test1
-
-This is a test endpoint.
-It has a description.
+<OperationHeader
+  sdkHeader={<SDKHeader />}
+  curlHeader={<CurlHeader />}
+/>
 
 {/* render operation */}

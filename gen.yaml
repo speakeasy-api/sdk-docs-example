@@ -4,7 +4,7 @@ generation:
   singleTagPerOp: false
 features:
   docs:
-    core: 1.0.0
+    core: 1.1.1
     deprecations: 0.1.0
     docs: 0.2.4
     enums: 0.1.0

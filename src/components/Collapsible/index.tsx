@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   ReactNode,
   useCallback,
@@ -12,7 +12,9 @@ import RightArrow from '@/src/icons/RightArrow';
 
 import styles from './styles.module.scss';
 
-export type propsType = {
+export type Props = {
+  openLabel: string;
+  closeLabel: string;
   children: ReactNode[];
   defaultOpen?: boolean;
   content?: () => Promise<any>;
@@ -22,7 +24,7 @@ const CollapsibleContext = createContext({
   isOpen: true,
 });
 
-const Collapsible = (props: propsType) => {
+const Collapsible = (props: Props) => {
   const headerDefaultHeight = 36;
 
   const [isOpen, setIsOpen] = useState(props.defaultOpen ?? false);
@@ -35,7 +37,7 @@ const Collapsible = (props: propsType) => {
   const [headerRef, headerHeight] = useRefWithHeight();
   const [bodyRef, bodyHeight] = useRefWithHeight();
 
-  const heading = isOpen ? 'Hide child properties' : 'Show child properties';
+  const heading = headingText(props.openLabel, props.closeLabel, isOpen);
 
   const updateOpenHeight = (shouldTransition: boolean) => {
     setHeight((headerHeight || headerDefaultHeight) + (bodyHeight || 0));
@@ -80,7 +82,7 @@ const Collapsible = (props: propsType) => {
       ContentComponent
         ? [<ContentComponent key='dynamicContentComponent' />]
         : [],
-    [ContentComponent],
+    [ContentComponent]
   );
 
   const existingChildren = props.children ? props.children : [];
@@ -133,5 +135,8 @@ const useRefWithHeight = (): [(ref: HTMLDivElement) => void, number] => {
 
   return [ref, height];
 };
+
+const headingText = (openLabel: string, closeLabel: string, isOpen: boolean) =>
+  isOpen ? closeLabel : openLabel;
 
 export default Collapsible;

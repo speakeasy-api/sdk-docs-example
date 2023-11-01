@@ -1,9 +1,13 @@
+import CurlHeader from './_header/curl.mdx';
+import SDKHeader from './_header/sdk.mdx';
+import OperationHeader from '/src/components/OperationHeader';
+
 ###### *testGroup* / *tag2*
 
-## Post Test
-
-This is a test endpoint.
-It has a description.
+<OperationHeader
+  sdkHeader={<SDKHeader />}
+  curlHeader={<CurlHeader />}
+/>
 
 {/* rendered from operation template */}
 
@@ -24,17 +28,18 @@ import CsharpUsage from "./_usage/csharp.mdx";
 import UnityParameters from "./_parameters/unity.mdx";
 import UnityResponse from "./_response/unity.mdx";
 import UnityUsage from "./_usage/unity.mdx";
+import CurlAuthentication from "./_authentication/curl.mdx";
 import CurlParameters from "./_parameters/curl.mdx";
 import CurlResponse from "./_response/curl.mdx";
 import CurlUsage from "./_usage/curl.mdx";
 
 export const Operation = () => {
-    const go = <LanguageOperation parameters={<GoParameters/>} response={<GoResponse/>} usage={<GoUsage/>}/>
-    const typescript = <LanguageOperation parameters={<TypescriptParameters/>} response={<TypescriptResponse/>} usage={<TypescriptUsage/>}/>
-    const python = <LanguageOperation parameters={<PythonParameters/>} response={<PythonResponse/>} usage={<PythonUsage/>}/>
-    const csharp = <LanguageOperation parameters={<CsharpParameters/>} response={<CsharpResponse/>} usage={<CsharpUsage/>}/>
-    const unity = <LanguageOperation parameters={<UnityParameters/>} response={<UnityResponse/>} usage={<UnityUsage/>}/>
-    const curl = <LanguageOperation parameters={<CurlParameters/>} response={<CurlResponse/>} usage={<CurlUsage/>}/>
+    const go = <LanguageOperation  parameters={<GoParameters/>} response={<GoResponse/>} usage={<GoUsage/>}/>
+    const typescript = <LanguageOperation  parameters={<TypescriptParameters/>} response={<TypescriptResponse/>} usage={<TypescriptUsage/>}/>
+    const python = <LanguageOperation  parameters={<PythonParameters/>} response={<PythonResponse/>} usage={<PythonUsage/>}/>
+    const csharp = <LanguageOperation  parameters={<CsharpParameters/>} response={<CsharpResponse/>} usage={<CsharpUsage/>}/>
+    const unity = <LanguageOperation  parameters={<UnityParameters/>} response={<UnityResponse/>} usage={<UnityUsage/>}/>
+    const curl = <LanguageOperation authentication={<CurlAuthentication/>} parameters={<CurlParameters/>} response={<CurlResponse/>} usage={<CurlUsage/>}/>
     return <LanguageSwitch langToContent={{go, typescript, python, csharp, unity, curl}}/>
 }
 

@@ -6,7 +6,7 @@ var sdk = new SDK(
     queryParam1: "some example query param"
 );
 
-using(var res = await sdk.ListTest1Async(new ListTest1Security() {
+using(var res = await sdk.Tag1.ListTest1Async(new ListTest1Security() {
     ApiKey = "<YOUR_API_KEY>",
 }, "some example header param", 100, "some example query param"))
 {

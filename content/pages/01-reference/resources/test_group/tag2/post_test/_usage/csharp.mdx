@@ -11,7 +11,7 @@ var sdk = new SDK(
     queryParam1: "some example query param"
 );
 
-var res = await sdk.PostTestAsync(new Test2Request() {
+var res = await sdk.TestGroup.Tag3.PostTestAsync(new Test2Request() {
     Obj = new ExhaustiveObject() {
         Any = "string",
         Anything = "string",

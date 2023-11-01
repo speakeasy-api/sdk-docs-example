@@ -120,6 +120,8 @@ content/pages/01-reference/installation/_snippets/python.mdx
 content/pages/01-reference/installation/_snippets/typescript.mdx
 content/pages/01-reference/installation/_snippets/unity.mdx
 content/pages/01-reference/installation/installation.mdx
+content/pages/01-reference/resources/post_file/_header/curl.mdx
+content/pages/01-reference/resources/post_file/_header/sdk.mdx
 content/pages/01-reference/resources/post_file/_parameters/csharp.mdx
 content/pages/01-reference/resources/post_file/_parameters/go.mdx
 content/pages/01-reference/resources/post_file/_parameters/python.mdx
@@ -136,6 +138,8 @@ content/pages/01-reference/resources/post_file/_usage/python.mdx
 content/pages/01-reference/resources/post_file/_usage/typescript.mdx
 content/pages/01-reference/resources/post_file/_usage/unity.mdx
 content/pages/01-reference/resources/post_file/post_file.mdx
+content/pages/01-reference/resources/tag1/list_test1/_header/curl.mdx
+content/pages/01-reference/resources/tag1/list_test1/_header/sdk.mdx
 content/pages/01-reference/resources/tag1/list_test1/_parameters/csharp.mdx
 content/pages/01-reference/resources/tag1/list_test1/_parameters/go.mdx
 content/pages/01-reference/resources/tag1/list_test1/_parameters/python.mdx
@@ -153,6 +157,8 @@ content/pages/01-reference/resources/tag1/list_test1/_usage/typescript.mdx
 content/pages/01-reference/resources/tag1/list_test1/_usage/unity.mdx
 content/pages/01-reference/resources/tag1/list_test1/list_test1.mdx
 content/pages/01-reference/resources/tag1/tag1.mdx
+content/pages/01-reference/resources/test_group/tag2/post_test/_header/curl.mdx
+content/pages/01-reference/resources/test_group/tag2/post_test/_header/sdk.mdx
 content/pages/01-reference/resources/test_group/tag2/post_test/_parameters/csharp.mdx
 content/pages/01-reference/resources/test_group/tag2/post_test/_parameters/go.mdx
 content/pages/01-reference/resources/test_group/tag2/post_test/_parameters/python.mdx
@@ -170,6 +176,8 @@ content/pages/01-reference/resources/test_group/tag2/post_test/_usage/typescript
 content/pages/01-reference/resources/test_group/tag2/post_test/_usage/unity.mdx
 content/pages/01-reference/resources/test_group/tag2/post_test/post_test.mdx
 content/pages/01-reference/resources/test_group/tag2/tag2.mdx
+content/pages/01-reference/resources/test_group/tag3/post_test/_header/curl.mdx
+content/pages/01-reference/resources/test_group/tag3/post_test/_header/sdk.mdx
 content/pages/01-reference/resources/test_group/tag3/post_test/_parameters/csharp.mdx
 content/pages/01-reference/resources/test_group/tag3/post_test/_parameters/go.mdx
 content/pages/01-reference/resources/test_group/tag3/post_test/_parameters/python.mdx
@@ -191,15 +199,19 @@ content/pages/01-reference/resources/test_group/test_group.mdx
 content/pages/01-reference/installation/_snippets/curl.mdx
 content/pages/01-reference/globals/_snippets/curl.mdx
 content/pages/01-reference/resources/post_file/_parameters/curl.mdx
+content/pages/01-reference/resources/post_file/_authentication/curl.mdx
 content/pages/01-reference/resources/post_file/_response/curl.mdx
 content/pages/01-reference/resources/post_file/_usage/curl.mdx
 content/pages/01-reference/resources/tag1/list_test1/_parameters/curl.mdx
+content/pages/01-reference/resources/tag1/list_test1/_authentication/curl.mdx
 content/pages/01-reference/resources/tag1/list_test1/_response/curl.mdx
 content/pages/01-reference/resources/tag1/list_test1/_usage/curl.mdx
 content/pages/01-reference/resources/test_group/tag2/post_test/_parameters/curl.mdx
+content/pages/01-reference/resources/test_group/tag2/post_test/_authentication/curl.mdx
 content/pages/01-reference/resources/test_group/tag2/post_test/_response/curl.mdx
 content/pages/01-reference/resources/test_group/tag2/post_test/_usage/curl.mdx
 content/pages/01-reference/resources/test_group/tag3/post_test/_parameters/curl.mdx
+content/pages/01-reference/resources/test_group/tag3/post_test/_authentication/curl.mdx
 content/pages/01-reference/resources/test_group/tag3/post_test/_response/curl.mdx
 content/pages/01-reference/resources/test_group/tag3/post_test/_usage/curl.mdx
 content/languages.tsx
@@ -215,7 +227,6 @@ next-env.d.ts
 next.config.js
 package.json
 pnpm-lock.yaml
-sdk-docs-test.iml
 src/components/Buttons/CopyToClipboard/index.tsx
 src/components/Buttons/CopyToClipboard/styles.module.scss
 src/components/Collapsible/index.tsx
@@ -236,8 +247,11 @@ src/components/Logo/index.tsx
 src/components/Logo/styles.module.scss
 src/components/Message/index.tsx
 src/components/Message/styles.module.scss
+src/components/MethodPill/index.tsx
+src/components/MethodPill/styles.module.scss
 src/components/NavItem/index.tsx
 src/components/NavItem/styles.module.scss
+src/components/OperationHeader/index.tsx
 src/components/Parameters/index.tsx
 src/components/Parameters/styles.module.scss
 src/components/Section/section.tsx
@@ -280,6 +294,7 @@ src/icons/languages/java.tsx
 src/icons/languages/python.tsx
 src/icons/languages/typescript.tsx
 src/icons/languages/unity.tsx
+src/lib/labels.ts
 src/styles/background-gradients.scss
 src/styles/codehike-styles.scss
 src/styles/index.scss
@@ -320,6 +335,9 @@ src/.gen/pages/01-reference/installation/_snippets/typescript.mdx
 src/.gen/pages/01-reference/installation/_snippets/unity.mdx
 src/.gen/pages/01-reference/installation/installation.mdx
 src/.gen/pages/01-reference/installation/installation_content.mdx
+src/.gen/pages/01-reference/resources/post_file/_authentication/curl.mdx
+src/.gen/pages/01-reference/resources/post_file/_header/curl.mdx
+src/.gen/pages/01-reference/resources/post_file/_header/sdk.mdx
 src/.gen/pages/01-reference/resources/post_file/_parameters/csharp.mdx
 src/.gen/pages/01-reference/resources/post_file/_parameters/curl.mdx
 src/.gen/pages/01-reference/resources/post_file/_parameters/go.mdx
@@ -340,6 +358,9 @@ src/.gen/pages/01-reference/resources/post_file/_usage/typescript.mdx
 src/.gen/pages/01-reference/resources/post_file/_usage/unity.mdx
 src/.gen/pages/01-reference/resources/post_file/post_file.mdx
 src/.gen/pages/01-reference/resources/post_file/post_file_content.mdx
+src/.gen/pages/01-reference/resources/tag1/list_test1/_authentication/curl.mdx
+src/.gen/pages/01-reference/resources/tag1/list_test1/_header/curl.mdx
+src/.gen/pages/01-reference/resources/tag1/list_test1/_header/sdk.mdx
 src/.gen/pages/01-reference/resources/tag1/list_test1/_parameters/csharp.mdx
 src/.gen/pages/01-reference/resources/tag1/list_test1/_parameters/curl.mdx
 src/.gen/pages/01-reference/resources/tag1/list_test1/_parameters/go.mdx
@@ -362,6 +383,9 @@ src/.gen/pages/01-reference/resources/tag1/list_test1/list_test1.mdx
 src/.gen/pages/01-reference/resources/tag1/list_test1/list_test1_content.mdx
 src/.gen/pages/01-reference/resources/tag1/tag1.mdx
 src/.gen/pages/01-reference/resources/tag1/tag1_content.mdx
+src/.gen/pages/01-reference/resources/test_group/tag2/post_test/_authentication/curl.mdx
+src/.gen/pages/01-reference/resources/test_group/tag2/post_test/_header/curl.mdx
+src/.gen/pages/01-reference/resources/test_group/tag2/post_test/_header/sdk.mdx
 src/.gen/pages/01-reference/resources/test_group/tag2/post_test/_parameters/csharp.mdx
 src/.gen/pages/01-reference/resources/test_group/tag2/post_test/_parameters/curl.mdx
 src/.gen/pages/01-reference/resources/test_group/tag2/post_test/_parameters/go.mdx
@@ -384,6 +408,9 @@ src/.gen/pages/01-reference/resources/test_group/tag2/post_test/post_test.mdx
 src/.gen/pages/01-reference/resources/test_group/tag2/post_test/post_test_content.mdx
 src/.gen/pages/01-reference/resources/test_group/tag2/tag2.mdx
 src/.gen/pages/01-reference/resources/test_group/tag2/tag2_content.mdx
+src/.gen/pages/01-reference/resources/test_group/tag3/post_test/_authentication/curl.mdx
+src/.gen/pages/01-reference/resources/test_group/tag3/post_test/_header/curl.mdx
+src/.gen/pages/01-reference/resources/test_group/tag3/post_test/_header/sdk.mdx
 src/.gen/pages/01-reference/resources/test_group/tag3/post_test/_parameters/csharp.mdx
 src/.gen/pages/01-reference/resources/test_group/tag3/post_test/_parameters/curl.mdx
 src/.gen/pages/01-reference/resources/test_group/tag3/post_test/_parameters/go.mdx

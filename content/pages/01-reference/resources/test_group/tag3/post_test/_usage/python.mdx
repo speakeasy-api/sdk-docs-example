@@ -44,7 +44,7 @@ req = shared.Test2Request(
     type=shared.Type.SUPER_TYPE1,
 )
 
-res = s.post_test(req)
+res = s.test_group.tag3.post_test(req)
 
 if res.body is not None:
     # handle response

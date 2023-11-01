@@ -16,7 +16,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.PostTest(ctx, &shared.Test2Request{
+    res, err := s.TestGroup.Tag3.PostTest(ctx, &shared.Test2Request{
         Obj: &shared.ExhaustiveObject{
             Any: shared.CreateAnyStr(
             "string",

@@ -11,7 +11,7 @@ const page: number = 100;
 const queryParam1: string = "some example query param";
 const operationSecurity: ListTest1Security = "<YOUR_API_KEY>";
 
-  const res = await sdk.listTest1(operationSecurity, headerParam1, page, queryParam1);
+  const res = await sdk.tag1.listTest1(operationSecurity, headerParam1, page, queryParam1);
 
 
   if (res.statusCode == 200) {
