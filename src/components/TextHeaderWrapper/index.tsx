@@ -22,9 +22,9 @@ interface IHeaderProps {
 }
 
 const TextHeaderWrapper: FC<IHeaderProps> = ({
-                                               headingType,
-                                               children = '',
-                                             }) => {
+  headingType,
+  children = '',
+}) => {
   const route = useContext(RouteContext);
   const scrollContext = useContext(ScrollContext);
 

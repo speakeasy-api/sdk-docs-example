@@ -7,7 +7,11 @@ import React, {
 } from 'react';
 
 import { Columns, RHS } from '@/src/components/Columns';
-import { Authentication, Parameters, Response } from '@/src/components/Parameters';
+import {
+  Authentication,
+  Parameters,
+  Response,
+} from '@/src/components/Parameters';
 import { LanguageContext } from '@/src/utils/contexts/languageContext';
 import { LinkableContext } from '@/src/utils/contexts/linkableContext';
 
@@ -50,7 +54,9 @@ export const LanguageOperation = (props: {
   response: ReactElement;
 }) => (
   <Columns>
-    {props.authentication ? <Authentication>{props.authentication}</Authentication> : null}
+    {props.authentication ? (
+      <Authentication>{props.authentication}</Authentication>
+    ) : null}
     <Parameters>{props.parameters}</Parameters>
     <Response>{props.response}</Response>
     <RHS>{props.usage}</RHS>

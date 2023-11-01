@@ -1,11 +1,11 @@
-import React, { FC, ReactElement, ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 
 import { splitByType } from '@/src/components/typeHelpers';
 
 import styles from './styles.module.scss';
 
 interface IColumns {
-  children: ReactElement[] | ReactElement | undefined;
+  children: ReactNode;
 }
 
 export const Columns: FC<IColumns> & { RHS: typeof RHS } = ({ children }) => {

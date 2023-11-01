@@ -6,7 +6,7 @@ generation:
   telemetryEnabled: false
 features:
   docs:
-    core: 1.2.0
+    core: 1.2.1
     errors: 0.1.0
     examples: 0.1.1
     globalSecurity: 0.1.0

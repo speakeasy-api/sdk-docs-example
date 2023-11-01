@@ -82,7 +82,7 @@ const Collapsible = (props: Props) => {
       ContentComponent
         ? [<ContentComponent key='dynamicContentComponent' />]
         : [],
-    [ContentComponent]
+    [ContentComponent],
   );
 
   const existingChildren = props.children ? props.children : [];

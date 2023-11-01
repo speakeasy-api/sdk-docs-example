@@ -33,7 +33,6 @@
     }
   },
   "parserOptions": {
-    "project": "./tsconfig.json",
     "tsconfigRootDir": "./",
     "sourceType": "module",
     "ecmaVersion": 2019
