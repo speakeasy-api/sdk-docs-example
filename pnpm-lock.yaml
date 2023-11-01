@@ -71,9 +71,6 @@ dependencies:
   sass:
     specifier: 1.69.4
     version: 1.69.4
-  typescript-require:
-    specifier: 0.3.0
-    version: 0.3.0
 
 devDependencies:
   '@commitlint/cli':

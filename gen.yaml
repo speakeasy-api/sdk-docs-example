@@ -6,7 +6,7 @@ generation:
   telemetryEnabled: false
 features:
   docs:
-    core: 0.25.0
+    core: 1.2.0
     errors: 0.1.0
     examples: 0.1.1
     globalSecurity: 0.1.0
@@ -15,6 +15,7 @@ features:
     serverIDs: 0.1.0
 docs:
   version: ""
+  packageName: speakeasy-sdk-docs
 go:
   version: 0.0.1
   flattenGlobalSecurity: true

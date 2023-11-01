@@ -1,8 +1,8 @@
 ```python ListIngredients.py
-import sdk
-from sdk.models import operations, shared
+import speakeasybar
+from speakeasybar.models import operations, shared
 
-s = sdk.SDK(
+s = speakeasybar.Speakeasybar(
     api_key="",
 )
 
@@ -11,7 +11,7 @@ res = s.ingredients.list_ingredients(ingredients=[
     'string',
 ])
 
-if res.ingredients is not None:
+if res.classes is not None:
     # handle response
     pass
 ```

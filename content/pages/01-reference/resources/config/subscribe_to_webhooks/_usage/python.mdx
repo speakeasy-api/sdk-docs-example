@@ -1,13 +1,13 @@
 ```python SubscribeToWebhooks.py
-import sdk
-from sdk.models import operations, shared
+import speakeasybar
+from speakeasybar.models import operations, shared
 
-s = sdk.SDK(
+s = speakeasybar.Speakeasybar(
     api_key="",
 )
 
 req = [
-    operations.SubscribeToWebhooksRequestBody(),
+    operations.RequestBody(),
 ]
 
 res = s.config.subscribe_to_webhooks(req)

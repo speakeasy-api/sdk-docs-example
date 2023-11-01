@@ -49,6 +49,10 @@
       @include generatePxToRem(margin, -12, !important);
     }
 
+    > p:not(:last-child) {
+      @include generatePxToRem('margin', 10 0 10 0, !important);
+    }
+
     & > *:last-child {
       @include desktopMin1400 {
         margin-bottom: 3px;

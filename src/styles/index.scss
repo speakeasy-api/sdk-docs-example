@@ -35,6 +35,8 @@
   --gradient-heading: linear-gradient(45deg, var(--primary-color) 20%, var(--secondary-color));
   --heading-sidebar-bg-color: var(--primary-color);
 
+  --method-pill-bg-color: #EAEAEE;
+
   --stroke-opacity: 1;
 
   &.dark {
@@ -62,6 +64,8 @@
     --text-emphasis: #{primary-color($lightness: 1.65)};
 
     --gradient-heading: linear-gradient(45deg, var(--primary-color) 20%, var(--secondary-color));
+
+    --method-pill-bg-color: #414142;
 
     --stroke-opacity: 0.87;
   }
