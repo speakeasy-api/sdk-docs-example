@@ -4,19 +4,19 @@ package main
 import(
 	"context"
 	"log"
-	"openapi"
-	"openapi/pkg/models/shared"
-	"openapi/pkg/models/operations"
+	templatesdk "github.com/speakeasy-sdks/template-sdk"
+	"github.com/speakeasy-sdks/template-sdk/pkg/models/shared"
+	"github.com/speakeasy-sdks/template-sdk/pkg/models/operations"
 )
 
 func main() {
-    s := openapi.New(
-        openapi.WithSecurity(""),
+    s := templatesdk.New(
+        templatesdk.WithSecurity(""),
     )
 
     ctx := context.Background()
-    res, err := s.Config.SubscribeToWebhooks(ctx, []operations.SubscribeToWebhooksRequestBody{
-        operations.SubscribeToWebhooksRequestBody{},
+    res, err := s.Config.SubscribeToWebhooks(ctx, []operations.RequestBody{
+        operations.RequestBody{},
     })
     if err != nil {
         log.Fatal(err)

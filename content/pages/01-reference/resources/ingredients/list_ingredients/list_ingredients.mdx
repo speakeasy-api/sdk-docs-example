@@ -1,7 +1,12 @@
+import CurlHeader from './_header/curl.mdx';
+import SDKHeader from './_header/sdk.mdx';
+import OperationHeader from '/src/components/OperationHeader';
+
 ###### *ingredients*
 
-## List Ingredients
-
-Get a list of ingredients, if authenticated this will include stock levels and product codes otherwise it will only include public information.
+<OperationHeader
+  sdkHeader={<SDKHeader />}
+  curlHeader={<CurlHeader />}
+/>
 
 {/* render operation */}

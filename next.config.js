@@ -21,7 +21,7 @@ module.exports = withPlugins([], {
     importer: jsonImporter(),
   },
   ...withNextra({
-    // output: 'export',
+    output: 'export',
     distDir: 'out',
     images: {
       unoptimized: true,

@@ -1,10 +1,10 @@
 ```typescript ListDrinks.ts
-import { SDK } from "openapi";
-import { ListDrinksRequest } from "openapi/dist/sdk/models/operations";
-import { DrinkType } from "openapi/dist/sdk/models/shared";
+import { Speakeasybar } from "speakeasybar";
+import { ListDrinksRequest } from "speakeasybar/dist/sdk/models/operations";
+import { DrinkType } from "speakeasybar/dist/sdk/models/shared";
 
 (async() => {
-  const sdk = new SDK({
+  const sdk = new Speakeasybar({
     apiKey: "",
   });
 const drinkType: DrinkType = DrinkType.Wine;
