@@ -15,6 +15,7 @@ features:
     serverIDs: 0.1.0
 docs:
   version: ""
+  packageName: speakeasy-sdk-docs
 go:
   version: 0.0.1
   flattenGlobalSecurity: true
