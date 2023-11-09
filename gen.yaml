@@ -6,7 +6,7 @@ generation:
     optionalPropertyRendering: withExample
 features:
   docs:
-    core: 1.2.3
+    core: 1.2.4
     errors: 0.1.0
     examples: 0.1.1
     globalSecurity: 0.1.0
