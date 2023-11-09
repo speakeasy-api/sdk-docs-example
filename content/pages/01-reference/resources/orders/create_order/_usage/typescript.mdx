@@ -1,14 +1,14 @@
 ```typescript CreateOrder.ts
 import { Speakeasybar } from "speakeasybar";
-import { CreateOrderOrderUpdateRequestBody, CreateOrderOrderUpdateResponse } from "speakeasybar/dist/sdk/models/callbacks";
-import { CreateOrderRequest } from "speakeasybar/dist/sdk/models/operations";
-import { APIError, ErrorT, OrderInput, OrderType } from "speakeasybar/dist/sdk/models/shared";
+import { CreateOrderOrderUpdateRequestBody, CreateOrderOrderUpdateResponse } from "speakeasybar/dist/models/callbacks";
+import { ErrorT, OrderInput, OrderType } from "speakeasybar/dist/models/components";
+import { CreateOrderRequest } from "speakeasybar/dist/models/operations";
 
 (async() => {
   const sdk = new Speakeasybar({
     apiKey: "",
   });
-const requestBody: shared.OrderInput[] = [
+const requestBody: OrderInput[] = [
   {
     productCode: "NAC-3F2D1",
     quantity: 715190,
@@ -18,7 +18,6 @@ const requestBody: shared.OrderInput[] = [
 const callbackUrl: string = "string";
 
   const res = await sdk.orders.createOrder(requestBody, callbackUrl);
-
 
   if (res.statusCode == 200) {
     // handle response

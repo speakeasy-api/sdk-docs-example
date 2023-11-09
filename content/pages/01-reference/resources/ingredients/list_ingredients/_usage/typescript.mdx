@@ -1,6 +1,6 @@
 ```typescript ListIngredients.ts
 import { Speakeasybar } from "speakeasybar";
-import { ListIngredientsRequest } from "speakeasybar/dist/sdk/models/operations";
+import { ListIngredientsRequest } from "speakeasybar/dist/models/operations";
 
 (async() => {
   const sdk = new Speakeasybar({
@@ -11,7 +11,6 @@ const ingredients: string[] = [
 ];
 
   const res = await sdk.ingredients.listIngredients(ingredients);
-
 
   if (res.statusCode == 200) {
     // handle response

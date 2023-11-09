@@ -5,8 +5,7 @@ import(
 	"context"
 	"log"
 	templatesdk "github.com/speakeasy-sdks/template-sdk"
-	"github.com/speakeasy-sdks/template-sdk/pkg/models/shared"
-	"github.com/speakeasy-sdks/template-sdk/pkg/models/callbacks"
+	"github.com/speakeasy-sdks/template-sdk/models/components"
 )
 
 func main() {
@@ -15,11 +14,11 @@ func main() {
     )
 
 
-    requestBody := []shared.OrderInput{
-        shared.OrderInput{
+    requestBody := []components.OrderInput{
+        components.OrderInput{
             ProductCode: "NAC-3F2D1",
             Quantity: 715190,
-            Type: shared.OrderTypeIngredient,
+            Type: components.OrderTypeIngredient,
         },
     }
 

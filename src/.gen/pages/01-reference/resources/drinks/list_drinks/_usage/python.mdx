@@ -1,13 +1,13 @@
 ```python ListDrinks.py
 import speakeasybar
-from speakeasybar.models import operations, shared
+from speakeasybar.models import components, operations
 
 s = speakeasybar.Speakeasybar(
     api_key="",
 )
 
 
-res = s.drinks.list_drinks(drink_type=shared.DrinkType.WINE)
+res = s.drinks.list_drinks(drink_type=components.DrinkType.WINE)
 
 if res.classes is not None:
     # handle response

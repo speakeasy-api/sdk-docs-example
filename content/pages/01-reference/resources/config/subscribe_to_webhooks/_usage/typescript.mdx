@@ -1,6 +1,6 @@
 ```typescript SubscribeToWebhooks.ts
 import { Speakeasybar } from "speakeasybar";
-import { Webhook } from "speakeasybar/dist/sdk/models/operations";
+import { Webhook } from "speakeasybar/dist/models/operations";
 
 (async() => {
   const sdk = new Speakeasybar({
@@ -10,7 +10,6 @@ import { Webhook } from "speakeasybar/dist/sdk/models/operations";
   const res = await sdk.config.subscribeToWebhooks([
     {},
   ]);
-
 
   if (res.statusCode == 200) {
     // handle response

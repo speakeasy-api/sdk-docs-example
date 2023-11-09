@@ -1,6 +1,6 @@
 ```python CreateOrder.py
 import speakeasybar
-from speakeasybar.models import callbacks, operations, shared
+from speakeasybar.models import callbacks, components, operations
 
 s = speakeasybar.Speakeasybar(
     api_key="",
@@ -8,10 +8,10 @@ s = speakeasybar.Speakeasybar(
 
 
 res = s.orders.create_order(request_body=[
-    shared.OrderInput(
+    components.OrderInput(
         product_code='NAC-3F2D1',
         quantity=715190,
-        type=shared.OrderType.INGREDIENT,
+        type=components.OrderType.INGREDIENT,
     ),
 ], callback_url='string')
 

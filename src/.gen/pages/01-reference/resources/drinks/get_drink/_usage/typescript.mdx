@@ -1,6 +1,6 @@
 ```typescript GetDrink.ts
 import { Speakeasybar } from "speakeasybar";
-import { GetDrinkRequest } from "speakeasybar/dist/sdk/models/operations";
+import { GetDrinkRequest } from "speakeasybar/dist/models/operations";
 
 (async() => {
   const sdk = new Speakeasybar({
@@ -9,7 +9,6 @@ import { GetDrinkRequest } from "speakeasybar/dist/sdk/models/operations";
 const name: string = "string";
 
   const res = await sdk.drinks.getDrink(name);
-
 
   if (res.statusCode == 200) {
     // handle response

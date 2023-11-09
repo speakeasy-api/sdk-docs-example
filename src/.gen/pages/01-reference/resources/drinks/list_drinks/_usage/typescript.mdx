@@ -1,7 +1,7 @@
 ```typescript ListDrinks.ts
 import { Speakeasybar } from "speakeasybar";
-import { ListDrinksRequest } from "speakeasybar/dist/sdk/models/operations";
-import { DrinkType } from "speakeasybar/dist/sdk/models/shared";
+import { DrinkType } from "speakeasybar/dist/models/components";
+import { ListDrinksRequest } from "speakeasybar/dist/models/operations";
 
 (async() => {
   const sdk = new Speakeasybar({
@@ -10,7 +10,6 @@ import { DrinkType } from "speakeasybar/dist/sdk/models/shared";
 const drinkType: DrinkType = DrinkType.Wine;
 
   const res = await sdk.drinks.listDrinks(drinkType);
-
 
   if (res.statusCode == 200) {
     // handle response

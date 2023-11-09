@@ -13,9 +13,6 @@
   "authentication": {
     "title": "Authentication"
   },
-  "config": {
-    "title": "Config"
-  },
   "drinks": {
     "title": "Drinks"
   },
@@ -24,5 +21,8 @@
   },
   "orders": {
     "title": "Orders"
+  },
+  "config": {
+    "title": "Config"
   }
 }
