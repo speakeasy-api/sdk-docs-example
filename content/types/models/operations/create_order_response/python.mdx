@@ -6,6 +6,12 @@ import Labels from "/src/lib/labels";
 HTTP response content type for this operation
 
 ---
+##### `error` *{`Optional[components.Error]`}*
+An unknown error occurred interacting with the API.
+<Collapsible content={() => import('/content/types/models/components/error/python.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
+</Collapsible>
+
+---
 ##### `order` *{`Optional[components.Order]`}*
 The order was created successfully.
 <Collapsible content={() => import('/content/types/models/components/order/python.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
@@ -18,11 +24,5 @@ HTTP response status code for this operation
 ---
 ##### `raw_response` [*{ `requests.Response` }*](https://requests.readthedocs.io/en/latest/api/#requests.Response)
 Raw HTTP response; suitable for custom response parsing
-
----
-##### `unknown_error` *{`Optional[components.UnknownError]`}*
-An unknown error occurred interacting with the API.
-<Collapsible content={() => import('/content/types/models/components/unknown_error/python.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
-</Collapsible>
 
 

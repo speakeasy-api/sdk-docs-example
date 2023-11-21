@@ -12,17 +12,17 @@ A drink.
 </Collapsible>
 
 ---
+##### `error?`: *{`components.ErrorT`}*
+An unknown error occurred interacting with the API.
+<Collapsible content={() => import('/content/types/models/components/error_t/typescript.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
+</Collapsible>
+
+---
 ##### `statusCode`: *{`number`}*
 HTTP response status code for this operation
 
 ---
 ##### `rawResponse`: [*{ `AxiosResponse` }*](https://axios-http.com/docs/res_schema)
 Raw HTTP response; suitable for custom response parsing
-
----
-##### `unknownError?`: *{`components.UnknownError`}*
-An unknown error occurred interacting with the API.
-<Collapsible content={() => import('/content/types/models/components/unknown_error/typescript.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
-</Collapsible>
 
 
