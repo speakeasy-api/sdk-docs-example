@@ -1,11 +1,16 @@
-```go CreateOrder.go
-package main
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```go CreateOrder.go
+  package main
 
 import(
+	"github.com/speakeasy-sdks/template-sdk/models/components"
+	templatesdk "github.com/speakeasy-sdks/template-sdk"
 	"context"
 	"log"
-	templatesdk "github.com/speakeasy-sdks/template-sdk"
-	"github.com/speakeasy-sdks/template-sdk/models/components"
 )
 
 func main() {
@@ -34,4 +39,15 @@ func main() {
         // handle response
     }
 }
-```
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "details": {},
+    "message": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

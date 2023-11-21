@@ -51,10 +51,6 @@ tags:
 
 paths:
 
-  x-speakeasy-errors:
-    statusCodes: # Defines status codes to handle as errors for all operations
-      - 4XX # Wildcard to handle all status codes in the 400-499 range
-      - 5XX
   /authenticate:
     post:
       operationId: authenticate
@@ -302,7 +298,7 @@ components:
         details:
           type: object
           additionalProperties: true
-    Error:
+    UnknownError:
       type: object
       properties:
         code:
@@ -442,4 +438,4 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Error"
+            $ref: "#/components/schemas/UnknownError"

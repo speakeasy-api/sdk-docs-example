@@ -1,5 +1,5 @@
 generate:
-	speakeasy docs generate -s openapi.yaml -o ./ --langs python,typescript,go --compile
+	speakeasy docs generate -s openapi.yaml -o ./ --langs python,typescript,go,curl --compile
 
 migrate-changes:
 	cp -rf src/components/* ../openapi-generation/templates/templates/docs/auxiliary/src/components/

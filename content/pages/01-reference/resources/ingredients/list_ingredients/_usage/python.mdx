@@ -1,5 +1,10 @@
-```python ListIngredients.py
-import speakeasybar
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```python ListIngredients.py
+  import speakeasybar
 from speakeasybar.models import operations
 
 s = speakeasybar.Speakeasybar(
@@ -14,4 +19,15 @@ res = s.ingredients.list_ingredients(ingredients=[
 if res.classes is not None:
     # handle response
     pass
-```
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "details": {},
+    "message": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

@@ -1,12 +1,12 @@
-import React, { FC, useContext, useState } from 'react';
 import { ClickEvent, Menu, MenuButton, MenuItem } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/slide.css';
 import cn from 'classnames';
+import { FC, useContext, useState } from 'react';
 
+import { languageData } from '@/src/lib/languageData';
 import { LanguageContext } from '@/src/utils/contexts/languageContext';
 
-import { languageData } from './data';
 import styles from './styles.module.scss';
 
 interface ILanguageSelector {

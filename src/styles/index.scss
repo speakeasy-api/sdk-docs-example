@@ -37,6 +37,11 @@
 
   --method-pill-bg-color: #EAEAEE;
 
+  --status-color-informative: #DAD6CB;
+  --status-color-success: #A8E858;
+  --status-color-redirect: #FFC737;
+  --status-color-error: #FF756C;
+
   --stroke-opacity: 1;
 
   &.dark {
@@ -66,6 +71,11 @@
     --gradient-heading: linear-gradient(45deg, var(--primary-color) 20%, var(--secondary-color));
 
     --method-pill-bg-color: #414142;
+
+    --status-color-informative: #5F5C50;
+    --status-color-success: #71CC47;
+    --status-color-redirect: #C59D39;
+    --status-color-error: #CD4138;
 
     --stroke-opacity: 0.87;
   }

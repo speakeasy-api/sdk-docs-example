@@ -1,12 +1,18 @@
-```go SubscribeToWebhooks.go
-package main
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```go SubscribeToWebhooks.go
+  package main
 
 import(
-	"context"
-	"log"
-	templatesdk "github.com/speakeasy-sdks/template-sdk"
 	"github.com/speakeasy-sdks/template-sdk/models/components"
+	templatesdk "github.com/speakeasy-sdks/template-sdk"
+	"context"
 	"github.com/speakeasy-sdks/template-sdk/models/operations"
+	"log"
+	"net/http"
 )
 
 func main() {
@@ -26,4 +32,15 @@ func main() {
         // handle response
     }
 }
-```
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "details": {},
+    "message": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

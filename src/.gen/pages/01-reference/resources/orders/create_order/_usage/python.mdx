@@ -1,5 +1,10 @@
-```python CreateOrder.py
-import speakeasybar
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```python CreateOrder.py
+  import speakeasybar
 from speakeasybar.models import callbacks, components, operations
 
 s = speakeasybar.Speakeasybar(
@@ -18,4 +23,15 @@ res = s.orders.create_order(request_body=[
 if res.order is not None:
     # handle response
     pass
-```
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "details": {},
+    "message": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

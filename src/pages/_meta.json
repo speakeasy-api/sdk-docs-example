@@ -3,6 +3,9 @@
     "title": "Guides",
     "type": "separator"
   },
+  "client_sdks": {
+    "title": "Client SDKs"
+  },
   "installation": {
     "title": "Installation"
   },

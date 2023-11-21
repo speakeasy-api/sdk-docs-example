@@ -6,11 +6,10 @@ generation:
     optionalPropertyRendering: withExample
 features:
   docs:
-    core: 1.2.4
-    errors: 0.1.0
+    core: 1.6.0
     examples: 0.1.1
     globalSecurity: 0.1.0
-    globalServerURLs: 0.1.0
+    globalServerURLs: 0.1.1
     inputOutputModels: 0.2.0
     serverIDs: 0.1.0
 docs:

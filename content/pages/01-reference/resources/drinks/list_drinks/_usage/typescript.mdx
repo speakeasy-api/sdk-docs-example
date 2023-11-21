@@ -1,5 +1,10 @@
-```typescript ListDrinks.ts
-import { Speakeasybar } from "speakeasybar";
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```typescript ListDrinks.ts
+  import { Speakeasybar } from "speakeasybar";
 import { DrinkType } from "speakeasybar/dist/models/components";
 import { ListDrinksRequest } from "speakeasybar/dist/models/operations";
 
@@ -15,4 +20,15 @@ const drinkType: DrinkType = DrinkType.Wine;
     // handle response
   }
 })();
-```
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "details": {},
+    "message": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

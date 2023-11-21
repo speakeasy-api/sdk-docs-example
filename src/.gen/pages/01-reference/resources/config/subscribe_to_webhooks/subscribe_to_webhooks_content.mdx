@@ -2,7 +2,7 @@ import CurlHeader from './_header/curl.mdx';
 import SDKHeader from './_header/sdk.mdx';
 import OperationHeader from '/src/components/OperationHeader';
 
-###### *config*
+###### *Config*
 
 <OperationHeader
   sdkHeader={<SDKHeader />}
@@ -22,12 +22,17 @@ import TypescriptUsage from "./_usage/typescript.mdx";
 import GoParameters from "./_parameters/go.mdx";
 import GoResponse from "./_response/go.mdx";
 import GoUsage from "./_usage/go.mdx";
+import CurlAuthentication from "./_authentication/curl.mdx";
+import CurlParameters from "./_parameters/curl.mdx";
+import CurlResponse from "./_response/curl.mdx";
+import CurlUsage from "./_usage/curl.mdx";
 
 export const Operation = () => {
     const python = <LanguageOperation  parameters={<PythonParameters/>} response={<PythonResponse/>} usage={<PythonUsage/>}/>
     const typescript = <LanguageOperation  parameters={<TypescriptParameters/>} response={<TypescriptResponse/>} usage={<TypescriptUsage/>}/>
     const go = <LanguageOperation  parameters={<GoParameters/>} response={<GoResponse/>} usage={<GoUsage/>}/>
-    return <LanguageSwitch langToContent={{python, typescript, go}}/>
+    const curl = <LanguageOperation authentication={<CurlAuthentication/>} parameters={<CurlParameters/>} response={<CurlResponse/>} usage={<CurlUsage/>}/>
+    return <LanguageSwitch langToContent={{python, typescript, go, curl}}/>
 }
 
 <Operation />

@@ -1,5 +1,10 @@
-```typescript Authenticate.ts
-import { Speakeasybar } from "speakeasybar";
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```typescript Authenticate.ts
+  import { Speakeasybar } from "speakeasybar";
 
 (async() => {
   const sdk = new Speakeasybar({
@@ -12,4 +17,15 @@ import { Speakeasybar } from "speakeasybar";
     // handle response
   }
 })();
-```
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "details": {},
+    "message": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>
