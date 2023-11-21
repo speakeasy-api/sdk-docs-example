@@ -40,7 +40,7 @@ go:
   inputModelSuffix: input
   maxMethodParams: 4
   outputModelSuffix: output
-  packageName: github.com/speakeasy-sdks/template-sdk
+  packageName: github.com/speakeasy-sdks/template-speakeasy-bar
 python:
   version: 0.0.1
   author: Speakeasy
@@ -56,9 +56,11 @@ python:
       shared: models/components
       webhooks: models/webhooks
   inputModelSuffix: input
+  installationURL: speakeasy-bar
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: speakeasybar
+  published: true
 typescript:
   version: 0.0.1
   author: Speakeasy
@@ -73,6 +75,7 @@ typescript:
       shared: models/components
       webhooks: models/webhooks
   inputModelSuffix: input
+  installationURL: speakeasy-bar
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: speakeasybar

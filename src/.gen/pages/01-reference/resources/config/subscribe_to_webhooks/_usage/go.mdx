@@ -7,17 +7,17 @@ import WithStatusBar from '@/src/components/WithStatusBar';
   package main
 
 import(
-	"github.com/speakeasy-sdks/template-sdk/models/components"
-	templatesdk "github.com/speakeasy-sdks/template-sdk"
+	"github.com/speakeasy-sdks/template-speakeasy-bar/models/components"
+	templatespeakeasybar "github.com/speakeasy-sdks/template-speakeasy-bar"
 	"context"
-	"github.com/speakeasy-sdks/template-sdk/models/operations"
+	"github.com/speakeasy-sdks/template-speakeasy-bar/models/operations"
 	"log"
 	"net/http"
 )
 
 func main() {
-    s := templatesdk.New(
-        templatesdk.WithSecurity(""),
+    s := templatespeakeasybar.New(
+        templatespeakeasybar.WithSecurity(""),
     )
 
     ctx := context.Background()
