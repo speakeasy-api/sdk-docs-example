@@ -9,7 +9,7 @@ export const Authentication = (props: { children: ReactNode }) => (
   <>
     <div className={styles.parameterHeading}>
       <H3>Authentication</H3>
-      <LanguageSelector style={'icon'} />
+      {/* No language selector because this is only used for curl */}
     </div>
     <div className={styles.parameters}>{props.children}</div>
   </>
@@ -19,7 +19,9 @@ export const Parameters = (props: { children: ReactNode }) => (
   <>
     <div className={styles.parameterHeading}>
       <H3>Parameters</H3>
-      <LanguageSelector style={'icon'} />
+      <div className={styles.languageSelector}>
+        <LanguageSelector />
+      </div>
     </div>
     <div className={styles.parameters}>{props.children}</div>
   </>
@@ -29,7 +31,9 @@ export const Response = (props: { children: ReactNode }) => (
   <>
     <div className={styles.parameterHeading}>
       <H3>Response</H3>
-      <LanguageSelector style={'icon'} />
+      <div className={styles.languageSelector}>
+        <LanguageSelector />
+      </div>
     </div>
     <div className={styles.parameters}>{props.children}</div>
   </>

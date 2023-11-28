@@ -35,7 +35,12 @@
   --gradient-heading: linear-gradient(45deg, var(--primary-color) 20%, var(--secondary-color));
   --heading-sidebar-bg-color: var(--primary-color);
 
-  --method-pill-bg-color: #EAEAEE;
+  --lang-selector-primary-color: #000;
+  --lang-selector-icon-color: #767676;
+  --lang-selector-item-color: #767676;
+  --lang-selector-item-hover-background-color: rgba(0, 0, 0, 0.05);
+
+  --method-pill-bg-color: rgba(0, 0, 0, 0.08);
 
   --status-color-informative: #DAD6CB;
   --status-color-success: #A8E858;
@@ -70,7 +75,12 @@
 
     --gradient-heading: linear-gradient(45deg, var(--primary-color) 20%, var(--secondary-color));
 
-    --method-pill-bg-color: #414142;
+    --lang-selector-primary-color: #fff;
+    --lang-selector-icon-color: #fff;
+    --lang-selector-item-color: #fff;
+    --lang-selector-item-hover-background-color: rgba(255, 255, 255, 0.05);
+
+    --method-pill-bg-color: rgba(255, 255, 255, 0.08);
 
     --status-color-informative: #5F5C50;
     --status-color-success: #71CC47;

@@ -1,6 +1,7 @@
-import MethodPill from '/src/components/MethodPill';
+import OperationInfo from '/src/components/OperationInfo';
 
-<MethodPill method="get" />
-## /drink/{'{'}name{'}'}
+## Get Drink
+
+<OperationInfo method='get' path='/drink/{name}' />
 
 Get a drink by name, if authenticated this will include stock levels and product codes otherwise it will only include public information.

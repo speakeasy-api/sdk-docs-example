@@ -1,10 +1,10 @@
-import React, { FC, useEffect, useState } from 'react';
-import Switch from 'react-switch';
 import { useTheme } from 'next-themes';
+import { FC, useEffect, useState } from 'react';
+import Switch from 'react-switch';
 
+import LanguageSelector from '@/src/components/LanguageSelector';
 import Moon from '@/src/icons/Moon';
 import Sun from '@/src/icons/Sun';
-import LanguageSelector from '@/src/components/LanguageSelector';
 
 import styles from './styles.module.scss';
 
@@ -38,7 +38,7 @@ const ThemeToggle: FC = () => {
 
   return (
     <>
-      <LanguageSelector style={'icon'} />
+      <LanguageSelector showIcon={true} />
       <div className={styles.toggle}>
         <label htmlFor='switch'>
           <span>Light</span>

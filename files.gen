@@ -265,6 +265,8 @@ src/components/MethodPill/styles.module.scss
 src/components/NavItem/index.tsx
 src/components/NavItem/styles.module.scss
 src/components/OperationHeader/index.tsx
+src/components/OperationInfo/index.tsx
+src/components/OperationInfo/styles.module.scss
 src/components/Parameters/index.tsx
 src/components/Parameters/styles.module.scss
 src/components/SDKPicker/index.tsx
@@ -279,6 +281,8 @@ src/components/TextHeaderWrapper/index.tsx
 src/components/TextHeaderWrapper/styles.module.scss
 src/components/ThemeToggle/index.tsx
 src/components/ThemeToggle/styles.module.scss
+src/components/Watermark/index.tsx
+src/components/Watermark/styles.module.scss
 src/components/WithStatusBar/index.tsx
 src/components/WithStatusBar/styles.module.scss
 src/components/head.tsx
@@ -333,6 +337,7 @@ src/utils/theme.ts
 src/utils/themeLoader.js
 theme.config.tsx
 tsconfig.json
+Makefile
 src/pages/404.mdx
 src/pages/[...rest].mdx
 src/pages/index.mdx

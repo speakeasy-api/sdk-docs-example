@@ -1,6 +1,6 @@
 {
   "name": "speakeasy-sdk-docs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Nextra docs template",
   "private": true,
   "scripts": {
@@ -37,7 +37,6 @@
     "@code-hike/mdx": "^0.10.0-next.1",
     "@mdx-js/react": "^2.3.0",
     "@orama/plugin-nextra": "^1.2.3",
-    "@szhsin/react-menu": "4.1.0",
     "@types/lodash": "4.14.199",
     "chroma-js": "2.4.2",
     "classnames": "2.3.2",

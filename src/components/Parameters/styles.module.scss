@@ -1,10 +1,14 @@
 @import '../../styles/utils/mixins';
 
 .parameterHeading {
-  @include flex(row);
+  @include flex(row, left, center);
 
   h3 {
-    @include generatePxToRem('margin-right', 6);
+    @include generatePxToRem(margin-right, 6);
+  }
+
+  .languageSelector {
+    @include generatePxToRem(margin-top, 3);
   }
 }
 

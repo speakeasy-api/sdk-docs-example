@@ -11,5 +11,5 @@
   border-radius: 4px;
   margin-bottom: 20px;
   display: inline-block;
-  @include generatePxToRem('margin-bottom', 12);
+  @include generatePxToRem('height', 26);
 }

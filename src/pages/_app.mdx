@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import { ScrollManager, MultiPageContext } from 'src/components/scrollManager';
 import { LanguageProvider } from '@/content/languages';
+import Watermark from 'src/components/Watermark';
 
 import '@/src/styles/index.scss';
 import "@code-hike/mdx/dist/index.css";
@@ -27,6 +28,7 @@ export default function App(props) {
           <Component {...pageProps} />
         </LanguageProvider>
       </ScrollManager>
+      <Watermark />
     </MultiPageContext.Provider>
   )
 }
