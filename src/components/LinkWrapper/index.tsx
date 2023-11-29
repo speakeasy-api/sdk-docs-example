@@ -16,7 +16,7 @@ interface ILinkWrapper {
 const LinkWrapper: FC<ILinkWrapper> = ({ children, href = '/' }) => {
   const { scrollTo } = useContext(ScrollContext);
   const isInternalLink = checkIsLinkInternal(href);
-  const handleInternalClick = (e) => {
+  const handleInternalClick = (e: any) => {
     e.preventDefault();
     scrollTo(href);
   };
@@ -34,4 +34,3 @@ const LinkWrapper: FC<ILinkWrapper> = ({ children, href = '/' }) => {
 };
 
 export default LinkWrapper;
-
