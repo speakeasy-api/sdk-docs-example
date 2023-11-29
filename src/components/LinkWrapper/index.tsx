@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useContext } from 'react';
 import Link from 'next/link';
 
 import ExternalLink from '@/src/icons/ExternalLink';
@@ -6,16 +6,23 @@ import { checkIsLinkInternal } from '@/src/utils/helpers';
 
 import styles from './styles.module.scss';
 
+import { ScrollContext } from '../scrollManager';
+
 interface ILinkWrapper {
   children: ReactNode;
   href: string;
 }
 
 const LinkWrapper: FC<ILinkWrapper> = ({ children, href = '/' }) => {
+  const { scrollTo } = useContext(ScrollContext);
   const isInternalLink = checkIsLinkInternal(href);
+  const handleInternalClick = (e) => {
+    e.preventDefault();
+    scrollTo(href);
+  };
 
   return isInternalLink ? (
-    <Link href={href} className={styles.link}>
+    <Link href={href} className={styles.link} onClick={handleInternalClick}>
       {children}
     </Link>
   ) : (
@@ -27,3 +34,4 @@ const LinkWrapper: FC<ILinkWrapper> = ({ children, href = '/' }) => {
 };
 
 export default LinkWrapper;
+
