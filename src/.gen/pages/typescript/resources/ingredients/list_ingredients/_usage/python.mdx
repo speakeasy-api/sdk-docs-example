@@ -1,0 +1,33 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```python ListIngredients.py
+  import speakeasybar
+from speakeasybar.models import operations
+
+s = speakeasybar.Speakeasybar(
+    api_key="",
+)
+
+
+res = s.ingredients.list_ingredients(ingredients=[
+    'string',
+])
+
+if res.classes is not None:
+    # handle response
+    pass
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "details": {},
+    "message": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

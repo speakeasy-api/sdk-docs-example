@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { useRouter } from 'next/router';
+import { usePathname, useRouter } from 'next/navigation';
 
 export const MultiPageContext = createContext(false);
 export const RouteContext = createContext('');
@@ -21,13 +21,17 @@ export const ScrollContext = createContext<{
     position: number,
   ) => void;
   scrollTo: (route: string) => void;
+  setPage: (route: string) => void;
 }>({
   headingToPosition: {},
   currentHeading: '',
   visibleHeadings: [],
   upsertHeading: () => {},
   scrollTo: () => {},
+  setPage: () => {},
 });
+
+export const useSetPage = () => useContext(ScrollContext).setPage;
 
 type HeadingPosition = {
   elem: HTMLHeadingElement;
@@ -41,20 +45,41 @@ export const ScrollManager = (props: {
   children: ReactNode;
 }): React.ReactElement => {
   const isMultipage = useContext(MultiPageContext);
-  const slug = useRouter().asPath;
+  const pathname = usePathname();
+  const slug = pathname !== null ? pathname : undefined;
   const router = useRouter();
+
+  useEffect(() => {
+    console.log('slug', slug);
+  }, [slug]);
 
   const [initialScrollTarget, setInitialScrollTarget] = useState<string>();
   const [initialScrollDone, setInitialScrollDone] = useState(false);
 
   const rootPage = useMemo(
-    () => (isMultipage ? slug.split('/').at(1) ?? '' : ''),
+    () => (isMultipage ? slug?.split('/').at(1) ?? '' : ''),
     [slug],
   );
 
-  useEffect(() => {
+  const reset = () => {
     setHeadingToPosition({});
-  }, [rootPage]);
+    setInitialScrollDone(false);
+    setInitialScrollTarget(undefined);
+  };
+
+  // Reset state when the page changes
+  // useEffect(() => {
+  //   reset();
+  // }, [rootPage]);
+
+  const setPage = async (route: string) => {
+    reset();
+    await router.push(route, { scroll: false });
+  };
+
+  useEffect(() => {
+    console.log('initial', initialScrollTarget);
+  }, [initialScrollTarget]);
 
   const [headingToPosition, setHeadingToPosition] = useState<
     Record<string, HeadingPosition>
@@ -65,6 +90,7 @@ export const ScrollManager = (props: {
     elem: HTMLHeadingElement,
     position: number,
   ) => {
+    console.log('got pos for heading', route, position);
     setHeadingToPosition((currentValues) => {
       position = position + headingOffset;
 
@@ -134,19 +160,20 @@ export const ScrollManager = (props: {
   }, [scroll]);
 
   useEffect(() => {
-    // window.history.replaceState(
-    //   { ...window.history },
-    //   'ignored',
-    //   closestHeading,
-    // );
-    if (closestHeading && initialScrollDone) {
-      router.push(closestHeading, undefined, { shallow: true });
+    if (
+      closestHeading &&
+      initialScrollDone &&
+      closestHeading.startsWith(`/${rootPage}`) // Make sure we haven't changed pages. Without this, we might overwrite the new route
+    ) {
+      router.push(closestHeading, { scroll: false });
     }
   }, [closestHeading]);
 
   // Scrolls the page to the location of the target heading
   const scrollTo = useMemo(
     () => (route: string) => {
+      console.log('trying scroll to', route, headingToPosition);
+
       if (headingToPosition[route]) {
         document.addEventListener(
           'scrollend',
@@ -155,6 +182,8 @@ export const ScrollManager = (props: {
           },
           { once: true },
         );
+
+        console.log('scrolling to', route, headingToPosition[route]);
 
         // Scroll down a bit further than the heading so that it lines up right at the top
         window.scrollTo({ top: headingToPosition[route].position + 100 });
@@ -170,7 +199,7 @@ export const ScrollManager = (props: {
    */
   useEffect(() => {
     // At first, the slug is simply /[...rest], so wait til it properly pulls in the URL
-    if (slug !== '/[...rest]' && !initialScrollTarget) {
+    if (slug && !initialScrollTarget) {
       setInitialScrollTarget(slug);
     }
   }, [slug]);
@@ -183,6 +212,11 @@ export const ScrollManager = (props: {
       initialScrollTarget &&
       headingToPosition[initialScrollTarget]
     ) {
+      console.log(
+        'going to initial',
+        initialScrollTarget,
+        headingToPosition[initialScrollTarget],
+      );
       scrollTo(initialScrollTarget);
       setInitialScrollDone(true);
     }
@@ -196,6 +230,7 @@ export const ScrollManager = (props: {
         currentHeading: closestHeading,
         visibleHeadings,
         scrollTo,
+        setPage,
       }}
     >
       {props.children}

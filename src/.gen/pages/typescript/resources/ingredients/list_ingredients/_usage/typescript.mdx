@@ -1,0 +1,35 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```typescript ListIngredients.ts
+  import { Speakeasybar } from "speakeasybar";
+import { ListIngredientsRequest } from "speakeasybar/dist/models/operations";
+
+(async() => {
+  const sdk = new Speakeasybar({
+    apiKey: "",
+  });
+const ingredients: string[] = [
+  "string",
+];
+
+  const res = await sdk.ingredients.listIngredients(ingredients);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "details": {},
+    "message": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

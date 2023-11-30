@@ -1,0 +1,43 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```go Authenticate.go
+  package main
+
+import(
+	"github.com/speakeasy-sdks/template-speakeasy-bar/models/components"
+	templatespeakeasybar "github.com/speakeasy-sdks/template-speakeasy-bar"
+	"context"
+	"github.com/speakeasy-sdks/template-speakeasy-bar/models/operations"
+	"log"
+)
+
+func main() {
+    s := templatespeakeasybar.New(
+        templatespeakeasybar.WithSecurity(""),
+    )
+
+    ctx := context.Background()
+    res, err := s.Authentication.Authenticate(ctx, operations.AuthenticateRequestBody{})
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Object != nil {
+        // handle response
+    }
+}
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "details": {},
+    "message": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

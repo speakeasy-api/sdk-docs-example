@@ -1,6 +1,4 @@
-import { createElement } from 'react';
 import Head from 'next/head';
-
 import { ScrollManager, MultiPageContext } from 'src/components/scrollManager';
 import { LanguageProvider } from '@/content/languages';
 import Watermark from 'src/components/Watermark';
@@ -11,7 +9,7 @@ import "@code-hike/mdx/dist/index.css";
 export default function App(props) {
   const { Component, pageProps } = props;
   return (
-    <MultiPageContext.Provider value={ false }>
+    <MultiPageContext.Provider value={ true }>
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
