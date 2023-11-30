@@ -19,7 +19,7 @@ export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {
   const handleClick = (e: any) => {
     e.stopPropagation();
     scrollTo(route);
-    console.log('clicked', route);
+    // console.log('clicked', route);
   };
 
   return (

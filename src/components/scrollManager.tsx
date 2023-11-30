@@ -49,9 +49,9 @@ export const ScrollManager = (props: {
   const slug = pathname !== null ? pathname : undefined;
   const router = useRouter();
 
-  useEffect(() => {
-    console.log('slug', slug);
-  }, [slug]);
+  // useEffect(() => {
+  //   console.log('slug', slug);
+  // }, [slug]);
 
   const [initialScrollTarget, setInitialScrollTarget] = useState<string>();
   const [initialScrollDone, setInitialScrollDone] = useState(false);
@@ -77,9 +77,9 @@ export const ScrollManager = (props: {
     await router.push(route, { scroll: false });
   };
 
-  useEffect(() => {
-    console.log('initial', initialScrollTarget);
-  }, [initialScrollTarget]);
+  // useEffect(() => {
+  //   console.log('initial', initialScrollTarget);
+  // }, [initialScrollTarget]);
 
   const [headingToPosition, setHeadingToPosition] = useState<
     Record<string, HeadingPosition>
@@ -90,7 +90,7 @@ export const ScrollManager = (props: {
     elem: HTMLHeadingElement,
     position: number,
   ) => {
-    console.log('got pos for heading', route, position);
+    // console.log('got pos for heading', route, position);
     setHeadingToPosition((currentValues) => {
       position = position + headingOffset;
 
@@ -172,7 +172,7 @@ export const ScrollManager = (props: {
   // Scrolls the page to the location of the target heading
   const scrollTo = useMemo(
     () => (route: string) => {
-      console.log('trying scroll to', route, headingToPosition);
+      // console.log('trying scroll to', route, headingToPosition);
 
       if (headingToPosition[route]) {
         document.addEventListener(
@@ -183,7 +183,7 @@ export const ScrollManager = (props: {
           { once: true },
         );
 
-        console.log('scrolling to', route, headingToPosition[route]);
+        // console.log('scrolling to', route, headingToPosition[route]);
 
         // Scroll down a bit further than the heading so that it lines up right at the top
         window.scrollTo({ top: headingToPosition[route].position + 100 });
@@ -212,11 +212,11 @@ export const ScrollManager = (props: {
       initialScrollTarget &&
       headingToPosition[initialScrollTarget]
     ) {
-      console.log(
-        'going to initial',
-        initialScrollTarget,
-        headingToPosition[initialScrollTarget],
-      );
+      // console.log(
+      //   'going to initial',
+      //   initialScrollTarget,
+      //   headingToPosition[initialScrollTarget],
+      // );
       scrollTo(initialScrollTarget);
       setInitialScrollDone(true);
     }
