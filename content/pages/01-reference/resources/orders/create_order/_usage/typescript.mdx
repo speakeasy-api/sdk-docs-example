@@ -9,7 +9,7 @@ import { CreateOrderOrderUpdateRequestBody, CreateOrderOrderUpdateResponse } fro
 import { ErrorT, OrderInput, OrderType } from "speakeasybar/dist/models/components";
 import { CreateOrderRequest } from "speakeasybar/dist/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Speakeasybar({
     apiKey: "",
   });
@@ -27,7 +27,9 @@ const callbackUrl: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
   ```
   ---
 

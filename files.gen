@@ -338,6 +338,7 @@ src/utils/themeLoader.js
 theme.config.tsx
 tsconfig.json
 Makefile
+src/components/customRedirects.tsx
 src/pages/404.mdx
 src/pages/[...rest].mdx
 src/pages/index.mdx
