@@ -1,0 +1,33 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```csharp ListIngredients.cs
+  using Openapi;
+using Openapi.Models.Components;
+using Openapi.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new Speakeasybar(
+    security: new Security() {
+        ApiKey = "",
+    });
+
+var res = await sdk.Ingredients.ListIngredientsAsync(Ingredients: new List<string>() {
+    "string",
+});
+
+// handle response
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "details": {},
+    "message": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

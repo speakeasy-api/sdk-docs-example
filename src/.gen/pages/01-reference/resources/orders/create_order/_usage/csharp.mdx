@@ -1,0 +1,38 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```csharp CreateOrder.cs
+  using Openapi;
+using Openapi.Models.Components;
+using Openapi.Models.Requests;
+using System.Collections.Generic;
+using Openapi.Models.Callbacks;
+
+var sdk = new Speakeasybar(
+    security: new Security() {
+        ApiKey = "",
+    });
+
+var res = await sdk.Orders.CreateOrderAsync(RequestBody: new List<OrderInput>() {
+    new OrderInput() {
+        ProductCode = "NAC-3F2D1",
+        Quantity = 715190,
+        Type = OrderType.Ingredient,
+    },
+}, CallbackUrl: "string");
+
+// handle response
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "details": {},
+    "message": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

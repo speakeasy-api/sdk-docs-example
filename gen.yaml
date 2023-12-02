@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 3fa9c50bded6ae736f27b80c55829fb2
   docVersion: 1.0.0
-  speakeasyVersion: 1.124.1
-  generationVersion: 2.205.0
+  speakeasyVersion: 1.124.3
+  generationVersion: 2.207.1
 generation:
   comments: {}
   sdkClassName: speakeasybar
@@ -11,14 +11,30 @@ generation:
     optionalPropertyRendering: withExample
 features:
   docs:
-    core: 1.12.0
+    core: 1.13.0
     examples: 0.1.1
     globalSecurity: 0.1.0
     globalServerURLs: 0.1.1
     inputOutputModels: 0.2.0
     serverIDs: 0.1.0
+csharp:
+  version: 0.0.1
+  author: Speakeasy
+  dotnetVersion: net5.0
+  imports:
+    option: openapi
+    paths:
+      callbacks: Models/Callbacks
+      errors: Models/Errors
+      operations: Models/Requests
+      shared: Models/Components
+      webhooks: Models/Webhooks
+  inputModelSuffix: input
+  maxMethodParams: 4
+  outputModelSuffix: output
+  packageName: openapi
 docs:
-  version: 0.3.0
+  version: 0.4.0
   imports:
     option: openapi
     paths:
