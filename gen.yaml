@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 3fa9c50bded6ae736f27b80c55829fb2
   docVersion: 1.0.0
-  speakeasyVersion: 1.124.3
-  generationVersion: 2.207.1
+  speakeasyVersion: 1.125.1
+  generationVersion: 2.210.3
 generation:
   comments: {}
   sdkClassName: speakeasybar
@@ -11,7 +11,7 @@ generation:
     optionalPropertyRendering: withExample
 features:
   docs:
-    core: 1.13.0
+    core: 1.15.1
     examples: 0.1.1
     globalSecurity: 0.1.0
     globalServerURLs: 0.1.1
@@ -34,7 +34,7 @@ csharp:
   outputModelSuffix: output
   packageName: openapi
 docs:
-  version: 0.4.0
+  version: 0.5.0
   imports:
     option: openapi
     paths:
