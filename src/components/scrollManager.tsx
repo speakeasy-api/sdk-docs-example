@@ -7,6 +7,7 @@ import React, {
   useState,
 } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
+import LoadingOverlay from 'react-loading-overlay';
 
 export const MultiPageContext = createContext(false);
 export const RouteContext = createContext('');
@@ -49,10 +50,6 @@ export const ScrollManager = (props: {
   const slug = pathname !== null ? pathname : undefined;
   const router = useRouter();
 
-  // useEffect(() => {
-  //   console.log('slug', slug);
-  // }, [slug]);
-
   const [initialScrollTarget, setInitialScrollTarget] = useState<string>();
   const [initialScrollDone, setInitialScrollDone] = useState(false);
 
@@ -67,19 +64,11 @@ export const ScrollManager = (props: {
     setInitialScrollTarget(undefined);
   };
 
-  // Reset state when the page changes
-  // useEffect(() => {
-  //   reset();
-  // }, [rootPage]);
-
   const setPage = async (route: string) => {
     reset();
+    setInitialScrollTarget(route);
     await router.push(route, { scroll: false });
   };
-
-  // useEffect(() => {
-  //   console.log('initial', initialScrollTarget);
-  // }, [initialScrollTarget]);
 
   const [headingToPosition, setHeadingToPosition] = useState<
     Record<string, HeadingPosition>
@@ -90,7 +79,6 @@ export const ScrollManager = (props: {
     elem: HTMLHeadingElement,
     position: number,
   ) => {
-    // console.log('got pos for heading', route, position);
     setHeadingToPosition((currentValues) => {
       position = position + headingOffset;
 
@@ -172,8 +160,6 @@ export const ScrollManager = (props: {
   // Scrolls the page to the location of the target heading
   const scrollTo = useMemo(
     () => (route: string) => {
-      // console.log('trying scroll to', route, headingToPosition);
-
       if (headingToPosition[route]) {
         document.addEventListener(
           'scrollend',
@@ -182,8 +168,6 @@ export const ScrollManager = (props: {
           },
           { once: true },
         );
-
-        // console.log('scrolling to', route, headingToPosition[route]);
 
         // Scroll down a bit further than the heading so that it lines up right at the top
         window.scrollTo({ top: headingToPosition[route].position + 100 });
@@ -205,22 +189,24 @@ export const ScrollManager = (props: {
   }, [slug]);
 
   // Once the initial scroll target is set and we know where that heading is, scroll to it
-  // Only do this once.
+  // Do this every time the heading location changes until it stabilizes. This is necessary because the heading
+  // will change positions on the page a few different times as the page loads. We want to scroll to it every time
+  // it changes to reduce the perception of lagginess.
   useEffect(() => {
+    let t: NodeJS.Timeout;
     if (
-      !initialScrollDone &&
       initialScrollTarget &&
-      headingToPosition[initialScrollTarget]
+      headingToPosition[initialScrollTarget] &&
+      !initialScrollDone
     ) {
-      // console.log(
-      //   'going to initial',
-      //   initialScrollTarget,
-      //   headingToPosition[initialScrollTarget],
-      // );
       scrollTo(initialScrollTarget);
-      setInitialScrollDone(true);
+      t = setTimeout(() => {
+        setInitialScrollDone(true);
+      }, 50);
     }
-  }, [initialScrollTarget, headingToPosition]);
+
+    return () => clearTimeout(t);
+  }, [initialScrollTarget && headingToPosition[initialScrollTarget]]);
 
   return (
     <ScrollContext.Provider
@@ -233,7 +219,12 @@ export const ScrollManager = (props: {
         setPage,
       }}
     >
-      {props.children}
+      <LoadingOverlay
+        active={initialScrollTarget && !initialScrollDone}
+        fadeSpeed={50}
+      >
+        {props.children}
+      </LoadingOverlay>
     </ScrollContext.Provider>
   );
 };

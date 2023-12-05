@@ -70,7 +70,6 @@
           "while",
           "switch",
           "block",
-          "if",
           "for"
         ]
       },

@@ -14,10 +14,13 @@ const LanguageSelector = ({ showIcon }: { showIcon?: boolean }) => {
   } = useContext(LanguageContext);
   const [isOpen, setIsOpen] = useState(false);
 
-  const selectLanguage = useCallback((language: string) => {
-    setLanguage(language);
-    setIsOpen(false);
-  }, []);
+  const selectLanguage = useCallback(
+    (language: string) => {
+      setLanguage(language);
+      setIsOpen(false);
+    },
+    [setLanguage],
+  );
 
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
