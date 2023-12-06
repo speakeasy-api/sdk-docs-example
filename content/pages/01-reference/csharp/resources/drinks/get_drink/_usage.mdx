@@ -1,0 +1,30 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```csharp GetDrink.cs
+  using Openapi;
+using Openapi.Models.Components;
+using Openapi.Models.Requests;
+
+var sdk = new SDK(
+    security: new Security() {
+        ApiKey = "",
+    });
+
+var res = await sdk.Drinks.GetDrinkAsync(Name: "string");
+
+// handle response
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

@@ -2,6 +2,12 @@
 import Collapsible from "/src/components/Collapsible";
 import Labels from "/src/lib/labels";
 
+##### `type` _enumeration_
+The type of order.
+<Collapsible content={() => import('/content/types/shared/order_type/curl.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
+</Collapsible>
+
+---
 ##### `productCode` _string_
 The product code of the drink or ingredient.
 <br/>
@@ -10,11 +16,5 @@ The product code of the drink or ingredient.
 ---
 ##### `quantity` _integer_
 The number of units of the drink or ingredient to order.
-
----
-##### `type` _enumeration_
-The type of order.
-<Collapsible content={() => import('/content/types/shared/order_type/curl.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
-</Collapsible>
 
 

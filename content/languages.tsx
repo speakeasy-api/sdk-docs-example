@@ -5,7 +5,6 @@ import React, {
   useContext,
   useMemo,
 } from 'react';
-
 import { Columns, RHS } from '@/src/components/Columns';
 import {
   Authentication,
@@ -17,7 +16,7 @@ import { LinkableContext } from '@/src/utils/contexts/linkableContext';
 import { usePathname } from 'next/navigation';
 import { useSetPage } from '@/src/components/scrollManager';
 
-export const Languages = ['python', 'typescript', 'go', 'curl'];
+export const Languages = ['go', 'typescript', 'python', 'java', 'csharp', 'unity', 'curl'];
 export type Language = (typeof Languages)[number];
 
 export const LanguageProvider = (props: { children: ReactNode }) => {
@@ -28,7 +27,7 @@ export const LanguageProvider = (props: { children: ReactNode }) => {
     // slug is in the form "/typescript/installation" (or null)
     const routeLang = slug?.split('/')[1];
 
-    return routeLang || Languages[0];
+    return routeLang || 'go';
   }, [slug]);
 
   const setLanguage = useCallback(

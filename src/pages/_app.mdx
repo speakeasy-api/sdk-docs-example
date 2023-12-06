@@ -1,8 +1,9 @@
+import { createElement } from 'react';
 import Head from 'next/head';
+import { CustomRedirects } from 'src/components/customRedirects';
 import { ScrollManager, MultiPageContext } from 'src/components/scrollManager';
 import { LanguageProvider } from '@/content/languages';
 import Watermark from 'src/components/Watermark';
-
 import '@/src/styles/index.scss';
 import "@code-hike/mdx/dist/index.css";
 
@@ -21,6 +22,7 @@ export default function App(props) {
           rel="stylesheet"
         />
       </Head>
+      <CustomRedirects />
       <ScrollManager>
         <LanguageProvider>
           <Component {...pageProps} />

@@ -2,6 +2,12 @@
 import Collapsible from "/src/components/Collapsible";
 import Labels from "/src/lib/labels";
 
+##### `Type` *{`components.OrderType`}*
+The type of order.
+<Collapsible content={() => import('/content/types/models/components/order_type/go.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
+</Collapsible>
+
+---
 ##### `ProductCode` *{`string`}*
 The product code of the drink or ingredient.
 <br/>
@@ -15,12 +21,6 @@ The number of units of the drink or ingredient to order.
 ##### `Status` *{`components.Status`}*
 The status of the order.
 <Collapsible content={() => import('/content/types/models/components/status/go.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
-</Collapsible>
-
----
-##### `Type` *{`components.OrderType`}*
-The type of order.
-<Collapsible content={() => import('/content/types/models/components/order_type/go.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
 </Collapsible>
 
 

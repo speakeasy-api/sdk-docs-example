@@ -1,9 +1,7 @@
 import cn from 'classnames';
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
-
 import { languageData } from '@/src/lib/languageData';
 import { LanguageContext } from '@/src/utils/contexts/languageContext';
-
 import styles from './styles.module.scss';
 
 const LanguageSelector = ({ showIcon }: { showIcon?: boolean }) => {

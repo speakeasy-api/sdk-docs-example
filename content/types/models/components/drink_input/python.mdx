@@ -8,6 +8,12 @@ The name of the drink.
 **Example:** `Old Fashioned`
 
 ---
+##### `type` *{`Optional[components.DrinkType]`}*
+The type of drink.
+<Collapsible content={() => import('/content/types/models/components/drink_type/python.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
+</Collapsible>
+
+---
 ##### `price` *{`float`}*
 The price of one unit of the drink in US cents.
 <br/>
@@ -18,11 +24,5 @@ The price of one unit of the drink in US cents.
 The product code of the drink, only available when authenticated.
 <br/>
 **Example:** `AC-A2DF3`
-
----
-##### `type` *{`Optional[components.DrinkType]`}*
-The type of drink.
-<Collapsible content={() => import('/content/types/models/components/drink_type/python.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
-</Collapsible>
 
 

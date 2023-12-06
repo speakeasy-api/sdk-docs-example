@@ -1,0 +1,27 @@
+{/* Start Typescript SecuritySchemas */}
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+
+
+To authenticate with the API the `apiKey` parameter must be set when initializing the SDK client instance. For example:
+```typescript
+import { SDK } from "openapi";
+
+async function run() {
+    const sdk = new SDK({
+        apiKey: "",
+    });
+
+    const res = await sdk.authentication.authenticate({});
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+{/* End Typescript SecuritySchemas */}

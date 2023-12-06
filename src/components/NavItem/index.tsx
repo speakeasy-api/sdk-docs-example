@@ -1,8 +1,6 @@
 import React, { FC, useContext } from 'react';
 import cn from 'classnames';
-
 import styles from './styles.module.scss';
-
 import { ScrollContext } from '../scrollManager';
 
 export const NavItem: FC<Record<string, string>> = ({ route, title, type }) => {

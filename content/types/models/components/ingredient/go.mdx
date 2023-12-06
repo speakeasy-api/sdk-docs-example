@@ -8,10 +8,10 @@ The name of the ingredient.
 **Example:** `Sugar Syrup`
 
 ---
-##### `ProductCode` *{`*string`}*
-The product code of the ingredient, only available when authenticated.
-<br/>
-**Example:** `AC-A2DF3`
+##### `Type` *{`components.IngredientType`}*
+The type of ingredient.
+<Collapsible content={() => import('/content/types/models/components/ingredient_type/go.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
+</Collapsible>
 
 ---
 ##### `Stock` *{`*int64`}*
@@ -20,9 +20,9 @@ The number of units of the ingredient in stock, only available when authenticate
 **Example:** `10`
 
 ---
-##### `Type` *{`components.IngredientType`}*
-The type of ingredient.
-<Collapsible content={() => import('/content/types/models/components/ingredient_type/go.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
-</Collapsible>
+##### `ProductCode` *{`*string`}*
+The product code of the ingredient, only available when authenticated.
+<br/>
+**Example:** `AC-A2DF3`
 
 

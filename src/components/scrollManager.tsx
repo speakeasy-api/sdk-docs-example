@@ -7,7 +7,6 @@ import React, {
   useState,
 } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import LoadingOverlay from 'react-loading-overlay';
 
 export const MultiPageContext = createContext(false);
 export const RouteContext = createContext('');
@@ -131,8 +130,8 @@ export const ScrollManager = (props: {
         nextIndex === -1
           ? entries.length - 1
           : nextIndex - 1 >= 0
-          ? nextIndex - 1
-          : 0;
+            ? nextIndex - 1
+            : 0;
       const closest = entries[currentIndex]?.[0];
 
       setClosestHeading(closest);
@@ -219,12 +218,7 @@ export const ScrollManager = (props: {
         setPage,
       }}
     >
-      <LoadingOverlay
-        active={initialScrollTarget && !initialScrollDone}
-        fadeSpeed={50}
-      >
-        {props.children}
-      </LoadingOverlay>
+      {props.children}
     </ScrollContext.Provider>
   );
 };

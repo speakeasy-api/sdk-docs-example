@@ -1,0 +1,47 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```java ListIngredients.java
+  package hello.world;
+
+import org.openapis.openapi.SDK;
+import org.openapis.openapi.models.operations.ListIngredientsRequest;
+import org.openapis.openapi.models.operations.ListIngredientsResponse;
+import org.openapis.openapi.models.shared.Security;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .setSecurity(new Security(
+                "string"){{
+                    apiKey = "";
+                }})
+                .build();
+
+            org.openapis.openapi.models.operations.ListIngredientsResponse res = sdk.ingredients.listIngredients(new String[]{{
+                add("string"),
+            }});
+
+            if (res.classes != null) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

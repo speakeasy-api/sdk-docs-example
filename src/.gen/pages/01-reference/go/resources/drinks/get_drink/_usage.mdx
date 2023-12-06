@@ -1,0 +1,45 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```go GetDrink.go
+  package main
+
+import(
+	"openapi/models/components"
+	"openapi"
+	"context"
+	"log"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity(""),
+    )
+
+
+    var name string = "string"
+
+    ctx := context.Background()
+    res, err := s.Drinks.GetDrink(ctx, name)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Drink != nil {
+        // handle response
+    }
+}
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

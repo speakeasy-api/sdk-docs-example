@@ -1,0 +1,52 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```java Authenticate.java
+  package hello.world;
+
+import org.openapis.openapi.SDK;
+import org.openapis.openapi.models.operations.AuthenticateRequestBody;
+import org.openapis.openapi.models.operations.AuthenticateResponse;
+import org.openapis.openapi.models.shared.Security;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .setSecurity(new Security(
+                "string"){{
+                    apiKey = "";
+                }})
+                .build();
+
+            org.openapis.openapi.models.operations.AuthenticateRequestBody req = new AuthenticateRequestBody(
+){{
+                username = "Katharina_Medhurst60";
+                password = "rTqIEJuENlnSNVF";
+
+            }};
+
+            org.openapis.openapi.models.operations.AuthenticateResponse res = sdk.authentication.authenticate(req);
+
+            if (res.object != null) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

@@ -2,26 +2,8 @@
 import Collapsible from "/src/components/Collapsible";
 import Labels from "/src/lib/labels";
 
-##### `apiError` _object (optional)_
-An error occurred interacting with the API.
-<Collapsible content={() => import('/content/types/shared/api_error/curl.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
-</Collapsible>
-
----
 ##### `contentType` _string_
 HTTP response content type for this operation
-
----
-##### `error` _object (optional)_
-An unknown error occurred interacting with the API.
-<Collapsible content={() => import('/content/types/shared/error/curl.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
-</Collapsible>
-
----
-##### `order` _object (optional)_
-The order was created successfully.
-<Collapsible content={() => import('/content/types/shared/order/curl.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
-</Collapsible>
 
 ---
 ##### `statusCode` _integer (32-bit)_
@@ -30,5 +12,17 @@ HTTP response status code for this operation
 ---
 ##### `rawResponse` _HTTP response_
 Raw HTTP response; suitable for custom response parsing
+
+---
+##### `order` _object (optional)_
+The order was created successfully.
+<Collapsible content={() => import('/content/types/shared/order/curl.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
+</Collapsible>
+
+---
+##### `apiError` _object (optional)_
+An error occurred interacting with the API.
+<Collapsible content={() => import('/content/types/shared/api_error/curl.mdx')} openLabel={Labels.showProperties} closeLabel={Labels.hideProperties}>
+</Collapsible>
 
 

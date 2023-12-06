@@ -1,0 +1,35 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```csharp ListIngredients.cs
+  using Openapi;
+using Openapi.Models.Components;
+using Openapi.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new SDK(
+    security: new Security() {
+        ApiKey = "",
+    });
+
+using(var res = await sdk.Ingredients.ListIngredientsAsync(ingredients: new List<string>() {
+    "string",
+}))
+{
+
+    // handle response
+}
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

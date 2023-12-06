@@ -1,24 +1,36 @@
 configVersion: 1.0.0
-management:
-  docChecksum: 3fa9c50bded6ae736f27b80c55829fb2
-  docVersion: 1.0.0
-  speakeasyVersion: 1.123.0
-  generationVersion: 2.202.2
 generation:
   comments: {}
-  sdkClassName: speakeasybar
+  sdkClassName: SDK
+  maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
 features:
   docs:
-    core: 1.10.1
+    core: 1.15.1
     examples: 0.1.1
     globalSecurity: 0.1.0
     globalServerURLs: 0.1.1
     inputOutputModels: 0.2.0
     serverIDs: 0.1.0
+csharp:
+  version: 0.0.1
+  author: Speakeasy
+  dotnetVersion: net5.0
+  imports:
+    option: openapi
+    paths:
+      callbacks: Models/Callbacks
+      errors: Models/Errors
+      operations: Models/Requests
+      shared: Models/Components
+      webhooks: Models/Webhooks
+  inputModelSuffix: input
+  maxMethodParams: 4
+  outputModelSuffix: output
+  packageName: openapi
 docs:
-  version: 0.2.0
+  version: ""
   imports:
     option: openapi
     paths:
@@ -29,7 +41,6 @@ docs:
       webhooks: webhooks
   inputModelSuffix: input
   outputModelSuffix: output
-  packageName: speakeasy-sdk-docs
 go:
   version: 0.0.1
   clientServerStatusCodesAsErrors: true
@@ -45,7 +56,28 @@ go:
   inputModelSuffix: input
   maxMethodParams: 4
   outputModelSuffix: output
-  packageName: github.com/speakeasy-sdks/template-speakeasy-bar
+  packageName: openapi
+java:
+  version: 0.0.1
+  artifactID: openapi
+  companyEmail: info@mycompany.com
+  companyName: My Company
+  companyURL: www.mycompany.com
+  githubURL: github.com/owner/repo
+  groupID: org.openapis
+  imports:
+    option: openapi
+    paths:
+      callbacks: models/callbacks
+      errors: models/errors
+      operations: models/operations
+      shared: models/shared
+      webhooks: models/webhooks
+  inputModelSuffix: input
+  maxMethodParams: 4
+  ossrhURL: https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
+  outputModelSuffix: output
+  projectName: openapi
 python:
   version: 0.0.1
   author: Speakeasy
@@ -61,11 +93,9 @@ python:
       shared: models/components
       webhooks: models/webhooks
   inputModelSuffix: input
-  installationURL: speakeasy-bar
   maxMethodParams: 4
   outputModelSuffix: output
-  packageName: speakeasybar
-  published: true
+  packageName: openapi
 typescript:
   version: 0.0.1
   author: Speakeasy
@@ -80,7 +110,21 @@ typescript:
       shared: models/components
       webhooks: models/webhooks
   inputModelSuffix: input
-  installationURL: speakeasy-bar
   maxMethodParams: 4
   outputModelSuffix: output
-  packageName: speakeasybar
+  packageName: openapi
+unity:
+  version: 0.0.1
+  author: Speakeasy
+  imports:
+    option: openapi
+    paths:
+      callbacks: Models/Callbacks
+      errors: Models/Errors
+      operations: Models/Requests
+      shared: Models/Components
+      webhooks: Models/Webhooks
+  inputModelSuffix: input
+  maxMethodParams: 4
+  outputModelSuffix: output
+  packageName: openapi

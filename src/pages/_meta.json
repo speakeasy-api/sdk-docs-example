@@ -1,9 +1,25 @@
 {
+  "go": {
+    "type": "page",
+    "display": "hidden"
+  },
   "typescript": {
     "type": "page",
     "display": "hidden"
   },
   "python": {
+    "type": "page",
+    "display": "hidden"
+  },
+  "java": {
+    "type": "page",
+    "display": "hidden"
+  },
+  "csharp": {
+    "type": "page",
+    "display": "hidden"
+  },
+  "unity": {
     "type": "page",
     "display": "hidden"
   }

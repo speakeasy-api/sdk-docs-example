@@ -1,6 +1,6 @@
 {
-  "name": "speakeasy-sdk-docs",
-  "version": "0.2.0",
+  "name": "sdk-docs",
+  "version": "",
   "description": "Nextra docs template",
   "private": true,
   "scripts": {
