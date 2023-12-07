@@ -1,10 +1,7 @@
 
-import WithStatusBar from '@/src/components/WithStatusBar';
-
-<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
-  <CH.Code>
-  ```typescript CreateOrder.ts
-  import { SDK } from "openapi";
+<CH.Code>
+```typescript CreateOrder.ts
+import { SDK } from "openapi";
 import { CreateOrderOrderUpdateRequestBody, CreateOrderOrderUpdateResponse } from "openapi/dist/models/callbacks";
 import { OrderInput, OrderType } from "openapi/dist/models/components";
 import { CreateOrderRequest } from "openapi/dist/models/operations";
@@ -30,15 +27,14 @@ const callbackUrl: string = "string";
 }
 
 run();
-  ```
-  ---
+```
+---
 
-  ```json Example Response
+```json Example Response
   {
     "code": "string",
     "message": "string",
     "details": {}
   }
-  ```
-  </CH.Code>
-</WithStatusBar>
+```
+</CH.Code>

@@ -3,6 +3,14 @@
     "display": "hidden",
     "type": "page"
   },
+  "index": {
+    "display": "hidden",
+    "type": "page"
+  },
+  "[...rest]": {
+    "display": "hidden",
+    "type": "page"
+  },
   "-- guides": {
     "title": "Guides",
     "type": "separator"
@@ -10,11 +18,11 @@
   "client_sdks": {
     "title": "Client SDKs"
   },
-  "custom_http_client": {
-    "title": "Custom Http Client"
-  },
   "installation": {
     "title": "Installation"
+  },
+  "custom_http_client": {
+    "title": "Custom Http Client"
   },
   "security_schemas": {
     "title": "Security Schemas"

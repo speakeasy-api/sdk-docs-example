@@ -1,10 +1,7 @@
 
-import WithStatusBar from '@/src/components/WithStatusBar';
-
-<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
-  <CH.Code>
-  ```csharp CreateOrder.cs
-  using Openapi;
+<CH.Code>
+```csharp CreateOrder.cs
+using Openapi;
 using Openapi.Models.Components;
 using Openapi.Models.Requests;
 using System.Collections.Generic;
@@ -26,15 +23,14 @@ using(var res = await sdk.Orders.CreateOrderAsync(requestBody: new List<OrderInp
 
     // handle response
 }
-  ```
-  ---
+```
+---
 
-  ```json Example Response
+```json Example Response
   {
     "code": "string",
     "message": "string",
     "details": {}
   }
-  ```
-  </CH.Code>
-</WithStatusBar>
+```
+</CH.Code>

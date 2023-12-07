@@ -1,10 +1,7 @@
 
-import WithStatusBar from '@/src/components/WithStatusBar';
-
-<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
-  <CH.Code>
-  ```typescript ListIngredients.ts
-  import { SDK } from "openapi";
+<CH.Code>
+```typescript ListIngredients.ts
+import { SDK } from "openapi";
 import { ListIngredientsRequest } from "openapi/dist/models/operations";
 
 async function run() {
@@ -23,15 +20,14 @@ const ingredients: string[] = [
 }
 
 run();
-  ```
-  ---
+```
+---
 
-  ```json Example Response
+```json Example Response
   {
     "code": "string",
     "message": "string",
     "details": {}
   }
-  ```
-  </CH.Code>
-</WithStatusBar>
+```
+</CH.Code>

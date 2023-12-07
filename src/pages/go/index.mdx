@@ -1,6 +1,20 @@
-import Root from "/src/.gen/pages/01-reference/go/reference.mdx"
-import {RootContainer} from "/src/components/rootContainer";
+export default function Home() {
+  return null;
+}
 
-<RootContainer>
-	<Root/>
-</RootContainer>
+export async function getStaticProps() {
+  // This is necessary to circumvent this error:
+  // `redirect` can not be returned from getStaticProps during prerendering
+  if (process.env.NEXT_PHASE === 'phase-production-build') {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    redirect: {
+      destination: '/go/client_sdks',
+      permanent: false,
+    },
+  };
+}

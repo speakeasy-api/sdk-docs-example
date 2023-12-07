@@ -1,10 +1,7 @@
 
-import WithStatusBar from '@/src/components/WithStatusBar';
-
-<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
-  <CH.Code>
-  ```python SubscribeToWebhooks.py
-  import sdk
+<CH.Code>
+```python SubscribeToWebhooks.py
+import sdk
 from sdk.models import operations
 
 s = sdk.SDK(
@@ -20,15 +17,14 @@ res = s.config.subscribe_to_webhooks(req)
 if res.status_code == 200:
     # handle response
     pass
-  ```
-  ---
+```
+---
 
-  ```json Example Response
+```json Example Response
   {
     "code": "string",
     "message": "string",
     "details": {}
   }
-  ```
-  </CH.Code>
-</WithStatusBar>
+```
+</CH.Code>

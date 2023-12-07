@@ -22,5 +22,9 @@
   "unity": {
     "type": "page",
     "display": "hidden"
+  },
+  "curl": {
+    "type": "page",
+    "display": "hidden"
   }
 }

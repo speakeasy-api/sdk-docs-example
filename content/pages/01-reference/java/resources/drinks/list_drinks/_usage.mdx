@@ -1,10 +1,7 @@
 
-import WithStatusBar from '@/src/components/WithStatusBar';
-
-<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
-  <CH.Code>
-  ```java ListDrinks.java
-  package hello.world;
+<CH.Code>
+```java ListDrinks.java
+package hello.world;
 
 import org.openapis.openapi.SDK;
 import org.openapis.openapi.models.operations.ListDrinksRequest;
@@ -32,15 +29,14 @@ public class Application {
         }
     }
 }
-  ```
-  ---
+```
+---
 
-  ```json Example Response
+```json Example Response
   {
     "code": "string",
     "message": "string",
     "details": {}
   }
-  ```
-  </CH.Code>
-</WithStatusBar>
+```
+</CH.Code>
