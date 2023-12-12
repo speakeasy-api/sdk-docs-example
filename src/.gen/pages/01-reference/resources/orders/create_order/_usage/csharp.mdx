@@ -12,7 +12,7 @@ using Openapi.Models.Callbacks;
 
 var sdk = new Speakeasybar(
     security: new Security() {
-        ApiKey = "",
+        ApiKey = "<YOUR_API_KEY_HERE>",
     });
 
 var res = await sdk.Orders.CreateOrderAsync(RequestBody: new List<OrderInput>() {

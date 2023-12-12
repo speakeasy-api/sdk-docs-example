@@ -8,10 +8,7 @@ import WithStatusBar from '@/src/components/WithStatusBar';
 using Openapi.Models.Components;
 using Openapi.Models.Requests;
 
-var sdk = new Speakeasybar(
-    security: new Security() {
-        ApiKey = "",
-    });
+var sdk = new Speakeasybar();
 
 var res = await sdk.Drinks.ListDrinksAsync(DrinkType: DrinkType.Wine);
 

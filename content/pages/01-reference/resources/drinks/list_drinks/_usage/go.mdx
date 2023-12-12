@@ -7,16 +7,14 @@ import WithStatusBar from '@/src/components/WithStatusBar';
   package main
 
 import(
-	"github.com/speakeasy-sdks/template-speakeasy-bar/models/components"
 	templatespeakeasybar "github.com/speakeasy-sdks/template-speakeasy-bar"
+	"github.com/speakeasy-sdks/template-speakeasy-bar/models/components"
 	"context"
 	"log"
 )
 
 func main() {
-    s := templatespeakeasybar.New(
-        templatespeakeasybar.WithSecurity(""),
-    )
+    s := templatespeakeasybar.New()
 
 
     var drinkType *components.DrinkType = components.DrinkTypeWine
