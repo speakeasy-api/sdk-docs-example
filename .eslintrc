@@ -23,10 +23,7 @@
   ],
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [
-        ".ts",
-        ".tsx"
-      ]
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
       "typescript": {
@@ -54,10 +51,28 @@
       }
     ],
     "import/no-unresolved": "error",
-    "no-shadow": 0,
-    "spaced-comment": [
+    "import/order": [
       "error",
-      "always"
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "sibling",
+          "parent",
+          "index",
+          "unknown"
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "no-shadow": 0,
+    "spaced-comment": ["error", "always"],
+    "no-inline-comments": [
+      "error",
+      {
+        "ignorePattern": "TODO"
+      }
     ],
     "arrow-body-style": "error",
     "padding-line-between-statements": [
@@ -65,52 +80,28 @@
       {
         "blankLine": "always",
         "prev": "*",
-        "next": [
-          "return",
-          "while",
-          "switch",
-          "block",
-          "for"
-        ]
+        "next": ["return", "while", "switch", "block", "if", "for"]
       },
       {
         "blankLine": "always",
-        "prev": [
-          "block",
-          "while",
-          "switch",
-          "if",
-          "for"
-        ],
+        "prev": ["block", "while", "switch", "if", "for"],
         "next": "*"
       }
     ],
     "no-console": [
       "error",
       {
-        "allow": [
-          "warn",
-          "error",
-          "info"
-        ]
+        "allow": ["warn", "error", "info"]
       }
     ],
     "no-duplicate-imports": "error",
     "curly": "error",
-    "lines-between-class-members": [
-      "error",
-      "always"
-    ],
+    "lines-between-class-members": ["error", "always"],
     "@typescript-eslint/no-extra-semi": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@next/next/no-img-element": "off",
     "no-case-declarations": "off",
     "react-hooks/exhaustive-deps": "off"
   },
-  "ignorePatterns": [
-    "node_modules",
-    "out",
-    ".next",
-    "next.config.js"
-  ]
+  "ignorePatterns": ["node_modules", "out", ".next", "next.config.js"]
 }

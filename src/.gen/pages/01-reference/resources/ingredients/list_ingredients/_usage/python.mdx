@@ -1,0 +1,33 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```python ListIngredients.py
+  import sdk
+from sdk.models import operations
+
+s = sdk.SDK(
+    api_key="<YOUR_API_KEY_HERE>",
+)
+
+
+res = s.ingredients.list_ingredients(ingredients=[
+    'string',
+])
+
+if res.classes is not None:
+    # handle response
+    pass
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

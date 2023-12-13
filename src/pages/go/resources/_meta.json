@@ -1,0 +1,17 @@
+{
+  "authentication": {
+    "title": "Authentication"
+  },
+  "config": {
+    "title": "Config"
+  },
+  "drinks": {
+    "title": "Drinks"
+  },
+  "ingredients": {
+    "title": "Ingredients"
+  },
+  "orders": {
+    "title": "Orders"
+  }
+}

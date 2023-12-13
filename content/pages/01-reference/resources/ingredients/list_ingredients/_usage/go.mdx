@@ -1,0 +1,47 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```go ListIngredients.go
+  package main
+
+import(
+	"openapi/models/components"
+	"openapi"
+	"context"
+	"log"
+)
+
+func main() {
+    s := openapi.New(
+        openapi.WithSecurity("<YOUR_API_KEY_HERE>"),
+    )
+
+
+    ingredients := []string{
+        "string",
+    }
+
+    ctx := context.Background()
+    res, err := s.Ingredients.ListIngredients(ctx, ingredients)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Classes != nil {
+        // handle response
+    }
+}
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

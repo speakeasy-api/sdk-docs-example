@@ -27,7 +27,4 @@ module.exports = withPlugins([], {
       unoptimized: true,
     },
   }),
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
 });

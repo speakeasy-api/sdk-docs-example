@@ -1,16 +1,18 @@
 import { createElement } from 'react';
 import Head from 'next/head';
+
 import { CustomRedirects } from 'src/components/customRedirects';
 import { ScrollManager, MultiPageContext } from 'src/components/scrollManager';
 import { LanguageProvider } from '@/content/languages';
 import Watermark from 'src/components/Watermark';
+
 import '@/src/styles/index.scss';
 import "@code-hike/mdx/dist/index.css";
 
 export default function App(props) {
   const { Component, pageProps } = props;
   return (
-    <MultiPageContext.Provider value={ true }>
+    <MultiPageContext.Provider value={ false }>
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -22,7 +24,7 @@ export default function App(props) {
           rel="stylesheet"
         />
       </Head>
-      <CustomRedirects />
+      <CustomRedirects/>
       <ScrollManager>
         <LanguageProvider>
           <Component {...pageProps} />

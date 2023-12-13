@@ -1,10 +1,11 @@
 import React, {
+  Children,
   ReactElement,
   ReactNode,
-  useCallback,
   useContext,
-  useMemo,
+  useState,
 } from 'react';
+
 import { Columns, RHS } from '@/src/components/Columns';
 import {
   Authentication,
@@ -13,47 +14,23 @@ import {
 } from '@/src/components/Parameters';
 import { LanguageContext } from '@/src/utils/contexts/languageContext';
 import { LinkableContext } from '@/src/utils/contexts/linkableContext';
-import { usePathname } from 'next/navigation';
-import { useSetPage } from '@/src/components/scrollManager';
 
-export const Languages = ['go', 'typescript', 'python', 'java', 'csharp', 'unity', 'curl'];
+export const Languages = ['python', 'typescript', 'go', 'curl'];
 export type Language = (typeof Languages)[number];
 
 export const LanguageProvider = (props: { children: ReactNode }) => {
-  const slug = usePathname();
-  const setPage = useSetPage();
-
-  const language = useMemo(() => {
-    // slug is in the form "/typescript/installation" (or null)
-    const routeLang = slug?.split('/')[1];
-
-    return routeLang || 'go';
-  }, [slug]);
-
-  const setLanguage = useCallback(
-    (newLanguage: string) => {
-      const langRoutePrefix = (lang: string) => `/${lang}/`;
-
-      // Using window.location.pathname because router.asPath often has [...rest] in it
-      const newPath = window.location.pathname.replace(
-        langRoutePrefix(language),
-        langRoutePrefix(newLanguage),
-      );
-
-      setPage(newPath);
-    },
-    [language, setPage],
-  );
-
+  const [language, setLanguage] = useState<Language>('python');
   const context = {
     language,
     setLanguage,
     languages: Languages,
   };
 
+  const childrenArray = Children.toArray(props.children);
+
   return (
     <LanguageContext.Provider value={context}>
-      {props.children}
+      {childrenArray.map((child) => child)}
     </LanguageContext.Provider>
   );
 };

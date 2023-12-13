@@ -1,43 +1,11 @@
 {
-  "404": {
-    "display": "hidden",
-    "type": "page"
-  },
-  "index": {
-    "display": "hidden",
-    "type": "page"
-  },
-  "[...rest]": {
-    "display": "hidden",
-    "type": "page"
-  },
-  "-- guides": {
-    "title": "Guides",
-    "type": "separator"
-  },
   "client_sdks": {
     "title": "Client SDKs"
   },
   "installation": {
     "title": "Installation"
   },
-  "-- resources": {
-    "title": "Resources",
-    "type": "separator"
-  },
-  "authentication": {
-    "title": "Authentication"
-  },
-  "drinks": {
-    "title": "Drinks"
-  },
-  "ingredients": {
-    "title": "Ingredients"
-  },
-  "orders": {
-    "title": "Orders"
-  },
-  "config": {
-    "title": "Config"
+  "resources": {
+    "title": "Resources"
   }
 }

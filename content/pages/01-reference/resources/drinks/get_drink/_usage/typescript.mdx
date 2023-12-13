@@ -1,0 +1,35 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "5"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```typescript GetDrink.ts
+  import { SDK } from "openapi";
+import { GetDrinkRequest } from "openapi/dist/models/operations";
+
+async function run() {
+  const sdk = new SDK({
+    apiKey: "<YOUR_API_KEY_HERE>",
+  });
+const name: string = "string";
+
+  const res = await sdk.drinks.getDrink(name);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

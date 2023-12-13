@@ -1,4 +1,9 @@
 configVersion: 1.0.0
+management:
+  docChecksum: 3fa9c50bded6ae736f27b80c55829fb2
+  docVersion: 1.0.0
+  speakeasyVersion: 1.126.3
+  generationVersion: 2.214.3
 generation:
   comments: {}
   sdkClassName: SDK
@@ -7,11 +12,12 @@ generation:
     optionalPropertyRendering: withExample
 features:
   docs:
-    core: 1.16.0
+    core: 1.16.1
     examples: 0.1.1
-    globalSecurity: 0.1.0
+    globalSecurity: 0.1.1
     globalServerURLs: 0.1.1
     inputOutputModels: 0.2.0
+    methodSecurity: 0.2.0
     serverIDs: 0.1.0
 csharp:
   version: 0.0.1
@@ -30,7 +36,7 @@ csharp:
   outputModelSuffix: output
   packageName: openapi
 docs:
-  version: ""
+  version: 0.1.0
   imports:
     option: openapi
     paths:
@@ -113,6 +119,7 @@ typescript:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: openapi
+  templateVersion: v2
 unity:
   version: 0.0.1
   author: Speakeasy

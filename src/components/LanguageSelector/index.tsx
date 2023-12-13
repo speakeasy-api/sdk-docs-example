@@ -1,7 +1,9 @@
 import cn from 'classnames';
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
+
 import { languageData } from '@/src/lib/languageData';
 import { LanguageContext } from '@/src/utils/contexts/languageContext';
+
 import styles from './styles.module.scss';
 
 const LanguageSelector = ({ showIcon }: { showIcon?: boolean }) => {
@@ -12,13 +14,10 @@ const LanguageSelector = ({ showIcon }: { showIcon?: boolean }) => {
   } = useContext(LanguageContext);
   const [isOpen, setIsOpen] = useState(false);
 
-  const selectLanguage = useCallback(
-    (language: string) => {
-      setLanguage(language);
-      setIsOpen(false);
-    },
-    [setLanguage],
-  );
+  const selectLanguage = useCallback((language: string) => {
+    setLanguage(language);
+    setIsOpen(false);
+  }, []);
 
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
