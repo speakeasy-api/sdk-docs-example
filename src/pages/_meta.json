@@ -6,29 +6,8 @@
   "client_sdks": {
     "title": "Client SDKs"
   },
-  "csharp": {
-    "title": "Csharp"
-  },
-  "curl": {
-    "title": "Curl"
-  },
-  "go": {
-    "title": "Go"
-  },
   "installation": {
     "title": "Installation"
-  },
-  "java": {
-    "title": "Java"
-  },
-  "python": {
-    "title": "Python"
-  },
-  "typescript": {
-    "title": "Typescript"
-  },
-  "unity": {
-    "title": "Unity"
   },
   "-- resources": {
     "title": "Resources",
