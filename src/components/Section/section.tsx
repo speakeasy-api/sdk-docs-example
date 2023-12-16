@@ -2,7 +2,9 @@ import React, { ReactElement, useContext } from 'react';
 
 import styles from './styles.module.scss';
 
-import { MultiPageContext, RouteContext } from '../scrollManager';
+import { MultiPageContext } from '../scrollManager';
+
+export const DocsSectionRouteContext = React.createContext('');
 
 export const DocsSection = ({
   route = '',
@@ -11,7 +13,7 @@ export const DocsSection = ({
   route?: string;
   children?: ReactElement[];
 }) => {
-  const parentRoute = useContext(RouteContext);
+  const parentRoute = useContext(DocsSectionRouteContext);
   const isMultiPage = useContext(MultiPageContext);
 
   // if (parentRoute === '/') {
@@ -35,8 +37,8 @@ export const DocsSection = ({
   fullRoute = fullRoute.replaceAll('//', '/');
 
   return (
-    <RouteContext.Provider value={fullRoute}>
+    <DocsSectionRouteContext.Provider value={fullRoute}>
       <div className={styles.container}>{children}</div>
-    </RouteContext.Provider>
+    </DocsSectionRouteContext.Provider>
   );
 };

@@ -6,10 +6,9 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { RouteContext } from '@/src/components/routeProvider';
 
 export const MultiPageContext = createContext(false);
-export const RouteContext = createContext('');
 export const ScrollContext = createContext<{
   headingToPosition: Record<string, HeadingPosition>;
   currentHeading: string;
@@ -45,16 +44,15 @@ export const ScrollManager = (props: {
   children: ReactNode;
 }): React.ReactElement => {
   const isMultipage = useContext(MultiPageContext);
-  const pathname = usePathname();
-  const slug = pathname !== null ? pathname : undefined;
-  const router = useRouter();
+  // const slug = pathname !== null ? pathname : undefined;
+  const { route, setRoute } = useContext(RouteContext);
 
   const [initialScrollTarget, setInitialScrollTarget] = useState<string>();
   const [initialScrollDone, setInitialScrollDone] = useState(false);
 
   const rootPage = useMemo(
-    () => (isMultipage ? slug?.split('/').at(1) ?? '' : ''),
-    [slug],
+    () => (isMultipage ? route?.split('/').at(1) ?? '' : ''),
+    [route],
   );
 
   const reset = () => {
@@ -66,7 +64,8 @@ export const ScrollManager = (props: {
   const setPage = async (route: string) => {
     reset();
     setInitialScrollTarget(route);
-    await router.push(route, { scroll: false });
+    setRoute(route);
+    // await router.push(route, route, { scroll: false });
   };
 
   const [headingToPosition, setHeadingToPosition] = useState<
@@ -130,8 +129,8 @@ export const ScrollManager = (props: {
         nextIndex === -1
           ? entries.length - 1
           : nextIndex - 1 >= 0
-            ? nextIndex - 1
-            : 0;
+          ? nextIndex - 1
+          : 0;
       const closest = entries[currentIndex]?.[0];
 
       setClosestHeading(closest);
@@ -152,7 +151,7 @@ export const ScrollManager = (props: {
       initialScrollDone &&
       closestHeading.startsWith(`/${rootPage}`) // Make sure we haven't changed pages. Without this, we might overwrite the new route
     ) {
-      router.push(closestHeading, { scroll: false });
+      setRoute(closestHeading);
     }
   }, [closestHeading]);
 
@@ -182,10 +181,10 @@ export const ScrollManager = (props: {
    */
   useEffect(() => {
     // At first, the slug is simply /[...rest], so wait til it properly pulls in the URL
-    if (slug && !initialScrollTarget) {
-      setInitialScrollTarget(slug);
+    if (route && !initialScrollTarget) {
+      setInitialScrollTarget(route);
     }
-  }, [slug]);
+  }, [route]);
 
   // Once the initial scroll target is set and we know where that heading is, scroll to it
   // Do this every time the heading location changes until it stabilizes. This is necessary because the heading

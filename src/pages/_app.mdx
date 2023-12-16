@@ -1,34 +1,37 @@
-import { createElement } from 'react';
 import Head from 'next/head';
-import { CustomRedirects } from 'src/components/customRedirects';
-import { ScrollManager, MultiPageContext } from 'src/components/scrollManager';
-import { LanguageProvider } from '@/content/languages';
+import {CustomRedirects} from 'src/components/customRedirects';
+import {MultiPageContext, ScrollManager} from 'src/components/scrollManager';
+import {LanguageProvider} from '@/content/languages';
 import Watermark from 'src/components/Watermark';
 import '@/src/styles/index.scss';
-import "@code-hike/mdx/dist/index.css";
+import '@code-hike/mdx/dist/index.css';
+import {RouteProvider} from "src/components/routeProvider";
 
 export default function App(props) {
-  const { Component, pageProps } = props;
+  const {Component, pageProps} = props;
+
   return (
-    <MultiPageContext.Provider value={ true }>
+    <MultiPageContext.Provider value={true}>
       <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel='preconnect' href='https://fonts.gstatic.com'/>
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
-          rel="stylesheet"
+          href='https://fonts.googleapis.com/css2?family=Inter&display=swap'
+          rel='stylesheet'
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
-          rel="stylesheet"
+          href='https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap'
+          rel='stylesheet'
         />
       </Head>
-      <CustomRedirects />
-      <ScrollManager>
-        <LanguageProvider>
-          <Component {...pageProps} />
-        </LanguageProvider>
-      </ScrollManager>
-      <Watermark />
+      <CustomRedirects/>
+      <RouteProvider>
+        <ScrollManager>
+          <LanguageProvider>
+            <Component {...pageProps} />
+          </LanguageProvider>
+        </ScrollManager>
+      </RouteProvider>
+      <Watermark/>
     </MultiPageContext.Provider>
-  )
+  );
 }

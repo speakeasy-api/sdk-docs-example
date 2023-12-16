@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { useRouter } from 'next/router';
+import { Languages } from '@/content/languages';
 
 type Redirect = {
   from: string;
@@ -10,10 +11,20 @@ export const CustomRedirects = () => {
   const router = useRouter();
 
   // Static redirects defined from theme.yaml
-  const redirects: Redirect[] = [];
+  const redirects: Redirect[] = [
+    {
+      from: '/',
+      to: `/${Languages[0]}/client_sdks/`,
+    },
+    ...Languages.map((lang) => ({
+      from: `/${lang}`,
+      to: `/${lang}/client_sdks/`,
+    })),
+  ];
 
-  useEffect(() => {
+  useLayoutEffect( () => {
     const currentPath = window.location.pathname;
+    console.log('CustomRedirects', currentPath, redirects);
 
     const matchedRedirect = redirects.find((r) => {
       if (!r.from.endsWith('*')) {
@@ -25,12 +36,15 @@ export const CustomRedirects = () => {
       return currentPath.startsWith(basePath);
     });
 
+    console.log('matchedRedirect', matchedRedirect);
+
     if (matchedRedirect) {
       const newPath = matchedRedirect.from.endsWith('*')
         ? matchedRedirect.to.replace('*', '') +
           currentPath.replace(matchedRedirect.from.replace('*', ''), '')
         : matchedRedirect.to;
-      router.push(newPath);
+
+      router.replace(newPath);
     }
   }, []);
 

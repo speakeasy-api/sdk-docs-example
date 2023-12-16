@@ -55,7 +55,7 @@ const LanguageSelector = ({ showIcon }: { showIcon?: boolean }) => {
           </div>
         ) : null}
         <div className={styles.language}>
-          {languageData[currentLanguage].title}
+          {languageData[currentLanguage]?.title}
         </div>
         <div className={styles.popUpButton} />
       </div>

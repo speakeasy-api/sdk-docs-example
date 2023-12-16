@@ -1,16 +1,4 @@
 {
-  "404": {
-    "display": "hidden",
-    "type": "page"
-  },
-  "index": {
-    "display": "hidden",
-    "type": "page"
-  },
-  "[...rest]": {
-    "display": "hidden",
-    "type": "page"
-  },
   "-- guides": {
     "title": "Guides",
     "type": "separator"
