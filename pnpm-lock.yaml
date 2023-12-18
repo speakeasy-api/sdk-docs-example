@@ -11,6 +11,9 @@ dependencies:
   '@mdx-js/react':
     specifier: ^2.3.0
     version: 2.3.0(react@18.2.0)
+  '@speakeasy-sdks/nextra-theme-docs':
+    specifier: 2.13.2
+    version: 2.13.2(next@13.5.5)(nextra@2.13.2)(react-dom@18.2.0)(react@18.2.0)
   '@types/lodash':
     specifier: 4.14.199
     version: 4.14.199
@@ -41,9 +44,6 @@ dependencies:
   nextra:
     specifier: 2.13.2
     version: 2.13.2(next@13.5.5)(react-dom@18.2.0)(react@18.2.0)
-  nextra-theme-docs:
-    specifier: 2.13.2
-    version: 2.13.2(next@13.5.5)(nextra@2.13.2)(react-dom@18.2.0)(react@18.2.0)
   node-sass-json-importer:
     specifier: 4.3.0
     version: 4.3.0(node-sass@9.0.0)
@@ -581,6 +581,18 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
+  /@headlessui/react@1.7.17(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-4am+tzvkqDSSgiwrsEpGWqgGo9dz8qU5M3znCkC4PgkpY4HcCZzEDEvozltGGGHIKl9jbXbZPSH5TWn4sWJdow==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      client-only: 0.0.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /@humanwhocodes/config-array@0.11.11:
     resolution: {integrity: sha512-N2brEuAadi0CcdeMXUkhbZB84eskAc8MEX1By6qEchoVywSgXPIjou4rYsl0V3Hj0ZnuGycGCjdNgockbzeWNA==}
     engines: {node: '>=10.10.0'}
@@ -924,13 +936,40 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /@popperjs/core@2.11.6:
-    resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
+  /@popperjs/core@2.11.8:
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
     dev: false
 
   /@rushstack/eslint-patch@1.4.0:
     resolution: {integrity: sha512-cEjvTPU32OM9lUFegJagO0mRnIn+rbqrG89vV8/xLnLFX0DoR0r1oy5IlTga71Q7uT3Qus7qm7wgeiMT/+Irlg==}
     dev: true
+
+  /@speakeasy-sdks/nextra-theme-docs@2.13.2(next@13.5.5)(nextra@2.13.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-o7iCIbvsLa7ob4EtMtfR5Dfm/HDFPPAkHj8pU5kLlf7jWenMvlRrjsDhnUYgmAjx2mkJbNY6ta8eLU+4XmY2Lw==}
+    peerDependencies:
+      next: '>=9.5.3'
+      nextra: workspace:*
+      react: '>=16.13.1'
+      react-dom: '>=16.13.1'
+    dependencies:
+      '@headlessui/react': 1.7.17(react-dom@18.2.0)(react@18.2.0)
+      '@popperjs/core': 2.11.8
+      clsx: 2.0.0
+      escape-string-regexp: 5.0.0
+      flexsearch: 0.7.31
+      focus-visible: 5.2.0
+      git-url-parse: 13.1.0
+      intersection-observer: 0.12.2
+      match-sorter: 6.3.1
+      next: 13.5.5(react-dom@18.2.0)(react@18.2.0)(sass@1.69.4)
+      next-seo: 6.1.0(next@13.5.5)(react-dom@18.2.0)(react@18.2.0)
+      next-themes: 0.2.1(next@13.5.5)(react-dom@18.2.0)(react@18.2.0)
+      nextra: 2.13.2(next@13.5.5)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      scroll-into-view-if-needed: 3.1.0
+      zod: 3.22.4
+    dev: false
 
   /@swc/helpers@0.5.2:
     resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}
@@ -1889,8 +1928,8 @@ packages:
       dot-prop: 5.3.0
     dev: true
 
-  /compute-scroll-into-view@2.0.4:
-    resolution: {integrity: sha512-y/ZA3BGnxoM/QHHQ2Uy49CLtnWPbt4tTPpEEZiEmmiWBFKjej7nEyH8Ryz54jH0MLXflUYA3Er2zUxPSJu5R+g==}
+  /compute-scroll-into-view@3.1.0:
+    resolution: {integrity: sha512-rj8l8pD4bJ1nx+dAkMhV1xB5RuZEyVysfxJqB1pRchh1KVvwOv9b7CGB8ZfjTImVv2oF+sYMUkMZq6Na5Ftmbg==}
     dev: false
 
   /concat-map@0.0.1:
@@ -5371,33 +5410,6 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /nextra-theme-docs@2.13.2(next@13.5.5)(nextra@2.13.2)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-yE4umXaImp1/kf/sFciPj2+EFrNSwd9Db26hi98sIIiujzGf3+9eUgAz45vF9CwBw50FSXxm1QGRcY+slQ4xQQ==}
-    peerDependencies:
-      next: '>=9.5.3'
-      nextra: 2.13.2
-      react: '>=16.13.1'
-      react-dom: '>=16.13.1'
-    dependencies:
-      '@headlessui/react': 1.7.10(react-dom@18.2.0)(react@18.2.0)
-      '@popperjs/core': 2.11.6
-      clsx: 2.0.0
-      escape-string-regexp: 5.0.0
-      flexsearch: 0.7.31
-      focus-visible: 5.2.0
-      git-url-parse: 13.1.0
-      intersection-observer: 0.12.2
-      match-sorter: 6.3.1
-      next: 13.5.5(react-dom@18.2.0)(react@18.2.0)(sass@1.69.4)
-      next-seo: 6.1.0(next@13.5.5)(react-dom@18.2.0)(react@18.2.0)
-      next-themes: 0.2.1(next@13.5.5)(react-dom@18.2.0)(react@18.2.0)
-      nextra: 2.13.2(next@13.5.5)(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      scroll-into-view-if-needed: 3.0.4
-      zod: 3.22.4
-    dev: false
-
   /nextra@2.13.2(next@13.5.5)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-pIgOSXNUqTz1laxV4ChFZOU7lzJAoDHHaBPj8L09PuxrLKqU1BU/iZtXAG6bQeKCx8EPdBsoXxEuENnL9QGnGA==}
     engines: {node: '>=16'}
@@ -6338,10 +6350,10 @@ packages:
       loose-envify: 1.4.0
     dev: false
 
-  /scroll-into-view-if-needed@3.0.4:
-    resolution: {integrity: sha512-s+/F50jwTOUt+u5oEIAzum9MN2lUQNvWBe/zfEsVQcbaERjGkKLq1s+2wCHkahMLC8nMLbzMVKivx9JhunXaZg==}
+  /scroll-into-view-if-needed@3.1.0:
+    resolution: {integrity: sha512-49oNpRjWRvnU8NyGVmUaYG4jtTkNonFZI86MmGRDqBphEK2EXT9gdEUoQPZhuBM8yWHxCWbobltqYO5M4XrUvQ==}
     dependencies:
-      compute-scroll-into-view: 2.0.4
+      compute-scroll-into-view: 3.1.0
     dev: false
 
   /scss-tokenizer@0.4.3:

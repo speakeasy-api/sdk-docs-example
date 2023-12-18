@@ -520,6 +520,7 @@ content/pages/01-reference/curl/resources/resources.mdx
 .npmrc
 .nvmrc
 .prettierrc
+Dockerfile
 next-env.d.ts
 next.config.js
 package.json

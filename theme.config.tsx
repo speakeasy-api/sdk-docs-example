@@ -1,4 +1,4 @@
-import { DocsThemeConfig } from 'nextra-theme-docs';
+import { DocsThemeConfig } from '@speakeasy-sdks/nextra-theme-docs';
 import React, { FC, ReactNode } from 'react';
 import ThemeToggle from '@/src/components/ThemeToggle';
 import Logo from '@/src/components/Logo';
