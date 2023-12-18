@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"strings"
+  "os"
 )
 
 func handler(fs http.Handler, language string) http.HandlerFunc {
@@ -60,9 +61,14 @@ func main() {
 
 	// Mux will match / to every other route, so we need to handle it carefully
 	http.Handle("/", rootHandler(fs))
+  	listeningPort := os.Getenv("PORT")
+	if listeningPort == "" {
+		// Default locally to port 3000
+		listeningPort = "3000"
+	}
 
-	log.Print("Listening on :3000...")
-	err := http.ListenAndServe(":3000", nil)
+	log.Print(fmt.Sprintf("Listening on :%s...", listeningPort))
+	err := http.ListenAndServe(fmt.Sprintf(":%s", listeningPort), nil)
 	if err != nil {
 		log.Fatal(err)
 	}
