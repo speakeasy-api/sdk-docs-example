@@ -97,6 +97,7 @@ const config: ICustomDocsThemeConfig = {
   gitTimestamp: () => null,
   darkMode: false,
   head: Head,
+  useNextSeoProps:
   useActiveRoute: useRoute,
 };
 
