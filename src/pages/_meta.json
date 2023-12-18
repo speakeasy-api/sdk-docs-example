@@ -3,11 +3,11 @@
     "type": "page",
     "display": "hidden"
   },
-  "go": "Go",
-  "typescript": "Typescript",
-  "python": "Python",
-  "java": "Java",
-  "csharp": "C#",
-  "unity": "Unity",
-  "curl": "cURL"
+  "go": "go",
+  "typescript": "typescript",
+  "python": "python",
+  "java": "java",
+  "csharp": "csharp",
+  "unity": "unity",
+  "curl": "curl"
 }

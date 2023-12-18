@@ -4,7 +4,7 @@ const { remarkCodeHike } = require('@code-hike/mdx');
 const jsonImporter = require('node-sass-json-importer');
 
 const withNextra = require('nextra')({
-  theme: 'nextra-theme-docs',
+  theme: '@speakeasy-sdks/nextra-theme-docs',
   themeConfig: './theme.config.tsx',
   mdxOptions: {
     remarkPlugins: [

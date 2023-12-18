@@ -1,6 +1,5 @@
 import React from 'react';
-import { useConfig } from 'nextra-theme-docs';
-
+import { useConfig } from '@speakeasy-sdks/nextra-theme-docs';
 import { theme } from '@/src/utils/theme';
 
 export const Head = () => {
