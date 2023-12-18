@@ -1,6 +1,5 @@
 import { useLayoutEffect } from 'react';
 import { useRouter } from 'next/router';
-import { Languages } from '@/content/languages';
 
 type Redirect = {
   from: string;
@@ -12,19 +11,18 @@ export const CustomRedirects = () => {
 
   // Static redirects defined from theme.yaml
   const redirects: Redirect[] = [
-    {
-      from: '/',
-      to: `/${Languages[0]}/client_sdks/`,
-    },
-    ...Languages.map((lang) => ({
-      from: `/${lang}`,
-      to: `/${lang}/client_sdks/`,
-    })),
+    { from: '/', to: '/go/client_sdks/' },
+    { from: '/go', to: '/go/client_sdks/' },
+    { from: '/typescript', to: '/typescript/client_sdks/' },
+    { from: '/python', to: '/python/client_sdks/' },
+    { from: '/java', to: '/java/client_sdks/' },
+    { from: '/csharp', to: '/csharp/client_sdks/' },
+    { from: '/unity', to: '/unity/client_sdks/' },
+    { from: '/curl', to: '/curl/client_sdks/' },
   ];
 
-  useLayoutEffect( () => {
+  useLayoutEffect(() => {
     const currentPath = window.location.pathname;
-    console.log('CustomRedirects', currentPath, redirects);
 
     const matchedRedirect = redirects.find((r) => {
       if (!r.from.endsWith('*')) {
@@ -35,8 +33,6 @@ export const CustomRedirects = () => {
 
       return currentPath.startsWith(basePath);
     });
-
-    console.log('matchedRedirect', matchedRedirect);
 
     if (matchedRedirect) {
       const newPath = matchedRedirect.from.endsWith('*')

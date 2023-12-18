@@ -1,5 +1,3 @@
 {
-  "authenticate": {
-    "title": "Authenticate"
-  }
+  "authenticate": "Authenticate"
 }

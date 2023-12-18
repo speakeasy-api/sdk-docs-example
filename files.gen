@@ -530,7 +530,6 @@ src/components/Collapsible/index.tsx
 src/components/Collapsible/styles.module.scss
 src/components/Columns/index.tsx
 src/components/Columns/styles.module.scss
-src/components/DocsSection/index.tsx
 src/components/Footer/index.tsx
 src/components/Footer/styles.module.scss
 src/components/Header/index.tsx
@@ -570,6 +569,7 @@ src/components/WithStatusBar/index.tsx
 src/components/WithStatusBar/styles.module.scss
 src/components/head.tsx
 src/components/rootContainer.tsx
+src/components/routeProvider.tsx
 src/components/scrollManager.tsx
 src/components/typeHelpers.tsx
 src/icons/CheckIcon/index.tsx
@@ -622,11 +622,9 @@ theme.config.tsx
 tsconfig.json
 Makefile
 src/components/customRedirects.tsx
+server.go
 src/pages/_app.mdx
-src/pages/index.tsx
-src/pages/go/404.mdx
-src/pages/go/[...rest].mdx
-src/pages/go/index.mdx
+src/pages/go/[[...rest]].mdx
 src/.gen/pages/01-reference/go/client_sdks/_snippet.mdx
 src/.gen/pages/01-reference/go/client_sdks/client_sdks.mdx
 src/.gen/pages/01-reference/go/client_sdks/client_sdks_content.mdx
@@ -705,9 +703,7 @@ src/pages/go/ingredients/_meta.json
 src/pages/go/orders/create_order/_meta.json
 src/pages/go/orders/_meta.json
 src/pages/go/_meta.json
-src/pages/typescript/404.mdx
-src/pages/typescript/[...rest].mdx
-src/pages/typescript/index.mdx
+src/pages/typescript/[[...rest]].mdx
 src/.gen/pages/01-reference/typescript/client_sdks/_snippet.mdx
 src/.gen/pages/01-reference/typescript/client_sdks/client_sdks.mdx
 src/.gen/pages/01-reference/typescript/client_sdks/client_sdks_content.mdx
@@ -786,9 +782,7 @@ src/pages/typescript/ingredients/_meta.json
 src/pages/typescript/orders/create_order/_meta.json
 src/pages/typescript/orders/_meta.json
 src/pages/typescript/_meta.json
-src/pages/python/404.mdx
-src/pages/python/[...rest].mdx
-src/pages/python/index.mdx
+src/pages/python/[[...rest]].mdx
 src/.gen/pages/01-reference/python/client_sdks/_snippet.mdx
 src/.gen/pages/01-reference/python/client_sdks/client_sdks.mdx
 src/.gen/pages/01-reference/python/client_sdks/client_sdks_content.mdx
@@ -867,9 +861,7 @@ src/pages/python/ingredients/_meta.json
 src/pages/python/orders/create_order/_meta.json
 src/pages/python/orders/_meta.json
 src/pages/python/_meta.json
-src/pages/java/404.mdx
-src/pages/java/[...rest].mdx
-src/pages/java/index.mdx
+src/pages/java/[[...rest]].mdx
 src/.gen/pages/01-reference/java/client_sdks/_snippet.mdx
 src/.gen/pages/01-reference/java/client_sdks/client_sdks.mdx
 src/.gen/pages/01-reference/java/client_sdks/client_sdks_content.mdx
@@ -940,9 +932,7 @@ src/pages/java/ingredients/_meta.json
 src/pages/java/orders/create_order/_meta.json
 src/pages/java/orders/_meta.json
 src/pages/java/_meta.json
-src/pages/csharp/404.mdx
-src/pages/csharp/[...rest].mdx
-src/pages/csharp/index.mdx
+src/pages/csharp/[[...rest]].mdx
 src/.gen/pages/01-reference/csharp/client_sdks/_snippet.mdx
 src/.gen/pages/01-reference/csharp/client_sdks/client_sdks.mdx
 src/.gen/pages/01-reference/csharp/client_sdks/client_sdks_content.mdx
@@ -1013,9 +1003,7 @@ src/pages/csharp/ingredients/_meta.json
 src/pages/csharp/orders/create_order/_meta.json
 src/pages/csharp/orders/_meta.json
 src/pages/csharp/_meta.json
-src/pages/unity/404.mdx
-src/pages/unity/[...rest].mdx
-src/pages/unity/index.mdx
+src/pages/unity/[[...rest]].mdx
 src/.gen/pages/01-reference/unity/client_sdks/_snippet.mdx
 src/.gen/pages/01-reference/unity/client_sdks/client_sdks.mdx
 src/.gen/pages/01-reference/unity/client_sdks/client_sdks_content.mdx
@@ -1086,9 +1074,7 @@ src/pages/unity/ingredients/_meta.json
 src/pages/unity/orders/create_order/_meta.json
 src/pages/unity/orders/_meta.json
 src/pages/unity/_meta.json
-src/pages/curl/404.mdx
-src/pages/curl/[...rest].mdx
-src/pages/curl/index.mdx
+src/pages/curl/[[...rest]].mdx
 src/.gen/pages/01-reference/curl/client_sdks/_snippet.mdx
 src/.gen/pages/01-reference/curl/client_sdks/client_sdks.mdx
 src/.gen/pages/01-reference/curl/client_sdks/client_sdks_content.mdx

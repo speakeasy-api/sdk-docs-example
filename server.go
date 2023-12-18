@@ -52,7 +52,7 @@ func main() {
 	// Serve static files from the Next.js app
 	http.Handle("/_next/", fs)
 
-	languages := []string{"csharp", "go", "java", "curl", "python", "unity", "typescript"}
+  languages := []string{"go", "typescript", "python", "java", "csharp", "unity", "curl"}
 	for _, language := range languages {
 		route := fmt.Sprintf("/%s/", language)
 		http.Handle(route, handler(fs, language))

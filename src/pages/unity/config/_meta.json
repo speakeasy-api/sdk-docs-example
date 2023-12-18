@@ -1,5 +1,3 @@
 {
-  "subscribe_to_webhooks": {
-    "title": "Subscribe To Webhooks"
-  }
+  "subscribe_to_webhooks": "Subscribe To Webhooks"
 }
