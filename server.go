@@ -25,7 +25,7 @@ func rootHandler(fs http.Handler) http.HandlerFunc {
 		// There is nothing at /, so redirect to the client SDKs page for the default language
 		// We need to check for this explicitly because mux matches / to every route
 		if r.URL.Path == "/" {
-			http.RedirectHandler("/go/client_sdks", http.StatusSeeOther).ServeHTTP(w, r)
+			http.RedirectHandler("/java/client_sdks", http.StatusSeeOther).ServeHTTP(w, r)
 			return
 		}
 
@@ -52,7 +52,7 @@ func main() {
 	// Serve static files from the Next.js app
 	http.Handle("/_next/", fs)
 
-  languages := []string{"go", "typescript", "python", "java", "csharp", "unity", "curl"}
+	languages := []string{"go", "typescript", "python", "java", "csharp", "unity", "curl"}
 	for _, language := range languages {
 		route := fmt.Sprintf("/%s/", language)
 		http.Handle(route, handler(fs, language))

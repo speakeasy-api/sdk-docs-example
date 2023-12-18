@@ -18,6 +18,7 @@ import { useSetPage } from '@/src/components/scrollManager';
 
 export const Languages = ["go", "typescript", "python", "java", "csharp", "unity", "curl"];
 export type Language = (typeof Languages)[number];
+export const DefaultLanguage = 'java';
 
 export const LanguageProvider = (props: { children: ReactNode }) => {
   const slug = usePathname();
@@ -27,7 +28,7 @@ export const LanguageProvider = (props: { children: ReactNode }) => {
     // slug is in the form "/typescript/installation" (or null)
     const routeLang = slug?.split('/')[1];
 
-    return routeLang || 'go';
+    return routeLang || DefaultLanguage;
   }, [slug]);
 
   const setLanguage = useCallback(

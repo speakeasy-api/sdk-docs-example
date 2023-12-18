@@ -11,9 +11,6 @@ dependencies:
   '@mdx-js/react':
     specifier: ^2.3.0
     version: 2.3.0(react@18.2.0)
-  '@orama/plugin-nextra':
-    specifier: ^1.2.3
-    version: 1.2.3(sass@1.69.4)
   '@types/lodash':
     specifier: 4.14.199
     version: 4.14.199
@@ -913,33 +910,6 @@ packages:
     dependencies:
       mkdirp: 1.0.4
       rimraf: 3.0.2
-    dev: false
-
-  /@orama/orama@1.2.3:
-    resolution: {integrity: sha512-KJ4lzTDluQOJu6l2xsmDjKdhU6EvldmshvsQgAvDORn/Db+EXaWOKSK4XdvUNIcpUeSbFAdkRB26NLlfSpWRGg==}
-    engines: {node: '>= 16.0.0'}
-    dev: false
-
-  /@orama/plugin-match-highlight@1.2.3:
-    resolution: {integrity: sha512-wrBVDYQfjY8jCVB7ZoTAvkSioCB9SPpPMxcnbrlOZaII+HEkRY3EcLXcu6IWeDNposIi76J4pnIGKQ7leq3xpA==}
-    dependencies:
-      '@orama/orama': 1.2.3
-    dev: false
-
-  /@orama/plugin-nextra@1.2.3(sass@1.69.4):
-    resolution: {integrity: sha512-dSBOzfqb5QZwG/kMutOW/6w8ot08ef3wwDxD5BBj8TCl0I9Hi75GTavUYw0WrJ8Jx0aSIayy3UO+4aMEL5seNg==}
-    dependencies:
-      '@orama/orama': 1.2.3
-      '@orama/plugin-match-highlight': 1.2.3
-      classnames: 2.3.2
-      next: 13.5.5(react-dom@18.2.0)(react@18.2.0)(sass@1.69.4)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@opentelemetry/api'
-      - babel-plugin-macros
-      - sass
     dev: false
 
   /@pkgr/utils@2.4.2:

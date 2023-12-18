@@ -1,5 +1,6 @@
 import { useLayoutEffect } from 'react';
 import { useRouter } from 'next/router';
+import { Languages, DefaultLanguage } from '@/content/languages';
 
 type Redirect = {
   from: string;
@@ -9,16 +10,16 @@ type Redirect = {
 export const CustomRedirects = () => {
   const router = useRouter();
 
-  // Static redirects defined from theme.yaml
+  // Static redirects + custom redirects defined in theme.yaml
   const redirects: Redirect[] = [
-    { from: '/', to: '/go/client_sdks/' },
-    { from: '/go', to: '/go/client_sdks/' },
-    { from: '/typescript', to: '/typescript/client_sdks/' },
-    { from: '/python', to: '/python/client_sdks/' },
-    { from: '/java', to: '/java/client_sdks/' },
-    { from: '/csharp', to: '/csharp/client_sdks/' },
-    { from: '/unity', to: '/unity/client_sdks/' },
-    { from: '/curl', to: '/curl/client_sdks/' },
+    {
+      from: '/',
+      to: `/${DefaultLanguage}/client_sdks/`,
+    },
+    ...Languages.map((lang) => ({
+      from: `/${lang}`,
+      to: `/${lang}/client_sdks/`,
+    })),
   ];
 
   useLayoutEffect(() => {
