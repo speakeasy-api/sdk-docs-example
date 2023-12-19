@@ -1,6 +1,5 @@
-import { DocsThemeConfig } from 'nextra-theme-docs';
+import { DocsThemeConfig } from '@speakeasy-sdks/nextra-theme-docs';
 import React, { FC, ReactNode } from 'react';
-
 import ThemeToggle from '@/src/components/ThemeToggle';
 import Logo from '@/src/components/Logo';
 import Footer from '@/src/components/Footer';
@@ -10,6 +9,7 @@ import { RHS } from '@/src/components/Columns';
 import { Head } from '@/src/components/head';
 import { NavItem } from '@/src/components/NavItem';
 import Collapsible from '@/src/components/Collapsible';
+import { useRoute } from '@/src/components/routeProvider';
 
 interface ICustomDocsThemeConfig extends Omit<DocsThemeConfig, 'components'> {
   components: {
@@ -96,6 +96,7 @@ const config: ICustomDocsThemeConfig = {
   gitTimestamp: () => null,
   darkMode: false,
   head: Head,
+  useRoute,
 };
 
 export default config;

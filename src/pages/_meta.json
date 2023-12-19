@@ -1,31 +1,10 @@
 {
-  "-- guides": {
-    "title": "Guides",
-    "type": "separator"
+  "*": {
+    "type": "page",
+    "display": "hidden"
   },
-  "client_sdks": {
-    "title": "Client SDKs"
-  },
-  "installation": {
-    "title": "Installation"
-  },
-  "-- resources": {
-    "title": "Resources",
-    "type": "separator"
-  },
-  "authentication": {
-    "title": "Authentication"
-  },
-  "drinks": {
-    "title": "Drinks"
-  },
-  "ingredients": {
-    "title": "Ingredients"
-  },
-  "orders": {
-    "title": "Orders"
-  },
-  "config": {
-    "title": "Config"
-  }
+  "python": "python",
+  "typescript": "typescript",
+  "go": "go",
+  "curl": "curl"
 }

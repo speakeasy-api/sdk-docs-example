@@ -1,0 +1,32 @@
+
+<CH.Code>
+```typescript ListDrinks.ts
+import { SDK } from "openapi";
+import { DrinkType } from "openapi/models/components";
+
+async function run() {
+  const sdk = new SDK();
+
+  const drinkType = DrinkType.Wine;
+  
+  const res = await sdk.drinks.listDrinks(drinkType);
+
+  if (res?.statusCode !== 200) {
+    throw new Error("Unexpected status code: " + res?.statusCode || "-");
+  }
+  
+  // handle response
+}
+
+run();
+```
+---
+
+```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+```
+</CH.Code>

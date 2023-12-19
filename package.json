@@ -1,5 +1,5 @@
 {
-  "name": "<no value>",
+  "name": "sdk-docs",
   "version": "0.3.0",
   "description": "Nextra docs template",
   "private": true,
@@ -36,7 +36,6 @@
   "dependencies": {
     "@code-hike/mdx": "^0.10.0-next.1",
     "@mdx-js/react": "^2.3.0",
-    "@orama/plugin-nextra": "^1.2.3",
     "@types/lodash": "4.14.199",
     "chroma-js": "2.4.2",
     "classnames": "2.3.2",
@@ -47,11 +46,12 @@
     "next-compose-plugins": "^2.2.1",
     "next-themes": "0.2.1",
     "nextra": "2.13.2",
-    "nextra-theme-docs": "2.13.2",
+    "@speakeasy-sdks/nextra-theme-docs": "2.13.2",
     "node-sass-json-importer": "4.3.0",
     "pnpm": "8.7.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-loading-overlay": "1.0.1",
     "react-select": "5.7.7",
     "react-switch": "^7.0.0",
     "sass": "1.69.4"

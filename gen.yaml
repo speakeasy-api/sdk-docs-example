@@ -14,29 +14,13 @@ generation:
     nameResolutionDec2023: false
 features:
   docs:
-    core: 1.18.0
+    core: 1.19.0
     examples: 0.1.1
     globalSecurity: 0.1.1
     globalServerURLs: 0.1.1
     inputOutputModels: 0.3.0
     methodSecurity: 0.2.0
     serverIDs: 0.1.0
-csharp:
-  version: 0.0.1
-  author: Speakeasy
-  dotnetVersion: net5.0
-  imports:
-    option: openapi
-    paths:
-      callbacks: Models/Callbacks
-      errors: Models/Errors
-      operations: Models/Requests
-      shared: Models/Components
-      webhooks: Models/Webhooks
-  inputModelSuffix: input
-  maxMethodParams: 4
-  outputModelSuffix: output
-  packageName: openapi
 docs:
   version: 0.3.0
   imports:
@@ -65,27 +49,6 @@ go:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: openapi
-java:
-  version: 0.0.1
-  artifactID: openapi
-  companyEmail: info@mycompany.com
-  companyName: My Company
-  companyURL: www.mycompany.com
-  githubURL: github.com/owner/repo
-  groupID: org.openapis
-  imports:
-    option: openapi
-    paths:
-      callbacks: models/callbacks
-      errors: models/errors
-      operations: models/operations
-      shared: models/shared
-      webhooks: models/webhooks
-  inputModelSuffix: input
-  maxMethodParams: 4
-  ossrhURL: https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
-  outputModelSuffix: output
-  projectName: openapi
 python:
   version: 0.0.1
   author: Speakeasy
@@ -122,18 +85,3 @@ typescript:
   outputModelSuffix: output
   packageName: openapi
   templateVersion: v2
-unity:
-  version: 0.0.1
-  author: Speakeasy
-  imports:
-    option: openapi
-    paths:
-      callbacks: Models/Callbacks
-      errors: Models/Errors
-      operations: Models/Requests
-      shared: Models/Components
-      webhooks: Models/Webhooks
-  inputModelSuffix: input
-  maxMethodParams: 4
-  outputModelSuffix: output
-  packageName: openapi

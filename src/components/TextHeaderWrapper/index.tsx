@@ -8,11 +8,10 @@ import React, {
   useRef,
   useState,
 } from 'react';
-
-import { RouteContext, ScrollContext } from '@/src/components/scrollManager';
+import { ScrollContext } from '@/src/components/scrollManager';
 import { toRouteFormat } from '@/src/utils/routesHelpers';
-
 import styles from './styles.module.scss';
+import { DocsSectionRouteContext } from '@/src/components/Section/section';
 
 type textHeader = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
@@ -25,7 +24,7 @@ const TextHeaderWrapper: FC<IHeaderProps> = ({
   headingType,
   children = '',
 }) => {
-  const route = useContext(RouteContext);
+  const route = useContext(DocsSectionRouteContext);
   const scrollContext = useContext(ScrollContext);
 
   const [isMouseOver, setIsMouseOver] = useState(false);
