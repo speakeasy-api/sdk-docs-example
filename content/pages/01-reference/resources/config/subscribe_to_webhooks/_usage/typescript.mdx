@@ -5,7 +5,7 @@ import WithStatusBar from '@/src/components/WithStatusBar';
   <CH.Code>
   ```typescript SubscribeToWebhooks.ts
   import { SDK } from "openapi";
-import { Webhook } from "openapi/dist/models/operations";
+import { Webhook } from "openapi/models/operations";
 
 async function run() {
   const sdk = new SDK({
@@ -16,9 +16,11 @@ async function run() {
     {},
   ]);
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (res?.statusCode !== 200) {
+    throw new Error("Unexpected status code: " + res?.statusCode || "-");
   }
+  
+  // handle response
 }
 
 run();

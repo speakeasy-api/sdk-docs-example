@@ -5,19 +5,21 @@ import WithStatusBar from '@/src/components/WithStatusBar';
   <CH.Code>
   ```typescript GetDrink.ts
   import { SDK } from "openapi";
-import { GetDrinkRequest } from "openapi/dist/models/operations";
 
 async function run() {
   const sdk = new SDK({
     apiKey: "<YOUR_API_KEY_HERE>",
   });
-const name: string = "string";
 
+  const name = "string";
+  
   const res = await sdk.drinks.getDrink(name);
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (res?.statusCode !== 200) {
+    throw new Error("Unexpected status code: " + res?.statusCode || "-");
   }
+  
+  // handle response
 }
 
 run();

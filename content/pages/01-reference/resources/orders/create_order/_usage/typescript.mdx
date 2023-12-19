@@ -5,28 +5,29 @@ import WithStatusBar from '@/src/components/WithStatusBar';
   <CH.Code>
   ```typescript CreateOrder.ts
   import { SDK } from "openapi";
-import { CreateOrderOrderUpdateRequestBody, CreateOrderOrderUpdateResponse } from "openapi/dist/models/callbacks";
-import { ErrorT, OrderInput, OrderType } from "openapi/dist/models/components";
-import { CreateOrderRequest } from "openapi/dist/models/operations";
+import { OrderType } from "openapi/models/components";
 
 async function run() {
   const sdk = new SDK({
     apiKey: "<YOUR_API_KEY_HERE>",
   });
-const requestBody: OrderInput[] = [
-  {
-    type: OrderType.Ingredient,
-    productCode: "APM-1F2D3",
-    quantity: 844266,
-  },
-];
-const callbackUrl: string = "string";
 
+  const requestBody = [
+    {
+      type: OrderType.Ingredient,
+      productCode: "APM-1F2D3",
+      quantity: 844266,
+    },
+  ];
+  const callbackUrl = "string";
+  
   const res = await sdk.orders.createOrder(requestBody, callbackUrl);
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (res?.statusCode !== 200) {
+    throw new Error("Unexpected status code: " + res?.statusCode || "-");
   }
+  
+  // handle response
 }
 
 run();

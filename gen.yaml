@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 3fa9c50bded6ae736f27b80c55829fb2
   docVersion: 1.0.0
-  speakeasyVersion: 1.126.4
-  generationVersion: 2.214.10
+  speakeasyVersion: 1.127.0
+  generationVersion: 2.220.0
 generation:
   comments: {}
   sdkClassName: SDK
@@ -14,7 +14,7 @@ generation:
     nameResolutionDec2023: false
 features:
   docs:
-    core: 1.16.2
+    core: 1.18.0
     examples: 0.1.1
     globalSecurity: 0.1.1
     globalServerURLs: 0.1.1
@@ -38,7 +38,7 @@ csharp:
   outputModelSuffix: output
   packageName: openapi
 docs:
-  version: 0.2.0
+  version: 0.3.0
   imports:
     option: openapi
     paths:
