@@ -34,12 +34,10 @@ jobs:
           run_install: true
 
       - id: "auth"
-        name: Authenticate to Google Cloud
+        name: Authenticate to Google Cloud using GCP_SA_KEY
         uses: google-github-actions/auth@v0
         with:
-          token_format: "access_token"
-          workload_identity_provider: "projects/409661704476/locations/global/workloadIdentityPools/ga-pool/providers/github-oidc-provider"
-          service_account: "speakeasy-registry-ga-ci@linen-analyst-344721.iam.gserviceaccount.com"
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
 
       - name: Login to GCR
         uses: docker/login-action@v2
