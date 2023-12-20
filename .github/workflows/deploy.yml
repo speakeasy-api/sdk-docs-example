@@ -107,6 +107,6 @@ jobs:
       - id: 'deploy'
         uses: 'google-github-actions/deploy-cloudrun@v2'
         with:
-          service: ${{ CLOUD_RUN_SERVICE_NAME }}
+          service: ${{ env.CLOUD_RUN_SERVICE_NAME }}
           image: ${{ env.REGISTRY }}/sdk-docs/${{ github.repository }}:latest
           region: ${{ env.REGION }}
