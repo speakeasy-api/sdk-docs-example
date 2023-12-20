@@ -49,12 +49,7 @@ jobs:
           images: ${{ env.REGISTRY }}/sdk-docs/${{ env.DOCKER_REPOSITORY_OWNER }}/${{ github.repository_name }}
           tags: |
             type=raw,value=latest
-            type=ref,event=branch
-            type=ref,event=tag
-            type=ref,event=pr
-            type=schedule,pattern=nightly
-            type=sha
-            type=sha,format=long
+            type=sha,format=short
 
       - name: Construct SERVER_VERSION
         run: echo "SERVER_VERSION=$(date +'%Y-%m-%d')-$( echo $GITHUB_SHA | cut -c1-8 )" >> $GITHUB_ENV 
@@ -76,7 +71,7 @@ jobs:
           secrets: |
             git_auth_token=${{ secrets.BOT_REPO_TOKEN }}
           cache-from: type=registry,ref=${{ env.REGISTRY }}/sdk-docs/${{ env.DOCKER_REPOSITORY_OWNER }}/${{ github.repository_name }}
-          cache-to: type=registry,ref=${{ env.REGISTRY }}/sdk-docs/${{ env.DOCKER_REPOSITORY_OWNER }}/${{ github.repository_name }},mode=max,enable=${{ github.event_name == 'merge_group' }}
+          cache-to: type=registry,ref=${{ env.REGISTRY }}/sdk-docs/${{ env.DOCKER_REPOSITORY_OWNER }}/${{ github.repository_name }},mode=max
 
 
   # deploy-to-cloud-run:
