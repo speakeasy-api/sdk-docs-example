@@ -15,7 +15,7 @@ jobs:
   build-docker:
     name: Build and Push Registry Image
     runs-on: ubuntu-latest
-    permissions:
+        permissions:
       contents: "read"
       id-token: "write"
     steps:
@@ -35,13 +35,12 @@ jobs:
           version: 8
           run_install: true
 
-      - id: "auth"
-        name: "Authenticate to Google Cloud"
-        uses: google-github-actions/auth@v0
+      - name: Set up Google Cloud SDK
+        id: "auth"
+        uses: google-github-actions/setup-gcloud@v0
         with:
-          token_format: "access_token"
-          workload_identity_provider: "projects/409661704476/locations/global/workloadIdentityPools/ga-pool/providers/github-oidc-provider"
-          service_account: "speakeasy-registry-ga-ci@linen-analyst-344721.iam.gserviceaccount.com"
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+          project_id: linen-analyst-344721
 
       - name: Echo
         run: |
