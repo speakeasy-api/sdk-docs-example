@@ -12,7 +12,6 @@ COPY out/ ./out/
 
 RUN go build -o /server
 
-# TODO: Switch this to alpine, for local testing
 FROM gcr.io/distroless/base
 
 WORKDIR /
