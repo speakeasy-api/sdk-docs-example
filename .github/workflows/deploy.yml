@@ -9,7 +9,6 @@ on:
 
 env:
   REGISTRY: gcr.io/linen-analyst-344721
-  DOCKER_REPOSITORY_OWNER: ${{ github.repository_owner }}
   REGION: us-west1
 
 jobs:
@@ -46,7 +45,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4.0.0
         with:
-          images: ${{ env.REGISTRY }}/sdk-docs/${{ env.DOCKER_REPOSITORY_OWNER }}/${{ github.repository_name }}
+          images: ${{ env.REGISTRY }}/sdk-docs/${{ github.repository }}
           tags: |
             type=raw,value=latest
             type=sha,format=short
@@ -70,8 +69,8 @@ jobs:
             SERVER_VERSION=${{ env.SERVER_VERSION }}
           secrets: |
             git_auth_token=${{ secrets.BOT_REPO_TOKEN }}
-          cache-from: type=registry,ref=${{ env.REGISTRY }}/sdk-docs/${{ env.DOCKER_REPOSITORY_OWNER }}/${{ github.repository_name }}
-          cache-to: type=registry,ref=${{ env.REGISTRY }}/sdk-docs/${{ env.DOCKER_REPOSITORY_OWNER }}/${{ github.repository_name }},mode=max
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/sdk-docs/${{ github.repository }}
+          cache-to: type=registry,ref=${{ env.REGISTRY }}/sdk-docs/${{ github.repository }},mode=max
 
 
   # deploy-to-cloud-run:
@@ -87,13 +86,13 @@ jobs:
 
   #     - name: Set Cloud Run Service Name
   #       run: |
-  #         CLOUD_RUN_SERVICE_NAME=${{ github.repository_owner }}-${{ github.repository_name }}
+  #         CLOUD_RUN_SERVICE_NAME=${{ github.repository_owner }}-sdk-docs-example
   #         echo "CLOUD_RUN_SERVICE_NAME=$CLOUD_RUN_SERVICE_NAME" >> $GITHUB_ENV
 
   #     - name: Deploy to Cloud Run
   #       run: |
   #         gcloud run deploy ${{ env.CLOUD_RUN_SERVICE_NAME }} \
-  #           --image=${{ env.REGISTRY }}/sdk-docs/${{ env.DOCKER_REPOSITORY_OWNER }}/${{ github.repository_name }}:latest \
+  #           --image=${{ env.REGISTRY }}/sdk-docs/${{ github.repository }}:latest \
   #           --platform=managed \
   #           --region=${{ env.REGION }} \
   #           --allow-unauthenticated  # Modify as needed
