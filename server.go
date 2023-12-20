@@ -65,7 +65,7 @@ func main() {
 		listeningPort = "3000"
 	}
 
-	log.Print(fmt.Sprintf("Listening on1 :%s...", listeningPort))
+	log.Print(fmt.Sprintf("Listening on :%s...", listeningPort))
 	err := http.ListenAndServe(fmt.Sprintf(":%s", listeningPort), nil)
 	if err != nil {
 		log.Fatal(err)
