@@ -32,14 +32,25 @@ jobs:
           version: 8
           run_install: true
 
-      - name: Authenticate to Google Cloud 
+      - id: "auth"
+        name: "Authenticate to Google Cloud"
         uses: google-github-actions/auth@v0
         with:
-          credentials_json: ${{ secrets.DOCS_REGISTRY_SERVICE_ACCOUNT }} 
+          token_format: "access_token"
+          workload_identity_provider: "projects/409661704476/locations/global/workloadIdentityPools/ga-pool/providers/github-oidc-provider"
+          service_account: "speakeasy-registry-ga-ci@linen-analyst-344721.iam.gserviceaccount.com"
 
-      - name: Configure Docker for GCR
+      - name: Echo
         run: |
-          gcloud auth configure-docker ${{ env.REGISTRY }} --quiet
+          echo '::echo::on'
+          echo ${{ steps.auth.outputs.access_token }}
+
+      - name: Login to GCR
+        uses: docker/login-action@v2
+        with:
+          registry: gcr.io/linen-analyst-344721
+          username: oauth2accesstoken
+          password: ${{ steps.auth.outputs.access_token }}
       
       - name: Extract Docker Metadata
         id: meta
