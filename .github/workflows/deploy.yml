@@ -15,7 +15,7 @@ jobs:
   build-docker:
     name: Build and Push Registry Image
     runs-on: ubuntu-latest
-        permissions:
+    permissions:
       contents: "read"
       id-token: "write"
     steps:
