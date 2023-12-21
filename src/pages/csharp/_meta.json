@@ -1,0 +1,18 @@
+{
+  "-- guides": {
+    "title": "Guides",
+    "type": "separator"
+  },
+  "client_sdks": "Client SDKs",
+  "installation": "Installation",
+  "server_options": "Server Options",
+  "-- resources": {
+    "title": "Resources",
+    "type": "separator"
+  },
+  "authentication": "Authentication",
+  "drinks": "Drinks",
+  "ingredients": "Ingredients",
+  "orders": "Orders",
+  "config": "Config"
+}

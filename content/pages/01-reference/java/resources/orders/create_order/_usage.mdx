@@ -1,0 +1,56 @@
+
+<CH.Code>
+```java CreateOrder.java
+package hello.world;
+
+import org.openapis.openapi.SDK;
+import org.openapis.openapi.models.callbacks.CreateOrderOrderUpdateRequestBody;
+import org.openapis.openapi.models.callbacks.CreateOrderOrderUpdateResponse;
+import org.openapis.openapi.models.operations.CreateOrderRequest;
+import org.openapis.openapi.models.operations.CreateOrderResponse;
+import org.openapis.openapi.models.shared.APIError;
+import org.openapis.openapi.models.shared.Error;
+import org.openapis.openapi.models.shared.OrderInput;
+import org.openapis.openapi.models.shared.OrderType;
+import org.openapis.openapi.models.shared.Security;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .setSecurity(new Security(
+                "string"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .build();
+
+            org.openapis.openapi.models.operations.CreateOrderResponse res = sdk.orders.createOrder(new org.openapis.openapi.models.shared.OrderInput[]{{
+                add(new OrderInput(
+                OrderType.DRINK,
+                "NAC-3F2D1",
+                20218L){{
+                    type = OrderType.INGREDIENT;
+                    productCode = "AC-A2DF3";
+                    quantity = 337396L;
+                }}),
+            }}, "string");
+
+            if (res.order != null) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+---
+
+```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+```
+</CH.Code>

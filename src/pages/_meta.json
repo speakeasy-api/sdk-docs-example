@@ -1,10 +1,26 @@
 {
-  "*": {
+  "python": {
     "type": "page",
     "display": "hidden"
   },
-  "python": "python",
-  "typescript": "typescript",
-  "go": "go",
-  "curl": "curl"
+  "typescript": {
+    "type": "page",
+    "display": "hidden"
+  },
+  "go": {
+    "type": "page",
+    "display": "hidden"
+  },
+  "csharp": {
+    "type": "page",
+    "display": "hidden"
+  },
+  "java": {
+    "type": "page",
+    "display": "hidden"
+  },
+  "curl": {
+    "type": "page",
+    "display": "hidden"
+  }
 }

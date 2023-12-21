@@ -1,0 +1,78 @@
+{/* Start Go Server Options */}
+### Select Server by Name
+
+You can override the default server globally using the `WithServer` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
+
+
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+	"openapi"
+	"openapi/models/components"
+	"openapi/models/operations"
+)
+
+func main() {
+	s := openapi.New(
+		openapi.WithServer("customer"),
+		openapi.WithSecurity("<YOUR_API_KEY_HERE>"),
+	)
+
+	ctx := context.Background()
+	res, err := s.Authentication.Authenticate(ctx, operations.AuthenticateRequestBody{})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.Object != nil {
+		// handle response
+	}
+}
+
+```
+
+#### Variables
+
+Some of the server options above contain variables. If you want to set the values of those variables, the following options are provided for doing so:
+ * `WithOrganization string`
+ * `WithEnvironment openapi.ServerEnvironment`
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
+```go
+package main
+
+import (
+	"context"
+	"log"
+	"openapi"
+	"openapi/models/components"
+	"openapi/models/operations"
+)
+
+func main() {
+	s := openapi.New(
+		openapi.WithServerURL("https://speakeasy.bar"),
+		openapi.WithSecurity("<YOUR_API_KEY_HERE>"),
+	)
+
+	ctx := context.Background()
+	res, err := s.Authentication.Authenticate(ctx, operations.AuthenticateRequestBody{})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.Object != nil {
+		// handle response
+	}
+}
+
+```
+{/* End Go Server Options */}

@@ -5,6 +5,10 @@
   },
   "client_sdks": "Client SDKs",
   "installation": "Installation",
+  "custom_http_client": "Custom Http Client",
+  "security_options": "Security Options",
+  "errors": "Errors",
+  "server_options": "Server Options",
   "-- resources": {
     "title": "Resources",
     "type": "separator"

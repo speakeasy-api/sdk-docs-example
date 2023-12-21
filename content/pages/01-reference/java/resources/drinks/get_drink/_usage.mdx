@@ -1,0 +1,41 @@
+
+<CH.Code>
+```java GetDrink.java
+package hello.world;
+
+import org.openapis.openapi.SDK;
+import org.openapis.openapi.models.operations.GetDrinkRequest;
+import org.openapis.openapi.models.operations.GetDrinkResponse;
+import org.openapis.openapi.models.shared.Security;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .setSecurity(new Security(
+                "string"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .build();
+
+            org.openapis.openapi.models.operations.GetDrinkResponse res = sdk.drinks.getDrink("string");
+
+            if (res.drink != null) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+---
+
+```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+```
+</CH.Code>

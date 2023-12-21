@@ -1,0 +1,54 @@
+{/* Start Python Server Options */}
+### Select Server by Name
+
+You can override the default server globally by passing a server name to the `server: str` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
+
+
+
+#### Example
+
+```python
+import sdk
+from sdk.models import operations
+
+s = sdk.SDK(
+    server="customer",
+    api_key="<YOUR_API_KEY_HERE>",
+)
+
+req = operations.AuthenticateRequestBody()
+
+res = s.authentication.authenticate(req)
+
+if res.object is not None:
+    # handle response
+    pass
+```
+
+#### Variables
+
+Some of the server options above contain variables. If you want to set the values of those variables, the following optional parameters are available when initializing the SDK client instance:
+ * `organization: str`
+ * `environment: models.ServerEnvironment`
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
+```python
+import sdk
+from sdk.models import operations
+
+s = sdk.SDK(
+    server_url="https://speakeasy.bar",
+    api_key="<YOUR_API_KEY_HERE>",
+)
+
+req = operations.AuthenticateRequestBody()
+
+res = s.authentication.authenticate(req)
+
+if res.object is not None:
+    # handle response
+    pass
+```
+{/* End Python Server Options */}

@@ -1,0 +1,47 @@
+
+<CH.Code>
+```java SubscribeToWebhooks.java
+package hello.world;
+
+import org.openapis.openapi.SDK;
+import org.openapis.openapi.models.operations.RequestBody;
+import org.openapis.openapi.models.operations.SubscribeToWebhooksResponse;
+import org.openapis.openapi.models.operations.Webhook;
+import org.openapis.openapi.models.shared.Security;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .setSecurity(new Security(
+                "string"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .build();
+
+            org.openapis.openapi.models.operations.RequestBody[] req = new org.openapis.openapi.models.operations.RequestBody[]{{
+                add(new RequestBody(
+                ){{}}),
+            }};
+
+            org.openapis.openapi.models.operations.SubscribeToWebhooksResponse res = sdk.config.subscribeToWebhooks(req);
+
+            if (res.statusCode == 200) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+---
+
+```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+```
+</CH.Code>

@@ -4,7 +4,6 @@
     "type": "separator"
   },
   "client_sdks": "Client SDKs",
-  "installation": "Installation",
   "-- resources": {
     "title": "Resources",
     "type": "separator"

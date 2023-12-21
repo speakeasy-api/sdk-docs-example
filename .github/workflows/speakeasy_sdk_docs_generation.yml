@@ -24,6 +24,8 @@ jobs:
         - python
         - typescript
         - go
+        - csharp
+        - java
         - curl
       mode: direct
       openapi_docs: |

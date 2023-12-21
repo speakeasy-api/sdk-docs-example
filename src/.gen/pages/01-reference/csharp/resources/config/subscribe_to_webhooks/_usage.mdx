@@ -1,0 +1,30 @@
+
+<CH.Code>
+```csharp SubscribeToWebhooks.cs
+using Openapi;
+using Openapi.Models.Components;
+using Openapi.Models.Requests;
+
+var sdk = new SDK(
+    security: new Security() {
+        ApiKey = "<YOUR_API_KEY_HERE>",
+    });
+
+List<RequestBody> req = new List<RequestBody>() {
+    new RequestBody() {},
+};
+
+var res = await sdk.Config.SubscribeToWebhooksAsync(req);
+
+// handle response
+```
+---
+
+```json Example Response
+  {
+    "code": "string",
+    "message": "string",
+    "details": {}
+  }
+```
+</CH.Code>

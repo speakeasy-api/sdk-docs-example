@@ -16,7 +16,7 @@ import { LinkableContext } from '@/src/utils/contexts/linkableContext';
 import { usePathname } from 'next/navigation';
 import { useSetPage } from '@/src/components/scrollManager';
 
-export const Languages = ["python", "typescript", "go", "curl"];
+export const Languages = ["python", "typescript", "go", "csharp", "java", "curl"];
 export type Language = (typeof Languages)[number];
 export const DefaultLanguage = 'python';
 

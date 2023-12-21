@@ -1,0 +1,33 @@
+{/* Start Python Errors */}
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or raise an error.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate Error type.
+
+
+
+### Example
+
+```python
+import sdk
+from sdk.models import operations
+
+s = sdk.SDK(
+    api_key="<YOUR_API_KEY_HERE>",
+)
+
+req = operations.AuthenticateRequestBody()
+
+res = None
+try:
+    res = s.authentication.authenticate(req)
+except errors.APIError as e:
+    print(e)  # handle exception
+    raise(e)
+except errors.SDKError as e:
+    print(e)  # handle exception
+    raise(e)
+
+if res.object is not None:
+    # handle response
+    pass
+```
+
+{/* End Python Errors */}
