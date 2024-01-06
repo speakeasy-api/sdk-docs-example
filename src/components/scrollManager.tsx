@@ -7,6 +7,8 @@ import React, {
   useState,
 } from 'react';
 import { RouteContext } from '@/src/components/routeProvider';
+import { getPagesUnderRoute } from 'nextra/context';
+import { useRouter } from 'next/router';
 
 export const MultiPageContext = createContext(false);
 export const ScrollContext = createContext<{
@@ -44,8 +46,8 @@ export const ScrollManager = (props: {
   children: ReactNode;
 }): React.ReactElement => {
   const isMultipage = useContext(MultiPageContext);
-  // const slug = pathname !== null ? pathname : undefined;
   const { route, setRoute } = useContext(RouteContext);
+  const router = useRouter();
 
   const [initialScrollTarget, setInitialScrollTarget] = useState<string>();
   const [initialScrollDone, setInitialScrollDone] = useState(false);
@@ -63,9 +65,19 @@ export const ScrollManager = (props: {
 
   const setPage = async (route: string) => {
     reset();
-    setInitialScrollTarget(route);
     setRoute(route);
-    // await router.push(route, route, { scroll: false });
+    handleInitialScroll(route);
+  };
+
+  // If the route exists, set it as the scroll target. Otherwise, redirect to the root page.
+  const handleInitialScroll = (route: string) => {
+    if (pageExists(route)) {
+      setInitialScrollTarget(route);
+    } else {
+      const language = route.split('/')[1];
+      router.replace(`/${language}/client_sdks`);
+      setInitialScrollDone(true);
+    }
   };
 
   const [headingToPosition, setHeadingToPosition] = useState<
@@ -182,7 +194,7 @@ export const ScrollManager = (props: {
   useEffect(() => {
     // At first, the slug is simply /[...rest], so wait til it properly pulls in the URL
     if (route && !initialScrollTarget) {
-      setInitialScrollTarget(route);
+      handleInitialScroll(route);
     }
   }, [route]);
 
@@ -220,4 +232,12 @@ export const ScrollManager = (props: {
       {props.children}
     </ScrollContext.Provider>
   );
+};
+
+const pageExists = (route: string) => {
+  // getPagesUnderRoute returns an empty array regardless of whether the page exists, so we instead get the
+  // parent's children and check that the route exists there.
+  const parentRoute = route.split('/').slice(0, -1).join('/');
+  const parentsChildren = getPagesUnderRoute(parentRoute);
+  return parentsChildren.some((child) => child.route === route);
 };

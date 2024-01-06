@@ -72,9 +72,12 @@
       cursor: pointer;
       user-select: none;
       -webkit-user-select: none;
+
       @include generatePxToRem(font-size, 14);
       font-weight: 600;
       letter-spacing: 0.01rem;
+      line-height: 22px;
+
       color: var(--lang-selector-item-color);
 
       &:first-child {

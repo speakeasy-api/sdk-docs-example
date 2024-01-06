@@ -56,11 +56,12 @@ const TextHeaderWrapper: FC<IHeaderProps> = ({
     }
   }, [pagePos]);
 
-  const heading = createElement(
+  const heading: ReactNode = createElement(
     headingType,
     {
       ref: inputRef,
       id: route,
+      className: styles.headingWrapper,
     },
     children,
   );
@@ -122,6 +123,10 @@ const TextHeaderWrapper: FC<IHeaderProps> = ({
     heading
   );
 };
+
+export const H2 = ({ children }: { children: ReactNode }) => (
+  <TextHeaderWrapper headingType='h2'>{children}</TextHeaderWrapper>
+);
 
 export const H3 = ({ children }: { children: ReactNode }) => (
   <TextHeaderWrapper headingType='h3'>{children}</TextHeaderWrapper>

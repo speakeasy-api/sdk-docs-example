@@ -1,7 +1,9 @@
 @import '@/src/styles/utils/mixins';
 
 .toggle {
-  @include generatePxToRem(margin-left, 24);
+  @include generatePxToRem(margin-left, 8);
+  @include generatePxToRem(margin-right, 8);
+
   label {
     @include flex(row, center, center);
     @include generatePxToRem(column-gap, 8);

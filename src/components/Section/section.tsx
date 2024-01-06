@@ -16,14 +16,6 @@ export const DocsSection = ({
   const parentRoute = useContext(DocsSectionRouteContext);
   const isMultiPage = useContext(MultiPageContext);
 
-  // if (parentRoute === '/') {
-  //   parentRoute = '';
-  // }
-  //
-  // if (route.startsWith('/')) {
-  //   route = route.slice(1);
-  // }
-
   let homeOverride = '';
 
   if (isMultiPage) {

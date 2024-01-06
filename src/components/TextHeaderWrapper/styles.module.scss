@@ -10,3 +10,10 @@
     color: var(--text-link);
   }
 }
+
+.headingWrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  column-gap: 8px;
+}

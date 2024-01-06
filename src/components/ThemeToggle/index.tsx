@@ -41,7 +41,6 @@ const ThemeToggle: FC = () => {
       <LanguageSelector showIcon={true} />
       <div className={styles.toggle}>
         <label htmlFor='switch'>
-          <span>Light</span>
           <Switch
             id='switch'
             className='react-switch'
@@ -68,7 +67,6 @@ const ThemeToggle: FC = () => {
               </div>
             }
           />
-          <span>Dark</span>
         </label>
       </div>
     </>
