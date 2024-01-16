@@ -10,13 +10,10 @@ async function run() {
 
   const name = "string";
   
-  const res = await sdk.drinks.getDrink(name);
+  const result = await sdk.drinks.getDrink(name);
 
-  if (res?.statusCode !== 200) {
-    throw new Error("Unexpected status code: " + res?.statusCode || "-");
-  }
-  
-  // handle response
+  // Handle the result
+  console.log(result)
 }
 
 run();

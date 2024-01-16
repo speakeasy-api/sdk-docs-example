@@ -23,7 +23,7 @@ csharp:
   outputModelSuffix: output
   packageName: openapi
 docs:
-  version: 0.4.0
+  version: 0.5.0
   imports:
     option: openapi
     paths:
@@ -73,6 +73,7 @@ java:
   ossrhURL: https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
   outputModelSuffix: output
   projectName: openapi
+  templateVersion: v1
 python:
   version: 0.0.1
   author: Speakeasy

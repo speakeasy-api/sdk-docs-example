@@ -9,13 +9,10 @@ async function run() {
 
   const drinkType = DrinkType.Wine;
   
-  const res = await sdk.drinks.listDrinks(drinkType);
+  const result = await sdk.drinks.listDrinks(drinkType);
 
-  if (res?.statusCode !== 200) {
-    throw new Error("Unexpected status code: " + res?.statusCode || "-");
-  }
-  
-  // handle response
+  // Handle the result
+  console.log(result)
 }
 
 run();

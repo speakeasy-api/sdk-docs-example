@@ -9,6 +9,7 @@ import React, {
 import { RouteContext } from '@/src/components/routeProvider';
 import { getPagesUnderRoute } from 'nextra/context';
 import { useRouter } from 'next/router';
+import { DefaultLanguage, Languages } from '@/content/languages';
 
 export const MultiPageContext = createContext(false);
 export const ScrollContext = createContext<{
@@ -74,7 +75,10 @@ export const ScrollManager = (props: {
     if (pageExists(route)) {
       setInitialScrollTarget(route);
     } else {
-      const language = route.split('/')[1];
+      let language = route.split('/')[1];
+      if (!Languages.includes(language)) {
+        language = DefaultLanguage;
+      }
       router.replace(`/${language}/client_sdks`);
       setInitialScrollDone(true);
     }

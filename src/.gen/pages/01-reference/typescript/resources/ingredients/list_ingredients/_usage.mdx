@@ -12,13 +12,10 @@ async function run() {
     "string",
   ];
   
-  const res = await sdk.ingredients.listIngredients(ingredients);
+  const result = await sdk.ingredients.listIngredients(ingredients);
 
-  if (res?.statusCode !== 200) {
-    throw new Error("Unexpected status code: " + res?.statusCode || "-");
-  }
-  
-  // handle response
+  // Handle the result
+  console.log(result)
 }
 
 run();
