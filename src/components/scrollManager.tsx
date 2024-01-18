@@ -9,7 +9,6 @@ import React, {
 import { RouteContext } from '@/src/components/routeProvider';
 import { getPagesUnderRoute } from 'nextra/context';
 import { useRouter } from 'next/router';
-import { DefaultLanguage, Languages } from '@/content/languages';
 
 export const MultiPageContext = createContext(false);
 export const ScrollContext = createContext<{
@@ -75,10 +74,7 @@ export const ScrollManager = (props: {
     if (pageExists(route)) {
       setInitialScrollTarget(route);
     } else {
-      let language = route.split('/')[1];
-      if (!Languages.includes(language)) {
-        language = DefaultLanguage;
-      }
+      const language = route.split('/')[1];
       router.replace(`/${language}/client_sdks`);
       setInitialScrollDone(true);
     }
@@ -104,13 +100,20 @@ export const ScrollManager = (props: {
         route += `#${heading}`;
       }
 
-      return {
+      const newValues = {
         ...currentValues,
         [route]: {
           elem,
           position,
         },
       };
+
+      // This is necessary because sometimes the page loads out of order when we do client-side redirects
+      return Object.fromEntries(
+        Object.entries(newValues).filter(([k, _]) =>
+          k.startsWith(`/${rootPage}`),
+        ),
+      );
     });
   };
 

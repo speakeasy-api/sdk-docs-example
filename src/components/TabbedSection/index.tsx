@@ -33,7 +33,7 @@ export const TabbedSection: FC<{ tabLabel: string; children: ReactNode }> = ({
           >
             {typeof tab.props.title === 'string' ? (
               <span className={styles.tabbedSection_tabButton_title}>
-                tab.props.title
+                {tab.props.title}
               </span>
             ) : (
               tab.props.title

@@ -30,16 +30,23 @@ export const CustomRedirects = () => {
         return r.from === currentPath;
       }
 
+      if (r.from.startsWith('*') && r.from.endsWith('*')) {
+        const totalHref = window.location.href;
+        return totalHref.includes(r.from.replace(/\*/g, ''));
+      }
+
       const basePath = r.from.replace('*', '');
 
       return currentPath.startsWith(basePath);
     });
 
     if (matchedRedirect) {
-      const newPath = matchedRedirect.from.endsWith('*')
-        ? matchedRedirect.to.replace('*', '') +
-          currentPath.replace(matchedRedirect.from.replace('*', ''), '')
-        : matchedRedirect.to;
+      const newPath =
+        matchedRedirect.from.endsWith('*') &&
+        !matchedRedirect.from.startsWith('*')
+          ? matchedRedirect.to.replace('*', '') +
+            currentPath.replace(matchedRedirect.from.replace('*', ''), '')
+          : matchedRedirect.to;
 
       router.replace(newPath);
     }

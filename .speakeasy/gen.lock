@@ -4,12 +4,12 @@ management:
   docChecksum: 3fa9c50bded6ae736f27b80c55829fb2
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.233.2
-  releaseVersion: 0.5.0
-  configChecksum: 76968d96c7b8c38a5dccef8ade3e83c7
+  generationVersion: 2.235.3
+  releaseVersion: 0.6.0
+  configChecksum: 5d7015ffcfbec5624c5f06f59a2f5ddc
 features:
   docs:
-    core: 1.23.3
+    core: 1.24.1
     examples: 0.1.1
     flattening: 0.1.0
     globalSecurity: 0.1.1
@@ -431,9 +431,11 @@ generatedFiles:
   - content/types/operations/list_ingredients_response/curl.mdx
   - content/types/operations/create_order_request/curl.mdx
   - content/types/operations/create_order_response/curl.mdx
+  - content/types/operations/create_order_request_body/curl.mdx
   - content/types/operations/webhook/curl.mdx
   - content/types/operations/request_body/curl.mdx
   - content/types/operations/subscribe_to_webhooks_response/curl.mdx
+  - content/types/operations/subscribe_to_webhooks_request_body/curl.mdx
   - content/types/shared/error/curl.mdx
   - content/types/shared/api_error/curl.mdx
   - content/types/shared/drink/curl.mdx
