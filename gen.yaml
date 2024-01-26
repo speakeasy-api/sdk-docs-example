@@ -23,7 +23,7 @@ csharp:
   outputModelSuffix: output
   packageName: openapi
 docs:
-  version: 0.6.0
+  version: 0.6.1
   imports:
     option: openapi
     paths:
