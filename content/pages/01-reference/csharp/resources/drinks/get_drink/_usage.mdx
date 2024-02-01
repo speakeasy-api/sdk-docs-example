@@ -5,12 +5,9 @@ using Openapi;
 using Openapi.Models.Components;
 using Openapi.Models.Requests;
 
-var sdk = new SDK(
-    security: new Security() {
-        ApiKey = "<YOUR_API_KEY_HERE>",
-    });
+var sdk = new SDK(apiKey: "<YOUR_API_KEY_HERE>");
 
-var res = await sdk.Drinks.GetDrinkAsync(Name: "string");
+var res = await sdk.Drinks.GetDrinkAsync(name: "string");
 
 // handle response
 ```

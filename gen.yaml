@@ -10,6 +10,7 @@ csharp:
   version: 0.0.1
   author: Speakeasy
   dotnetVersion: net5.0
+  flattenGlobalSecurity: true
   imports:
     option: openapi
     paths:
@@ -23,7 +24,7 @@ csharp:
   outputModelSuffix: output
   packageName: openapi
 docs:
-  version: 0.6.1
+  version: 0.7.0
   imports:
     option: openapi
     paths:

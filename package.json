@@ -1,6 +1,6 @@
 {
   "name": "sdk-docs",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "Nextra docs template",
   "private": true,
   "scripts": {
@@ -10,7 +10,8 @@
     "prebuild": "make",
     "next:build": "next build",
     "export": "next export",
-    "build": "npm run next:build",
+    "clean": "rm -rf .next out || true",
+    "build": "npm run clean && npm run next:build",
     "start": "next start",
     "type-check": "tsc --noEmit",
     "lint": "eslint --ext .ts,.js,.tsx .",

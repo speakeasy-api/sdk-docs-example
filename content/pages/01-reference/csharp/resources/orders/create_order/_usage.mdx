@@ -7,18 +7,17 @@ using Openapi.Models.Requests;
 using System.Collections.Generic;
 using Openapi.Models.Callbacks;
 
-var sdk = new SDK(
-    security: new Security() {
-        ApiKey = "<YOUR_API_KEY_HERE>",
-    });
+var sdk = new SDK(apiKey: "<YOUR_API_KEY_HERE>");
 
-var res = await sdk.Orders.CreateOrderAsync(RequestBody: new List<OrderInput>() {
+var res = await sdk.Orders.CreateOrderAsync(
+    requestBody: new List<OrderInput>() {
     new OrderInput() {
         Type = OrderType.Ingredient,
         ProductCode = "APM-1F2D3",
         Quantity = 844266,
     },
-}, CallbackUrl: "string");
+},
+    callbackUrl: "string");
 
 // handle response
 ```
