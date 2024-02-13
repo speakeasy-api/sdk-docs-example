@@ -2,7 +2,7 @@
 <CH.Code>
 ```python CreateOrder.py
 import sdk
-from sdk.models import callbacks, components, operations
+from sdk.models import components
 
 s = sdk.SDK(
     api_key="<YOUR_API_KEY_HERE>",
@@ -25,8 +25,8 @@ if res.order is not None:
 
 ```json Example Response
   {
-    "code": "string",
-    "message": "string",
+    "code": "None",
+    "message": "None",
     "details": {}
   }
 ```

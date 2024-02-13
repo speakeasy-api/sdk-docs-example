@@ -24,7 +24,7 @@ func main() {
         },
     }
 
-    var callbackURL *string = "string"
+    var callbackURL *string = openapi.String("string")
 
     ctx := context.Background()
     res, err := s.Orders.CreateOrder(ctx, requestBody, callbackURL)
@@ -41,8 +41,8 @@ func main() {
 
 ```json Example Response
   {
-    "code": "string",
-    "message": "string",
+    "code": "None",
+    "message": "None",
     "details": {}
   }
 ```

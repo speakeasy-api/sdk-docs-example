@@ -14,7 +14,7 @@ func main() {
     s := openapi.New()
 
 
-    var drinkType *components.DrinkType = components.DrinkTypeWine
+    var drinkType *components.DrinkType = components.DrinkTypeWine.ToPointer()
 
     ctx := context.Background()
     res, err := s.Drinks.ListDrinks(ctx, drinkType)
@@ -31,8 +31,8 @@ func main() {
 
 ```json Example Response
   {
-    "code": "string",
-    "message": "string",
+    "code": "None",
+    "message": "None",
     "details": {}
   }
 ```
