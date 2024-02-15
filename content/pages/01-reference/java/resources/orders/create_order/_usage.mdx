@@ -19,7 +19,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security(
-                "string"){{
+                "<value>"){{
                     apiKey = "<YOUR_API_KEY_HERE>";
                 }})
                 .build();
@@ -33,7 +33,7 @@ public class Application {
                     productCode = "AC-A2DF3";
                     quantity = 337396L;
                 }}),
-            }}, "string");
+            }}, "<value>");
 
             if (res.order != null) {
                 // handle response

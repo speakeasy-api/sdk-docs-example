@@ -26,7 +26,7 @@ csharp:
   outputModelSuffix: output
   packageName: openapi
 docs:
-  version: 0.8.0
+  version: 0.8.1
   docsLanguages:
     - go
   imports:

@@ -13,12 +13,12 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security(
-                "string"){{
+                "<value>"){{
                     apiKey = "<YOUR_API_KEY_HERE>";
                 }})
                 .build();
 
-            org.openapis.openapi.models.operations.GetDrinkResponse res = sdk.drinks.getDrink("string");
+            org.openapis.openapi.models.operations.GetDrinkResponse res = sdk.drinks.getDrink("<value>");
 
             if (res.drink != null) {
                 // handle response

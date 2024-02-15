@@ -13,13 +13,13 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security(
-                "string"){{
+                "<value>"){{
                     apiKey = "<YOUR_API_KEY_HERE>";
                 }})
                 .build();
 
             org.openapis.openapi.models.operations.ListIngredientsResponse res = sdk.ingredients.listIngredients(new String[]{{
-                add("string"),
+                add("<value>"),
             }});
 
             if (res.classes != null) {
