@@ -4,7 +4,7 @@ management:
   docChecksum: 3fa9c50bded6ae736f27b80c55829fb2
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.258.0
+  generationVersion: 2.262.2
   releaseVersion: 0.8.1
   configChecksum: 3d288e7cc3c4b68f1edf571c9ad9177a
 features:
