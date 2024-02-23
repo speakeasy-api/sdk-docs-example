@@ -26,7 +26,7 @@ csharp:
   outputModelSuffix: output
   packageName: openapi
 docs:
-  version: 0.8.1
+  version: 0.8.2
   docsLanguages:
     - go
   imports:
@@ -43,6 +43,7 @@ docs:
   static: true
 go:
   version: 0.0.1
+  additionalDependencies: {}
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   imports:
@@ -99,6 +100,10 @@ python:
   packageName: openapi
 typescript:
   version: 0.0.1
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
   author: Speakeasy
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
@@ -114,4 +119,5 @@ typescript:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: openapi
+  responseFormat: envelope-http
   templateVersion: v2

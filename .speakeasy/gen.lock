@@ -4,9 +4,9 @@ management:
   docChecksum: 3fa9c50bded6ae736f27b80c55829fb2
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.262.2
-  releaseVersion: 0.8.1
-  configChecksum: 3d288e7cc3c4b68f1edf571c9ad9177a
+  generationVersion: 2.269.0
+  releaseVersion: 0.8.2
+  configChecksum: 49bb22200e875039a6d77bf0325d9fe7
 features:
   docs:
     core: 1.26.2
@@ -249,6 +249,7 @@ generatedFiles:
   - content/types/models/components/error/go.mdx
   - content/types/models/components/error/python.mdx
   - content/types/models/components/error_t/typescript.mdx
+  - content/types/models/components/http_metadata/typescript.mdx
   - content/types/models/components/ingredient/csharp.mdx
   - content/types/models/components/ingredient/go.mdx
   - content/types/models/components/ingredient/python.mdx
