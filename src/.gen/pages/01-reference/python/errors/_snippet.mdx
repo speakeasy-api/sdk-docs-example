@@ -9,9 +9,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 import sdk
 from sdk.models import errors, operations
 
-s = sdk.SDK(
-    api_key="<YOUR_API_KEY_HERE>",
-)
+s = sdk.SDK()
 
 req = operations.AuthenticateRequestBody()
 

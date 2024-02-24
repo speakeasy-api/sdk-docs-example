@@ -13,15 +13,12 @@ import (
 	"errors"
 	"log"
 	"openapi"
-	"openapi/models/components"
 	"openapi/models/operations"
 	"openapi/models/sdkerrors"
 )
 
 func main() {
-	s := openapi.New(
-		openapi.WithSecurity("<YOUR_API_KEY_HERE>"),
-	)
+	s := openapi.New()
 
 	ctx := context.Background()
 	res, err := s.Authentication.Authenticate(ctx, operations.AuthenticateRequestBody{})

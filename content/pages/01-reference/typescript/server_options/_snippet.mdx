@@ -13,7 +13,6 @@ import { SDK } from "openapi";
 async function run() {
     const sdk = new SDK({
         server: "customer",
-        apiKey: "<YOUR_API_KEY_HERE>",
     });
 
     const result = await sdk.authentication.authenticate({});
@@ -42,7 +41,6 @@ import { SDK } from "openapi";
 async function run() {
     const sdk = new SDK({
         serverURL: "https://speakeasy.bar",
-        apiKey: "<YOUR_API_KEY_HERE>",
     });
 
     const result = await sdk.authentication.authenticate({});

@@ -4,18 +4,17 @@ management:
   docChecksum: 3fa9c50bded6ae736f27b80c55829fb2
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.269.0
-  releaseVersion: 0.8.2
-  configChecksum: 49bb22200e875039a6d77bf0325d9fe7
+  generationVersion: 2.272.4
+  releaseVersion: 0.9.0
+  configChecksum: 8ae34617972b64657b6cb46a6ac8b831
 features:
   docs:
-    core: 1.26.2
+    core: 1.26.3
     examples: 0.1.1
     flattening: 0.1.0
-    globalSecurity: 0.1.1
+    globalSecurity: 0.1.2
     globalServerURLs: 0.1.1
     inputOutputModels: 0.3.0
-    methodSecurity: 0.2.0
     serverIDs: 0.1.0
 generatedFiles:
   - content/pages/01-reference/csharp/client_sdks/_snippet.mdx

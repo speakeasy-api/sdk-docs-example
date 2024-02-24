@@ -14,14 +14,12 @@ import (
 	"context"
 	"log"
 	"openapi"
-	"openapi/models/components"
 	"openapi/models/operations"
 )
 
 func main() {
 	s := openapi.New(
 		openapi.WithServer("customer"),
-		openapi.WithSecurity("<YOUR_API_KEY_HERE>"),
 	)
 
 	ctx := context.Background()
@@ -53,14 +51,12 @@ import (
 	"context"
 	"log"
 	"openapi"
-	"openapi/models/components"
 	"openapi/models/operations"
 )
 
 func main() {
 	s := openapi.New(
 		openapi.WithServerURL("https://speakeasy.bar"),
-		openapi.WithSecurity("<YOUR_API_KEY_HERE>"),
 	)
 
 	ctx := context.Background()
