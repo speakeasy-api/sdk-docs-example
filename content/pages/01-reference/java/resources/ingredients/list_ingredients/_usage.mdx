@@ -1,0 +1,43 @@
+
+<CH.Code>
+```java ListIngredients.java
+package hello.world;
+
+import org.openapis.openapi.SDK;
+import org.openapis.openapi.models.operations.ListIngredientsRequest;
+import org.openapis.openapi.models.operations.ListIngredientsResponse;
+import org.openapis.openapi.models.shared.Security;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .setSecurity(new Security(
+                "<value>"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .build();
+
+            org.openapis.openapi.models.operations.ListIngredientsResponse res = sdk.ingredients.listIngredients(new String[]{{
+                add("<value>"),
+            }});
+
+            if (res.classes != null) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+---
+
+```json Example Response
+  {
+    "code": "None",
+    "message": "None",
+    "details": {}
+  }
+```
+</CH.Code>
