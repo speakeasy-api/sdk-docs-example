@@ -1,0 +1,26 @@
+
+<CH.Code>
+```python GetDrink.py
+import sdk
+
+s = sdk.SDK(
+    api_key="<YOUR_API_KEY_HERE>",
+)
+
+
+res = s.drinks.get_drink(name='<value>')
+
+if res.drink is not None:
+    # handle response
+    pass
+```
+---
+
+```json Example Response
+  {
+    "code": "None",
+    "message": "None",
+    "details": {}
+  }
+```
+</CH.Code>
