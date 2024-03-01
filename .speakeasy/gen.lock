@@ -4,11 +4,12 @@ management:
   docChecksum: 3fa9c50bded6ae736f27b80c55829fb2
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.272.7
-  releaseVersion: 0.9.1
-  configChecksum: 90d335f692a9a32f75c1aeeb030535e5
+  generationVersion: 2.275.4
+  releaseVersion: 0.10.0
+  configChecksum: 6932d6812776ba4cf8f1f488197efb6c
 features:
   docs:
+    callbacks: 1.0.0
     core: 1.26.3
     examples: 0.1.1
     flattening: 0.1.0
@@ -16,6 +17,7 @@ features:
     globalServerURLs: 0.1.1
     inputOutputModels: 0.3.0
     serverIDs: 0.1.0
+    webhooks: 1.0.0
 generatedFiles:
   - content/pages/01-reference/csharp/client_sdks/_snippet.mdx
   - content/pages/01-reference/csharp/client_sdks/client_sdks.mdx
