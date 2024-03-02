@@ -1,0 +1,33 @@
+
+<CH.Code>
+```python CreateOrder.py
+import sdk
+from sdk.models import components
+
+s = sdk.SDK(
+    api_key="<YOUR_API_KEY_HERE>",
+)
+
+
+res = s.orders.create_order(request_body=[
+    components.OrderInput(
+        type=components.OrderType.INGREDIENT,
+        product_code='APM-1F2D3',
+        quantity=844266,
+    ),
+], callback_url='<value>')
+
+if res.order is not None:
+    # handle response
+    pass
+```
+---
+
+```json Example Response
+  {
+    "code": "None",
+    "message": "None",
+    "details": {}
+  }
+```
+</CH.Code>
