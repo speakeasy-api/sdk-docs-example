@@ -28,7 +28,7 @@ csharp:
   outputModelSuffix: output
   packageName: openapi
 docs:
-  version: 0.10.0
+  version: 0.10.1
   docsLanguages:
     - go
   imports:
@@ -60,6 +60,7 @@ go:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: openapi
+  responseFormat: envelope-http
 java:
   version: 0.0.1
   artifactID: openapi
@@ -104,6 +105,7 @@ python:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: openapi
+  responseFormat: envelope-http
 typescript:
   version: 0.0.1
   additionalDependencies:
