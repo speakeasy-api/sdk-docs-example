@@ -28,7 +28,7 @@ csharp:
   outputModelSuffix: output
   packageName: openapi
 docs:
-  version: 0.10.1
+  version: 0.10.2
   docsLanguages:
     - go
   imports:
@@ -67,6 +67,7 @@ java:
   companyEmail: info@mycompany.com
   companyName: My Company
   companyURL: www.mycompany.com
+  flattenGlobalSecurity: true
   githubURL: github.com/owner/repo
   groupID: org.openapis
   imports:

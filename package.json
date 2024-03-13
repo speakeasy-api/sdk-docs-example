@@ -1,6 +1,6 @@
 {
   "name": "sdk-docs",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Nextra docs template",
   "private": true,
   "scripts": {
