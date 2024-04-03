@@ -8,6 +8,6 @@ import requests
 
 http_client = requests.Session()
 http_client.headers.update({'x-custom-header': 'someValue'})
-s = sdk.SDK(client: http_client)
+s = sdk.SDK(client=http_client)
 ```
 {/* End Python Custom HTTP Client */}

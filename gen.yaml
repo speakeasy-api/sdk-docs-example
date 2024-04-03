@@ -29,7 +29,7 @@ csharp:
   outputModelSuffix: output
   packageName: openapi
 docs:
-  version: 0.10.3
+  version: 0.10.4
   docsLanguages:
     - go
   imports:
@@ -108,6 +108,7 @@ python:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: openapi
+  projectUrls: {}
   responseFormat: envelope-http
 typescript:
   version: 0.0.1
