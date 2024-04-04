@@ -1,0 +1,45 @@
+
+<CH.Code>
+```java Authenticate.java
+package hello.world;
+
+import org.openapis.openapi.SDK;
+import org.openapis.openapi.models.operations.AuthenticateRequestBody;
+import org.openapis.openapi.models.operations.AuthenticateResponse;
+import org.openapis.openapi.models.shared.Security;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .setSecurity("<YOUR_API_KEY_HERE>")
+                .build();
+
+            org.openapis.openapi.models.operations.AuthenticateRequestBody req = new AuthenticateRequestBody(
+){{
+                username = "Katharina_Medhurst60";
+                password = "rTqIEJuENlnSNVF";
+
+            }};
+
+            org.openapis.openapi.models.operations.AuthenticateResponse res = sdk.authentication.authenticate(req);
+
+            if (res.object != null) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+---
+
+```json Example Response
+  {
+    "code": "None",
+    "message": "None",
+    "details": {}
+  }
+```
+</CH.Code>
