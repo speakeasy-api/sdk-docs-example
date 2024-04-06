@@ -14,6 +14,7 @@ csharp:
   version: 0.0.1
   author: Speakeasy
   clientServerStatusCodesAsErrors: true
+  disableNamespacePascalCasingApr2024: true
   dotnetVersion: net5.0
   flattenGlobalSecurity: true
   imports:
@@ -29,7 +30,7 @@ csharp:
   outputModelSuffix: output
   packageName: openapi
 docs:
-  version: 0.10.4
+  version: 0.10.5
   docsLanguages:
     - go
   imports:
