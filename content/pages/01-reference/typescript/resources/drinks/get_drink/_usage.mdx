@@ -1,0 +1,30 @@
+
+<CH.Code>
+```typescript GetDrink.ts
+import { SDK } from "openapi";
+
+async function run() {
+  const sdk = new SDK({
+    apiKey: "<YOUR_API_KEY_HERE>",
+  });
+
+  const name = "<value>";
+  
+  const result = await sdk.drinks.getDrink(name);
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+---
+
+```json Example Response
+  {
+    "code": "None",
+    "message": "None",
+    "details": {}
+  }
+```
+</CH.Code>
