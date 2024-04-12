@@ -29,8 +29,9 @@ csharp:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: openapi
+  responseFormat: envelope-http
 docs:
-  version: 0.10.5
+  version: 0.10.6
   docsLanguages:
     - go
   imports:
@@ -119,6 +120,7 @@ typescript:
     peerDependencies: {}
   author: Speakeasy
   clientServerStatusCodesAsErrors: true
+  enumFormat: enum
   flattenGlobalSecurity: true
   imports:
     option: openapi
