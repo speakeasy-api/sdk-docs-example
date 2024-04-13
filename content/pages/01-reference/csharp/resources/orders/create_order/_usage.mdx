@@ -1,0 +1,33 @@
+
+<CH.Code>
+```csharp CreateOrder.cs
+using openapi;
+using openapi.Models.Components;
+using openapi.Models.Requests;
+using System.Collections.Generic;
+using openapi.Models.Callbacks;
+
+var sdk = new SDK(ApiKey: "<YOUR_API_KEY_HERE>");
+
+var res = await sdk.Orders.CreateOrderAsync(
+    requestBody: new List<OrderInput>() {
+    new OrderInput() {
+        Type = OrderType.Ingredient,
+        ProductCode = "APM-1F2D3",
+        Quantity = 844266,
+    },
+},
+    callbackUrl: "<value>");
+
+// handle response
+```
+---
+
+```json Example Response
+  {
+    "code": "None",
+    "message": "None",
+    "details": {}
+  }
+```
+</CH.Code>

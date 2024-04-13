@@ -1,0 +1,31 @@
+
+<CH.Code>
+```python SubscribeToWebhooks.py
+import sdk
+from sdk.models import operations
+
+s = sdk.SDK(
+    api_key="<YOUR_API_KEY_HERE>",
+)
+
+req = [
+    operations.RequestBody(),
+]
+
+res = s.config.subscribe_to_webhooks(req)
+
+if res is not None:
+    # handle response
+    pass
+
+```
+---
+
+```json Example Response
+  {
+    "code": "None",
+    "message": "None",
+    "details": {}
+  }
+```
+</CH.Code>

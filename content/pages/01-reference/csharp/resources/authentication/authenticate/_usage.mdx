@@ -1,0 +1,25 @@
+
+<CH.Code>
+```csharp Authenticate.cs
+using openapi;
+using openapi.Models.Components;
+using openapi.Models.Requests;
+
+var sdk = new SDK();
+
+AuthenticateRequestBody req = new AuthenticateRequestBody() {};
+
+var res = await sdk.Authentication.AuthenticateAsync(req);
+
+// handle response
+```
+---
+
+```json Example Response
+  {
+    "code": "None",
+    "message": "None",
+    "details": {}
+  }
+```
+</CH.Code>

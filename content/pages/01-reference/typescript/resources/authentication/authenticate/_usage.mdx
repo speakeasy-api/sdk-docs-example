@@ -1,0 +1,26 @@
+
+<CH.Code>
+```typescript Authenticate.ts
+import { SDK } from "openapi";
+
+const sdk = new SDK();
+
+async function run() {
+  const result = await sdk.authentication.authenticate({});
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+---
+
+```json Example Response
+  {
+    "code": "None",
+    "message": "None",
+    "details": {}
+  }
+```
+</CH.Code>

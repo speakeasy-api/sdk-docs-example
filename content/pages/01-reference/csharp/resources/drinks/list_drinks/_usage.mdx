@@ -1,0 +1,23 @@
+
+<CH.Code>
+```csharp ListDrinks.cs
+using openapi;
+using openapi.Models.Components;
+using openapi.Models.Requests;
+
+var sdk = new SDK();
+
+var res = await sdk.Drinks.ListDrinksAsync(drinkType: DrinkType.Wine);
+
+// handle response
+```
+---
+
+```json Example Response
+  {
+    "code": "None",
+    "message": "None",
+    "details": {}
+  }
+```
+</CH.Code>
