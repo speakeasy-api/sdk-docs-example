@@ -12,6 +12,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
 csharp:
   version: 0.0.1
+  additionalDependencies: []
   author: Speakeasy
   clientServerStatusCodesAsErrors: true
   disableNamespacePascalCasingApr2024: true
@@ -31,7 +32,7 @@ csharp:
   packageName: openapi
   responseFormat: envelope-http
 docs:
-  version: 0.10.6
+  version: 0.10.7
   docsLanguages:
     - go
   imports:
@@ -68,6 +69,7 @@ java:
   version: 0.0.1
   additionalDependencies: []
   artifactID: openapi
+  clientServerStatusCodesAsErrors: true
   companyEmail: info@mycompany.com
   companyName: My Company
   companyURL: www.mycompany.com
@@ -118,6 +120,7 @@ typescript:
     dependencies: {}
     devDependencies: {}
     peerDependencies: {}
+  additionalPackageJSON: {}
   author: Speakeasy
   clientServerStatusCodesAsErrors: true
   enumFormat: enum
