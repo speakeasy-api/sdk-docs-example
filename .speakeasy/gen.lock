@@ -4,13 +4,13 @@ management:
   docChecksum: 3fa9c50bded6ae736f27b80c55829fb2
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.304.1
-  releaseVersion: 0.10.6
-  configChecksum: 05c8f5f72331c9333521c0af4ecd16d7
+  generationVersion: 2.322.5
+  releaseVersion: 0.10.7
+  configChecksum: 166f7f2a80ba7e025e44f676cb740b8a
 features:
   docs:
     callbacks: 1.0.0
-    core: 1.26.3
+    core: 1.26.4
     examples: 0.1.1
     flattening: 0.1.0
     globalSecurity: 0.1.4
