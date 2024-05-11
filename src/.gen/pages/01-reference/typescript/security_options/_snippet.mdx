@@ -9,11 +9,11 @@ To authenticate with the API the `apiKey` parameter must be set when initializin
 ```typescript
 import { SDK } from "openapi";
 
-async function run() {
-    const sdk = new SDK({
-        apiKey: "<YOUR_API_KEY_HERE>",
-    });
+const sdk = new SDK({
+    apiKey: "<YOUR_API_KEY_HERE>",
+});
 
+async function run() {
     const result = await sdk.authentication.authenticate({});
 
     // Handle the result
