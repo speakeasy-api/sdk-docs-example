@@ -20,8 +20,10 @@ import (
 func main() {
 	s := openapi.New()
 
+	request := operations.AuthenticateRequestBody{}
+
 	ctx := context.Background()
-	res, err := s.Authentication.Authenticate(ctx, operations.AuthenticateRequestBody{})
+	res, err := s.Authentication.Authenticate(ctx, request)
 	if err != nil {
 
 		var e *sdkerrors.APIError
