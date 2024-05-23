@@ -20,9 +20,9 @@ func main() {
 	s := openapi.New(
 		openapi.WithSecurity("<YOUR_API_KEY_HERE>"),
 	)
-
+	request := operations.AuthenticateRequestBody{}
 	ctx := context.Background()
-	res, err := s.Authentication.Authenticate(ctx, operations.AuthenticateRequestBody{})
+	res, err := s.Authentication.Authenticate(ctx, request)
 	if err != nil {
 		log.Fatal(err)
 	}

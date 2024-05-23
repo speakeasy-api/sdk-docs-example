@@ -21,9 +21,9 @@ func main() {
 	s := openapi.New(
 		openapi.WithServer("customer"),
 	)
-
+	request := operations.AuthenticateRequestBody{}
 	ctx := context.Background()
-	res, err := s.Authentication.Authenticate(ctx, operations.AuthenticateRequestBody{})
+	res, err := s.Authentication.Authenticate(ctx, request)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -57,9 +57,9 @@ func main() {
 	s := openapi.New(
 		openapi.WithServerURL("https://speakeasy.bar"),
 	)
-
+	request := operations.AuthenticateRequestBody{}
 	ctx := context.Background()
-	res, err := s.Authentication.Authenticate(ctx, operations.AuthenticateRequestBody{})
+	res, err := s.Authentication.Authenticate(ctx, request)
 	if err != nil {
 		log.Fatal(err)
 	}
