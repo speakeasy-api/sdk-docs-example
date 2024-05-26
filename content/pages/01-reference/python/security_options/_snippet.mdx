@@ -14,9 +14,8 @@ s = sdk.SDK(
     api_key="<YOUR_API_KEY_HERE>",
 )
 
-req = operations.AuthenticateRequestBody()
 
-res = s.authentication.authenticate(req)
+res = s.authentication.authenticate(request=operations.AuthenticateRequestBody())
 
 if res.object is not None:
     # handle response
