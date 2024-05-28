@@ -15,9 +15,8 @@ s = sdk.SDK(
     server="customer",
 )
 
-req = operations.AuthenticateRequestBody()
 
-res = s.authentication.authenticate(req)
+res = s.authentication.authenticate(request=operations.AuthenticateRequestBody())
 
 if res.object is not None:
     # handle response
@@ -42,9 +41,8 @@ s = sdk.SDK(
     server_url="https://speakeasy.bar",
 )
 
-req = operations.AuthenticateRequestBody()
 
-res = s.authentication.authenticate(req)
+res = s.authentication.authenticate(request=operations.AuthenticateRequestBody())
 
 if res.object is not None:
     # handle response
