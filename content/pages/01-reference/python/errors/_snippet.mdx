@@ -11,11 +11,10 @@ from sdk.models import errors, operations
 
 s = sdk.SDK()
 
-req = operations.AuthenticateRequestBody()
-
 res = None
 try:
-    res = s.authentication.authenticate(req)
+    res = s.authentication.authenticate(request=operations.AuthenticateRequestBody())
+
 except errors.APIError as e:
     # handle exception
     raise(e)
