@@ -10,11 +10,11 @@ You can override the default server globally by passing a server name to the `se
 ```typescript
 import { SDK } from "openapi";
 
-async function run() {
-    const sdk = new SDK({
-        server: "customer",
-    });
+const sdk = new SDK({
+    server: "customer",
+});
 
+async function run() {
     const result = await sdk.authentication.authenticate({});
 
     // Handle the result
@@ -38,11 +38,11 @@ The default server can also be overridden globally by passing a URL to the `serv
 ```typescript
 import { SDK } from "openapi";
 
-async function run() {
-    const sdk = new SDK({
-        serverURL: "https://speakeasy.bar",
-    });
+const sdk = new SDK({
+    serverURL: "https://speakeasy.bar",
+});
 
+async function run() {
     const result = await sdk.authentication.authenticate({});
 
     // Handle the result
